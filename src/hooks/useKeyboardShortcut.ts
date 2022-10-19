@@ -8,11 +8,11 @@ const useKeyboardShortcut = (
   modifier?: Modifier
 ) => {
   const handleKeydown = (event: any) => {
-    let tagName = event.currentTarget.TagName;
+    let nodeName = event.target.nodeName;
     let isShiftKey = modifier === "Shift";
     let isControlKey = modifier === "Ctrl";
     let isAltKey = modifier === "Alt";
-    let isInputElement = tagName === ("INPUT" || "TEXTAREA");
+    let isInputElement = nodeName === ("INPUT" || "TEXTAREA");
     if (event.repeat || isInputElement) return;
     let isKeyPressed = event.key === key || event.key === key.toLowerCase();
     let isModifierPressed =

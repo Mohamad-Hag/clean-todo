@@ -4,6 +4,7 @@ import createTodo from "../redux/todoActions/createTodo";
 import editTodo from "../redux/todoActions/editTodo";
 import finishAllTodos from "../redux/todoActions/finishAllTodos";
 import finishSomeTodos from "../redux/todoActions/finishSomeTodos";
+import removeFinishedTodos from "../redux/todoActions/removeFinishedTodos";
 import removeSomeTodos from "../redux/todoActions/removeSomeTodos";
 import removeTodo from "../redux/todoActions/removeTodo";
 import selectAllTodos from "../redux/todoActions/selectAllTodos";
@@ -41,6 +42,12 @@ class Store {
     let itemsAfterRemoveSome = removeSomeTodos(todos, identifiers);
     Store.set(itemsAfterRemoveSome);
     return itemsAfterRemoveSome;
+  }
+
+  public static removeFinished(todos: TodoProps[]) {
+    let itemsAfterRemoveFinished = removeFinishedTodos(todos);
+    Store.set(itemsAfterRemoveFinished);
+    return itemsAfterRemoveFinished;
   }
 
   public static clear(todos: TodoProps[]) {

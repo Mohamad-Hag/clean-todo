@@ -44,7 +44,7 @@ export default function SearchInput({ onFilterDone }: SearchInputProps) {
   };
 
   return (
-    <FormControl className="bg-white rounded-md shadow-md">
+    <FormControl className="bg-white rounded-md shadow-md select-none">
       <InputGroup>
         <InputLeftElement height="100%">
           <BiFilterAlt size={25} color="gray" />

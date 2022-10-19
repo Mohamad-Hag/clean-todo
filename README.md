@@ -1,7 +1,7 @@
 # Clean Todo - React JS
 
 A simple task manager app.<br/>
-Check the [Demo](http://example.net/)
+Check the [Demo](https://clean-to-do.netlify.app/)
 
 ## Features
 

@@ -1,6 +1,7 @@
 import { Flex, ScaleFade, Stack } from "@chakra-ui/react";
 import { BiCheck, BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
+import useKeyboardShortcut from "../hooks/useKeyboardShortcut";
 import {
   finishSome,
   removeSome,
@@ -23,7 +24,7 @@ export default function ToolbarSelect({}: ToolbarSelectProps) {
 
   const finishAll = () => {
     dispatch(finishSome(identifiers));
-  };
+  };  
 
   if (!isSelectMode) return <></>;
   return (

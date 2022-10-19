@@ -22,7 +22,7 @@ function NoData({
       align="center"
       direction="column"
       justify="center"
-      className="text-center text-gray-500 p-5"
+      className="text-center text-gray-500 p-5 select-none"
     >
       {icon}
       <Stack spacing="0.5">

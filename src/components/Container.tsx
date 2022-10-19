@@ -6,7 +6,11 @@ interface ContainerProps {
 
 export default function Container({ children }: ContainerProps) {
   return (
-    <Box className={`bg-white pt-0 pb-4 rounded-md shadow-lg overflow-hidden`}>
+    <Box
+      tabIndex={0}
+      outline="none"
+      className={`bg-white pt-0 pb-4 rounded-md shadow-lg overflow-hidden`}
+    >
       {children}
     </Box>
   );

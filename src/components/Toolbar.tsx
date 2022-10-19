@@ -21,7 +21,7 @@ export default function Toolbar({
     todos.length > 0 ? todos.every((todo) => todo.isSelected) : false;
   const dispatch = useDispatch();
 
-  const selectAll_ = (isSelectAll: boolean) => {
+  const selectAll_ = (isSelectAll: boolean) => {    
     dispatch(selectAll(isSelectAll));
   };
 
@@ -29,13 +29,8 @@ export default function Toolbar({
     selectAll_(e.target.checked);
   };
 
-  useKeyboardShortcut(
-    () => {
-      selectAll(!isAllSelected);
-    },
-    "A",
-    "Ctrl"
-  );
+  useKeyboardShortcut(() => selectAll_(true), "A", "Ctrl");
+  useKeyboardShortcut(() => selectAll_(false), "Escape");
 
   return (
     <Flex

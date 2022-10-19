@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { BiCheckDouble, BiDotsVerticalRounded, BiTrash } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { clear, finishAll } from "../redux/features/todosSlice";
+import { clear, finishAll, removeFinished } from "../redux/features/todosSlice";
 
 interface ToolbarActionsProps {
   todosNumber: number;
@@ -18,6 +18,10 @@ export default function ToolbarActions({ todosNumber }: ToolbarActionsProps) {
 
   const finish = () => {
     dispatch(finishAll());
+  };
+
+  const remove = () => {
+    dispatch(removeFinished());
   };
 
   const clearAll = () => {
@@ -35,6 +39,9 @@ export default function ToolbarActions({ todosNumber }: ToolbarActionsProps) {
       <MenuList>
         <MenuItem icon={<BiCheckDouble />} onClick={finish}>
           Finish All
+        </MenuItem>
+        <MenuItem icon={<BiTrash />} onClick={remove}>
+          Remove Finished
         </MenuItem>
         <MenuItem icon={<BiTrash />} onClick={clearAll}>
           Clear All

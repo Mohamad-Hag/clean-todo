@@ -26,6 +26,7 @@ export const todosSlice = createSlice({
       Store.remove(state, action.payload),
     removeSome: (state, action: PayloadAction<number[]>) =>
       Store.removeSome(state, action.payload),
+    removeFinished: (state) => Store.removeFinished(state),
     clear: (state) => Store.clear(state),
     finishAll: (state) => Store.finishAll(state),
     finishSome: (state, action: PayloadAction<number[]>) =>
@@ -40,6 +41,7 @@ export const {
   edit,
   remove,
   removeSome,
+  removeFinished,
   clear,
   finishAll,
   finishSome,
