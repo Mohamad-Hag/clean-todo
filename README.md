@@ -17,6 +17,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Chakra UI.
 - Redux Toolkit.
 - Local Storage.
+- React Icons.
   <br/>
   <br/>
 

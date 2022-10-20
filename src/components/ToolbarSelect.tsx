@@ -3,10 +3,18 @@ import { BiCheck, BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import useKeyboardShortcut from "../hooks/useKeyboardShortcut";
 import {
+  close,
+  open,
+  setDescription,
+  setOnOk,
+  setTitle,
+} from "../redux/features/alertSlice";
+import {
   finishSome,
   removeSome,
   selectTodos,
 } from "../redux/features/todosSlice";
+import RemoveSelectedAlertDescription from "./RemoveSelectedAlertDescription";
 import SmallIconButton from "./SmallIconButton";
 
 interface ToolbarSelectProps {}
@@ -16,15 +24,25 @@ export default function ToolbarSelect({}: ToolbarSelectProps) {
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
   const identifiers = selections.map((selection) => selection.id!);
-  const dispatch = useDispatch();
+  const d = useDispatch();
+
+  const removeAllAlert = () => {
+    d(setTitle("Remove All"));
+    d(
+      setDescription(<RemoveSelectedAlertDescription selections={selections} />)
+    );
+    d(setOnOk(removeAll));
+    d(open());
+  };
 
   const removeAll = () => {
-    dispatch(removeSome(identifiers));
+    d(removeSome(identifiers));
+    d(close());
   };
 
   const finishAll = () => {
-    dispatch(finishSome(identifiers));
-  };  
+    d(finishSome(identifiers));
+  };
 
   if (!isSelectMode) return <></>;
   return (
@@ -36,7 +54,7 @@ export default function ToolbarSelect({}: ToolbarSelectProps) {
             variant="solid"
             icon={<BiTrash />}
             color="red"
-            onClick={removeAll}
+            onClick={removeAllAlert}
           />
           <SmallIconButton
             variant="solid"

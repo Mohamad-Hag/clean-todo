@@ -30,7 +30,7 @@ export default function Toolbar({
   };
 
   useKeyboardShortcut(() => selectAll_(true), 65, "Ctrl");
-  useKeyboardShortcut(() => selectAll_(false), 27);
+  useKeyboardShortcut(() => selectAll_(false), 27); 
 
   return (
     <Flex

@@ -7,6 +7,13 @@ import {
 } from "@chakra-ui/react";
 import { BiCheckDouble, BiDotsVerticalRounded, BiTrash } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import {
+  close,
+  open,
+  setDescription,
+  setOnOk,
+  setTitle,
+} from "../redux/features/alertSlice";
 import { clear, finishAll, removeFinished } from "../redux/features/todosSlice";
 
 interface ToolbarActionsProps {
@@ -14,18 +21,26 @@ interface ToolbarActionsProps {
 }
 
 export default function ToolbarActions({ todosNumber }: ToolbarActionsProps) {
-  const dispatch = useDispatch();
+  const d = useDispatch();
 
   const finish = () => {
-    dispatch(finishAll());
+    d(finishAll());
   };
 
   const remove = () => {
-    dispatch(removeFinished());
+    d(removeFinished());
+  };
+
+  const clearAllAlert = () => {
+    d(open());
+    d(setTitle("Clear All"));
+    d(setDescription("Are you sure you want to clear all items?"));
+    d(setOnOk(clearAll));
   };
 
   const clearAll = () => {
-    dispatch(clear());
+    d(clear());
+    d(close());
   };
 
   return (
@@ -43,7 +58,7 @@ export default function ToolbarActions({ todosNumber }: ToolbarActionsProps) {
         <MenuItem icon={<BiTrash />} onClick={remove}>
           Remove Finished
         </MenuItem>
-        <MenuItem icon={<BiTrash />} onClick={clearAll}>
+        <MenuItem icon={<BiTrash />} onClick={clearAllAlert}>
           Clear All
         </MenuItem>
       </MenuList>

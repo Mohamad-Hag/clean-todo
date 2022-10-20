@@ -1,5 +1,5 @@
-import { Checkbox, Stack } from "@chakra-ui/react";
-import React, { memo } from "react";
+import { Checkbox, Stack, useToast } from "@chakra-ui/react";
+import React, { memo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "../redux/features/formSlice";
 import { edit, remove, selectTodos } from "../redux/features/todosSlice";
@@ -7,6 +7,7 @@ import TodoProps from "../utils/interfaces/common/Todo";
 import TodoItemButtons from "./TodoItemButtons";
 import TodoItemContainer from "./TodoItemContainer";
 import TodoItemInfo from "./TodoItemInfo";
+import UndoToast from "./UndoToast";
 
 const TodoItem = React.forwardRef(
   (
@@ -17,7 +18,10 @@ const TodoItem = React.forwardRef(
     let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinshed;
     let isSelected: boolean = !!todos.find((todo) => todo.id === id)
       ?.isSelected;
+    const rootRef = useRef<HTMLDivElement>(null!);
+
     const dispatch = useDispatch();
+    const toast = useToast();
 
     const finished = () => {
       dispatch(
@@ -30,8 +34,28 @@ const TodoItem = React.forwardRef(
       );
     };
 
+    const hideItem = (isHidden: boolean) => {
+      rootRef.current.style.display = isHidden ? "none" : "flex";
+    };
+
+    const renderUndoToast = (onUndo: () => void) => (
+      <UndoToast title={`Undo remove "${title}"?`} onUndo={onUndo} />
+    );
+
     const removed = () => {
-      dispatch(remove(id!));
+      let isUndo = false;
+      hideItem(true);
+      toast({
+        id: id,
+        duration: 3000,
+        render: () =>
+          renderUndoToast(() => {
+            isUndo = true;
+            hideItem(false);
+            toast.close(id!);
+          }),
+        onCloseComplete: () => (!isUndo ? dispatch(remove(id!)) : null),
+      });
     };
 
     const edited = () => {
@@ -44,7 +68,7 @@ const TodoItem = React.forwardRef(
 
     return (
       <TodoItemContainer
-        ref={ref}
+        ref={rootRef}
         isFinished={isFinished}
         isSelected={isSelected}
       >
