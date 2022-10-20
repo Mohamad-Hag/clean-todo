@@ -7,7 +7,7 @@ import {
   ModalOverlay,
   Stack,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { createRef, useRef } from "react";
 import { BiListPlus } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { close, selectForm } from "../redux/features/formSlice";
@@ -38,11 +38,13 @@ export default function TodoCreator({}: TodoCreatorProps) {
     );
   };
   const createTodo = () => {
+    let nodeRef = createRef<HTMLDivElement>();
     dispatch(
       create({
         createdAt: new Date().toLocaleString(),
         title: form.title?.trim(),
         description: form.description?.trim(),
+        nodeRef: nodeRef,
       })
     );
   };
@@ -61,9 +63,14 @@ export default function TodoCreator({}: TodoCreatorProps) {
   };
 
   return (
-    <Modal isOpen={!!form.isOpen} onClose={onClose} size="lg">
+    <Modal
+      isOpen={!!form.isOpen}
+      onClose={onClose}
+      size="lg"
+      closeOnOverlayClick={false}      
+    >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent m={2}>
         <ModalHeader display="flex" alignItems="center" gap="2">
           <BiListPlus />
           {formTitle} Todo

@@ -1,4 +1,5 @@
 import { BiSearch } from "react-icons/bi";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import TodoProps from "../utils/interfaces/common/Todo";
 import Container from "./Container";
 import NoData from "./NoData";
@@ -24,16 +25,28 @@ export default function TodosContainer({
     : undefined;
 
   const listTodos = () => {
-    return todos.map((todo, index) => (
-      <TodoItem
-        key={index}
-        isSelected={todo.isSelected}
-        date={todo.date}
-        id={todo.id}
-        title={todo.title}
-        description={todo.description}
-      />
-    ));
+    return (
+      <TransitionGroup>
+        {todos.map((todo) => (
+          <CSSTransition
+            key={todo.id}
+            in
+            nodeRef={todo.nodeRef}
+            classNames="todo"
+            timeout={200}
+          >
+            <TodoItem
+              ref={todo.nodeRef}
+              isSelected={todo.isSelected}
+              date={todo.date}
+              id={todo.id}
+              title={todo.title}
+              description={todo.description}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
+    );
   };
 
   return (

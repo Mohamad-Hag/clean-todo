@@ -7,7 +7,7 @@ import { open, setMode } from "../redux/features/formSlice";
 export default function TodoCreateButton() {
   const dispatch = useDispatch();
 
-  useKeyboardShortcut(() => create(), "Q", "Ctrl");
+  useKeyboardShortcut(() => create(), 81, "Ctrl");
 
   const create = () => {
     dispatch(setMode("create"));

@@ -20,10 +20,10 @@ export interface SearchInputProps {
 export default function SearchInput({ onFilterDone }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null!);
   const todos = useSelector(selectTodos);
-  const filterKey = "/";
+  const filterKey = { key: "/", code: 191 };
   const filterModifierKey: Modifier = "Ctrl";
 
-  useKeyboardShortcut(() => inputRef.current.focus(), filterKey, "Ctrl");
+  useKeyboardShortcut(() => inputRef.current.focus(), filterKey.code, "Ctrl");
 
   const filter = (e: React.ChangeEvent<HTMLInputElement>) => {
     let criteria = e.target.value;
@@ -47,7 +47,7 @@ export default function SearchInput({ onFilterDone }: SearchInputProps) {
     <FormControl className="bg-white rounded-md shadow-md select-none">
       <InputGroup>
         <InputLeftElement height="100%">
-          <BiFilterAlt size={25} color="gray" />
+          <BiFilterAlt size={24} color="darkslategray" />
         </InputLeftElement>
         <Input
           ref={inputRef}
@@ -55,12 +55,12 @@ export default function SearchInput({ onFilterDone }: SearchInputProps) {
           onChange={filter}
           variant="filled"
           size="lg"
-          placeholder="Filter..."
+          placeholder="Filter Todos..."
           _focus={{ border: "none" }}
           border="none"
         />
         <InputRightElement h="100%" pr="50px">
-          <Kbd>{filterModifierKey}</Kbd> + <Kbd>{filterKey}</Kbd>
+          <Kbd>{filterModifierKey}</Kbd> + <Kbd>{filterKey.key}</Kbd>
         </InputRightElement>
       </InputGroup>
     </FormControl>

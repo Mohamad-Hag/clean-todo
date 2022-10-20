@@ -4,7 +4,7 @@ export type Modifier = "Ctrl" | "Shift" | "Alt";
 
 const useKeyboardShortcut = (
   callback: () => void,
-  key: string,
+  keyCode: number,
   modifier?: Modifier
 ) => {
   const handleKeydown = (event: any) => {
@@ -14,7 +14,7 @@ const useKeyboardShortcut = (
     let isAltKey = modifier === "Alt";
     let isInputElement = nodeName === ("INPUT" || "TEXTAREA");
     if (event.repeat || isInputElement) return;
-    let isKeyPressed = event.key === key || event.key === key.toLowerCase();
+    let isKeyPressed = event.keyCode === keyCode;
     let isModifierPressed =
       event.ctrlKey === isControlKey &&
       event.shiftKey === isShiftKey &&

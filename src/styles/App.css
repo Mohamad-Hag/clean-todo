@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-body
-{
-    background-image: url("../../public/assets/bg.jpg") !important; 
-    background-attachment: fixed !important;
-    background-size: cover !important;
-    background-position: center !important;
+body {
+  background-image: url("../../public/assets/bg.jpg") !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
-.app-mask
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(#000000, transparent, #000000);
-    z-index: 1;
+.app-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#000000, transparent, #000000);
+  z-index: 1;
+}
+
+.todo-enter {
+  opacity: 0;  
+  transform: translateY(-10px);
+}
+.todo-enter-active {
+  opacity: 1;  
+  transition: opacity 300ms, transform 300ms;
+  transform: translateY(0);
+}
+.todo-exit {
+  opacity: 1;
+  transform: translateY(10px);
+}
+.todo-exit-active {
+  opacity: 0;  
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
 }

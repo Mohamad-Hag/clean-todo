@@ -15,7 +15,7 @@ const todoDataToProps = (todo: TodoData): TodoProps => ({
   date: todo.createdAt,
   isSelected: false,
   title: todo.title,
-  description: todo.description,
+  description: todo.description,  
 });
 
 export default createTodo;
