@@ -16,6 +16,7 @@ export interface AlertProps {
   title: string;
   description: React.ReactNode;
   isOpen: boolean;
+  isOkButtonDisabled?: boolean;
   onClose?: () => void;
   onOk?: () => void;
   onCancel?: () => void;
@@ -25,6 +26,7 @@ export default function Alert({
   title,
   description,
   isOpen,
+  isOkButtonDisabled = false,
   onClose,
   onOk,
 }: AlertProps) {
@@ -53,7 +55,7 @@ export default function Alert({
         <ModalBody>{description}</ModalBody>
         <ModalFooter className="flex items-center justify-end gap-2">
           <Button onClick={closed}>Cancel</Button>
-          <Button variant="solid" colorScheme="blue" onClick={onOk}>
+          <Button variant="solid" colorScheme="blue" onClick={onOk} disabled={isOkButtonDisabled}>
             Ok
           </Button>
         </ModalFooter>

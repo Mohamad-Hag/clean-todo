@@ -5,10 +5,10 @@ interface HeaderProps extends SearchInputProps {}
 
 export default function Header({ onFilterDone }: HeaderProps) {
   return (
-    <div className="py-4 pl-5 pr-10">
+    <header className="py-4 px-5">
       <Flex gap="5">
         <SearchInput onFilterDone={onFilterDone} />
       </Flex>
-    </div>
+    </header>
   );
 }

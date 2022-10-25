@@ -74,7 +74,12 @@ const TodoItem = React.forwardRef(
       >
         <Stack direction="row" spacing="5">
           <Checkbox isChecked={isSelected} onChange={select} />
-          <TodoItemInfo title={title} description={description} date={date} />
+          <TodoItemInfo
+            title={title}
+            description={description}
+            date={date}
+            onDoubleClick={edited}
+          />
         </Stack>
         <TodoItemButtons
           id={id}

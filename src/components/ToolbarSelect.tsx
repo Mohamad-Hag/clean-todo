@@ -1,9 +1,9 @@
 import { Flex, ScaleFade, Stack } from "@chakra-ui/react";
 import { BiCheck, BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import useKeyboardShortcut from "../hooks/useKeyboardShortcut";
 import {
   close,
+  disableOkButton,
   open,
   setDescription,
   setOnOk,
@@ -28,6 +28,7 @@ export default function ToolbarSelect({}: ToolbarSelectProps) {
 
   const removeAllAlert = () => {
     d(setTitle("Remove All"));
+    d(disableOkButton());
     d(
       setDescription(<RemoveSelectedAlertDescription selections={selections} />)
     );

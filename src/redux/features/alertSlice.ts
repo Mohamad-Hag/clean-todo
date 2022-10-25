@@ -10,6 +10,7 @@ const initialState: AlertProps = {
   title: "Title",
   description: "Description",
   isOpen: false,
+  isOkButtonDisabled: false,
 };
 
 export const alertSlice = createSlice({
@@ -42,6 +43,12 @@ export const alertSlice = createSlice({
     setOnClose: (state, action: PayloadAction<() => void>) => {
       state.onClose = action.payload;
     },
+    enableOkButton: (state) => {
+      state.isOkButtonDisabled = false;
+    },
+    disableOkButton: (state) => {
+      state.isOkButtonDisabled = true;
+    },
   },
 });
 
@@ -53,6 +60,8 @@ export const {
   setOnOk,
   setOnCancel,
   setOnClose,
+  enableOkButton,
+  disableOkButton,
 } = alertSlice.actions;
 
 export const selectAlert = (state: RootState) => state.alert;

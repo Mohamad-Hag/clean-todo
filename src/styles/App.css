@@ -1,3 +1,7 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,11 +23,11 @@ body {
 }
 
 .todo-enter {
-  opacity: 0;  
+  opacity: 0;
   transform: translateY(-10px);
 }
 .todo-enter-active {
-  opacity: 1;  
+  opacity: 1;
   transition: opacity 300ms, transform 300ms;
   transform: translateY(0);
 }
@@ -32,7 +36,30 @@ body {
   transform: translateY(10px);
 }
 .todo-exit-active {
-  opacity: 0;  
+  opacity: 0;
   transform: translateY(0);
   transition: opacity 300ms, transform 300ms;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #c4c4c460 !important;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #c4c4c490 !important;
+}
+.toolbar-item-info-title {
+  overflow: hidden;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.toolbar-item-info-description {
+  overflow: hidden;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }

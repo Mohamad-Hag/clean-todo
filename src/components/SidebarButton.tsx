@@ -27,7 +27,9 @@ export default function SidebarButton({
         bg: "#ffffff20",
         color: "white",
       }}
-      _active={{}}
+      _active={{
+        bg: "#ffffff60",
+      }}
       onClick={onClick}
     >
       {title}
