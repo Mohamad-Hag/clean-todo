@@ -13,7 +13,7 @@ function App() {
       <div className="app-mask" />
       <TodoMain />
       <Alert
-        title={alert.title}
+        title={alert.title} 
         description={alert.description}
         isOpen={alert.isOpen}
         isOkButtonDisabled={alert.isOkButtonDisabled}

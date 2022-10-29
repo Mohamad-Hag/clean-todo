@@ -1,5 +1,5 @@
 import { Checkbox, Stack, useToast } from "@chakra-ui/react";
-import React, { memo, useRef } from "react";
+import React, { memo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "../redux/features/formSlice";
 import { edit, remove, selectTodos } from "../redux/features/todosSlice";
@@ -13,15 +13,14 @@ const TodoItem = React.forwardRef(
   (
     { id, description, title, date }: TodoProps,
     ref: React.Ref<HTMLDivElement>
-  ) => {
+  ) => {        
     const todos = useSelector(selectTodos);
     let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinshed;
     let isSelected: boolean = !!todos.find((todo) => todo.id === id)
       ?.isSelected;
-    const rootRef = useRef<HTMLDivElement>(null!);
-
+    const rootRef = useRef<HTMLDivElement>(null!);    
     const dispatch = useDispatch();
-    const toast = useToast();
+    const toast = useToast();    
 
     const finished = () => {
       dispatch(
@@ -59,7 +58,7 @@ const TodoItem = React.forwardRef(
     };
 
     const edited = () => {
-      dispatch(openAsEdit({ id: id, title: title, description: description }));
+      dispatch(openAsEdit({ id: id, title: title, description: description }));      
     };
 
     const select = (e: React.ChangeEvent<HTMLInputElement>) => {

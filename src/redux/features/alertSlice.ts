@@ -44,7 +44,7 @@ export const alertSlice = createSlice({
       state.onClose = action.payload;
     },
     enableOkButton: (state) => {
-      state.isOkButtonDisabled = false;
+        state.isOkButtonDisabled = false;
     },
     disableOkButton: (state) => {
       state.isOkButtonDisabled = true;

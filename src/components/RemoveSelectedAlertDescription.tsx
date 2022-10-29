@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { disableOkButton, enableOkButton } from "../redux/features/alertSlice";
 import isReachBottom from "../utils/interfaces/common/isReachBottom";
@@ -11,16 +12,25 @@ export default function RemoveSelectedAlertDescription({
   selections,
 }: RemoveSelectedAlertDescriptionProps) {
   const d = useDispatch();
+  const scrollableULRef = useRef<HTMLUListElement>(null!);
 
   const selectionsScroll = (e: any) => {
     if (isReachBottom(e.target)) d(enableOkButton());
     else d(disableOkButton());
   };
 
+  const hasVerticalScrollbar = () =>
+    scrollableULRef.current.scrollHeight > scrollableULRef.current.clientHeight;
+
+  useEffect(() => {
+    if (!hasVerticalScrollbar()) d(enableOkButton());
+  }, []);
+
   return (
     <>
       <p>Are you sure you want to remove all the following items?</p>
       <ul
+        ref={scrollableULRef}
         className="overflow-auto max-h-32 scrollbar-thumb-gray-200 scrollbar-thin scrollbar-track-transparent"
         onScroll={selectionsScroll}
       >
