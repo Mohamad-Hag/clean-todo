@@ -1,70 +1,28 @@
-import {
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from "@chakra-ui/react";
-import { BiCheckDouble, BiDotsVerticalRounded, BiTrash } from "react-icons/bi";
-import { useDispatch } from "react-redux";
-import {
-  close,
-  open,
-  setDescription,
-  setOnOk,
-  setTitle,
-} from "../../redux/features/alertSlice";
-import {
-  clear,
-  finishAll,
-  removeFinished,
-} from "../../redux/features/todosSlice";
+import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react";
+import { BiDotsVerticalRounded } from "react-icons/bi";
+import { ToolbarProps } from "./Toolbar";
+import ToolbarClearAction from "./toolbar-actions/ToolbarClearAction";
+import ToolbarFinishAllAction from "./toolbar-actions/ToolbarFinishAllAction";
+import ToolbarRemovedFinishedAction from "./toolbar-actions/ToolbarRemoveFinishedAction";
 
-interface ToolbarActionsProps {
-  todosNumber: number;
-}
-
-export default function ToolbarActions({ todosNumber }: ToolbarActionsProps) {
-  const d = useDispatch();
-
-  const finish = () => {
-    d(finishAll());
-  };
-
-  const remove = () => {
-    d(removeFinished());
-  };
-
-  const clearAllAlert = () => {
-    d(open());
-    d(setTitle("Clear All"));
-    d(setDescription("Are you sure you want to clear all items?"));
-    d(setOnOk(clearAll));
-  };
-
-  const clearAll = () => {
-    d(clear());
-    d(close());
-  };
+export default function ToolbarActions({
+  isFilterMode,
+  todosNumber,
+}: ToolbarProps) {
+  const isActionsDisabled = todosNumber === 0 || isFilterMode;
 
   return (
     <Menu isLazy placement="bottom-end">
       <MenuButton
-        disabled={todosNumber === 0}
+        disabled={isActionsDisabled}
         as={IconButton}
         variant="ghost"
         icon={<BiDotsVerticalRounded size={20} />}
       ></MenuButton>
       <MenuList>
-        <MenuItem icon={<BiCheckDouble />} onClick={finish}>
-          Finish All
-        </MenuItem>
-        <MenuItem icon={<BiTrash />} onClick={remove}>
-          Remove Finished
-        </MenuItem>
-        <MenuItem icon={<BiTrash />} onClick={clearAllAlert}>
-          Clear All
-        </MenuItem>
+        <ToolbarFinishAllAction />
+        <ToolbarRemovedFinishedAction />
+        <ToolbarClearAction />
       </MenuList>
     </Menu>
   );

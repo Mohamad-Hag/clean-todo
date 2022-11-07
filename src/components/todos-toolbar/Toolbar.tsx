@@ -1,7 +1,6 @@
 import { Flex } from "@chakra-ui/react";
-import ToolbarActions from "./ToolbarActions";
-// import ToolbarInfo from "./ToolbarInfo";
-import ToolbarSelectBox from "./ToolbarSelectBox";
+import ToolbarLeftSide from "./ToolbarLeftSide";
+import ToolbarRightSide from "./ToolbarRightSide";
 
 export interface ToolbarProps {
   todosNumber: number;
@@ -19,11 +18,8 @@ export default function Toolbar({
       align="center"
       justify="space-between"
     >
-      <Flex gap="5" direction="row" align="center">
-        <ToolbarSelectBox />
-        {/* <ToolbarInfo isFilterMode={isFilterMode} todosNumber={todosNumber} /> */}
-      </Flex>
-      <ToolbarActions todosNumber={todosNumber} />
+      <ToolbarLeftSide isFilterMode={isFilterMode} todosNumber={todosNumber} />
+      <ToolbarRightSide isFilterMode={isFilterMode} todosNumber={todosNumber} />
     </Flex>
   );
 }

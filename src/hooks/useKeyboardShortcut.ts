@@ -9,11 +9,12 @@ const useKeyboardShortcut = (
 ) => {
   const handleKeydown = (event: any) => {
     let nodeName = event.target.nodeName;
+    let blockedNodes = ["INPUT", "TEXTAREA"];
     let isShiftKey = modifier === "Shift";
     let isControlKey = modifier === "Ctrl";
     let isAltKey = modifier === "Alt";
-    let isInputElement = nodeName === ("INPUT" || "TEXTAREA");
-    if (event.repeat || isInputElement) return;
+    let isBlockedNode = blockedNodes.includes(nodeName);
+    if (event.repeat || isBlockedNode) return;
     let isKeyPressed = event.keyCode === keyCode;
     let isModifierPressed =
       event.ctrlKey === isControlKey &&
