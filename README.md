@@ -1,6 +1,6 @@
 # Clean Todo - React JS
 
-A simple task manager app.<br/>
+A simple task manager app for desktop devices.<br/>
 Check the [Demo](https://clean-to-do.netlify.app/)
 
 ## Features
@@ -20,5 +20,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - React Icons.
   <br/>
   <br/>
+
+`🛑 Not Supported For Mobile Devices`
 
 Thank You.

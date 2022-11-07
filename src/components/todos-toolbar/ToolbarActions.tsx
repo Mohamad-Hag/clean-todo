@@ -1,4 +1,10 @@
-import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react";
+import {
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  Tooltip,
+} from "@chakra-ui/react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { ToolbarProps } from "./Toolbar";
 import ToolbarClearAction from "./toolbar-actions/ToolbarClearAction";
@@ -10,7 +16,6 @@ export default function ToolbarActions({
   todosNumber,
 }: ToolbarProps) {
   const isActionsDisabled = todosNumber === 0 || isFilterMode;
-
   return (
     <Menu isLazy placement="bottom-end">
       <MenuButton

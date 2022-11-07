@@ -12,7 +12,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ onStatusChange }: SidebarProps) {
-  const [status, setStatus] = useState<SidebarStatus>("shown");
+  const [status, setStatus] = useState<SidebarStatus>("shown");  
 
   const display = (value: string) => (status === "shown" ? value : "none");
 

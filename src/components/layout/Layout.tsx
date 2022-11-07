@@ -1,5 +1,4 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { isMobile } from "react-device-detect";
 import { SidebarStatus } from "./sidebar/Sidebar";
 
 interface LayoutProps {
@@ -12,11 +11,7 @@ export default function Layout({
   sidebarSlotStatus = "shown",
 }: LayoutProps) {
   const headerHeight = "80px";
-  const sidebarWidth = isMobile
-    ? "0"
-    : sidebarSlotStatus === "shown"
-    ? "80"
-    : "14";
+  const sidebarWidth = sidebarSlotStatus === "shown" ? "80" : "14";
 
   return (
     <>
@@ -25,7 +20,7 @@ export default function Layout({
           className=" relative z-30"
           w={sidebarWidth}
           transitionTimingFunction="ease-in-out"
-          transition={!isMobile ? "width .3s" : undefined}
+          transition="width .3s"
         >
           {/* Sidebar */}
           {children[1]}
