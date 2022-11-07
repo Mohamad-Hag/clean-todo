@@ -27,7 +27,7 @@ const useKeyboardShortcut = (
   useEffect(() => {
     window.addEventListener("keydown", handleKeydown, false);
     return () => window.removeEventListener("keydown", handleKeydown, false);
-  }, []);
+  });
 };
 
 export default useKeyboardShortcut;
