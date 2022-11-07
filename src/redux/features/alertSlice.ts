@@ -1,7 +1,7 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import React from "react";
-import { AlertProps } from "../../components/Alert";
+import { AlertProps } from "../../components/common/Alert";
 import type { RootState } from "../store";
 
 export type FormMode = "create" | "edit";

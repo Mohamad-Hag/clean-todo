@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectTodos } from "../redux/features/todosSlice";
 import TodoProps from "../utils/interfaces/common/Todo";
-import Header from "./Header";
-import Layout from "./Layout";
-import Sidebar, { SidebarStatus } from "./Sidebar";
-import TodoCreateButton from "./TodoCreateButton";
-import TodoCreator from "./TodoCreator";
+import Header from "./layout/Header";
+import Layout from "./layout/Layout";
+import Sidebar, { SidebarStatus } from "./layout/sidebar/Sidebar";
+import TodoCreateButton from "./todo-creation/TodoCreateButton";
+import TodoCreator from "./todo-creation/TodoCreator";
 import TodosContainer from "./TodosContainer";
 
 export default function TodoMain() {

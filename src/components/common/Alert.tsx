@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { BiAlarmExclamation } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { close } from "../redux/features/alertSlice";
+import { close } from "../../redux/features/alertSlice";
 
 export interface AlertProps {
   title: string;
@@ -55,7 +55,12 @@ export default function Alert({
         <ModalBody>{description}</ModalBody>
         <ModalFooter className="flex items-center justify-end gap-2">
           <Button onClick={closed}>Cancel</Button>
-          <Button variant="solid" colorScheme="blue" onClick={onOk} disabled={isOkButtonDisabled}>
+          <Button
+            variant="solid"
+            colorScheme="blue"
+            onClick={onOk}
+            disabled={isOkButtonDisabled}
+          >
             Ok
           </Button>
         </ModalFooter>

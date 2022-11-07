@@ -13,8 +13,12 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../redux/features/alertSlice";
-import { clear, finishAll, removeFinished } from "../redux/features/todosSlice";
+} from "../../redux/features/alertSlice";
+import {
+  clear,
+  finishAll,
+  removeFinished,
+} from "../../redux/features/todosSlice";
 
 interface ToolbarActionsProps {
   todosNumber: number;

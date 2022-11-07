@@ -1,11 +1,11 @@
 import { Checkbox, Flex } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useKeyboardShortcut from "../hooks/useKeyboardShortcut";
-import { selectAll, selectTodos } from "../redux/features/todosSlice";
+import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
+import { selectAll, selectTodos } from "../../redux/features/todosSlice";
+import ToolbarInfo from "../todos-toolbar/ToolbarInfo";
+import ToolbarSelect from "../todos-toolbar/ToolbarSelect";
 import ToolbarActions from "./ToolbarActions";
-import ToolbarInfo from "./ToolbarInfo";
-import ToolbarSelect from "./ToolbarSelect";
 
 export interface ToolbarProps {
   todosNumber: number;
@@ -30,7 +30,7 @@ export default function Toolbar({
   };
 
   useKeyboardShortcut(() => selectAll_(true), 65, "Ctrl");
-  useKeyboardShortcut(() => selectAll_(false), 27); 
+  useKeyboardShortcut(() => selectAll_(false), 27);
 
   return (
     <Flex

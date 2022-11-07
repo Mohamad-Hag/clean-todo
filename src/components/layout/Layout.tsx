@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
-import { SidebarStatus } from "./Sidebar";
+import { SidebarStatus } from "./sidebar/Sidebar";
 
 interface LayoutProps {
   children: React.ReactNode[];

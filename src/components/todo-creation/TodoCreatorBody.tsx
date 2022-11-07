@@ -11,14 +11,14 @@ import {
   selectForm,
   setDescription,
   setTitle,
-} from "../redux/features/formSlice";
+} from "../../redux/features/formSlice";
 
 interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   const form = useSelector(selectForm);
   const dispatch = useDispatch();
-  const titleRef = useRef<HTMLInputElement>(null!);  
+  const titleRef = useRef<HTMLInputElement>(null!);
 
   const focus = () => {
     let titleCurrent = titleRef.current;
@@ -48,8 +48,8 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
         <Input ref={titleRef} value={form.title} onChange={titleChanged} />
       </FormControl>
       <FormControl>
-        <FormLabel>Description</FormLabel>        
-        <Textarea         
+        <FormLabel>Description</FormLabel>
+        <Textarea
           h={120}
           value={form.description}
           onChange={descriptionChanged}

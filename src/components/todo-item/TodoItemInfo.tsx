@@ -1,23 +1,31 @@
 import { Stack } from "@chakra-ui/react";
+import { memo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { openAsEdit } from "../../redux/features/formSlice";
+import { selectTodos } from "../../redux/features/todosSlice";
 
 interface TodoItemInfo {
-  title?: string;
-  description?: string;
-  date?: string;
-  onDoubleClick?: () => void;
+  id: number;
 }
-export default function TodoItemInfo({
-  title,
-  description,
-  date,
-  onDoubleClick,
-}: TodoItemInfo) {
+function TodoItemInfo({ id }: TodoItemInfo) {
+  const todos = useSelector(selectTodos);
+  const todo = todos.find((td) => td.id === id)!;
+  const d = useDispatch();
+  if (!todo) return <></>;
+
+  let description = todo.description;
+  let title = todo.title;
+  let date = todo.date;
   const isDescriptionDefined = description && description !== "";
+
+  const edit = () => {
+    d(openAsEdit({ id: id, title: title, description: description }));
+  };
 
   return (
     <Stack
       spacing="1"
-      onDoubleClick={onDoubleClick}
+      onDoubleClick={edit}
       border="1px solid transparent"
       _hover={{
         bg: "#22222205",
@@ -41,3 +49,5 @@ export default function TodoItemInfo({
     </Stack>
   );
 }
+
+export default memo(TodoItemInfo);

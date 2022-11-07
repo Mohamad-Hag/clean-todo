@@ -1,13 +1,13 @@
 import { Flex } from "@chakra-ui/react";
-import SearchInput, { SearchInputProps } from "./SearchInput";
+import FilterInput, { FilterInputProps } from "../FilterInput";
 
-interface HeaderProps extends SearchInputProps {}
+interface HeaderProps extends FilterInputProps {}
 
 export default function Header({ onFilterDone }: HeaderProps) {
   return (
     <header className="py-4 px-5">
       <Flex gap="5">
-        <SearchInput onFilterDone={onFilterDone} />
+        <FilterInput onFilterDone={onFilterDone} />
       </Flex>
     </header>
   );

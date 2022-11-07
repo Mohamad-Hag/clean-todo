@@ -13,11 +13,11 @@ import useKeyboardShortcut, { Modifier } from "../hooks/useKeyboardShortcut";
 import { selectTodos } from "../redux/features/todosSlice";
 import TodoProps from "../utils/interfaces/common/Todo";
 
-export interface SearchInputProps {
+export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
 }
 
-export default function SearchInput({ onFilterDone }: SearchInputProps) {
+export default function FilterInput({ onFilterDone }: FilterInputProps) {
   const inputRef = useRef<HTMLInputElement>(null!);
   const todos = useSelector(selectTodos);
   const filterKey = { key: "/", code: 191 };

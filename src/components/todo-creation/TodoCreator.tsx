@@ -7,11 +7,11 @@ import {
   ModalOverlay,
   Stack,
 } from "@chakra-ui/react";
-import React, { createRef, useRef } from "react";
+import React, { createRef } from "react";
 import { BiListPlus } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { close, selectForm } from "../redux/features/formSlice";
-import { create, edit } from "../redux/features/todosSlice";
+import { close, selectForm } from "../../redux/features/formSlice";
+import { create, edit } from "../../redux/features/todosSlice";
 import TodoCreatorBody from "./TodoCreatorBody";
 import TodoCreatorFooter from "./TodoCreatorFooter";
 
@@ -67,7 +67,7 @@ export default function TodoCreator({}: TodoCreatorProps) {
       isOpen={!!form.isOpen}
       onClose={onClose}
       size="lg"
-      closeOnOverlayClick={false}      
+      closeOnOverlayClick={false}
     >
       <ModalOverlay />
       <ModalContent m={2}>

@@ -1,5 +1,3 @@
-import { RefObject } from "react";
-
 type DateString = string;
 
 export interface TodoEditable {

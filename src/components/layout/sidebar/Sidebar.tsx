@@ -1,9 +1,9 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { BiCheck, BiListUl, BiStar } from "react-icons/bi";
-import Logo from "./Logo";
-import SidebarButton from "./SidebarButton";
-import SidebarMenuButton from "./SidebarMenuButton";
 import { useState } from "react";
+import { BiCheck, BiListUl, BiStar } from "react-icons/bi";
+import Logo from "../../Logo";
+import SidebarButton from "../sidebar/SidebarButton";
+import SidebarMenuButton from "./SidebarMenuButton";
 
 export type SidebarStatus = "hidden" | "shown";
 

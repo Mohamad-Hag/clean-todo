@@ -8,14 +8,14 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../redux/features/alertSlice";
+} from "../../redux/features/alertSlice";
 import {
   finishSome,
   removeSome,
   selectTodos,
-} from "../redux/features/todosSlice";
-import RemoveSelectedAlertDescription from "./RemoveSelectedAlertDescription";
-import SmallIconButton from "./SmallIconButton";
+} from "../../redux/features/todosSlice";
+import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
+import SmallIconButton from "../SmallIconButton";
 
 interface ToolbarSelectProps {}
 

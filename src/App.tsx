@@ -1,6 +1,6 @@
 import "quill/dist/quill.snow.css";
 import { useSelector } from "react-redux";
-import Alert from "./components/Alert";
+import Alert from "./components/common/Alert";
 import TodoMain from "./components/TodoMain";
 import { selectAlert } from "./redux/features/alertSlice";
 import "./styles/App.css";
