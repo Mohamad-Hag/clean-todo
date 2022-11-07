@@ -17,7 +17,7 @@ interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   const form = useSelector(selectForm);
-  const dispatch = useDispatch();
+  const d = useDispatch();
   const titleRef = useRef<HTMLInputElement>(null!);
 
   const focus = () => {
@@ -34,11 +34,11 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   }, [form.isOpen]);
 
   const titleChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTitle(e.target.value));
+    d(setTitle(e.target.value));
   };
 
   const descriptionChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    dispatch(setDescription(e.target.value));
+    d(setDescription(e.target.value));
   };
 
   return (

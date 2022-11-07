@@ -7,11 +7,11 @@ interface TodoCreatorFooterProps {
 }
 export default function TodoCreatorFooter({ title }: TodoCreatorFooterProps) {
   const form = useSelector(selectForm);
-  const dispatch = useDispatch();
+  const d = useDispatch();
   const isTitleDefined = form.title?.trim() !== "" && form.title;
 
   const close_ = () => {
-    dispatch(close());
+    d(close());
   };
 
   return (

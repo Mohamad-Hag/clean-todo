@@ -5,13 +5,13 @@ import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { open, setMode } from "../../redux/features/formSlice";
 
 export default function TodoCreateButton() {
-  const dispatch = useDispatch();
+  const d = useDispatch();
 
   useKeyboardShortcut(() => create(), 81, "Ctrl");
 
   const create = () => {
-    dispatch(setMode("create"));
-    dispatch(open());
+    d(setMode("create"));
+    d(open());
   };
 
   const label = (

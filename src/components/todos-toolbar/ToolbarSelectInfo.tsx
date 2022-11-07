@@ -17,9 +17,7 @@ import {
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
 
-interface ToolbarSelectProps {}
-
-export default function ToolbarSelect({}: ToolbarSelectProps) {
+export default function ToolbarSelectInfo() {
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;

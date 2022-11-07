@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { selectTodos } from "../../redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
 
-interface ToolbarInfoProps extends ToolbarProps {}
+interface ToolbarBasicInfoProps extends ToolbarProps {}
 
-export default function ToolbarInfo({
+export default function ToolbarBasicInfo({
   todosNumber,
   isFilterMode,
-}: ToolbarInfoProps) {
+}: ToolbarBasicInfoProps) {
   const todos = useSelector(selectTodos);
   const finishedCount = todos.filter((todo) => todo.isFinshed).length;
 

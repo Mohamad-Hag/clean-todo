@@ -30,10 +30,10 @@ export default function Alert({
   onClose,
   onOk,
 }: AlertProps) {
-  const dispatch = useDispatch();
+  const d = useDispatch();
 
   const closed = () => {
-    if (!onClose) dispatch(close());
+    if (!onClose) d(close());
     else onClose();
   };
 
