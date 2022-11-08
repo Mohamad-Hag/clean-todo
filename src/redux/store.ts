@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import alertSlice from "./features/alertSlice";
 import formSlice from "./features/formSlice";
+import sidebarSlice from "./features/sidebarSlice";
 import todosSlice from "./features/todosSlice";
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     todos: todosSlice,
     form: formSlice,
     alert: alertSlice,
+    sidebar: sidebarSlice,
   },
 });
 

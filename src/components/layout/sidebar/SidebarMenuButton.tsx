@@ -1,40 +1,36 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
-import { FaBars, FaArrowLeft } from "react-icons/fa";
-import { useState } from "react";
-import { SidebarStatus } from "./Sidebar";
+import { FaArrowLeft, FaBars } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeOppositeStatus,
+  selectSidebar,
+} from "../../../redux/features/sidebarSlice";
+import {
+  activeStyle,
+  hoverStyle,
+} from "../../../utils/styles/SidebarButtonStyles";
 
-interface SidebarMenuButtonProps {
-  onStatusChange?: (status: SidebarStatus) => void;
-}
+export default function SidebarMenuButton() {
+  const { status } = useSelector(selectSidebar);
+  const d = useDispatch();
 
-export default function SidebarMenuButton({
-  onStatusChange,
-}: SidebarMenuButtonProps) {
-  const [isShown, setIsShown] = useState<boolean>(true);
-  const label = (isShown ? "Hide" : "Show") + " Sidebar";
-  const icon = isShown ? (
-    <FaArrowLeft color="white" />
-  ) : (
-    <FaBars color="white" />
-  );
+  const label = (status === "shown" ? "Hide" : "Show") + " Sidebar";
+  const icon =
+    status === "shown" ? (
+      <FaArrowLeft color="white" />
+    ) : (
+      <FaBars color="white" />
+    );
 
   const click = () => {
-    setIsShown(!isShown);
-    let status: SidebarStatus = !isShown ? "shown" : "hidden";
-
-    if (onStatusChange) onStatusChange(status);
+    d(changeOppositeStatus(status));
   };
 
   return (
     <Tooltip label={label}>
       <IconButton
-        _hover={{
-          bg: "#ffffff20",
-          color: "white",
-        }}
-        _active={{
-          bg: "#ffffff60",
-        }}
+        _hover={hoverStyle}
+        _active={activeStyle}
         variant="ghost"
         aria-label="hide menu button"
         icon={icon}

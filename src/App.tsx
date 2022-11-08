@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import "quill/dist/quill.snow.css";
+import { useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { BiMobile } from "react-icons/bi";
 import { useSelector } from "react-redux";
@@ -8,9 +9,17 @@ import NoData from "./components/common/NoData";
 import TodoMain from "./components/TodoMain";
 import { selectAlert } from "./redux/features/alertSlice";
 import "./styles/App.css";
+import bg0 from "./assets/bg0.jpg";
 
 function App() {
   const alert = useSelector(selectAlert);
+
+  useEffect(() => {
+    // Set Body Background
+    let src = `url(${bg0})`;
+    if (localStorage.getItem("bg")) src = `url(${localStorage.getItem("bg")})`;
+    document.body.style.backgroundImage = src;
+  }, []);
 
   if (isMobile)
     return (

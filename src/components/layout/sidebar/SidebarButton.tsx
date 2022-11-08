@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/react";
+import { activeStyle, hoverStyle } from "../../../utils/styles/SidebarButtonStyles";
 
 interface SidebarButtonProps {
   icon: React.ReactElement;
@@ -23,13 +24,8 @@ export default function SidebarButton({
       justifyContent="flex-start"
       bg={isActive ? "blue.100" : "transparent"}
       color={isActive ? "black" : "white"}
-      _hover={{
-        bg: "#ffffff20",
-        color: "white",
-      }}
-      _active={{
-        bg: "#ffffff60",
-      }}
+      _hover={hoverStyle}
+      _active={activeStyle}
       onClick={onClick}
     >
       {title}

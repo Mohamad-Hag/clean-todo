@@ -1,10 +1,7 @@
 import { Box } from "@chakra-ui/react";
+import { WithMultipleChildren } from "../utils/interfaces/WithChildren";
 
-interface ContainerProps {
-  children: React.ReactNode[] | React.ReactNode;
-}
-
-export default function Container({ children }: ContainerProps) {
+export default function Container({ children }: WithMultipleChildren) {
   return (
     <Box
       tabIndex={0}

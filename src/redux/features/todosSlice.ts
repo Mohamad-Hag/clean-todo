@@ -4,7 +4,7 @@ import TodoProps, {
   TodoData,
   TodoEditable,
 } from "../../utils/interfaces/common/Todo";
-import Store from "../../utils/Store";
+import TodoStore from "../../utils/TodoStore";
 import type { RootState } from "../store";
 
 export interface EditData {
@@ -12,27 +12,27 @@ export interface EditData {
   editable: TodoEditable;
 }
 
-const initialState: TodoProps[] = Store.get();
+const initialState: TodoProps[] = TodoStore.get();
 
 export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
     create: (state, action: PayloadAction<TodoData>) =>
-      Store.create(state, action.payload),
+      TodoStore.create(state, action.payload),
     edit: (state, action: PayloadAction<EditData>) =>
-      Store.edit(state, action.payload),
+      TodoStore.edit(state, action.payload),
     remove: (state, action: PayloadAction<number>) =>
-      Store.remove(state, action.payload),
+      TodoStore.remove(state, action.payload),
     removeSome: (state, action: PayloadAction<number[]>) =>
-      Store.removeSome(state, action.payload),
-    removeFinished: (state) => Store.removeFinished(state),
-    clear: (state) => Store.clear(state),
-    finishAll: (state) => Store.finishAll(state),
+      TodoStore.removeSome(state, action.payload),
+    removeFinished: (state) => TodoStore.removeFinished(state),
+    clear: (state) => TodoStore.clear(state),
+    finishAll: (state) => TodoStore.finishAll(state),
     finishSome: (state, action: PayloadAction<number[]>) =>
-      Store.finishSome(state, action.payload),
+      TodoStore.finishSome(state, action.payload),
     selectAll: (state, action: PayloadAction<boolean>) =>
-      Store.selectAll(state, action.payload),
+      TodoStore.selectAll(state, action.payload),
   },
 });
 
