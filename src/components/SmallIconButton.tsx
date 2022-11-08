@@ -17,7 +17,7 @@ export default function SmallIconButton({
   variant = "ghost",
 }: TodoItemButton) {
   return (
-    <Tooltip label={label}>
+    <Tooltip label={label} hasArrow>
       <IconButton
         variant={variant}
         aria-label={`${label} icon`}

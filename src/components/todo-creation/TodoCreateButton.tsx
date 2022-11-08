@@ -21,16 +21,17 @@ export default function TodoCreateButton() {
   );
 
   return (
-    <div className="z-50 fixed bottom-20 right-20">
-      <Tooltip label={label}>
+    <div className="z-50 fixed bottom-10 right-10">
+      <Tooltip label={label} placement="right" hasArrow>
         <IconButton
+          className="create-btn"
           style={{ boxShadow: "0 5px 20px 5px #00000040" }}
           onClick={create}
           aria-label="create todo button"
           size="lg"
           variant="solid"
           colorScheme="blue"
-          icon={<BiPlus />}
+          icon={<BiPlus size={22} />}
         ></IconButton>
       </Tooltip>
     </div>

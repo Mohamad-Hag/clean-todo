@@ -27,7 +27,7 @@ export default function SidebarMenuButton() {
   };
 
   return (
-    <Tooltip label={label}>
+    <Tooltip label={label} hasArrow>
       <IconButton
         _hover={hoverStyle}
         _active={activeStyle}

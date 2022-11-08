@@ -47,7 +47,7 @@ export default function FilterInput({ onFilterDone }: FilterInputProps) {
     <FormControl className="bg-white rounded-md shadow-md select-none">
       <InputGroup>
         <InputLeftElement height="100%">
-          <BiFilterAlt size={24} color="darkslategray" />
+          <BiFilterAlt size={24} color="#BBB" />
         </InputLeftElement>
         <Input
           ref={inputRef}

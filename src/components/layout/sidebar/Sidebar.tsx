@@ -6,9 +6,9 @@ import SidebarHeader from "./SidebarHeader";
 export default function Sidebar() {
   return (
     <Flex
-      className="h-full w-full shadow-md"
-      bg="#ffffff50"
-      backdropFilter="blur(10px)"
+      className="h-full w-full shadow-md rounded-tr-lg rounded-br-lg"
+      bg="#ffffff20"
+      backdropFilter="blur(8px)"
       direction="column"
     >
       <SidebarHeader />

@@ -62,3 +62,18 @@ body {
   -webkit-box-orient: vertical;
   display: -webkit-box;
 }
+.create-btn
+{
+  border-radius: 50% !important;
+  height: 60px !important;
+  width: 60px !important;    
+}
+.create-btn svg
+{
+  transition: ease-in-out .4s;  
+}
+
+.create-btn:hover svg
+{
+  transform: rotate(-360deg);
+}

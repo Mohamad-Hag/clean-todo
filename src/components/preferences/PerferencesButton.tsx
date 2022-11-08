@@ -11,7 +11,7 @@ interface PerferencesButtonProps {
 
 export default function PerferencesButton({ onClick }: PerferencesButtonProps) {
   return (
-    <Tooltip label="Preferences">
+    <Tooltip label="Preferences" placement="top" hasArrow>
       <IconButton
         color="white"
         _hover={hoverStyle}
