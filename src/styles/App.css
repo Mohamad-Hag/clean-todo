@@ -1,5 +1,11 @@
 * {
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+*:hover
+{
+  text-decoration: none !important; 
 }
 
 @tailwind base;

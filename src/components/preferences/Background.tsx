@@ -1,4 +1,6 @@
 import { Image } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { changeBackground } from "../../redux/features/perferencesSlice";
 
 type SourceString = string;
 
@@ -15,11 +17,11 @@ export default function Background({
   index,
   onSelect,
 }: BackgroundProps) {
+  const d = useDispatch();
+
   const click = () => {
     if (onSelect) onSelect(index);
-    let src = `url(${source})`;
-    document.body.style.backgroundImage = src;
-    localStorage.setItem("bg", source);
+    d(changeBackground(source));
   };
 
   return (
