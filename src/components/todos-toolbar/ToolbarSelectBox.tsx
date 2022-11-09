@@ -1,19 +1,20 @@
 import { Checkbox } from "@chakra-ui/react";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import useIsFilter from "../../hooks/useIsFilter";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
-import { selectAll, selectTodos } from "../../redux/features/todosSlice";
+import { selectAll } from "../../redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
 
 export default function ToolbarSelectBox({
   isFilterMode,
-  todosNumber,
+  todos,
 }: ToolbarProps) {
-  const todos = useSelector(selectTodos);
+  const isFilter = useIsFilter();
   let isAllSelected =
     todos.length > 0 ? todos.every((todo) => todo.isSelected) : false;
   const d = useDispatch();
-  let isSelectBoxDisabled = isFilterMode || todosNumber === 0;
+  let isSelectBoxDisabled = isFilterMode || todos.length === 0;
 
   const selectAllTodos = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isFilterMode) return;
@@ -21,7 +22,9 @@ export default function ToolbarSelectBox({
   };
 
   const selectAll_ = (isSelectAll: boolean) => {
-    d(selectAll(isSelectAll));
+    d(
+      selectAll({ isSelectAll: isSelectAll, selectConditionCallback: isFilter })
+    );
   };
 
   useKeyboardShortcut(() => selectAll_(true), 65, "Ctrl");

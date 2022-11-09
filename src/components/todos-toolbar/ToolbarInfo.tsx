@@ -4,12 +4,12 @@ import ToolbarSelectInfo from "./ToolbarSelectInfo";
 
 export default function ToolbarInfo({
   isFilterMode,
-  todosNumber,
+  todos,
 }: ToolbarProps) {
   return (
     <div className="text-sm font-semibold text-gray-600 flex gap-1 items-center">
       <ToolbarSelectInfo />
-      <ToolbarBasicInfo isFilterMode={isFilterMode} todosNumber={todosNumber} />
+      <ToolbarBasicInfo isFilterMode={isFilterMode} todos={todos} />
     </div>
   );
 }

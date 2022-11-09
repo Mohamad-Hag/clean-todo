@@ -7,7 +7,7 @@ import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
 
 export default function FinishItemButton({ id }: TodoItemRightSideProps) {
   const todos = useSelector(selectTodos);
-  let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinshed;
+  let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinished;
   let d = useDispatch();
 
   const finish = () => {
@@ -15,7 +15,7 @@ export default function FinishItemButton({ id }: TodoItemRightSideProps) {
       edit({
         id: id!,
         editable: {
-          isFinshed: !isFinished,
+          isFinished: !isFinished,
         },
       })
     );

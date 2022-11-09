@@ -14,7 +14,7 @@ export default function TodosContainer({
 }: TodosContainerProps) {
   return (
     <Container>
-      <Toolbar todosNumber={todos.length} isFilterMode={isFilterMode} />
+      <Toolbar todos={todos} isFilterMode={isFilterMode} />
       <TodosInnerContainer todos={todos} isFilterMode={isFilterMode} />
     </Container>
   );

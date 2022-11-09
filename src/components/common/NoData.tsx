@@ -12,7 +12,7 @@ let initialDescription =
   "Click on (+) button in the bottom-right corner to create new todo.";
 
 function NoData({
-  title = "Nothing to Do!",
+  title = "Nothing to Show!",
   description = initialDescription,
   icon = <BiCloud className="fill-blue-500" size={45} />,
 }: NoDataProps) {

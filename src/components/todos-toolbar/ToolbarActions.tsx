@@ -11,11 +11,8 @@ import ToolbarClearAction from "./toolbar-actions/ToolbarClearAction";
 import ToolbarFinishAllAction from "./toolbar-actions/ToolbarFinishAllAction";
 import ToolbarRemovedFinishedAction from "./toolbar-actions/ToolbarRemoveFinishedAction";
 
-export default function ToolbarActions({
-  isFilterMode,
-  todosNumber,
-}: ToolbarProps) {
-  const isActionsDisabled = todosNumber === 0 || isFilterMode;
+export default function ToolbarActions({ isFilterMode, todos }: ToolbarProps) {
+  const isActionsDisabled = todos.length === 0 || isFilterMode;
   return (
     <Menu isLazy placement="bottom-end">
       <MenuButton

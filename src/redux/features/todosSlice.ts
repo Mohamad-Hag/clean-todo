@@ -6,6 +6,7 @@ import TodoProps, {
 } from "../../utils/interfaces/common/Todo";
 import TodoStore from "../../utils/TodoStore";
 import type { RootState } from "../store";
+import { WithConditionCallback } from "../todoActions/selectAllTodos";
 
 export interface EditData {
   id: number;
@@ -31,7 +32,7 @@ export const todosSlice = createSlice({
     finishAll: (state) => TodoStore.finishAll(state),
     finishSome: (state, action: PayloadAction<number[]>) =>
       TodoStore.finishSome(state, action.payload),
-    selectAll: (state, action: PayloadAction<boolean>) =>
+    selectAll: (state, action: PayloadAction<WithConditionCallback>) =>
       TodoStore.selectAll(state, action.payload),
   },
 });

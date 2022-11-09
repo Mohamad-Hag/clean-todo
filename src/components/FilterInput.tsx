@@ -8,18 +8,19 @@ import {
 } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { BiFilterAlt } from "react-icons/bi";
-import { useSelector } from "react-redux";
 import useKeyboardShortcut, { Modifier } from "../hooks/useKeyboardShortcut";
-import { selectTodos } from "../redux/features/todosSlice";
 import TodoProps from "../utils/interfaces/common/Todo";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
+  filterData: TodoProps[];
 }
 
-export default function FilterInput({ onFilterDone }: FilterInputProps) {
+export default function FilterInput({
+  onFilterDone,
+  filterData,
+}: FilterInputProps) {
   const inputRef = useRef<HTMLInputElement>(null!);
-  const todos = useSelector(selectTodos);
   const filterKey = { key: "/", code: 191 };
   const filterModifierKey: Modifier = "Ctrl";
 
@@ -31,7 +32,7 @@ export default function FilterInput({ onFilterDone }: FilterInputProps) {
   };
 
   const getFilteredTodos = (criteria: string) => {
-    let filtered = todos.filter((todo) => {
+    let filtered = filterData.filter((todo) => {
       let isMatchTitle = todo.title
         ?.toLowerCase()
         .includes(criteria.trim().toLowerCase());

@@ -1,19 +1,24 @@
 import { Box } from "@chakra-ui/react";
 import { useState } from "react";
-import { BiCheck, BiListUl, BiStar } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { selectSidebar } from "../../../redux/features/sidebarSlice";
 import { ScrollbarThinStyle } from "../../../utils/styles/ScrollbarStyles";
 import SidebarButton from "./SidebarButton";
+import sidebarButtons from "./sidebarButtons";
 
 export default function SidebarBody() {
   const { status } = useSelector(selectSidebar);
   const display = (value: string) => (status === "shown" ? value : "none");
-  const [isActiveArray, setIsActiveArray] = useState<boolean[]>([
-    true,
-    false,
-    false,
-  ]);
+  const { pathname } = useLocation();
+  let index = sidebarButtons.findIndex((button) => button.to === pathname);
+
+  const initialize = () =>
+    Array(sidebarButtons.length)
+      .fill(false)
+      .map((_, i) => i === index);
+
+  const [isActiveArray, setIsActiveArray] = useState<boolean[]>(initialize());
 
   const select = (index: number) => {
     let activeArray = [...isActiveArray];
@@ -28,30 +33,16 @@ export default function SidebarBody() {
       className={`flex-1 py-5 pr-3 ${ScrollbarThinStyle}`}
       display={display("initial")}
     >
-      <SidebarButton
-        index={0}
-        icon={<BiListUl />}
-        title="All Todos"
-        isActive={isActiveArray[0]}
-        onSelect={select}
-        to="/"
-      />
-      <SidebarButton
-        index={1}
-        isActive={isActiveArray[1]}
-        icon={<BiStar />}
-        title="Active Todos"
-        onSelect={select}
-        to="/active"
-      />
-      <SidebarButton
-        index={2}
-        isActive={isActiveArray[2]}
-        icon={<BiCheck />}
-        title="Finished Todos"
-        to="/finished"
-        onSelect={select}
-      />
+      {sidebarButtons.map((button, i) => (
+        <SidebarButton
+          index={i}
+          icon={button.icon}
+          title={button.title}
+          isActive={isActiveArray[i]}
+          onSelect={select}
+          to={button.to}
+        />
+      ))}
     </Box>
   );
 }

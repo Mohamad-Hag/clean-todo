@@ -14,7 +14,7 @@ const TodoItemContainer = React.forwardRef(
     ref: React.Ref<HTMLDivElement>
   ) => {
     const todos = useSelector(selectTodos);
-    let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinshed;
+    let isFinished: boolean = !!todos.find((todo) => todo.id === id)?.isFinished;
     let isSelected: boolean = !!todos.find((todo) => todo.id === id)
       ?.isSelected;
     const rootClassName = `bg-white px-10 py-5 select-none hover:bg-gray-50 hover:shadow-inner ${

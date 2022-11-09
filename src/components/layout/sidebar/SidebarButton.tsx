@@ -5,7 +5,7 @@ import {
   hoverStyle,
 } from "../../../utils/styles/SidebarButtonStyles";
 
-type URLString = string;
+export type URLString = string;
 
 interface SidebarButtonProps {
   index: number;

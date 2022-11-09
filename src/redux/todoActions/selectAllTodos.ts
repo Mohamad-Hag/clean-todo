@@ -1,7 +1,18 @@
 import TodoProps from "../../utils/interfaces/common/Todo";
 
-function selectAllTodos(todos: TodoProps[], isSelected: boolean = true) {
-  for (let todo of todos) todo.isSelected = isSelected;
+export interface WithConditionCallback {
+  isSelectAll: boolean;
+  selectConditionCallback?: (todo: TodoProps) => boolean;
+}
+
+function selectAllTodos(todos: TodoProps[], condition: WithConditionCallback) {
+  if (!condition.selectConditionCallback)
+    condition.selectConditionCallback = () => true;
+
+  for (let todo of todos) {
+    if (condition.selectConditionCallback(todo))
+      todo.isSelected = condition.isSelectAll;
+  }
   return todos;
 }
 

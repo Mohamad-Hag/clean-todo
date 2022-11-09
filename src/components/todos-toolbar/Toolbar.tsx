@@ -1,16 +1,14 @@
 import { Flex } from "@chakra-ui/react";
+import TodoProps from "../../utils/interfaces/common/Todo";
 import ToolbarLeftSide from "./ToolbarLeftSide";
 import ToolbarRightSide from "./ToolbarRightSide";
 
 export interface ToolbarProps {
-  todosNumber: number;
+  todos: TodoProps[];
   isFilterMode?: boolean;
 }
 
-export default function Toolbar({
-  todosNumber,
-  isFilterMode = false,
-}: ToolbarProps) {
+export default function Toolbar({ todos, isFilterMode = false }: ToolbarProps) {
   return (
     <Flex
       className="py-1.5 px-10 border-b-2 border-gray-100 bg-gray-50 select-none"
@@ -18,8 +16,8 @@ export default function Toolbar({
       align="center"
       justify="space-between"
     >
-      <ToolbarLeftSide isFilterMode={isFilterMode} todosNumber={todosNumber} />
-      <ToolbarRightSide isFilterMode={isFilterMode} todosNumber={todosNumber} />
+      <ToolbarLeftSide isFilterMode={isFilterMode} todos={todos} />
+      <ToolbarRightSide isFilterMode={isFilterMode} todos={todos} />
     </Flex>
   );
 }

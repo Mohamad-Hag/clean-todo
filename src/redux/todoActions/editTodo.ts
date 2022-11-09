@@ -7,11 +7,11 @@ function editTodo(todos: TodoProps[], editData: EditData): TodoProps[] {
   let todo = todos[todoIndex];
   let title = payload.editable.title;
   let description = payload.editable.description;
-  let isFinshed = payload.editable.isFinshed;
+  let isFinshed = payload.editable.isFinished;
   let isSelected = payload.editable.isSelected;
   todo.title = title ? title : todo.title;
   todo.description = description === undefined ? todo.description : description;
-  todo.isFinshed = isFinshed !== undefined ? isFinshed : todo.isFinshed;
+  todo.isFinished = isFinshed !== undefined ? isFinshed : todo.isFinished;
   todo.isSelected = isSelected !== undefined ? isSelected : todo.isSelected;
   return todos;
 }

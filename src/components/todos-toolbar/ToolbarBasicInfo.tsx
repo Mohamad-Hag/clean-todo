@@ -5,16 +5,15 @@ import { ToolbarProps } from "./Toolbar";
 interface ToolbarBasicInfoProps extends ToolbarProps {}
 
 export default function ToolbarBasicInfo({
-  todosNumber,
+  todos,
   isFilterMode,
 }: ToolbarBasicInfoProps) {
-  const todos = useSelector(selectTodos);
-  const finishedCount = todos.filter((todo) => todo.isFinshed).length;
+  const finishedCount = todos.filter((todo) => todo.isFinished).length;
 
   return (
     <span className="opacity-80">
       {isFilterMode ? "Results " : "Total "}
-      <b>{todosNumber}</b> / Finished <b>{finishedCount}</b>
+      <b>{todos.length}</b> / Finished <b>{finishedCount}</b>
     </span>
   );
 }

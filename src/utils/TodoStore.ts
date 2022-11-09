@@ -7,7 +7,9 @@ import finishSomeTodos from "../redux/todoActions/finishSomeTodos";
 import removeFinishedTodos from "../redux/todoActions/removeFinishedTodos";
 import removeSomeTodos from "../redux/todoActions/removeSomeTodos";
 import removeTodo from "../redux/todoActions/removeTodo";
-import selectAllTodos from "../redux/todoActions/selectAllTodos";
+import selectAllTodos, {
+  WithConditionCallback,
+} from "../redux/todoActions/selectAllTodos";
 import TodoProps, { TodoData } from "./interfaces/common/Todo";
 
 class TodoStore {
@@ -68,8 +70,11 @@ class TodoStore {
     return itemsAfterFinishSome;
   }
 
-  public static selectAll(todos: TodoProps[], isSelected: boolean = true) {
-    let itemsAfterSelectAll = selectAllTodos(todos, isSelected);
+  public static selectAll(
+    todos: TodoProps[],
+    condition: WithConditionCallback
+  ) {
+    let itemsAfterSelectAll = selectAllTodos(todos, condition);
     TodoStore.set(itemsAfterSelectAll);
     return itemsAfterSelectAll;
   }

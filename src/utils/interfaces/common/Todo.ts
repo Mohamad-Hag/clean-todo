@@ -3,7 +3,7 @@ type DateString = string;
 export interface TodoEditable {
   title?: string;
   description?: string;
-  isFinshed?: boolean;
+  isFinished?: boolean;
   isSelected?: boolean;
 }
 
