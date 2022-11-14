@@ -34,7 +34,7 @@ export default function ToolbarSelectBox({
     <Checkbox
       isChecked={isAllSelected}
       onChange={selectAllTodos}
-      disabled={isSelectBoxDisabled}
+      disabled={isSelectBoxDisabled}      
     />
   );
 }

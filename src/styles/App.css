@@ -1,6 +1,6 @@
 * {
   -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
+  text-decoration: none;    
 }
 
 *:hover
@@ -62,8 +62,8 @@ body {
 }
 .toolbar-item-info-description {
   overflow: hidden;
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -82,4 +82,18 @@ body {
 .create-btn:hover svg
 {
   transform: rotate(-360deg);
+}
+.todo-creator-description
+{
+  height: 120px;
+  overflow: auto;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--chakra-radii-md);  
+}
+.todo-creator-description:focus
+{
+  border-color: var(--chakra-colors-blue-500);
+  border-width: 2px;
 }

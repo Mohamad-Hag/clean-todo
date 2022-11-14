@@ -1,5 +1,6 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+import Priority from "../../utils/types/Priority";
 import closeForm from "../formActions/closeForm";
 import openFormAs from "../formActions/openFormAs";
 import type { RootState } from "../store";
@@ -10,6 +11,7 @@ export interface Form {
   id?: number;
   title?: string;
   description?: string;
+  priority?: Priority;
   isOpen?: boolean;
   mode?: FormMode;
 }
@@ -17,6 +19,7 @@ export interface Form {
 const initialState: Form = {
   title: "",
   description: "",
+  priority: "medium",
   isOpen: false,
   mode: "create",
 };
@@ -40,6 +43,9 @@ export const formSlice = createSlice({
     setDescription: (state, action: PayloadAction<string>) => {
       state.description = action.payload;
     },
+    setPriority: (state, action: PayloadAction<Priority>) => {
+      state.priority = action.payload;
+    },
     setMode: (state, action: PayloadAction<FormMode>) => {
       state.mode = action.payload;
     },
@@ -54,6 +60,7 @@ export const {
   setId,
   setTitle,
   setDescription,
+  setPriority,
   setMode,
 } = formSlice.actions;
 

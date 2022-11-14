@@ -10,12 +10,13 @@ export default function EditItemButton({ id }: TodoItemRightSideProps) {
   const todo = todos.find((td) => td.id === id)!;
   let d = useDispatch();
 
-  const edit = () => {
+  const edit = () => {    
     d(
       openAsEdit({
         id: id,
         title: todo.title,
         description: todo.description,
+        priority: todo.priority,
       })
     );
   };

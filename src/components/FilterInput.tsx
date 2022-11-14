@@ -10,6 +10,7 @@ import React, { useRef } from "react";
 import { BiFilterAlt } from "react-icons/bi";
 import useKeyboardShortcut, { Modifier } from "../hooks/useKeyboardShortcut";
 import TodoProps from "../utils/interfaces/common/Todo";
+import isInclude from "../utils/isInclude";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -31,16 +32,16 @@ export default function FilterInput({
     onFilterDone(getFilteredTodos(criteria), criteria);
   };
 
+  const getFilterCondition = (todo: TodoProps, criteria: string) => {
+    let isMatchTitle = isInclude(todo.title!, criteria);
+    let isMatchDescription = isInclude(todo.description!, criteria);
+    return isMatchTitle || isMatchDescription;
+  };
+
   const getFilteredTodos = (criteria: string) => {
-    let filtered = filterData.filter((todo) => {
-      let isMatchTitle = todo.title
-        ?.toLowerCase()
-        .includes(criteria.trim().toLowerCase());
-      let isMatchDescription = todo.description
-        ?.toLowerCase()
-        .includes(criteria.trim().toLowerCase());
-      return isMatchTitle || isMatchDescription;
-    });
+    let filtered = filterData.filter((todo) =>
+      getFilterCondition(todo, criteria)
+    );
     return filtered;
   };
 

@@ -35,6 +35,7 @@ export default function SidebarBody() {
     >
       {sidebarButtons.map((button, i) => (
         <SidebarButton
+          key={i}
           index={i}
           icon={button.icon}
           title={button.title}

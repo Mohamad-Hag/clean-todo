@@ -10,7 +10,7 @@ export default function ToolbarLeftSide({
   return (
     <Flex gap="5" direction="row" align="center">
       <ToolbarSelectBox isFilterMode={isFilterMode} todos={todos} />
-      <ToolbarInfo isFilterMode={isFilterMode} todos={todos} />
+      <ToolbarInfo isFilterMode={isFilterMode} todos={todos} />            
     </Flex>
   );
 }

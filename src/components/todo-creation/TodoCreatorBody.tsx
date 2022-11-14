@@ -1,17 +1,15 @@
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Textarea,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Stack } from "@chakra-ui/react";
 import React, { useEffect, useRef } from "react";
+import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectForm,
   setDescription,
+  setPriority,
   setTitle,
 } from "../../redux/features/formSlice";
+import Priority from "../../utils/types/Priority";
+import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
 
 interface TodoCreatorBodyProps {}
 
@@ -37,22 +35,33 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
     d(setTitle(e.target.value));
   };
 
-  const descriptionChanged = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const descriptionChanged = (e: ContentEditableEvent) => {
     d(setDescription(e.target.value));
   };
 
+  const prioritySelected = (priority: Priority) => {
+    d(setPriority(priority));
+  };
+
   return (
-    <Stack spacing="1">
+    <Stack spacing="3">
       <FormControl>
         <FormLabel>Title</FormLabel>
         <Input ref={titleRef} value={form.title} onChange={titleChanged} />
       </FormControl>
       <FormControl>
         <FormLabel>Description</FormLabel>
-        <Textarea
-          h={120}
-          value={form.description}
+        <ContentEditable
+          className="todo-creator-description"
+          html={form.description!}
           onChange={descriptionChanged}
+        />
+      </FormControl>
+      <FormControl>
+        <FormLabel>Priority</FormLabel>
+        <TodoCreatorPriorityButtons
+          priority={form.priority!}
+          onSelect={prioritySelected}
         />
       </FormControl>
     </Stack>

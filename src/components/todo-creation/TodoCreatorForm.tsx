@@ -15,6 +15,7 @@ export default function TodoCreatorForm({
 }: TodoCreatorFormProps) {
   const form = useSelector(selectForm);
   const formTitle = form.mode === "create" ? "Create" : "Edit";
+  const description = form.description?.replace(/\n\r?/g, "<br/>").trim();
   const d = useDispatch();
 
   const editTodo = () => {
@@ -23,7 +24,8 @@ export default function TodoCreatorForm({
         id: form.id!,
         editable: {
           title: form.title?.trim(),
-          description: form.description?.trim(),
+          description: description,
+          priority: form.priority,
         },
       })
     );
@@ -35,7 +37,8 @@ export default function TodoCreatorForm({
       create({
         createdAt: new Date().toLocaleString(),
         title: form.title?.trim(),
-        description: form.description?.trim(),
+        description: description,
+        priority: form.priority,
         nodeRef: nodeRef,
       })
     );

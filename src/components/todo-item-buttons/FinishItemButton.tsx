@@ -23,7 +23,7 @@ export default function FinishItemButton({ id }: TodoItemRightSideProps) {
 
   return (
     <SmallIconButton
-      label={isFinished ? "Unfinish" : "Finish"}
+      label={isFinished ? "Activate" : "Finish"}
       variant={isFinished ? "solid" : "ghost"}
       icon={<BiCheck />}
       onClick={finish}

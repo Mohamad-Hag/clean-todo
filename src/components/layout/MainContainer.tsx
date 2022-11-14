@@ -12,7 +12,7 @@ export default function MainContainer({
 }: MainContainerProps) {
   return (
     <Box
-      className={`relative z-40 flex-1 pb-5 px-5 ${ScrollbarStyle}`}
+      className={`relative z-40 flex-1 pb-5 px-5 opacity-90 ${ScrollbarStyle}`}
       h={`calc(100vh - ${headerHeight})`}
     >
       {children}

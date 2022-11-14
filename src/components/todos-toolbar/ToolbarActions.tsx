@@ -1,18 +1,14 @@
-import {
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-  Tooltip,
-} from "@chakra-ui/react";
+import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { ToolbarProps } from "./Toolbar";
-import ToolbarClearAction from "./toolbar-actions/ToolbarClearAction";
-import ToolbarFinishAllAction from "./toolbar-actions/ToolbarFinishAllAction";
-import ToolbarRemovedFinishedAction from "./toolbar-actions/ToolbarRemoveFinishedAction";
+import toolbarActions from "./toolbar-actions/toolbarActions";
 
 export default function ToolbarActions({ isFilterMode, todos }: ToolbarProps) {
   const isActionsDisabled = todos.length === 0 || isFilterMode;
+  const actions = toolbarActions.map((action, index) => (
+    <p key={index}>{action}</p>
+  ));
+
   return (
     <Menu isLazy placement="bottom-end">
       <MenuButton
@@ -21,11 +17,7 @@ export default function ToolbarActions({ isFilterMode, todos }: ToolbarProps) {
         variant="ghost"
         icon={<BiDotsVerticalRounded size={20} />}
       ></MenuButton>
-      <MenuList>
-        <ToolbarFinishAllAction />
-        <ToolbarRemovedFinishedAction />
-        <ToolbarClearAction />
-      </MenuList>
+      <MenuList>{actions}</MenuList>
     </Menu>
   );
 }

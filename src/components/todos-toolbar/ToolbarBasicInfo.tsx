@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux";
-import { selectTodos } from "../../redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
 
 interface ToolbarBasicInfoProps extends ToolbarProps {}

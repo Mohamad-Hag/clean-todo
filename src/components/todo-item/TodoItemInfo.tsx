@@ -3,6 +3,8 @@ import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "../../redux/features/formSlice";
 import { selectTodos } from "../../redux/features/todosSlice";
+import TodoItemDescription from "./TodoItemDescription";
+import TodoItemPriorityFlag from "./TodoItemPriorityFlag";
 
 interface TodoItemInfo {
   id: number;
@@ -16,10 +18,17 @@ function TodoItemInfo({ id }: TodoItemInfo) {
   let description = todo.description;
   let title = todo.title;
   let date = todo.date;
-  const isDescriptionDefined = description && description !== "";
+  let priority = todo.priority;
 
   const edit = () => {
-    d(openAsEdit({ id: id, title: title, description: description }));
+    d(
+      openAsEdit({
+        id: id,
+        title: title,
+        description: description,
+        priority: priority,
+      })
+    );
   };
 
   return (
@@ -38,12 +47,11 @@ function TodoItemInfo({ id }: TodoItemInfo) {
       borderRadius="md"
     >
       <Stack spacing="-0.5">
-        <h1 className="text-xl font-semibold toolbar-item-info-title">
-          {title}
-        </h1>
-        {isDescriptionDefined && (
-          <p className="toolbar-item-info-description">{description}</p>
-        )}
+        <div className="text-xl font-semibold toolbar-item-info-title flex items-center gap-3">
+          <TodoItemPriorityFlag priority={priority!} />
+          <h1>{title}</h1>
+        </div>
+        <TodoItemDescription description={description} />
       </Stack>
       <label className="text-xs text-gray-400">{date}</label>
     </Stack>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import useFilteredTodos from "../hooks/useFilteredTodos";
 import useIsFilter from "../hooks/useIsFilter";
 import { selectTodos } from "../redux/features/todosSlice";
 import TodoProps from "../utils/interfaces/common/Todo";
@@ -11,9 +12,7 @@ import TodoCreator from "./todo-creation/TodoCreator";
 import TodosContainer from "./TodosContainer";
 
 export default function TodoMain() {
-  const isFilter = useIsFilter();
-
-  const todos = useSelector(selectTodos).filter((todo) => isFilter(todo));
+  const todos = useFilteredTodos();
   const [filteredTodos, setFilteredTodos] = useState<TodoProps[]>(todos);
   const [filterQuery, setFilterQuery] = useState<string>("");
   const isFilterQueryEmpty = filterQuery === "";

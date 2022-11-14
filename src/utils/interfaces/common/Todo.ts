@@ -1,8 +1,11 @@
+import Priority from "../../types/Priority";
+
 type DateString = string;
 
 export interface TodoEditable {
   title?: string;
   description?: string;
+  priority?: Priority;
   isFinished?: boolean;
   isSelected?: boolean;
 }

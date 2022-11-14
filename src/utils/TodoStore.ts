@@ -1,4 +1,5 @@
 import { EditData } from "../redux/features/todosSlice";
+import activateAllTodos from "../redux/todoActions/activateAllTodos";
 import clearTodos from "../redux/todoActions/clearTodos";
 import createTodo from "../redux/todoActions/createTodo";
 import editTodo from "../redux/todoActions/editTodo";
@@ -68,6 +69,12 @@ class TodoStore {
     let itemsAfterFinishSome = finishSomeTodos(todos, identifiers);
     TodoStore.set(itemsAfterFinishSome);
     return itemsAfterFinishSome;
+  }
+
+  public static activateAll(todos: TodoProps[]) {
+        let itemsAfterActivateAll = activateAllTodos(todos);
+        TodoStore.set(itemsAfterActivateAll);
+        return itemsAfterActivateAll;
   }
 
   public static selectAll(
