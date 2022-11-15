@@ -21,7 +21,7 @@ export default function TodoItemDescription({
   const click = () => {
     ref.current.style.display = isExpanded ? "-webkit-box" : "initial";
     setIsExpanded(!isExpanded);
-  };
+  };  
 
   return (
     <>
@@ -32,7 +32,7 @@ export default function TodoItemDescription({
             ref={ref}
             dangerouslySetInnerHTML={HTMLDescriptionObject}
           />
-          {description!.split(/\r\n|\r|\n/).length <= 1 && (
+          {description!.includes("<div>") && (
             <label
               className="text-gray-500 underline cursor-pointer hover:opacity-80 text-right self-end text-sm"
               onClick={click}
