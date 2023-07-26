@@ -8,10 +8,11 @@ export interface TodoEditable {
   priority?: Priority;
   isFinished?: boolean;
   isSelected?: boolean;
+  categoryId?: number | null;
 }
 
 export default interface TodoProps extends TodoEditable {
-  id?: number;
+  id: number;
   date: DateString;
   nodeRef?: any;
 }

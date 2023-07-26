@@ -1,5 +1,6 @@
-import { EditData } from "../redux/features/todosSlice";
+import { EditData, ItemIds_CategoryId } from "../redux/features/todosSlice";
 import activateAllTodos from "../redux/todoActions/activateAllTodos";
+import addCategorySomeTodos from "../redux/todoActions/addCategorySomeTodos";
 import clearTodos from "../redux/todoActions/clearTodos";
 import createTodo from "../redux/todoActions/createTodo";
 import editTodo from "../redux/todoActions/editTodo";
@@ -72,9 +73,21 @@ class TodoStore {
   }
 
   public static activateAll(todos: TodoProps[]) {
-        let itemsAfterActivateAll = activateAllTodos(todos);
-        TodoStore.set(itemsAfterActivateAll);
-        return itemsAfterActivateAll;
+    let itemsAfterActivateAll = activateAllTodos(todos);
+    TodoStore.set(itemsAfterActivateAll);
+    return itemsAfterActivateAll;
+  }
+
+  public static addCategorySome(
+    todos: TodoProps[],
+    itemIds_categoryId: ItemIds_CategoryId
+  ) {
+    let itemsAfterAddCategorySome = addCategorySomeTodos(
+      todos,
+      itemIds_categoryId
+    );
+    TodoStore.set(itemsAfterAddCategorySome);
+    return itemsAfterAddCategorySome;
   }
 
   public static selectAll(

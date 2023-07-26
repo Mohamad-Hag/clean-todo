@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "../../redux/features/formSlice";
 import { selectTodos } from "../../redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
-import TodoItemPriorityFlag from "./TodoItemPriorityFlag";
+import TodoItemTitle from "./TodoItemTitle";
 
 interface TodoItemInfo {
   id: number;
@@ -47,10 +47,7 @@ function TodoItemInfo({ id }: TodoItemInfo) {
       borderRadius="md"
     >
       <Stack spacing="-0.5">
-        <div className="text-xl font-semibold toolbar-item-info-title flex items-center gap-3">
-          <TodoItemPriorityFlag priority={priority!} />
-          <h1>{title}</h1>
-        </div>
+        <TodoItemTitle id={id} />
         <TodoItemDescription description={description} />
       </Stack>
       <label className="text-xs text-gray-400">{date}</label>

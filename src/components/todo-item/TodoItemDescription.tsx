@@ -1,6 +1,5 @@
 import Autolinker from "autolinker";
 import { useRef, useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
 
 interface TodoItemDescriptionProps {
   description?: string;

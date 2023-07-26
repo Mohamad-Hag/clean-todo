@@ -11,7 +11,7 @@ function createTodo(todos: TodoProps[], todo: TodoData) {
 }
 
 const todoDataToProps = (todo: TodoData): TodoProps => ({
-  id: todo.id,
+  id: todo.id!,
   date: todo.createdAt,
   isSelected: false,
   title: todo.title,

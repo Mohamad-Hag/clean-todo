@@ -17,8 +17,7 @@ export default function TodoCreator({}: TodoCreatorProps) {
     <Modal
       isOpen={!!form.isOpen}
       onClose={onClose}
-      size="lg"
-      closeOnOverlayClick={false}
+      size="lg"    
     >
       <ModalOverlay />
       <ModalContent m={2}>

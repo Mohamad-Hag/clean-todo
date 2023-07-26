@@ -1,31 +1,24 @@
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSidebarIsActiveArray,
+  update,
+} from "../../../redux/features/sidebarIsActiveArraySlice";
 import { selectSidebar } from "../../../redux/features/sidebarSlice";
 import { ScrollbarThinStyle } from "../../../utils/styles/ScrollbarStyles";
 import SidebarButton from "./SidebarButton";
+import SidebarCategoriesContainer from "./categories/SidebarCategoriesContainer";
 import sidebarButtons from "./sidebarButtons";
 
 export default function SidebarBody() {
   const { status } = useSelector(selectSidebar);
   const display = (value: string) => (status === "shown" ? value : "none");
-  const { pathname } = useLocation();
-  let index = sidebarButtons.findIndex((button) => button.to === pathname);
 
-  const initialize = () =>
-    Array(sidebarButtons.length)
-      .fill(false)
-      .map((_, i) => i === index);
-
-  const [isActiveArray, setIsActiveArray] = useState<boolean[]>(initialize());
+  const isActiveArray = useSelector(selectSidebarIsActiveArray);
+  const d = useDispatch();
 
   const select = (index: number) => {
-    let activeArray = [...isActiveArray];
-    let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-    activeArray[activeBackgroundIndex] = false;
-    activeArray[index] = true;
-    setIsActiveArray(activeArray);
+    d(update(index));
   };
 
   return (
@@ -44,6 +37,7 @@ export default function SidebarBody() {
           to={button.to}
         />
       ))}
+      <SidebarCategoriesContainer />
     </Box>
   );
 }

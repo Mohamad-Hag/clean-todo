@@ -6,6 +6,8 @@ interface NoDataProps {
   title?: React.ReactNode;
   description?: React.ReactNode;
   icon?: React.ReactNode;
+  textColor?: string;
+  iconColor?: string;
 }
 
 let initialDescription =
@@ -14,7 +16,9 @@ let initialDescription =
 function NoData({
   title = "Nothing to Show!",
   description = initialDescription,
-  icon = <BiCloud className="fill-blue-500" size={45} />,
+  iconColor = "#3b82f6",
+  icon = <BiCloud fill={iconColor} size={45} />,
+  textColor,
 }: NoDataProps) {
   return (
     <Flex
@@ -22,7 +26,8 @@ function NoData({
       align="center"
       direction="column"
       justify="center"
-      className="text-center text-gray-500 p-5 select-none"
+      className={`text-center text-gray-500 p-5 select-none`}
+      color={textColor}
     >
       {icon}
       <Stack spacing="0.5">

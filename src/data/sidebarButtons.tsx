@@ -1,5 +1,5 @@
-import { URLString } from "./SidebarButton";
-import { BiCheck, BiListUl, BiStar, BiWindow, BiWindows } from "react-icons/bi";
+import { BiCheck, BiListUl, BiStar } from "react-icons/bi";
+import { URLString } from "../components/layout/sidebar/SidebarButton";
 
 interface SidebarButton {
   to: URLString;
@@ -21,8 +21,8 @@ const sidebarButtons: SidebarButton[] = [
   {
     title: "Finished Todos",
     to: "/finished",
-    icon: <BiCheck />,  
-  }
+    icon: <BiCheck />,
+  },
 ];
 
 export default sidebarButtons;

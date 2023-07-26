@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Badge, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import {
   activeStyle,
@@ -14,6 +14,7 @@ interface SidebarButtonProps {
   onSelect?: (index: number) => void;
   isActive?: boolean;
   to: URLString;
+  badgeText?: string;
 }
 
 export default function SidebarButton({
@@ -22,6 +23,7 @@ export default function SidebarButton({
   title,
   to,
   onSelect,
+  badgeText,
   isActive = false,
 }: SidebarButtonProps) {
   const select = () => {
@@ -30,8 +32,8 @@ export default function SidebarButton({
 
   return (
     <Link to={to}>
-      <Button
-        className="w-full text-left pl-5 text-white"
+      <Button colorScheme="red"
+        className="w-full text-left pl-5 text-white flex items-center gap-2"
         borderRadius="0 2em 2em 0"
         fontWeight="normal"
         leftIcon={icon}
@@ -43,7 +45,8 @@ export default function SidebarButton({
         _active={activeStyle}
         onClick={select}
       >
-        {title}
+        <label>{title}</label>
+        {badgeText && <Badge>{badgeText}</Badge>}
       </Button>
     </Link>
   );
