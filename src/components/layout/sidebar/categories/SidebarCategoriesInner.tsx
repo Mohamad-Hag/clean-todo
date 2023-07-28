@@ -29,7 +29,7 @@ export default function SidebarCategoriesInner() {
             title={category.title!}
             icon={category.icon!}
             index={sidebarButtons.length + i}
-            to={`category-${category.id}`}
+            to={`/categories/category-${category.id}`}
             isActive={isActiveArray[sidebarButtons.length + i]}
             onSelect={select}
           />

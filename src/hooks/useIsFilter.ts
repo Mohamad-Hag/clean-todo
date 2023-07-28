@@ -5,6 +5,7 @@ import getCategoryIdByPath from "../utils/getCategoryIdByPath";
 
 const useIsFilter = () => {
   const { pathname } = useLocation();
+  console.log(pathname);
 
   const isFilter = (todo: TodoProps) =>
     pathname === "/active"

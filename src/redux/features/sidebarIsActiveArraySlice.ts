@@ -1,11 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
+import initializeIsActiveArray from "../../utils/initializeIsActiveArray";
 import updateArray from "../sidebarIsActiveArrayActions/updateArray";
-import sidebarButtons from "../../data/sidebarButtons";
+import type { RootState } from "../store";
 
-const initialState: boolean[] = Array(sidebarButtons.length + 2)
-  .fill(false)
-  .map((_, i) => (i === 0 ? true : false));
+const initialState: boolean[] = initializeIsActiveArray();
 
 export const sidebarIsActiveArraySlice = createSlice({
   name: "sidebarIsActiveArray",
@@ -15,7 +13,7 @@ export const sidebarIsActiveArraySlice = createSlice({
       updateArray(state, action.payload),
   },
 });
-
+    
 export const { update } = sidebarIsActiveArraySlice.actions;
 
 export const selectSidebarIsActiveArray = (state: RootState) =>

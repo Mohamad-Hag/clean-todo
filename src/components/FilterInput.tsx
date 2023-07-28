@@ -11,6 +11,8 @@ import { BiFilterAlt } from "react-icons/bi";
 import useKeyboardShortcut, { Modifier } from "../hooks/useKeyboardShortcut";
 import TodoProps from "../utils/interfaces/common/Todo";
 import isInclude from "../utils/isInclude";
+import { useSelector } from "react-redux";
+import { selectCategories } from "../redux/features/categorySlice";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -24,6 +26,7 @@ export default function FilterInput({
   const inputRef = useRef<HTMLInputElement>(null!);
   const filterKey = { key: "/", code: 191 };
   const filterModifierKey: Modifier = "Ctrl";
+  const categories = useSelector(selectCategories);
 
   useKeyboardShortcut(() => inputRef.current.focus(), filterKey.code, "Ctrl");
 
@@ -32,15 +35,19 @@ export default function FilterInput({
     onFilterDone(getFilteredTodos(criteria), criteria);
   };
 
-  const getFilterCondition = (todo: TodoProps, criteria: string) => {
+  const isFilterConditionSatisfied = (todo: TodoProps, criteria: string) => {
     let isMatchTitle = isInclude(todo.title!, criteria);
     let isMatchDescription = isInclude(todo.description!, criteria);
+    let isMatchCategoryTitle = isInclude(
+      categories.find((category) => category.id === todo.categoryId)?.title!,
+      criteria
+    );
     return isMatchTitle || isMatchDescription;
   };
 
   const getFilteredTodos = (criteria: string) => {
     let filtered = filterData.filter((todo) =>
-      getFilterCondition(todo, criteria)
+      isFilterConditionSatisfied(todo, criteria)
     );
     return filtered;
   };
