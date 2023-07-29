@@ -1,6 +1,7 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { close, selectForm } from "../../redux/features/formSlice";
+import labels from "../../data/json/ui-labels.json";
 
 interface TodoCreatorFooterProps {
   title: string;
@@ -17,7 +18,7 @@ export default function TodoCreatorFooter({ title }: TodoCreatorFooterProps) {
   return (
     <Flex justify="flex-end" gap="1">
       <Button variant="solid" onClick={close_}>
-        Close
+        {labels.close}
       </Button>
       <Button
         variant="solid"

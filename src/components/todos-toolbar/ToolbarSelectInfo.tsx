@@ -16,6 +16,7 @@ import {
 } from "../../redux/features/todosSlice";
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
+import labels from "../../data/json/ui-labels.json";
 
 export default function ToolbarSelectInfo() {
   const todos = useSelector(selectTodos);
@@ -25,7 +26,7 @@ export default function ToolbarSelectInfo() {
   const d = useDispatch();
 
   const removeAllAlert = () => {
-    d(setTitle("Remove All"));
+    d(setTitle(labels.removeAll));
     d(disableOkButton());
     d(
       setDescription(<RemoveSelectedAlertDescription selections={selections} />)
@@ -49,7 +50,7 @@ export default function ToolbarSelectInfo() {
       <Flex gap="3" direction="row" align="center">
         <Stack spacing="1" direction="row">
           <SmallIconButton
-            label="Remove"
+            label={labels.remove}
             variant="solid"
             icon={<BiTrash />}
             color="red"
@@ -57,12 +58,12 @@ export default function ToolbarSelectInfo() {
           />
           <SmallIconButton
             variant="solid"
-            label="Finish"
+            label={labels.finish}
             icon={<BiCheck />}
             onClick={finishAll}
           />
         </Stack>
-        <label>{selections.length + " Selected | "}</label>
+        <label>{selections.length + " " + labels.selected + " | "}</label>
       </Flex>
     </ScaleFade>
   );

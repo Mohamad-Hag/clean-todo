@@ -9,14 +9,15 @@ import {
 } from "../../../redux/features/alertSlice";
 import { clear } from "../../../redux/features/todosSlice";
 import ToolbarAction from "../ToolbarAction";
+import labels from "../../../data/json/ui-labels.json";
 
 export default function ToolbarClearAction() {
   const d = useDispatch();
 
   const clearAllAlert = () => {
     d(open());
-    d(setTitle("Clear All"));
-    d(setDescription("Are you sure you want to clear all items?"));
+    d(setTitle(labels.clearAll));
+    d(setDescription(labels.sureClearAllItems));
     d(setOnOk(clearAll));
   };
 
@@ -28,7 +29,7 @@ export default function ToolbarClearAction() {
   return (
     <ToolbarAction
       icon={<BiTrash />}
-      title="Clear All"
+      title={labels.clearAll}
       onAction={clearAllAlert}
     />
   );

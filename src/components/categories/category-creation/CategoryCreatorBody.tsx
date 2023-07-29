@@ -13,6 +13,7 @@ import {
   setTitle,
 } from "../../../redux/features/categoryFormSlice";
 import CategoryCreatorIcons from "./CategoryCreatorIcons";
+import labels from "../../../data/json/ui-labels.json";
 
 interface TodoCreatorBodyProps {}
 
@@ -45,17 +46,17 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   return (
     <Stack spacing="3">
       <FormControl>
-        <FormLabel>Title</FormLabel>
+        <FormLabel>{labels.title}</FormLabel>
         <Input
           ref={titleRef}
           value={form.title}
           onChange={titleChanged}
           maxLength={20}
         />
-        <FormHelperText>Max allowed charachrers is 10</FormHelperText>
+        <FormHelperText>{labels.maxAllowedChars10}</FormHelperText>
       </FormControl>
       <FormControl>
-        <FormLabel>Icon</FormLabel>
+        <FormLabel>{labels.icon}</FormLabel>
         <CategoryCreatorIcons onSelect={iconChanged} icon={form.icon!} />
       </FormControl>
     </Stack>

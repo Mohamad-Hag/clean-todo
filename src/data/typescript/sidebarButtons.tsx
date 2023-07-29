@@ -1,5 +1,5 @@
 import { BiCheck, BiListUl, BiStar } from "react-icons/bi";
-import { URLString } from "../components/layout/sidebar/SidebarButton";
+import { URLString } from "../../components/layout/sidebar/SidebarButton";
 
 interface SidebarButton {
   to: URLString;

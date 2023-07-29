@@ -1,4 +1,4 @@
-import defaultCategoryIcon from "../../data/defaultCategoryIcon";
+import defaultCategoryIcon from "../../data/typescript/defaultCategoryIcon";
 import { CategoryForm } from "../features/categoryFormSlice";
 
 export function closeCategoryForm(form: CategoryForm) {

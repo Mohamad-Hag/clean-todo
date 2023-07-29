@@ -4,6 +4,7 @@ import {
   close,
   selectCategoryForm,
 } from "../../../redux/features/categoryFormSlice";
+import labels from "../../../data/json/ui-labels.json";
 
 interface TodoCreatorFooterProps {
   title: string;
@@ -22,7 +23,7 @@ export default function CategoryCreatorFooter({
   return (
     <Flex justify="flex-end" gap="1">
       <Button variant="solid" onClick={close_}>
-        Close
+        {labels.close}
       </Button>
       <Button
         variant="solid"

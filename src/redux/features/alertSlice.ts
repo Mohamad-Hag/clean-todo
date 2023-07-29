@@ -3,12 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import React from "react";
 import { AlertProps } from "../../components/common/Alert";
 import type { RootState } from "../store";
+import labels from "../../data/json/ui-labels.json";
 
 export type FormMode = "create" | "edit";
 
 const initialState: AlertProps = {
-  title: "Title",
-  description: "Description",
+  title: labels.title,
+  description: labels.description,
   isOpen: false,
   isOkButtonDisabled: false,
 };
@@ -44,7 +45,7 @@ export const alertSlice = createSlice({
       state.onClose = action.payload;
     },
     enableOkButton: (state) => {
-        state.isOkButtonDisabled = false;
+      state.isOkButtonDisabled = false;
     },
     disableOkButton: (state) => {
       state.isOkButtonDisabled = true;

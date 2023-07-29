@@ -1,7 +1,7 @@
-import Categories from "./Categories";
+import  Categories from "./Categories";
 import CategoryCreator from "./category-creation/CategoryCreator";
 
-export default function CategoriesContainer() {
+export default function   CategoriesContainer() {
   return (
     <>
       <CategoryCreator />

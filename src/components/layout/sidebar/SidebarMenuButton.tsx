@@ -9,12 +9,14 @@ import {
   activeStyle,
   hoverStyle,
 } from "../../../utils/styles/SidebarButtonStyles";
+import labels from "../../../data/json/ui-labels.json";
 
 export default function SidebarMenuButton() {
   const { status } = useSelector(selectSidebar);
   const d = useDispatch();
 
-  const label = (status === "shown" ? "Hide" : "Show") + " Sidebar";
+  const label =
+    (status === "shown" ? labels.hide : labels.show) + " " + labels.sidebar;
   const icon =
     status === "shown" ? (
       <FaArrowLeft color="white" />

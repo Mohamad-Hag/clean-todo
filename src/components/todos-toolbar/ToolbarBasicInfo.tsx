@@ -1,4 +1,5 @@
 import { ToolbarProps } from "./Toolbar";
+import labels from "../../data/json/ui-labels.json";
 
 interface ToolbarBasicInfoProps extends ToolbarProps {}
 
@@ -10,8 +11,8 @@ export default function ToolbarBasicInfo({
 
   return (
     <span className="opacity-80">
-      {isFilterMode ? "Results " : "Total "}
-      <b>{todos.length}</b> / Finished <b>{finishedCount}</b>
+      {isFilterMode ? `${labels.results} ` : `${labels.total} `}
+      <b>{todos.length}</b> / {labels.finished} <b>{finishedCount}</b>
     </span>
   );
 }

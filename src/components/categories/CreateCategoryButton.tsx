@@ -5,6 +5,7 @@ import { open, setMode } from "../../redux/features/categoryFormSlice";
 import useKeyboardShortcut, {
   Modifier,
 } from "../../hooks/useKeyboardShortcut";
+import labels from "../../data/json/ui-labels.json";
 
 export default function CreateCategoryButton() {
   const d = useDispatch();
@@ -26,7 +27,7 @@ export default function CreateCategoryButton() {
       rightIcon={<BiPlus />}
       onClick={create}
     >
-      Create Category
+      {labels.createCategory}
     </Button>
   );
 }

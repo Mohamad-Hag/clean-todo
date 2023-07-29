@@ -4,6 +4,7 @@ import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
 import { create, edit } from "../../../redux/features/categorySlice";
 import CategoryCreatorBody from "./CategoryCreatorBody";
 import CategoryCreatorFooter from "./CategoryCreatorFooter";
+import labels from "../../../data/json/ui-labels.json";
 
 interface CategoryCreatorFormProps {
   closeCallback: () => void;
@@ -13,7 +14,7 @@ export default function CategoryCreatorForm({
   closeCallback,
 }: CategoryCreatorFormProps) {
   const form = useSelector(selectCategoryForm);
-  const formTitle = form.mode === "create" ? "Create" : "Edit";
+  const formTitle = form.mode === "create" ? labels.create : labels.edit;
   const d = useDispatch();
 
   const editCategory = () => {

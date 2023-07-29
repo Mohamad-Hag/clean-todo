@@ -2,6 +2,7 @@ import { BiCheckDouble } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { finishAll } from "../../../redux/features/todosSlice";
 import ToolbarAction from "../ToolbarAction";
+import labels from "../../../data/json/ui-labels.json";
 
 export default function ToolbarFinishAllAction() {
   const d = useDispatch();
@@ -13,7 +14,7 @@ export default function ToolbarFinishAllAction() {
   return (
     <ToolbarAction
       icon={<BiCheckDouble />}
-      title="Finish All"
+      title={labels.finishAll}
       onAction={finish}
     />
   );

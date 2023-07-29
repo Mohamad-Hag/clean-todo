@@ -12,6 +12,7 @@ import { update } from "../../redux/features/sidebarIsActiveArraySlice";
 import { addCategorySome, selectTodos } from "../../redux/features/todosSlice";
 import Category from "../../utils/interfaces/common/Category";
 import CategoryControl from "./CategoryControl";
+import labels from "../../data/json/ui-labels.json";
 
 interface RemoveCategoryContainerProps {
   category: Category;
@@ -26,12 +27,8 @@ export default function RemoveCategoryContainer({
 
   const removeCategoryAlert = () => {
     d(open());
-    d(setTitle("Remove Category"));
-    d(
-      setDescription(
-        `Are you sure you want to remove /${category.title}/ category? This will effect the related todos.`
-      )
-    );
+    d(setTitle(labels.removeCategory));
+    d(setDescription(labels.sureRemoveCategory));
     d(setOnOk(remove_));
   };
 

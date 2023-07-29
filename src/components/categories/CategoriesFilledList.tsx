@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { default as ICategory } from "../../utils/interfaces/common/Category";
-import sidebarButtons from "../../data/sidebarButtons";
+import sidebarButtons from "../../data/typescript/sidebarButtons";
 import Category from "./Category";
 import {
   selectSidebarIsActiveArray,

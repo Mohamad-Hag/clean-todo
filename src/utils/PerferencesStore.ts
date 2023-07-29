@@ -1,11 +1,11 @@
+import bgs from "../assets/bgs";
 import { Perferences } from "../redux/features/perferencesSlice";
 import changeBackground from "../redux/perferencesActions.ts/changeBackground";
-import bg0 from "../assets/bg0.jpg";
 
 class PerferencesStore {
   public static storage = localStorage;
   private static initialPerferences: Perferences = {
-    background: bg0,
+    background: bgs[0],
   };
 
   private static set(value: Perferences) {
@@ -13,7 +13,7 @@ class PerferencesStore {
   }
 
   public static get(): Perferences {
-    if (!this.storage.getItem("perferences")) this.set(this.initialPerferences);    
+    if (!this.storage.getItem("perferences")) this.set(this.initialPerferences);
     return JSON.parse(this.storage.getItem("perferences") as string);
   }
 

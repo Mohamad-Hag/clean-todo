@@ -11,6 +11,7 @@ import {
 import { BiAlarmExclamation } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { close } from "../../redux/features/alertSlice";
+import labels from "../../data/json/ui-labels.json";
 
 export interface AlertProps {
   title: string;
@@ -54,14 +55,14 @@ export default function Alert({
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>
         <ModalFooter className="flex items-center justify-end gap-2">
-          <Button onClick={closed}>Cancel</Button>
+          <Button onClick={closed}>{labels.cancel}</Button>
           <Button
             variant="solid"
             colorScheme="blue"
             onClick={onOk}
             disabled={isOkButtonDisabled}
           >
-            Ok
+            {labels.ok}
           </Button>
         </ModalFooter>
       </ModalContent>

@@ -1,5 +1,6 @@
 import { URLString } from "./SidebarButton";
 import { BiCheck, BiListUl, BiStar, BiWindow, BiWindows } from "react-icons/bi";
+import labels from "../../../data/json/ui-labels.json";
 
 interface SidebarButton {
   to: URLString;
@@ -9,17 +10,17 @@ interface SidebarButton {
 
 const sidebarButtons: SidebarButton[] = [
   {
-    title: "All Todos",
+    title: labels.allTodos,
     to: "/",
     icon: <BiListUl />,
   },
   {
-    title: "Active Todos",
+    title: labels.activeTodos,
     to: "/active",
     icon: <BiStar />,
   },
   {
-    title: "Finished Todos",
+    title: labels.finishedTodos,
     to: "/finished",
     icon: <BiCheck />,  
   }
