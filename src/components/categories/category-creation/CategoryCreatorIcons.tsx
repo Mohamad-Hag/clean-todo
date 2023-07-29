@@ -1,6 +1,7 @@
 import { IconButton, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import categoryIcons from "../../../data/typescript/categoryIcons";
+import useIsActiveArray from "../../../hooks/useIsActiveArray";
 
 interface CategoryCreatorIconsProps {
   onSelect: (icon: string) => void;
@@ -11,19 +12,15 @@ export default function CategoryCreatorIcons({
   icon,
   onSelect,
 }: CategoryCreatorIconsProps) {
-  const initialize = () =>
-    Array(categoryIcons.length)
-      .fill(false)
-      .map((_, index) => categoryIcons[index].title === icon);
+  const length = categoryIcons.length;
+  const initialIndex = categoryIcons.findIndex(
+    (categoryIcon) => categoryIcon.title === icon
+  );
 
-  const [isActiveArray, setIsActiveArray] = useState<boolean[]>(initialize());
+  const [isActiveArray, activate] = useIsActiveArray(length, initialIndex);
 
   const select = (index: number) => {
-    let activeArray = [...isActiveArray];
-    let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-    activeArray[activeBackgroundIndex] = false;
-    activeArray[index] = true;
-    setIsActiveArray(activeArray);
+    activate(index);
     if (onSelect) onSelect(categoryIcons[index].title);
   };
 

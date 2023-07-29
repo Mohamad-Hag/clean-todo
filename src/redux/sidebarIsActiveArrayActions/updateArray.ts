@@ -1,9 +1,7 @@
+import updateIsActiveArray from "../../utils/updateIsActiveArray";
+
 function updateArray(sidebarIsActiveArray: boolean[], index: number) {
-  let activeArray = [...sidebarIsActiveArray];
-  let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-  activeArray[activeBackgroundIndex] = false;
-  activeArray[index] = true;
-  return activeArray;
+  return updateIsActiveArray(sidebarIsActiveArray, index);
 }
 
 export default updateArray;

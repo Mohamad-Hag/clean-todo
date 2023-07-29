@@ -1,26 +1,15 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import bgs from "../../assets/bgs";
+import useIsActiveArray from "../../hooks/useIsActiveArray";
 import { selectPerferences } from "../../redux/features/perferencesSlice";
 import Background from "./Background";
 
 export default function BackgroundsPanel() {
   const perferences = useSelector(selectPerferences);
-  let index = bgs.findIndex((bg) => bg === perferences.background);
-  const initialize = () =>
-    Array(bgs.length)
-      .fill(false)
-      .map((_, i) => i === index);
+  const length = bgs.length;
+  const initialIndex = bgs.findIndex((bg) => bg === perferences.background);
 
-  const [isActiveArray, setIsActiveArray] = useState<boolean[]>(initialize());
-
-  const select = (index: number) => {
-    let activeArray = [...isActiveArray];
-    let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-    activeArray[activeBackgroundIndex] = false;
-    activeArray[index] = true;
-    setIsActiveArray(activeArray);
-  };
+  const [isActiveArray, activate] = useIsActiveArray(length, initialIndex);
 
   return (
     <div className="grid grid-cols-3 gap-4">
@@ -29,7 +18,7 @@ export default function BackgroundsPanel() {
           index={index}
           source={bgs[index]}
           isActive={isActive}
-          onSelect={select}
+          onSelect={activate}
         />
       ))}
     </div>

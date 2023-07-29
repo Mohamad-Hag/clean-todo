@@ -1,7 +1,5 @@
 import { Stack } from "@chakra-ui/react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectForm } from "../../redux/features/formSlice";
+import useIsActiveArray from "../../hooks/useIsActiveArray";
 import Priority, { priorityArray } from "../../utils/types/Priority";
 import TodoCreatorPriorityButton from "./TodoCreatorPriorityButton";
 
@@ -14,19 +12,13 @@ export default function TodoCreatorPriorityButtons({
   priority,
   onSelect,
 }: TodoCreatorPriorityButtonsProps) {
-  const initialize = () =>
-    Array(priorityArray.length)
-      .fill(false)
-      .map((_, i) => priority === priorityArray[i]);
+  const length = priorityArray.length;
+  const initialIndex = priorityArray.findIndex((prirty) => prirty === priority);
 
-  const [isActiveArray, setIsActiveArray] = useState<boolean[]>(initialize());
+  const [isActiveArray, activate] = useIsActiveArray(length, initialIndex);
 
   const select = (index: number) => {
-    let activeArray = [...isActiveArray];
-    let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-    activeArray[activeBackgroundIndex] = false;
-    activeArray[index] = true;
-    setIsActiveArray(activeArray);
+    activate(index);
     if (onSelect) onSelect(priorityArray[index]);
   };
 
