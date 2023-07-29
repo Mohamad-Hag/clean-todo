@@ -1,7 +1,7 @@
 import { Stack } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategoryForm } from "../../../../../redux/features/categoryFormSlice";
-import { create, edit } from "../../../../../redux/features/categorySlice";
+import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
+import { create, edit } from "../../../redux/features/categorySlice";
 import CategoryCreatorBody from "./CategoryCreatorBody";
 import CategoryCreatorFooter from "./CategoryCreatorFooter";
 

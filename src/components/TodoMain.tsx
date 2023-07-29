@@ -7,12 +7,13 @@ import Layout from "./layout/Layout";
 import Sidebar from "./layout/sidebar/Sidebar";
 import TodoCreateButton from "./todo-creation/TodoCreateButton";
 import TodoCreator from "./todo-creation/TodoCreator";
+import isEmpty from "../utils/isEmpty";
 
 export default function TodoMain() {
   const todos = useFilteredTodos();
   const [filteredTodos, setFilteredTodos] = useState<TodoProps[]>(todos);
   const [filterQuery, setFilterQuery] = useState<string>("");
-  const isFilterQueryEmpty = filterQuery === "";
+  const isFilterQueryEmpty = isEmpty(filterQuery);
   const finalTodos = !isFilterQueryEmpty ? filteredTodos : todos;
 
   const filterDone = (filtered: TodoProps[], currentQuery: string) => {
@@ -22,7 +23,7 @@ export default function TodoMain() {
 
   return (
     <Layout>
-      <Header filterData={finalTodos} onFilterDone={filterDone} />
+      <Header filterData={todos} onFilterDone={filterDone} />
       <Sidebar />
       <TodosContainer todos={finalTodos} isFilterMode={!isFilterQueryEmpty} />
       <TodoCreateButton />

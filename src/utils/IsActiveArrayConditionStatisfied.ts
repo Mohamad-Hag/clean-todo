@@ -14,7 +14,6 @@ function IsActiveArrayConditionStatisfied(index: number): boolean {
       (category) => category.id === categoryId
     );
     let categoryIndexInArray = categoryIndex + sidebarButtonsLength;
-    console.log(categoryIndex, categoryIndexInArray);
     return index === categoryIndexInArray;
   } else {
     let sidebarButtonIndex = sidebarButtons.findIndex(

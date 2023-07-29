@@ -1,19 +1,19 @@
 import { Accordion, AccordionItem, AccordionPanel } from "@chakra-ui/react";
-import SidebarCategoriesButton from "./SidebarCategoriesButton";
-import CreateCategoryButton from "./CreateCategoryButton";
-import SidebarCategoriesInner from "./SidebarCategoriesInner";
+import { WithMultipleChildren } from "../../utils/interfaces/WithChildren";
+import CategoriesButton from "./CategoriesButton";
 
-export default function SidebarCategories() {
+export default function CategoriesWrapper({
+  children,
+}: WithMultipleChildren) {
   return (
     <Accordion allowMultiple>
       <AccordionItem className="border-none">
-        <SidebarCategoriesButton title="Categories" />
+        <CategoriesButton title="Categories" />
         <AccordionPanel
           className="ml-4 mr-6 rounded-md flex flex-col"
           style={{ backgroundColor: "#00000020" }}
         >
-          <CreateCategoryButton />
-          <SidebarCategoriesInner />
+          {children}
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

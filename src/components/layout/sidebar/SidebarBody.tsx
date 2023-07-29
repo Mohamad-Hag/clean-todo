@@ -7,7 +7,7 @@ import {
 import { selectSidebar } from "../../../redux/features/sidebarSlice";
 import { ScrollbarThinStyle } from "../../../utils/styles/ScrollbarStyles";
 import SidebarButton from "./SidebarButton";
-import SidebarCategoriesContainer from "./categories/SidebarCategoriesContainer";
+import SidebarCategoriesContainer from "../../categories/CategoriesContainer";
 import sidebarButtons from "./sidebarButtons";
 
 export default function SidebarBody() {

@@ -4,8 +4,8 @@ import {
   close,
   select,
   selectCategorySelector,
-} from "../../../../../redux/features/categorySelectorSlice";
-import { edit } from "../../../../../redux/features/todosSlice";
+} from "../../../redux/features/categorySelectorSlice";
+import { edit } from "../../../redux/features/todosSlice";
 
 interface CategorySelectorFooterProps {
   isButtonsDisabled: boolean;

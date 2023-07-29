@@ -6,7 +6,7 @@ interface EditCategoryButtonProps {
   onClick: () => void;
 }
 
-export default function SidebarCategoryControl({
+export default function CategoryControl({
   type,
   onClick,
 }: EditCategoryButtonProps) {

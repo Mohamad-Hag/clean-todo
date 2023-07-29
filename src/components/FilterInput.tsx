@@ -38,11 +38,14 @@ export default function FilterInput({
   const isFilterConditionSatisfied = (todo: TodoProps, criteria: string) => {
     let isMatchTitle = isInclude(todo.title!, criteria);
     let isMatchDescription = isInclude(todo.description!, criteria);
-    let isMatchCategoryTitle = isInclude(
-      categories.find((category) => category.id === todo.categoryId)?.title!,
-      criteria
-    );
-    return isMatchTitle || isMatchDescription;
+    let isMatchCategoryTitle = false;
+    if (todo.categoryId)
+      isMatchCategoryTitle = isInclude(
+        categories.find((category) => category.id === todo.categoryId)?.title!,
+        criteria
+      );
+
+    return isMatchTitle || isMatchDescription || isMatchCategoryTitle;
   };
 
   const getFilteredTodos = (criteria: string) => {

@@ -1,7 +1,7 @@
 import { Modal, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategoryForm } from "../../../../../redux/features/categoryFormSlice";
-import { close } from "../../../../../redux/features/categoryFormSlice";
+import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
+import { close } from "../../../redux/features/categoryFormSlice";
 import CategoryCreatorContent from "./CategoryCreatorContent";
 
 export default function CategoryCreator() {

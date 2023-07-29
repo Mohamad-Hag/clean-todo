@@ -14,7 +14,7 @@ export interface EditData {
 }
 
 export interface ItemIds_CategoryId {
-  categoryId: number;
+  categoryId?: number;
   itemIds: number[];
 }
 

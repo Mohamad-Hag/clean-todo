@@ -2,16 +2,16 @@ import { AccordionButton, AccordionIcon, Box, Button } from "@chakra-ui/react";
 import {
   activeStyle,
   hoverStyle,
-} from "../../../../utils/styles/SidebarButtonStyles";
+} from "../../utils/styles/SidebarButtonStyles";
 import { BiCategory } from "react-icons/bi";
 
-interface SidebarCategoriesButtonProps {
+interface CategoriesButtonProps {
   title: string;
 }
 
-export default function SidebarCategoriesButton({
+export default function CategoriesButton({
   title,
-}: SidebarCategoriesButtonProps) {
+}: CategoriesButtonProps) {
   return (
     <AccordionButton
       className="w-full text-left pl-5 text-white"

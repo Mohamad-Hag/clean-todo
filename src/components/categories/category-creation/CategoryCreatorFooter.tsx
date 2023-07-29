@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   close,
   selectCategoryForm,
-} from "../../../../../redux/features/categoryFormSlice";
+} from "../../../redux/features/categoryFormSlice";
 
 interface TodoCreatorFooterProps {
   title: string;

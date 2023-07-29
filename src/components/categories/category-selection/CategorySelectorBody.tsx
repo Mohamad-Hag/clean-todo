@@ -1,10 +1,10 @@
 import { Button, ModalBody } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
-import { change, selectCategorySelector } from "../../../../../redux/features/categorySelectorSlice";
-import { selectCategories } from "../../../../../redux/features/categorySlice";
+import { change, selectCategorySelector } from "../../../redux/features/categorySelectorSlice";
+import { selectCategories } from "../../../redux/features/categorySlice";
 import { useDispatch } from "react-redux";
-import getCategoryIconByTitle from "../../../../../utils/getCategoryIconByTitle";
+import getCategoryIconByTitle from "../../../utils/getCategoryIconByTitle";
 
 interface CategorySelectorBodyProps {
     isActiveArray: boolean[];

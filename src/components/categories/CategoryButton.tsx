@@ -1,15 +1,16 @@
 import { Badge, Button, Flex } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectTodos } from "../../../../redux/features/todosSlice";
-import getCategoryIconByTitle from "../../../../utils/getCategoryIconByTitle";
 import {
   activeStyle,
   hoverStyle,
-} from "../../../../utils/styles/SidebarButtonStyles";
-import { URLString } from "../SidebarButton";
+} from "../../utils/styles/SidebarButtonStyles";
+import { URLString } from "../layout/sidebar/SidebarButton";
+import getCategoryIconByTitle from "../../utils/getCategoryIconByTitle";
+import { selectTodos } from "../../redux/features/todosSlice";
+import CategoryButtonContent from "./CategoryButtonContent";
 
-export interface SidebarCategoryButtonProps {
+export interface CategoryButtonProps {
   id: number;
   icon: string;
   title: string;
@@ -19,7 +20,7 @@ export interface SidebarCategoryButtonProps {
   index: number;
 }
 
-export default function SidebarCategoryButton({
+export default function CategoryButton({
   id,
   icon,
   title,
@@ -27,14 +28,10 @@ export default function SidebarCategoryButton({
   isActive = false,
   onSelect,
   index,
-}: SidebarCategoryButtonProps) {
+}: CategoryButtonProps) {
   const categoryIcon = getCategoryIconByTitle(icon);
   const background = isActive ? "blue.100" : "transparent";
   const color = isActive ? "black" : "white";
-  const todos = useSelector(selectTodos);
-  const todosCountPerCategory = todos.filter(
-    (todo) => todo.categoryId === id
-  ).length;
 
   const select = () => {
     if (onSelect) onSelect(index);
@@ -55,26 +52,7 @@ export default function SidebarCategoryButton({
         _active={activeStyle}
         onClick={select}
       >
-        <Flex align="center" gap={2} maxW="92.7px">
-          <label
-            style={{
-              textOverflow: "ellipsis",              
-              overflow: "hidden",
-              display: "block",
-            }}
-            title={title}
-          >
-            {title}
-          </label>
-          <Badge
-            fontSize="xs"
-            variant="solid"
-            colorScheme="blue"
-            fontWeight="normal"
-          >
-            {todosCountPerCategory}
-          </Badge>
-        </Flex>
+        <CategoryButtonContent id={id} title={title} />
       </Button>
     </Link>
   );

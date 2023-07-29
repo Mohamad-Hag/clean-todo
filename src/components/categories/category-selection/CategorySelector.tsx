@@ -1,11 +1,11 @@
 import { Modal, ModalOverlay } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCategorySelector } from "../../../../../redux/features/categorySelectorSlice";
-import { selectCategories } from "../../../../../redux/features/categorySlice";
+import { selectCategorySelector } from "../../../redux/features/categorySelectorSlice";
+import { selectCategories } from "../../../redux/features/categorySlice";
 import CategorySelectorContent from "./CategorySelectorContent";
 import { useDispatch } from "react-redux";
-import { close } from "../../../../../redux/features/categorySelectorSlice";
+import { close } from "../../../redux/features/categorySelectorSlice";
 
 export default function CategorySelector() {
   const categories = useSelector(selectCategories);

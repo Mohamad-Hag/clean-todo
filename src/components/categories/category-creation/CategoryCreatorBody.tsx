@@ -11,7 +11,7 @@ import {
   selectCategoryForm,
   setIcon,
   setTitle,
-} from "../../../../../redux/features/categoryFormSlice";
+} from "../../../redux/features/categoryFormSlice";
 import CategoryCreatorIcons from "./CategoryCreatorIcons";
 
 interface TodoCreatorBodyProps {}

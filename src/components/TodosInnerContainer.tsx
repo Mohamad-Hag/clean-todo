@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NoData from "./common/NoData";
 import TodoItem from "./todo-item/TodoItem";
 import { TodosContainerProps } from "./TodosContainer";
+import isEmpty from "../utils/isEmpty";
 
 interface TodosInnerContainerProps extends TodosContainerProps {}
 
@@ -10,7 +11,7 @@ export default function TodosInnerContainer({
   todos,
   isFilterMode,
 }: TodosInnerContainerProps) {
-  const isTodosEmpty = todos.length === 0;
+  const isTodosEmpty = isEmpty(todos);
   const noDataProps = isFilterMode
     ? {
         title: "No Results",

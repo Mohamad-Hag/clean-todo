@@ -1,10 +1,10 @@
 import { Button } from "@chakra-ui/react";
 import { BiPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { open, setMode } from "../../../../redux/features/categoryFormSlice";
+import { open, setMode } from "../../redux/features/categoryFormSlice";
 import useKeyboardShortcut, {
   Modifier,
-} from "../../../../hooks/useKeyboardShortcut";
+} from "../../hooks/useKeyboardShortcut";
 
 export default function CreateCategoryButton() {
   const d = useDispatch();

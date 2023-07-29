@@ -1,7 +1,7 @@
 import { ModalHeader } from "@chakra-ui/react";
 import { BiPlus, BiPencil } from "react-icons/bi";
 import { useSelector } from "react-redux";
-import { selectCategoryForm } from "../../../../../redux/features/categoryFormSlice";
+import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
 
 export default function CategoryCreatorHeader() {
   const form = useSelector(selectCategoryForm);

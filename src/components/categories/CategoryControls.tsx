@@ -1,15 +1,15 @@
 import { Flex } from "@chakra-ui/react";
 import EditCategoryContainer from "./EditCategoryContainer";
 import RemoveCategoryContainer from "./RemoveCategoryContainer";
-import Category from "../../../../utils/interfaces/common/Category";
+import Category from "../../utils/interfaces/common/Category";
 
-interface SidebarCategoryControlsProps {
+interface CategoryControlsProps {
   category: Category;
 }
 
-export default function SidebarCategoryControls({
+export default function CategoryControls({
   category,
-}: SidebarCategoryControlsProps) {
+}: CategoryControlsProps) {
   return (
     <Flex align="center" gap="1">
       <EditCategoryContainer category={category} />

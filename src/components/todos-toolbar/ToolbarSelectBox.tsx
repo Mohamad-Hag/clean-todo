@@ -5,6 +5,7 @@ import useIsFilter from "../../hooks/useIsFilter";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { selectAll } from "../../redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
+import isEmpty from "../../utils/isEmpty";
 
 export default function ToolbarSelectBox({
   isFilterMode,
@@ -14,7 +15,7 @@ export default function ToolbarSelectBox({
   let isAllSelected =
     todos.length > 0 ? todos.every((todo) => todo.isSelected) : false;
   const d = useDispatch();
-  let isSelectBoxDisabled = isFilterMode || todos.length === 0;
+  let isSelectBoxDisabled = isFilterMode || isEmpty(todos);
 
   const selectAllTodos = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isFilterMode) return;
@@ -34,7 +35,7 @@ export default function ToolbarSelectBox({
     <Checkbox
       isChecked={isAllSelected}
       onChange={selectAllTodos}
-      disabled={isSelectBoxDisabled}      
+      disabled={isSelectBoxDisabled}
     />
   );
 }

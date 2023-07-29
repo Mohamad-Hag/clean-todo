@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { openAsEdit } from "../../../../redux/features/categoryFormSlice";
-import Category from "../../../../utils/interfaces/common/Category";
-import SidebarCategoryControl from "./SidebarCategoryControl";
+import { openAsEdit } from "../../redux/features/categoryFormSlice";
+import Category from "../../utils/interfaces/common/Category";
+import CategoryControl from "./CategoryControl";
 
 interface EditCategoryContainerProps {
   category: Category;
@@ -22,5 +22,5 @@ export default function EditCategoryContainer({
     );
   };
 
-  return <SidebarCategoryControl type="edit" onClick={edit} />;
+  return <CategoryControl type="edit" onClick={edit} />;
 }
