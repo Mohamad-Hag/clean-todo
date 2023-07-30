@@ -10,7 +10,7 @@ export default function TodoItemPriorityFlag({
   priority,
 }: TodoItemPriorityFlagProps) {
   const color =
-    priority === "law" ? "blue" : priority === "medium" ? "green" : "red";
+    priority === "low" ? "blue" : priority === "medium" ? "green" : "red";
 
   return (
     <Tooltip label={priority} hasArrow>

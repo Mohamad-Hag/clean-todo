@@ -1,18 +1,19 @@
 import { Box } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectSidebarIsActiveArray,
-  update,
-} from "../../../redux/features/sidebarIsActiveArraySlice";
+import
+  {
+    selectSidebarIsActiveArray,
+    update,
+  } from "../../../redux/features/sidebarIsActiveArraySlice";
 import { selectSidebar } from "../../../redux/features/sidebarSlice";
 import { ScrollbarThinStyle } from "../../../utils/styles/ScrollbarStyles";
-import SidebarButton from "./SidebarButton";
 import SidebarCategoriesContainer from "../../categories/CategoriesContainer";
-import sidebarButtons from "./sidebarButtons";
+import SidebarButton from "./SidebarButton";
+import sidebarButtons from "../../../data/typescript/sidebarButtons";
 
 export default function SidebarBody() {
   const { status } = useSelector(selectSidebar);
-  const display = (value: string) => (status === "shown" ? value : "none");
+  const display = (value: string) => (status === "shown" ? value : "none");  
 
   const isActiveArray = useSelector(selectSidebarIsActiveArray);
   const d = useDispatch();

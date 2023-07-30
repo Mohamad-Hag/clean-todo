@@ -9,6 +9,8 @@ import { URLString } from "../layout/sidebar/SidebarButton";
 import getCategoryIconByTitle from "../../utils/getCategoryIconByTitle";
 import { selectTodos } from "../../redux/features/todosSlice";
 import CategoryButtonContent from "./CategoryButtonContent";
+import { useDispatch } from "react-redux";
+import { openAsEdit } from "../../redux/features/categoryFormSlice";
 
 export interface CategoryButtonProps {
   id: number;
@@ -32,6 +34,17 @@ export default function CategoryButton({
   const categoryIcon = getCategoryIconByTitle(icon);
   const background = isActive ? "blue.100" : "transparent";
   const color = isActive ? "black" : "white";
+  const d = useDispatch();
+
+  const edit = () => {
+    d(
+      openAsEdit({
+        id: id,
+        title: title,
+        icon: icon,
+      })
+    );
+  };
 
   const select = () => {
     if (onSelect) onSelect(index);
@@ -51,6 +64,7 @@ export default function CategoryButton({
         _hover={hoverStyle}
         _active={activeStyle}
         onClick={select}
+        onDoubleClick={edit}
       >
         <CategoryButtonContent id={id} title={title} />
       </Button>

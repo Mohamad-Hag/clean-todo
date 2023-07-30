@@ -35,5 +35,13 @@
     "hide": "Hide",
     "show": "Show",
     "sidebar": "Sidebar",
-    "ok": "Ok"
+    "ok": "Ok",
+    "nothingToShow": "Nothing to Show!",
+    "clickOnButtonToCreateTodo": "Click on (+) button in the bottom-right corner to create new todo.",
+    "low": "Low",
+    "high": "High",
+    "medium": "Medium",
+    "mobileNotSupported": "Mobile Not Supported",
+    "cleanTodoNotSupported": "Unfortunately, Clean Todo is not supported for mobile devices",
+    "notSupportedYet": "Not Supported Yet!" 
 }

@@ -11,6 +11,12 @@ const useIsFilter = () => {
       ? !todo.isFinished!
       : pathname === "/finished"
       ? todo.isFinished!
+      : pathname === "/high"
+      ? todo.priority === "high"
+      : pathname === "/medium"
+      ? todo.priority === "medium"
+      : pathname === "/low"
+      ? todo.priority === "low"
       : isCategoryPath(pathname)
       ? todo.categoryId === getCategoryIdByPath(pathname)
       : true;

@@ -1,6 +1,7 @@
 import { Flex, Stack } from "@chakra-ui/react";
 import React, { memo } from "react";
 import { BiCloud } from "react-icons/bi";
+import labels from "../../data/json/ui-labels.json";
 
 interface NoDataProps {
   title?: React.ReactNode;
@@ -10,11 +11,10 @@ interface NoDataProps {
   iconColor?: string;
 }
 
-let initialDescription =
-  "Click on (+) button in the bottom-right corner to create new todo.";
+let initialDescription = labels.clickOnButtonToCreateTodo;
 
 function NoData({
-  title = "Nothing to Show!",
+  title = labels.nothingToShow,
   description = initialDescription,
   iconColor = "#3b82f6",
   icon = <BiCloud fill={iconColor} size={45} />,

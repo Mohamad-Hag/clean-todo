@@ -13,7 +13,7 @@ function openFormAs(form: Form, mode?: FormMode, updatedForm?: Form) {
   form.id = mode === "edit" ? updatedForm?.id : form.id;
   form.title = mode === "edit" ? title : "";
   form.description = mode === "edit" ? description : "";
-  form.priority = mode === "edit" ? priority : "law";
+  form.priority = mode === "edit" ? priority : "low";
 }
 
 export default openFormAs;

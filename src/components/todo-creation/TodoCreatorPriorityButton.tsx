@@ -12,12 +12,12 @@ interface TodoCreatorPriorityButtonProps {
 
 export default function TodoCreatorPriorityButton({
   index,
-  priority = "law",
+  priority = "low",
   isActive = false,
   onSelect,
 }: TodoCreatorPriorityButtonProps) {
   const color =
-    priority === "law" ? "blue" : priority === "medium" ? "green" : "red";
+    priority === "low" ? "blue" : priority === "medium" ? "green" : "red";
   const flagColor = isActive ? "white" : color;
 
   const buttonVariant = isActive ? "solid" : "ghost";

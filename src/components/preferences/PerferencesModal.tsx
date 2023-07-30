@@ -1,18 +1,21 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import BackgroundsPanel from "./BackgroundsPanel";
+import BackgroundsPanel from "./panels/backgrounds-panel/BackgroundsPanel";
+import ThemePanel from "./panels/theme-panel/ThemePanel";
 
 export default function PerferencesModal() {
   return (
-    <Tabs>
+    <Tabs animation="none">
       <TabList>
-        <Tab>Background</Tab>
         <Tab>Theme</Tab>
+        <Tab>Background</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
+          <ThemePanel />
+        </TabPanel>
+        <TabPanel>
           <BackgroundsPanel />
         </TabPanel>
-        <TabPanel>Not Supported Yet!</TabPanel>
       </TabPanels>
     </Tabs>
   );

@@ -46,7 +46,7 @@ const categoryIcons: CategoryIcon[] = [
   {
     title: "alarm",
     icon: <BiAlarm />,
-  },
+  }
 ];
 
 export default categoryIcons;
