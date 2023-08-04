@@ -1,5 +1,5 @@
 import { ToolbarProps } from "./Toolbar";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface ToolbarBasicInfoProps extends ToolbarProps {}
 

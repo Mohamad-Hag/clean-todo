@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   close,
   selectCategoryForm,
-} from "../../../redux/features/categoryFormSlice";
-import labels from "../../../data/json/ui-labels.json";
+} from "redux/features/categoryFormSlice";
+import labels from "data/json/ui-labels.json";
 
 interface TodoCreatorFooterProps {
   title: string;

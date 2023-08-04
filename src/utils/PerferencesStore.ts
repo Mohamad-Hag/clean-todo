@@ -1,6 +1,6 @@
-import bgs from "../assets/bgs";
-import { Perferences } from "../redux/features/perferencesSlice";
-import changeBackground from "../redux/perferencesActions.ts/changeBackground";
+import bgs from "assets/bgs";
+import { Perferences } from "redux/features/perferencesSlice";
+import changeBackground from "redux/perferencesActions.ts/changeBackground";
 
 class PerferencesStore {
   public static storage = localStorage;

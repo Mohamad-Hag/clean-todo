@@ -1,6 +1,6 @@
 import { Stack } from "@chakra-ui/react";
-import useIsActiveArray from "../../hooks/useIsActiveArray";
-import Priority, { priorityArray } from "../../utils/types/Priority";
+import useIsActiveArray from "hooks/useIsActiveArray";
+import Priority, { priorityArray } from "utils/types/Priority";
 import TodoCreatorPriorityButton from "./TodoCreatorPriorityButton";
 
 interface TodoCreatorPriorityButtonsProps {

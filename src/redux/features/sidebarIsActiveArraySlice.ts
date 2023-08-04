@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import initializeIsActiveArray from "../../utils/initializeIsActiveArray";
+import initializeIsActiveArray from "utils/initializeIsActiveArray";
 import updateArray from "../sidebarIsActiveArrayActions/updateArray";
 import type { RootState } from "../store";
 
@@ -13,7 +13,7 @@ export const sidebarIsActiveArraySlice = createSlice({
       updateArray(state, action.payload),
   },
 });
-    
+
 export const { update } = sidebarIsActiveArraySlice.actions;
 
 export const selectSidebarIsActiveArray = (state: RootState) =>

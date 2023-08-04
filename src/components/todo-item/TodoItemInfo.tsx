@@ -1,8 +1,8 @@
 import { Stack } from "@chakra-ui/react";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { openAsEdit } from "../../redux/features/formSlice";
-import { selectTodos } from "../../redux/features/todosSlice";
+import { openAsEdit } from "redux/features/formSlice";
+import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
 import TodoItemTitle from "./TodoItemTitle";
 

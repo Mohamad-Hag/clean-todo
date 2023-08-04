@@ -1,16 +1,15 @@
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION 
-
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
+/////// UNDER CONSTRUCTION    /////// UNDER CONSTRUCTION
 
 import { useEffect, useRef, useState } from "react";
-import "../../styles/SelectionRectangle.css";
-import Point from "../../utils/interfaces/Point";
+import "styles/SelectionRectangle.css";
+import Point from "utils/interfaces/Point";
 
 export default function SelectionRectangle() {
   let ref = useRef<HTMLDivElement>(null!);

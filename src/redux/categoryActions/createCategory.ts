@@ -1,4 +1,4 @@
-import Category from "../../utils/interfaces/common/Category";
+import Category from "utils/interfaces/common/Category";
 
 function createCategory(categories: Category[], category: Category) {
   // Generating ID

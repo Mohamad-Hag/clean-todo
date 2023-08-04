@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { selectSidebar } from "../../../redux/features/sidebarSlice";
+import { selectSidebar } from "redux/features/sidebarSlice";
 import Logo from "../../Logo";
 
 export default function SidebarLogo() {

@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  open,
-  openWithSelectedId,
-} from "../redux/features/categorySelectorSlice";
-import { selectTodos } from "../redux/features/todosSlice";
+import { open, openWithSelectedId } from "redux/features/categorySelectorSlice";
+import { selectTodos } from "redux/features/todosSlice";
 
 const useAddToCategory = () => {
   const todos = useSelector(selectTodos);

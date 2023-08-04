@@ -1,10 +1,10 @@
 import { BiPencil } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { openAsEdit } from "../../redux/features/formSlice";
-import { selectTodos } from "../../redux/features/todosSlice";
+import { openAsEdit } from "redux/features/formSlice";
+import { selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function EditItemButton({ id }: TodoItemRightSideProps) {
   const todos = useSelector(selectTodos);

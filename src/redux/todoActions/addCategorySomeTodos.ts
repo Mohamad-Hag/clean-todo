@@ -1,4 +1,4 @@
-import TodoProps from "../../utils/interfaces/common/Todo";
+import TodoProps from "utils/interfaces/common/Todo";
 import { ItemIds_CategoryId } from "../features/todosSlice";
 
 function addCategorySomeTodos(

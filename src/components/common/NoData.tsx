@@ -1,7 +1,7 @@
 import { Flex, Stack } from "@chakra-ui/react";
 import React, { memo } from "react";
 import { BiCloud } from "react-icons/bi";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface NoDataProps {
   title?: React.ReactNode;

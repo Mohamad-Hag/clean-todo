@@ -1,6 +1,6 @@
 import { Badge, Flex, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { selectTodos } from "../../redux/features/todosSlice";
+import { selectTodos } from "redux/features/todosSlice";
 
 interface CategoryButtonContentProps {
   id: number;

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { WithMultipleChildren } from "../utils/interfaces/WithChildren";
+import { WithMultipleChildren } from "utils/interfaces/WithChildren";
 
 export default function Container({ children }: WithMultipleChildren) {
   return (

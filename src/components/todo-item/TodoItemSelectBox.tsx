@@ -1,7 +1,7 @@
 import { Checkbox } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { edit, selectTodos } from "../../redux/features/todosSlice";
+import { edit, selectTodos } from "redux/features/todosSlice";
 
 interface TodoItemSelectBoxProps {
   id: number;

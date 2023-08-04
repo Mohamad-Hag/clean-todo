@@ -4,9 +4,9 @@ import {
   close,
   select,
   selectCategorySelector,
-} from "../../../redux/features/categorySelectorSlice";
-import { edit } from "../../../redux/features/todosSlice";
-import labels from "../../../data/json/ui-labels.json";
+} from "redux/features/categorySelectorSlice";
+import { edit } from "redux/features/todosSlice";
+import labels from "data/json/ui-labels.json";
 
 interface CategorySelectorFooterProps {
   isButtonsDisabled: boolean;

@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { default as ICategory } from "../../utils/interfaces/common/Category";
+import { default as ICategory } from "utils/interfaces/common/Category";
 import CategoryButton, { CategoryButtonProps } from "./CategoryButton";
 import CategoryControls from "./CategoryControls";
 

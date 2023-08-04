@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { BiMobile } from "react-icons/bi";
 import NoData from "./NoData";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function MobileDeviceMessage() {
   return (

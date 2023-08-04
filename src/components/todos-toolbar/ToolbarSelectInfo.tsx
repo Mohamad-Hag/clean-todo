@@ -8,15 +8,15 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../../redux/features/alertSlice";
+} from "redux/features/alertSlice";
 import {
   finishSome,
   removeSome,
   selectTodos,
-} from "../../redux/features/todosSlice";
+} from "redux/features/todosSlice";
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function ToolbarSelectInfo() {
   const todos = useSelector(selectTodos);

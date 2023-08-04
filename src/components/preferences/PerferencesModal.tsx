@@ -4,7 +4,7 @@ import ThemePanel from "./panels/theme-panel/ThemePanel";
 
 export default function PerferencesModal() {
   return (
-    <Tabs animation="none">
+    <Tabs>
       <TabList>
         <Tab>Theme</Tab>
         <Tab>Background</Tab>

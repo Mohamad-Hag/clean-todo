@@ -1,7 +1,7 @@
 import { Modal, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
-import { close } from "../../../redux/features/categoryFormSlice";
+import { selectCategoryForm } from "redux/features/categoryFormSlice";
+import { close } from "redux/features/categoryFormSlice";
 import CategoryCreatorContent from "./CategoryCreatorContent";
 
 export default function CategoryCreator() {
@@ -13,11 +13,7 @@ export default function CategoryCreator() {
   };
 
   return (
-    <Modal
-      isOpen={!!form.isOpen}
-      onClose={onClose}
-      size="lg"      
-    >
+    <Modal isOpen={!!form.isOpen} onClose={onClose} size="lg">
       <ModalOverlay />
       <ModalContent m={2}>
         <CategoryCreatorContent closeCallback={onClose} />

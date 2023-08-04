@@ -2,7 +2,7 @@ import { IconButton, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { ToolbarProps } from "./Toolbar";
 import toolbarActions from "./toolbar-actions/toolbarActions";
-import isEmpty from "../../utils/isEmpty";
+import isEmpty from "utils/isEmpty";
 
 export default function ToolbarActions({ isFilterMode, todos }: ToolbarProps) {
   const isActionsDisabled = isEmpty(todos) || isFilterMode;

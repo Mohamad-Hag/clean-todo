@@ -1,4 +1,4 @@
-import TodoProps, { TodoData } from "../../utils/interfaces/common/Todo";
+import TodoProps, { TodoData } from "utils/interfaces/common/Todo";
 
 function createTodo(todos: TodoProps[], todo: TodoData) {
   let newTodo = todoDataToProps(todo);

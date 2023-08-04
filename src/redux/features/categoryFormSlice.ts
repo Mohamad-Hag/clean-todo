@@ -4,7 +4,7 @@ import { closeCategoryForm } from "../categoryFormActions/closeCategoryForm";
 import openCategoryFormAs from "../categoryFormActions/openCategoryFormAs";
 import type { RootState } from "../store";
 import { FormMode } from "./formSlice";
-import defaultCategoryIcon from "../../data/typescript/defaultCategoryIcon";
+import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
 
 export interface CategoryForm {
   id?: number;

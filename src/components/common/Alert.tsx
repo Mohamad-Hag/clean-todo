@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { BiAlarmExclamation } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { close } from "../../redux/features/alertSlice";
-import labels from "../../data/json/ui-labels.json";
+import { close } from "redux/features/alertSlice";
+import labels from "data/json/ui-labels.json";
 
 export interface AlertProps {
   title: string;

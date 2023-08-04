@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectAlert } from "../../redux/features/alertSlice";
+import { selectAlert } from "redux/features/alertSlice";
 import Alert from "./Alert";
 
 export default function AppAlert() {

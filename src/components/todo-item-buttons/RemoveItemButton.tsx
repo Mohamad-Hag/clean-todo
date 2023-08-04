@@ -1,11 +1,11 @@
 import { useToast } from "@chakra-ui/react";
 import { BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { remove, selectTodos } from "../../redux/features/todosSlice";
+import { remove, selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
 import UndoToast from "../UndoToast";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function RemoveItemButton({
   id,

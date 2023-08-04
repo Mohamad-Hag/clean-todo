@@ -1,7 +1,6 @@
 import { IconButton, Stack } from "@chakra-ui/react";
-import { useState } from "react";
-import categoryIcons from "../../../data/typescript/categoryIcons";
-import useIsActiveArray from "../../../hooks/useIsActiveArray";
+import categoryIcons from "data/typescript/categoryIcons";
+import useIsActiveArray from "hooks/useIsActiveArray";
 
 interface CategoryCreatorIconsProps {
   onSelect: (icon: string) => void;

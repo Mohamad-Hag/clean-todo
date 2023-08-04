@@ -1,5 +1,5 @@
 import { useState } from "react";
-import updateIsActiveArray from "../utils/updateIsActiveArray";
+import updateIsActiveArray from "utils/updateIsActiveArray";
 
 const useIsActiveArray = (
   initialLength: number,

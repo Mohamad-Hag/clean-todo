@@ -6,10 +6,10 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../../../redux/features/alertSlice";
-import { clear } from "../../../redux/features/todosSlice";
+} from "redux/features/alertSlice";
+import { clear } from "redux/features/todosSlice";
 import ToolbarAction from "../ToolbarAction";
-import labels from "../../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function ToolbarClearAction() {
   const d = useDispatch();

@@ -1,4 +1,4 @@
-import TodoProps from "../../utils/interfaces/common/Todo";
+import TodoProps from "utils/interfaces/common/Todo";
 import { EditData } from "../features/todosSlice";
 
 function editTodo(todos: TodoProps[], editData: EditData): TodoProps[] {

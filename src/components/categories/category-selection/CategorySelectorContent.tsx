@@ -13,10 +13,10 @@ export default function CategorySelectorContent({
   onBodyChanged,
   isActiveArray,
 }: CategorySelectorContentProps) {
-  const isFooterButtonsDisabled = !isActiveArray.find((value) => value);  
+  const isFooterButtonsDisabled = !isActiveArray.find((value) => value);
 
   const close_ = () => {
-    if (onClose) onClose();    
+    if (onClose) onClose();
   };
 
   const bodyChanged = (isActiveArray: boolean[]) => {

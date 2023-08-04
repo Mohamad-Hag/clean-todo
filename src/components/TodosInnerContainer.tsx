@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NoData from "./common/NoData";
 import TodoItem from "./todo-item/TodoItem";
 import { TodosContainerProps } from "./TodosContainer";
-import isEmpty from "../utils/isEmpty";
+import isEmpty from "utils/isEmpty";
 
 interface TodosInnerContainerProps extends TodosContainerProps {}
 

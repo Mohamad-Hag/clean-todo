@@ -1,11 +1,11 @@
 import { Stack } from "@chakra-ui/react";
 import { createRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectForm } from "../../redux/features/formSlice";
-import { create, edit } from "../../redux/features/todosSlice";
+import { selectForm } from "redux/features/formSlice";
+import { create, edit } from "redux/features/todosSlice";
 import TodoCreatorBody from "./TodoCreatorBody";
 import TodoCreatorFooter from "./TodoCreatorFooter";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface TodoCreatorFormProps {
   closeCallback: () => void;

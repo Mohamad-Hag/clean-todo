@@ -1,7 +1,6 @@
 import { BiCheck } from "react-icons/bi";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { edit, selectTodos } from "../../redux/features/todosSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { edit, selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
 

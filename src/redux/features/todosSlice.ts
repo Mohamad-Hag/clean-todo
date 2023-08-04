@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import TodoProps, {
   TodoData,
   TodoEditable,
-} from "../../utils/interfaces/common/Todo";
-import TodoStore from "../../utils/TodoStore";
+} from "utils/interfaces/common/Todo";
+import TodoStore from "utils/TodoStore";
 import type { RootState } from "../store";
 import { WithConditionCallback } from "../todoActions/selectAllTodos";
 

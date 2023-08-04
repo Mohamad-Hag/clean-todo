@@ -1,7 +1,7 @@
-import createCategory from "../redux/categoryActions/createCategory";
-import editCategory from "../redux/categoryActions/editCategory";
-import removeCategory from "../redux/categoryActions/removeCategory";
-import { EditData } from "../redux/features/categorySlice";
+import createCategory from "redux/categoryActions/createCategory";
+import editCategory from "redux/categoryActions/editCategory";
+import removeCategory from "redux/categoryActions/removeCategory";
+import { EditData } from "redux/features/categorySlice";
 import Category from "./interfaces/common/Category";
 
 class CategoryStore {

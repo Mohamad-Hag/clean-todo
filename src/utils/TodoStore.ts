@@ -1,17 +1,17 @@
-import { EditData, ItemIds_CategoryId } from "../redux/features/todosSlice";
-import activateAllTodos from "../redux/todoActions/activateAllTodos";
-import addCategorySomeTodos from "../redux/todoActions/addCategorySomeTodos";
-import clearTodos from "../redux/todoActions/clearTodos";
-import createTodo from "../redux/todoActions/createTodo";
-import editTodo from "../redux/todoActions/editTodo";
-import finishAllTodos from "../redux/todoActions/finishAllTodos";
-import finishSomeTodos from "../redux/todoActions/finishSomeTodos";
-import removeFinishedTodos from "../redux/todoActions/removeFinishedTodos";
-import removeSomeTodos from "../redux/todoActions/removeSomeTodos";
-import removeTodo from "../redux/todoActions/removeTodo";
+import { EditData, ItemIds_CategoryId } from "redux/features/todosSlice";
+import activateAllTodos from "redux/todoActions/activateAllTodos";
+import addCategorySomeTodos from "redux/todoActions/addCategorySomeTodos";
+import clearTodos from "redux/todoActions/clearTodos";
+import createTodo from "redux/todoActions/createTodo";
+import editTodo from "redux/todoActions/editTodo";
+import finishAllTodos from "redux/todoActions/finishAllTodos";
+import finishSomeTodos from "redux/todoActions/finishSomeTodos";
+import removeFinishedTodos from "redux/todoActions/removeFinishedTodos";
+import removeSomeTodos from "redux/todoActions/removeSomeTodos";
+import removeTodo from "redux/todoActions/removeTodo";
 import selectAllTodos, {
   WithConditionCallback,
-} from "../redux/todoActions/selectAllTodos";
+} from "redux/todoActions/selectAllTodos";
 import TodoProps, { TodoData } from "./interfaces/common/Todo";
 
 class TodoStore {

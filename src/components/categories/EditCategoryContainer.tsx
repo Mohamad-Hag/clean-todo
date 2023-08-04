@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { openAsEdit } from "../../redux/features/categoryFormSlice";
-import Category from "../../utils/interfaces/common/Category";
+import { openAsEdit } from "redux/features/categoryFormSlice";
+import Category from "utils/interfaces/common/Category";
 import CategoryControl from "./CategoryControl";
 
 interface EditCategoryContainerProps {

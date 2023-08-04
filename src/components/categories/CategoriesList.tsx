@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectCategories } from "../../redux/features/categorySlice";
-import isEmpty from "../../utils/isEmpty";
+import { selectCategories } from "redux/features/categorySlice";
+import isEmpty from "utils/isEmpty";
 import CategoriesEmptyList from "./CategoriesEmptyList";
 import CategoriesFilledList from "./CategoriesFilledList";
 

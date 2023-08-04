@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { WithMultipleChildren } from "../../utils/interfaces/WithChildren";
+import { WithMultipleChildren } from "utils/interfaces/WithChildren";
 import HeaderContainer from "./HeaderContainer";
 import MainContainer from "./MainContainer";
 import SidebarContainer from "./SidebarContainer";

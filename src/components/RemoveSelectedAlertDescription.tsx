@@ -5,9 +5,9 @@ import {
   disableOkButton,
   enableOkButton,
   selectAlert,
-} from "../redux/features/alertSlice";
-import isReachBottom from "../utils/interfaces/common/isReachBottom";
-import TodoProps from "../utils/interfaces/common/Todo";
+} from "redux/features/alertSlice";
+import isReachBottom from "utils/interfaces/common/isReachBottom";
+import TodoProps from "utils/interfaces/common/Todo";
 
 interface RemoveSelectedAlertDescriptionProps {
   selections: TodoProps[];

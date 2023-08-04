@@ -1,7 +1,7 @@
 import TodoItemPriorityFlag from "./TodoItemPriorityFlag";
 import TodoItemCategoryBadge from "./TodoItemCategoryBadge";
 import { useSelector } from "react-redux";
-import { selectTodos } from "../../redux/features/todosSlice";
+import { selectTodos } from "redux/features/todosSlice";
 
 interface TodoItemTitleProps {
   id: number;

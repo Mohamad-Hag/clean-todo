@@ -1,35 +1,39 @@
 import { Button, ModalBody } from "@chakra-ui/react";
-import React from "react";
-import { useSelector } from "react-redux";
-import { change, selectCategorySelector } from "../../../redux/features/categorySelectorSlice";
-import { selectCategories } from "../../../redux/features/categorySlice";
-import { useDispatch } from "react-redux";
-import getCategoryIconByTitle from "../../../utils/getCategoryIconByTitle";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  change,
+  selectCategorySelector,
+} from "redux/features/categorySelectorSlice";
+import { selectCategories } from "redux/features/categorySlice";
+import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
 
 interface CategorySelectorBodyProps {
-    isActiveArray: boolean[];
-    onChange: (isActiveArray: boolean[]) => void;
-} 
+  isActiveArray: boolean[];
+  onChange: (isActiveArray: boolean[]) => void;
+}
 
-export default function CategorySelectorBody({ isActiveArray, onChange }: CategorySelectorBodyProps) {
+export default function CategorySelectorBody({
+  isActiveArray,
+  onChange,
+}: CategorySelectorBodyProps) {
   const categories = useSelector(selectCategories);
   const categorySelector = useSelector(selectCategorySelector);
   const d = useDispatch();
 
-    const change_ = (index: number, categoryId: number) => {
-      let activeArray = [...isActiveArray];
-      let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
-      activeArray[activeBackgroundIndex] = false;
-      activeArray[index] = true;
-      d(
-        change({
-          categoryId: categoryId,
-          itemId: categorySelector.ids?.itemId!,
-        })
-      );
+  const change_ = (index: number, categoryId: number) => {
+    let activeArray = [...isActiveArray];
+    let activeBackgroundIndex = activeArray.findIndex((isActive) => isActive);
+    activeArray[activeBackgroundIndex] = false;
+    activeArray[index] = true;
+    d(
+      change({
+        categoryId: categoryId,
+        itemId: categorySelector.ids?.itemId!,
+      })
+    );
 
-      if (onChange) onChange(activeArray);      
-    };
+    if (onChange) onChange(activeArray);
+  };
 
   return (
     <ModalBody>

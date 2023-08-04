@@ -1,7 +1,7 @@
 import { Accordion, AccordionItem, AccordionPanel } from "@chakra-ui/react";
-import { WithMultipleChildren } from "../../utils/interfaces/WithChildren";
+import { WithMultipleChildren } from "utils/interfaces/WithChildren";
 import CategoriesButton from "./CategoriesButton";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export default function CategoriesWrapper({ children }: WithMultipleChildren) {
   return (

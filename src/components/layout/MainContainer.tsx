@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { WithChildren } from "../../utils/interfaces/WithChildren";
-import { ScrollbarStyle } from "../../utils/styles/ScrollbarStyles";
+import { WithChildren } from "utils/interfaces/WithChildren";
+import { ScrollbarStyle } from "utils/styles/ScrollbarStyles";
 
 interface MainContainerProps extends WithChildren {
   headerHeight: string;

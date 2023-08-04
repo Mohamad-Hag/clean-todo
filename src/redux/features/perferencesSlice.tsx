@@ -1,6 +1,6 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import PerferencesStore from "../../utils/PerferencesStore";
+import PerferencesStore from "utils/PerferencesStore";
 import type { RootState } from "../store";
 
 export type PerferencesMode = "create" | "edit";

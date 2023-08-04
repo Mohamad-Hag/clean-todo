@@ -1,6 +1,6 @@
-import { Sidebar, SidebarStatus } from "../redux/features/sidebarSlice";
-import changeOppositeStatus from "../redux/sidebarActions/changeOppositeStatus";
-import changeStatus from "../redux/sidebarActions/changeStatus";
+import { Sidebar, SidebarStatus } from "redux/features/sidebarSlice";
+import changeOppositeStatus from "redux/sidebarActions/changeOppositeStatus";
+import changeStatus from "redux/sidebarActions/changeStatus";
 
 class SidebarStore {
   public static storage = localStorage;

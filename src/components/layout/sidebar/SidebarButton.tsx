@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   activeStyle,
   hoverStyle,
-} from "../../../utils/styles/SidebarButtonStyles";
+} from "utils/styles/SidebarButtonStyles";
 
 export type URLString = string;
 

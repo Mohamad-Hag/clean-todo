@@ -1,6 +1,6 @@
 import { Image } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { changeBackground } from "../../../../redux/features/perferencesSlice";
+import { changeBackground } from "redux/features/perferencesSlice";
 
 type SourceString = string;
 

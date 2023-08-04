@@ -5,7 +5,7 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../../redux/features/alertSlice";
+} from "redux/features/alertSlice";
 import PerferencesButton from "./PerferencesButton";
 import PerferencesModal from "./PerferencesModal";
 

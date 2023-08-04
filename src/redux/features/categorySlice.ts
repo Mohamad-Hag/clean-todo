@@ -1,9 +1,7 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import CategoryStore from "../../utils/CategoryStore";
-import Category, {
-  CategoryEditable,
-} from "../../utils/interfaces/common/Category";
+import CategoryStore from "utils/CategoryStore";
+import Category, { CategoryEditable } from "utils/interfaces/common/Category";
 import type { RootState } from "../store";
 
 export interface EditData {

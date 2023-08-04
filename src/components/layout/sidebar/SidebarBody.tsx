@@ -4,12 +4,12 @@ import
   {
     selectSidebarIsActiveArray,
     update,
-  } from "../../../redux/features/sidebarIsActiveArraySlice";
-import { selectSidebar } from "../../../redux/features/sidebarSlice";
-import { ScrollbarThinStyle } from "../../../utils/styles/ScrollbarStyles";
+  } from "redux/features/sidebarIsActiveArraySlice";
+import { selectSidebar } from "redux/features/sidebarSlice";
+import { ScrollbarThinStyle } from "utils/styles/ScrollbarStyles";
 import SidebarCategoriesContainer from "../../categories/CategoriesContainer";
 import SidebarButton from "./SidebarButton";
-import sidebarButtons from "../../../data/typescript/sidebarButtons";
+import sidebarButtons from "data/typescript/sidebarButtons";
 
 export default function SidebarBody() {
   const { status } = useSelector(selectSidebar);

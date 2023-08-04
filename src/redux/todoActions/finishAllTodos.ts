@@ -1,4 +1,4 @@
-import TodoProps from "../../utils/interfaces/common/Todo";
+import TodoProps from "utils/interfaces/common/Todo";
 
 function finishAllTodos(todos: TodoProps[]) {
   for (let todo of todos) todo.isFinished = true;

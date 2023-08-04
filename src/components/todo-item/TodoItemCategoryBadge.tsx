@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { selectTodos } from "../../redux/features/todosSlice";
-import { selectCategories } from "../../redux/features/categorySlice";
-import getCategoryIconByTitle from "../../utils/getCategoryIconByTitle";
+import { selectTodos } from "redux/features/todosSlice";
+import { selectCategories } from "redux/features/categorySlice";
+import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
 import { Badge } from "@chakra-ui/react";
 
 interface TodoItemCategoryBadge {

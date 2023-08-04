@@ -1,4 +1,4 @@
-import defaultCategoryIcon from "../../data/typescript/defaultCategoryIcon";
+import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
 import { CategoryForm } from "../features/categoryFormSlice";
 import { FormMode } from "../features/formSlice";
 

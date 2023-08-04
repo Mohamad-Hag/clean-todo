@@ -7,10 +7,10 @@ import {
   setDescription,
   setPriority,
   setTitle,
-} from "../../redux/features/formSlice";
-import Priority from "../../utils/types/Priority";
+} from "redux/features/formSlice";
+import Priority from "utils/types/Priority";
 import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface TodoCreatorBodyProps {}
 

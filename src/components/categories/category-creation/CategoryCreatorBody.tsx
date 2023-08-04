@@ -11,9 +11,9 @@ import {
   selectCategoryForm,
   setIcon,
   setTitle,
-} from "../../../redux/features/categoryFormSlice";
+} from "redux/features/categoryFormSlice";
 import CategoryCreatorIcons from "./CategoryCreatorIcons";
-import labels from "../../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface TodoCreatorBodyProps {}
 

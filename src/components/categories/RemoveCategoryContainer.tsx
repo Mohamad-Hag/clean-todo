@@ -6,13 +6,13 @@ import {
   setDescription,
   setOnOk,
   setTitle,
-} from "../../redux/features/alertSlice";
-import { remove } from "../../redux/features/categorySlice";
-import { update } from "../../redux/features/sidebarIsActiveArraySlice";
-import { addCategorySome, selectTodos } from "../../redux/features/todosSlice";
-import Category from "../../utils/interfaces/common/Category";
+} from "redux/features/alertSlice";
+import { remove } from "redux/features/categorySlice";
+import { update } from "redux/features/sidebarIsActiveArraySlice";
+import { addCategorySome, selectTodos } from "redux/features/todosSlice";
+import Category from "utils/interfaces/common/Category";
 import CategoryControl from "./CategoryControl";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface RemoveCategoryContainerProps {
   category: Category;

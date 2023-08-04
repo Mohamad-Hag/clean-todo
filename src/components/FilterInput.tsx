@@ -8,11 +8,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import { BiFilterAlt } from "react-icons/bi";
-import useKeyboardShortcut, { Modifier } from "../hooks/useKeyboardShortcut";
-import TodoProps from "../utils/interfaces/common/Todo";
-import isInclude from "../utils/isInclude";
+import useKeyboardShortcut, { Modifier } from "hooks/useKeyboardShortcut";
+import TodoProps from "utils/interfaces/common/Todo";
+import isInclude from "utils/isInclude";
 import { useSelector } from "react-redux";
-import { selectCategories } from "../redux/features/categorySlice";
+import { selectCategories } from "redux/features/categorySlice";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;

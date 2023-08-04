@@ -1,4 +1,4 @@
-import TodoProps from "../utils/interfaces/common/Todo";
+import TodoProps from "utils/interfaces/common/Todo";
 import Container from "./Container";
 import CategorySelector from "./categories/category-selection/CategorySelector";
 import Toolbar from "./todos-toolbar/Toolbar";

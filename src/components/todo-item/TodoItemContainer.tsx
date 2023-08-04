@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectTodos } from "../../redux/features/todosSlice";
-import { WithMultipleChildren } from "../../utils/interfaces/WithChildren";
+import { selectTodos } from "redux/features/todosSlice";
+import { WithMultipleChildren } from "utils/interfaces/WithChildren";
 
 interface TodoItemContainerProps extends WithMultipleChildren {
   id: number;

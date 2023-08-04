@@ -1,9 +1,9 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import React from "react";
-import { AlertProps } from "../../components/common/Alert";
+import { AlertProps } from "components/common/Alert";
 import type { RootState } from "../store";
-import labels from "../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 export type FormMode = "create" | "edit";
 

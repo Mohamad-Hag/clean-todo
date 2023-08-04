@@ -1,6 +1,6 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import Priority from "../../utils/types/Priority";
+import Priority from "utils/types/Priority";
 import closeForm from "../formActions/closeForm";
 import openFormAs from "../formActions/openFormAs";
 import type { RootState } from "../store";

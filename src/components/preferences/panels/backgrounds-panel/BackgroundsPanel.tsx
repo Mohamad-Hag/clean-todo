@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import bgs from "../../../../assets/bgs";
-import useIsActiveArray from "../../../../hooks/useIsActiveArray";
-import { selectPerferences } from "../../../../redux/features/perferencesSlice";
+import bgs from "assets/bgs";
+import useIsActiveArray from "hooks/useIsActiveArray";
+import { selectPerferences } from "redux/features/perferencesSlice";
 import Background from "./Background";
 
 export default function BackgroundsPanel() {

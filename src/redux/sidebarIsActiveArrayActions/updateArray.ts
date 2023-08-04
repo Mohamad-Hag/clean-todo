@@ -1,4 +1,4 @@
-import updateIsActiveArray from "../../utils/updateIsActiveArray";
+import updateIsActiveArray from "utils/updateIsActiveArray";
 
 function updateArray(sidebarIsActiveArray: boolean[], index: number) {
   return updateIsActiveArray(sidebarIsActiveArray, index);

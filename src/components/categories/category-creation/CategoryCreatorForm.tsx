@@ -1,10 +1,10 @@
 import { Stack } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategoryForm } from "../../../redux/features/categoryFormSlice";
-import { create, edit } from "../../../redux/features/categorySlice";
+import { selectCategoryForm } from "redux/features/categoryFormSlice";
+import { create, edit } from "redux/features/categorySlice";
 import CategoryCreatorBody from "./CategoryCreatorBody";
 import CategoryCreatorFooter from "./CategoryCreatorFooter";
-import labels from "../../../data/json/ui-labels.json";
+import labels from "data/json/ui-labels.json";
 
 interface CategoryCreatorFormProps {
   closeCallback: () => void;

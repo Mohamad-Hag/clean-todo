@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   changeOppositeStatus,
   selectSidebar,
-} from "../../../redux/features/sidebarSlice";
+} from "redux/features/sidebarSlice";
 import {
   activeStyle,
   hoverStyle,
-} from "../../../utils/styles/SidebarButtonStyles";
-import labels from "../../../data/json/ui-labels.json";
+} from "utils/styles/SidebarButtonStyles";
+import labels from "data/json/ui-labels.json";
 
 export default function SidebarMenuButton() {
   const { status } = useSelector(selectSidebar);

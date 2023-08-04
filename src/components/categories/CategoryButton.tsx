@@ -1,16 +1,15 @@
-import { Badge, Button, Flex } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import {
-  activeStyle,
-  hoverStyle,
-} from "../../utils/styles/SidebarButtonStyles";
-import { URLString } from "../layout/sidebar/SidebarButton";
-import getCategoryIconByTitle from "../../utils/getCategoryIconByTitle";
-import { selectTodos } from "../../redux/features/todosSlice";
-import CategoryButtonContent from "./CategoryButtonContent";
+import { Button } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { openAsEdit } from "../../redux/features/categoryFormSlice";
+import { Link } from "react-router-dom";
+import { openAsEdit } from "redux/features/categoryFormSlice";
+import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
+import
+  {
+    activeStyle,
+    hoverStyle,
+  } from "utils/styles/SidebarButtonStyles";
+import { URLString } from "components/layout/sidebar/SidebarButton";
+import CategoryButtonContent from "./CategoryButtonContent";
 
 export interface CategoryButtonProps {
   id: number;

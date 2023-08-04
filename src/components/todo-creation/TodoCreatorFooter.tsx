@@ -1,7 +1,7 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { close, selectForm } from "../../redux/features/formSlice";
-import labels from "../../data/json/ui-labels.json";
+import { close, selectForm } from "redux/features/formSlice";
+import labels from "data/json/ui-labels.json";
 
 interface TodoCreatorFooterProps {
   title: string;

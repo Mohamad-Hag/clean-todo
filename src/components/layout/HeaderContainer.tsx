@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { WithChildren } from "../../utils/interfaces/WithChildren";
+import { WithChildren } from "utils/interfaces/WithChildren";
 
 interface HeaderContainerProps extends WithChildren {    
     headerHeight: string;

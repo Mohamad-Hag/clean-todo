@@ -1,13 +1,13 @@
 import { useState } from "react";
-import useFilteredTodos from "../hooks/useFilteredTodos";
-import TodoProps from "../utils/interfaces/common/Todo";
+import useFilteredTodos from "hooks/useFilteredTodos";
+import TodoProps from "utils/interfaces/common/Todo";
 import TodosContainer from "./TodosContainer";
 import Header from "./layout/Header";
 import Layout from "./layout/Layout";
 import Sidebar from "./layout/sidebar/Sidebar";
 import TodoCreateButton from "./todo-creation/TodoCreateButton";
 import TodoCreator from "./todo-creation/TodoCreator";
-import isEmpty from "../utils/isEmpty";
+import isEmpty from "utils/isEmpty";
 
 export default function TodoMain() {
   const todos = useFilteredTodos();

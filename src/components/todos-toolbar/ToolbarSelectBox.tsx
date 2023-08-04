@@ -1,11 +1,11 @@
 import { Checkbox } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch } from "react-redux";
-import useIsFilter from "../../hooks/useIsFilter";
-import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
-import { selectAll } from "../../redux/features/todosSlice";
+import useIsFilter from "hooks/useIsFilter";
+import useKeyboardShortcut from "hooks/useKeyboardShortcut";
+import { selectAll } from "redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
-import isEmpty from "../../utils/isEmpty";
+import isEmpty from "utils/isEmpty";
 
 export default function ToolbarSelectBox({
   isFilterMode,

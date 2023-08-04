@@ -1,5 +1,5 @@
-import NoData from "../common/NoData";
-import labels from "../../data/json/ui-labels.json";
+import NoData from "components/common/NoData";
+import labels from "data/json/ui-labels.json";
 
 export default function CategoriesEmptyList() {
   return (

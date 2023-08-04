@@ -1,6 +1,6 @@
 import { Flex, Tooltip } from "@chakra-ui/react";
 import { BiFlag } from "react-icons/bi";
-import Priority from "../../utils/types/Priority";
+import Priority from "utils/types/Priority";
 
 interface TodoItemPriorityFlagProps {
   priority: Priority;

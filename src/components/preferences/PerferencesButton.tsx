@@ -1,9 +1,6 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
 import { GoSettings } from "react-icons/go";
-import {
-  activeStyle,
-  hoverStyle,
-} from "../../utils/styles/SidebarButtonStyles";
+import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 interface PerferencesButtonProps {
   onClick: () => void;

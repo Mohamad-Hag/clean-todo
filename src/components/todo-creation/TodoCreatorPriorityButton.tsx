@@ -1,6 +1,6 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
 import { BiFlag } from "react-icons/bi";
-import Priority from "../../utils/types/Priority";
+import Priority from "utils/types/Priority";
 import S from "string";
 
 interface TodoCreatorPriorityButtonProps {

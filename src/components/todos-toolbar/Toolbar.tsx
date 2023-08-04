@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import TodoProps from "../../utils/interfaces/common/Todo";
+import TodoProps from "utils/interfaces/common/Todo";
 import ToolbarLeftSide from "./ToolbarLeftSide";
 import ToolbarRightSide from "./ToolbarRightSide";
 
