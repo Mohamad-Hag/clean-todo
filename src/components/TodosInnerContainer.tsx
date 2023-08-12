@@ -14,9 +14,9 @@ export default function TodosInnerContainer({
   const isTodosEmpty = isEmpty(todos);
   const noDataProps = isFilterMode
     ? {
-        title: "No Results",
+        title: "No Search Results",
         icon: <BiSearch size={45} className="text-blue-500" />,
-        description: "Try another keyword.",
+        description: "Try different keywords.",
       }
     : undefined;
 

@@ -38,6 +38,7 @@ export default function FilterInput({
   const isFilterConditionSatisfied = (todo: TodoProps, criteria: string) => {
     let isMatchTitle = isInclude(todo.title!, criteria);
     let isMatchDescription = isInclude(todo.description!, criteria);
+    let isMatchDate = isInclude(todo.date, criteria);
     let isMatchCategoryTitle = false;
     if (todo.categoryId)
       isMatchCategoryTitle = isInclude(
@@ -45,7 +46,9 @@ export default function FilterInput({
         criteria
       );
 
-    return isMatchTitle || isMatchDescription || isMatchCategoryTitle;
+    return (
+      isMatchTitle || isMatchDescription || isMatchCategoryTitle || isMatchDate
+    );
   };
 
   const getFilteredTodos = (criteria: string) => {

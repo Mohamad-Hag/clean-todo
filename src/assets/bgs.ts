@@ -4,8 +4,6 @@ const extension = ".jpg";
 
 let bgs: string[] = [];
 
-console.log(bgs);
-
 function addToBgs() {
   for (let i = 0; i < bgsCount; i++) bgs.push(path + "bg" + i + extension);
 }
