@@ -33,6 +33,7 @@ export default function TodosInnerContainer({
           >
             <TodoItem
               ref={todo.nodeRef}
+              isInTrash={todo.isInTrash}
               isSelected={todo.isSelected}
               date={todo.date}
               id={todo.id}

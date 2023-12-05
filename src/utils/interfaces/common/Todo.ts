@@ -8,6 +8,7 @@ export interface TodoEditable {
   priority?: Priority;
   isFinished?: boolean;
   isSelected?: boolean;
+  isInTrash?: boolean;
   categoryId?: number | null;
 }
 

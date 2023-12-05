@@ -1,4 +1,5 @@
 import { Flex, ScaleFade, Stack } from "@chakra-ui/react";
+import labels from "data/json/ui-labels.json";
 import { BiCheck, BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,20 +10,24 @@ import {
   setOnOk,
   setTitle,
 } from "redux/features/alertSlice";
-import {
-  finishSome,
-  removeSome,
-  selectTodos,
-} from "redux/features/todosSlice";
+import { finishSome, removeSome, selectTodos } from "redux/features/todosSlice";
+import PageCheck from "utils/interfaces/common/PageCheck";
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
-import labels from "data/json/ui-labels.json";
 
-export default function ToolbarSelectInfo() {
+interface ToolbarSelectInfoProps extends PageCheck {}
+
+export default function ToolbarSelectInfo({
+  isTrashPage,
+}: ToolbarSelectInfoProps) {
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
-  const identifiers = selections.map((selection) => selection.id!);
+  const removeItems = selections.map((selection) => ({
+    id: selection.id,
+    isInTrash: selection.isInTrash,
+  }));
+  const identifiers = selections.map((selection) => selection.id);
   const d = useDispatch();
 
   const removeAllAlert = () => {
@@ -36,7 +41,7 @@ export default function ToolbarSelectInfo() {
   };
 
   const removeAll = () => {
-    d(removeSome(identifiers));
+    d(removeSome(removeItems));
     d(close());
   };
 
@@ -56,12 +61,14 @@ export default function ToolbarSelectInfo() {
             color="red"
             onClick={removeAllAlert}
           />
-          <SmallIconButton
-            variant="solid"
-            label={labels.finish}
-            icon={<BiCheck />}
-            onClick={finishAll}
-          />
+          {!isTrashPage && (
+            <SmallIconButton
+              variant="solid"
+              label={labels.finish}
+              icon={<BiCheck />}
+              onClick={finishAll}
+            />
+          )}
         </Stack>
         <label>{selections.length + " " + labels.selected + " | "}</label>
       </Flex>

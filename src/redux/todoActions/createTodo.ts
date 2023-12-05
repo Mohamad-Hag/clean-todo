@@ -17,6 +17,7 @@ const todoDataToProps = (todo: TodoData): TodoProps => ({
   title: todo.title,
   description: todo.description,
   priority: todo.priority,
+  isInTrash: false,
 });
 
 export default createTodo;

@@ -66,6 +66,7 @@ export default function FilterInput({
         </InputLeftElement>
         <Input
           ref={inputRef}
+          autoComplete="off"
           pr="90px"
           onChange={filter}
           variant="filled"

@@ -1,4 +1,4 @@
-import { BiCheck, BiFlag, BiListUl, BiStar } from "react-icons/bi";
+import { BiCheck, BiFlag, BiListUl, BiStar, BiTrash } from "react-icons/bi";
 import { URLString } from "components/layout/sidebar/SidebarButton";
 
 interface SidebarButton {
@@ -9,34 +9,24 @@ interface SidebarButton {
 
 const sidebarButtons: SidebarButton[] = [
   {
-    title: "All Todos",
+    title: "All",
     to: "/",
     icon: <BiListUl />,
   },
   {
-    title: "Active Todos",
+    title: "Active",
     to: "/active",
     icon: <BiStar />,
   },
   {
-    title: "Finished Todos",
+    title: "Finished",
     to: "/finished",
     icon: <BiCheck />,
   },
   {
-    title: "High Priority Todos",
-    to: "/high",
-    icon: <BiFlag />,
-  },
-  {
-    title: "Medium Priority Todos",
-    to: "/medium",
-    icon: <BiFlag />,
-  },
-  {
-    title: "Low Priority Todos",
-    to: "/low",
-    icon: <BiFlag />,
+    title: "Trash",
+    to: "/trash",
+    icon: <BiTrash />,
   },
 ];
 

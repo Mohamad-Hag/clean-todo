@@ -18,6 +18,11 @@ export interface ItemIds_CategoryId {
   itemIds: number[];
 }
 
+export interface RemoveItemPayload {
+  id: number;
+  isInTrash?: boolean;
+}
+
 const initialState: TodoProps[] = TodoStore.get();
 
 export const todosSlice = createSlice({
@@ -28,9 +33,9 @@ export const todosSlice = createSlice({
       TodoStore.create(state, action.payload),
     edit: (state, action: PayloadAction<EditData>) =>
       TodoStore.edit(state, action.payload),
-    remove: (state, action: PayloadAction<number>) =>
+    remove: (state, action: PayloadAction<RemoveItemPayload>) =>
       TodoStore.remove(state, action.payload),
-    removeSome: (state, action: PayloadAction<number[]>) =>
+    removeSome: (state, action: PayloadAction<RemoveItemPayload[]>) =>
       TodoStore.removeSome(state, action.payload),
     removeFinished: (state) => TodoStore.removeFinished(state),
     clear: (state) => TodoStore.clear(state),

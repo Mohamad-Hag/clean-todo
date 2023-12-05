@@ -1,0 +1,7 @@
+{
+    "allPathName": "/",
+    "activePathName": "/active",
+    "finishedPathName": "/finished",
+    "trashPathName": "/trash",
+    "categoriesPathName": "/categories"
+}

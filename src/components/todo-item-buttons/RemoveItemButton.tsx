@@ -1,11 +1,11 @@
 import { useToast } from "@chakra-ui/react";
+import labels from "data/json/ui-labels.json";
 import { BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { remove, selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
-import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
 import UndoToast from "../UndoToast";
-import labels from "data/json/ui-labels.json";
+import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
 
 export default function RemoveItemButton({
   id,
@@ -32,8 +32,14 @@ export default function RemoveItemButton({
           hideItemCallback!(false);
           toast.close(id!);
         }),
-      onCloseComplete: () => (!isUndo ? d(remove(id!)) : null),
+      onCloseComplete: () => {
+        toastCloseCompleted(isUndo);
+      },
     });
+  };
+
+  const toastCloseCompleted = (isUndo: boolean) => {
+    if (!isUndo) d(remove({ id: id, isInTrash: todo.isInTrash }));
   };
 
   return (

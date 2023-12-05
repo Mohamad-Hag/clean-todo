@@ -1,8 +1,9 @@
 import { Stack } from "@chakra-ui/react";
-import EditItemButton from "../todo-item-buttons/EditItemButton";
-import FinishItemButton from "../todo-item-buttons/FinishItemButton";
+import RestoreItemButton from "components/todo-item-buttons/RestoreItemButton";
+import { useSelector } from "react-redux";
+import { selectTodos } from "redux/features/todosSlice";
 import RemoveItemButton from "../todo-item-buttons/RemoveItemButton";
-import AddItemToCategoryButton from "../todo-item-buttons/AddItemToCategoryButton";
+import TodoItemNormalButtons from "./TodoItemNormalButtons";
 
 export interface TodoItemRightSideProps {
   id: number;
@@ -13,11 +14,17 @@ export default function TodoItemRightSide({
   id,
   hideItemCallback,
 }: TodoItemRightSideProps) {
+  const todos = useSelector(selectTodos);
+  const todo = todos.find((td) => td.id === id)!;
+  const isTodoInTrash = todo && !todo.isInTrash;
+
   return (
     <Stack direction="row">
-      <AddItemToCategoryButton id={id!} />
-      <FinishItemButton id={id!} />
-      <EditItemButton id={id!} />
+      {isTodoInTrash ? (
+        <TodoItemNormalButtons id={id!} />
+      ) : (
+        <RestoreItemButton id={id!} />
+      )}
       <RemoveItemButton id={id!} hideItemCallback={hideItemCallback} />
     </Stack>
   );

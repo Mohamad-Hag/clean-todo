@@ -4,8 +4,12 @@ import { ToolbarProps } from "./Toolbar";
 import toolbarActions from "./toolbar-actions/toolbarActions";
 import isEmpty from "utils/isEmpty";
 
-export default function ToolbarActions({ isFilterMode, todos }: ToolbarProps) {
-  const isActionsDisabled = isEmpty(todos) || isFilterMode;
+export default function ToolbarActions({
+  isFilterMode,
+  todos,
+  isTrashPage,
+}: ToolbarProps) {
+  const isActionsDisabled = isEmpty(todos) || isFilterMode || isTrashPage;
   const actions = toolbarActions.map((action, index) => (
     <p key={index}>{action}</p>
   ));

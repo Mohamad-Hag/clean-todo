@@ -34,7 +34,7 @@ function TodoItemInfo({ id }: TodoItemInfo) {
   return (
     <Stack
       spacing="1"
-      onDoubleClick={edit}
+      onDoubleClick={todo.isInTrash ? undefined : edit}
       border="1px solid transparent"
       _hover={{
         bg: "#22222205",

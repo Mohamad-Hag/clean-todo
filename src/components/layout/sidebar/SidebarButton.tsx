@@ -1,9 +1,6 @@
 import { Badge, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {
-  activeStyle,
-  hoverStyle,
-} from "utils/styles/SidebarButtonStyles";
+import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 export type URLString = string;
 
@@ -32,7 +29,8 @@ export default function SidebarButton({
 
   return (
     <Link to={to}>
-      <Button colorScheme="red"
+      <Button
+        colorScheme="red"
         className="w-full text-left pl-5 text-white flex items-center gap-2"
         borderRadius="0 2em 2em 0"
         fontWeight="normal"
@@ -46,7 +44,11 @@ export default function SidebarButton({
         onClick={select}
       >
         <label>{title}</label>
-        {badgeText && <Badge>{badgeText}</Badge>}
+        {badgeText && (
+          <Badge variant="solid" colorScheme="blue">
+            {badgeText}
+          </Badge>
+        )}
       </Button>
     </Link>
   );

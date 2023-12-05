@@ -1,4 +1,4 @@
-import { EditData, ItemIds_CategoryId } from "redux/features/todosSlice";
+import { EditData, ItemIds_CategoryId, RemoveItemPayload } from "redux/features/todosSlice";
 import activateAllTodos from "redux/todoActions/activateAllTodos";
 import addCategorySomeTodos from "redux/todoActions/addCategorySomeTodos";
 import clearTodos from "redux/todoActions/clearTodos";
@@ -27,7 +27,7 @@ class TodoStore {
   }
 
   public static create(todos: TodoProps[], todo: TodoData) {
-    TodoStore.set(createTodo(todos, todo));
+    TodoStore.set(createTodo(todos, todo));    
   }
 
   public static edit(todos: TodoProps[], editData: EditData) {
@@ -36,14 +36,14 @@ class TodoStore {
     return itemsAfterEdit;
   }
 
-  public static remove(todos: TodoProps[], id: number) {
-    let itemsAfterRemove = removeTodo(todos, id);
+  public static remove(todos: TodoProps[], removeItem: RemoveItemPayload) {
+    let itemsAfterRemove = removeTodo(todos, removeItem);
     TodoStore.set(itemsAfterRemove);
     return itemsAfterRemove;
   }
 
-  public static removeSome(todos: TodoProps[], identifiers: number[]) {
-    let itemsAfterRemoveSome = removeSomeTodos(todos, identifiers);
+  public static removeSome(todos: TodoProps[], removeItems: RemoveItemPayload[]) {
+    let itemsAfterRemoveSome = removeSomeTodos(todos, removeItems);
     TodoStore.set(itemsAfterRemoveSome);
     return itemsAfterRemoveSome;
   }

@@ -7,7 +7,7 @@ import labels from "data/json/ui-labels.json";
 
 export default function CreateCategoryButton() {
   const d = useDispatch();
-  const createkey = { key: "B", code: 66 };
+  const createKey = { key: "B", code: 66 };
   const createModifier: Modifier = "Ctrl";
 
   const create = () => {
@@ -15,7 +15,7 @@ export default function CreateCategoryButton() {
     d(open());
   };
 
-  useKeyboardShortcut(create, createkey.code, createModifier);
+  useKeyboardShortcut(create, createKey.code, createModifier);
 
   return (
     <Button
