@@ -19,6 +19,7 @@ const useImportData = () => {
 
     if (!isImportDataValid) return;
 
+    d(replaceTodos(todoStore));
     d(replaceCategories(categoryStore));
     d(replacePreferences(preferencesStore));
     d(replaceSidebar(sidebarStore));
