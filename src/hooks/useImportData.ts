@@ -14,7 +14,11 @@ const useImportData = () => {
     let categoryStore = importData.categoryStore;
     let preferencesStore = importData.preferencesStore;
     let sidebarStore = importData.sidebarStore;
-    d(replaceTodos(todoStore));
+    let isImportDataValid =
+      todoStore && categoryStore && preferencesStore && sidebarStore;
+
+    if (!isImportDataValid) return;
+
     d(replaceCategories(categoryStore));
     d(replacePreferences(preferencesStore));
     d(replaceSidebar(sidebarStore));
