@@ -13,7 +13,10 @@ const useKeyboardShortcut = (
     let isShiftKey = modifier === "Shift";
     let isControlKey = modifier === "Ctrl";
     let isAltKey = modifier === "Alt";
-    let isBlockedNode = blockedNodes.includes(nodeName);
+    let isContentEditable =
+      event.target.getAttribute("contenteditable") === "true";
+    let isContentEditableDiv = nodeName === "DIV" && isContentEditable;
+    let isBlockedNode = blockedNodes.includes(nodeName) || isContentEditableDiv;
     if (event.repeat || isBlockedNode) return;
     let isKeyPressed = event.keyCode === keyCode;
     let isModifierPressed =

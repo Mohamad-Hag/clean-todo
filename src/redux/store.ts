@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import alertSlice from "./features/alertSlice";
 import formSlice from "./features/formSlice";
-import perferencesSlice from "./features/perferencesSlice";
+import preferencesSlice from "./features/preferencesSlice";
 import sidebarSlice from "./features/sidebarSlice";
 import todosSlice from "./features/todosSlice";
 import sidebarIsActiveArraySlice from "./features/sidebarIsActiveArraySlice";
@@ -16,7 +16,7 @@ export const store = configureStore({
     categoryForm: categoryFormSlice,
     alert: alertSlice,
     sidebar: sidebarSlice,
-    perferences: perferencesSlice,
+    preferences: preferencesSlice,
     sidebarIsActiveArray: sidebarIsActiveArraySlice,
     categories: categorySlice,
     categorySelector: categorySelectorSlice,

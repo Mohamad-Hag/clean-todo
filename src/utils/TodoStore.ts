@@ -1,4 +1,8 @@
-import { EditData, ItemIds_CategoryId, RemoveItemPayload } from "redux/features/todosSlice";
+import {
+  EditData,
+  ItemIds_CategoryId,
+  RemoveItemPayload,
+} from "redux/features/todosSlice";
 import activateAllTodos from "redux/todoActions/activateAllTodos";
 import addCategorySomeTodos from "redux/todoActions/addCategorySomeTodos";
 import clearTodos from "redux/todoActions/clearTodos";
@@ -13,6 +17,9 @@ import selectAllTodos, {
   WithConditionCallback,
 } from "redux/todoActions/selectAllTodos";
 import TodoProps, { TodoData } from "./interfaces/common/Todo";
+import expandDescription from "redux/todoActions/expandDescription";
+import collapseDescription from "redux/todoActions/collapseDescription";
+import replaceTodos from "redux/todoActions/replaceTodos";
 
 class TodoStore {
   public static storage = localStorage;
@@ -27,7 +34,13 @@ class TodoStore {
   }
 
   public static create(todos: TodoProps[], todo: TodoData) {
-    TodoStore.set(createTodo(todos, todo));    
+    TodoStore.set(createTodo(todos, todo));
+  }
+
+  public static replace(todos: TodoProps[], newTodos: TodoProps[]) {
+    let itemsAfterReplace = replaceTodos(todos, newTodos);
+    TodoStore.set(itemsAfterReplace);
+    return itemsAfterReplace;
   }
 
   public static edit(todos: TodoProps[], editData: EditData) {
@@ -36,13 +49,28 @@ class TodoStore {
     return itemsAfterEdit;
   }
 
+  public static expandDescription(todos: TodoProps[], id: number) {
+    let itemsAfterExpand = expandDescription(todos, id);
+    TodoStore.set(itemsAfterExpand);
+    return itemsAfterExpand;
+  }
+
+  public static collapseDescription(todos: TodoProps[], id: number) {
+    let itemsAfterCollapse = collapseDescription(todos, id);
+    TodoStore.set(itemsAfterCollapse);
+    return itemsAfterCollapse;
+  }
+
   public static remove(todos: TodoProps[], removeItem: RemoveItemPayload) {
     let itemsAfterRemove = removeTodo(todos, removeItem);
     TodoStore.set(itemsAfterRemove);
     return itemsAfterRemove;
   }
 
-  public static removeSome(todos: TodoProps[], removeItems: RemoveItemPayload[]) {
+  public static removeSome(
+    todos: TodoProps[],
+    removeItems: RemoveItemPayload[]
+  ) {
     let itemsAfterRemoveSome = removeSomeTodos(todos, removeItems);
     TodoStore.set(itemsAfterRemoveSome);
     return itemsAfterRemoveSome;

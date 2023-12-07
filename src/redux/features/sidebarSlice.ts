@@ -14,6 +14,8 @@ export const sidebarSlice = createSlice({
   name: "sidebar",
   initialState,
   reducers: {
+    replace: (state, action: PayloadAction<Sidebar>) =>
+      SidebarStore.replace(state, action.payload),
     changeStatus: (state, action: PayloadAction<SidebarStatus>) =>
       SidebarStore.changeStatus(state, action.payload),
     changeOppositeStatus: (state, action: PayloadAction<SidebarStatus>) =>
@@ -21,7 +23,8 @@ export const sidebarSlice = createSlice({
   },
 });
 
-export const { changeOppositeStatus, changeStatus } = sidebarSlice.actions;
+export const { changeOppositeStatus, changeStatus, replace } =
+  sidebarSlice.actions;
 
 export const selectSidebar = (state: RootState) => state.sidebar;
 

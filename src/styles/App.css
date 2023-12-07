@@ -1,18 +1,17 @@
 * {
   -webkit-tap-highlight-color: transparent;
-  text-decoration: none;    
+  text-decoration: none;
 }
 
-*:hover
-{
-  text-decoration: none !important; 
+*:hover {
+  text-decoration: none !important;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {  
+body {
   background-attachment: fixed !important;
   background-size: cover !important;
   background-position: center !important;
@@ -68,32 +67,53 @@ body {
   -webkit-box-orient: vertical;
   display: -webkit-box;
 }
-.create-btn
-{
-  border-radius: 50% !important;
-  height: 60px !important;
-  width: 60px !important;    
-}
-.create-btn svg
-{
-  transition: ease-in-out .4s;  
+
+.toolbar-item-info-description-init {
+  display: initial !important;
 }
 
-.create-btn:hover svg
-{
+.create-btn {
+  border-radius: 50% !important;
+  height: 60px !important;
+  width: 60px !important;
+}
+.create-btn svg {
+  transition: ease-in-out 0.4s;
+}
+
+.create-btn:hover svg {
   transform: rotate(-360deg);
 }
-.todo-creator-description
-{
+.todo-creator-description {
   height: 120px;
   overflow: auto;
   padding: 0.5rem 1rem;
   outline: none;
   border: 1px solid #e5e7eb;
-  border-radius: var(--chakra-radii-md);  
+  border-radius: var(--chakra-radii-md);
 }
-.todo-creator-description:focus
-{
+.todo-creator-description:focus {
   border-color: var(--chakra-colors-blue-500);
   border-width: 2px;
+}
+.file-in::-webkit-file-upload-button {
+  background-color: #2b6cb0;
+  color: white;
+  border-radius: 0.3em;
+  padding: 0 1em;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.file-in::-webkit-file-upload-button:hover {
+  filter: brightness(0.9);
+}
+
+.file-in {
+  cursor: pointer;
+  font-weight: bold;
 }

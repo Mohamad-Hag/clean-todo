@@ -13,6 +13,7 @@ import TodoProps from "utils/interfaces/common/Todo";
 import isInclude from "utils/isInclude";
 import { useSelector } from "react-redux";
 import { selectCategories } from "redux/features/categorySlice";
+import { selectPreferences } from "redux/features/preferencesSlice";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -25,6 +26,10 @@ export default function FilterInput({
 }: FilterInputProps) {
   const inputRef = useRef<HTMLInputElement>(null!);
   const filterKey = { key: "/", code: 191 };
+  const preferences = useSelector(selectPreferences);
+  const includeDescription = preferences.filterPreferences?.includeDescription;
+  const includeCategory = preferences.filterPreferences?.includeCategory;
+  const includeDate = preferences.filterPreferences?.includeDate;
   const filterModifierKey: Modifier = "Ctrl";
   const categories = useSelector(selectCategories);
 
@@ -46,9 +51,15 @@ export default function FilterInput({
         criteria
       );
 
-    return (
-      isMatchTitle || isMatchDescription || isMatchCategoryTitle || isMatchDate
-    );
+    let filterArray = [isMatchTitle];
+
+    if (includeDescription) filterArray.push(isMatchDescription);
+    if (includeCategory) filterArray.push(isMatchCategoryTitle);
+    if (includeDate) filterArray.push(isMatchDate);
+
+    let isFilter = !!filterArray.find((value) => value === true);
+
+    return isFilter;
   };
 
   const getFilteredTodos = (criteria: string) => {

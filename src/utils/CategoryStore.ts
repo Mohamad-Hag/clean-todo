@@ -3,6 +3,7 @@ import editCategory from "redux/categoryActions/editCategory";
 import removeCategory from "redux/categoryActions/removeCategory";
 import { EditData } from "redux/features/categorySlice";
 import Category from "./interfaces/common/Category";
+import replaceCategory from "redux/categoryActions/replaceCategory";
 
 class CategoryStore {
   public static storage = localStorage;
@@ -18,6 +19,12 @@ class CategoryStore {
 
   public static create(categories: Category[], category: Category) {
     CategoryStore.set(createCategory(categories, category));
+  }
+
+  public static replace(categories: Category[], newCategories: Category[]) {
+    let itemsAfterReplace = replaceCategory(categories, newCategories);
+    CategoryStore.set(itemsAfterReplace);
+    return itemsAfterReplace;
   }
 
   public static edit(categories: Category[], editData: EditData) {

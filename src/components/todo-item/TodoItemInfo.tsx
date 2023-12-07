@@ -5,6 +5,7 @@ import { openAsEdit } from "redux/features/formSlice";
 import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
 import TodoItemTitle from "./TodoItemTitle";
+import { selectPreferences } from "redux/features/preferencesSlice";
 
 interface TodoItemInfo {
   id: number;
@@ -12,6 +13,8 @@ interface TodoItemInfo {
 function TodoItemInfo({ id }: TodoItemInfo) {
   const todos = useSelector(selectTodos);
   const todo = todos.find((td) => td.id === id)!;
+  const preferences = useSelector(selectPreferences);
+  const editOnDoubleClick = preferences.todoPreferences?.editOnDoubleClick;
   const d = useDispatch();
   if (!todo) return <></>;
 
@@ -34,7 +37,7 @@ function TodoItemInfo({ id }: TodoItemInfo) {
   return (
     <Stack
       spacing="1"
-      onDoubleClick={todo.isInTrash ? undefined : edit}
+      onDoubleClick={todo.isInTrash || !editOnDoubleClick ? undefined : edit}
       border="1px solid transparent"
       _hover={{
         bg: "#22222205",
@@ -48,7 +51,7 @@ function TodoItemInfo({ id }: TodoItemInfo) {
     >
       <Stack spacing="-0.5">
         <TodoItemTitle id={id} />
-        <TodoItemDescription description={description} />
+        <TodoItemDescription id={id} description={description} />
       </Stack>
       <label className="text-xs text-gray-400">{date}</label>
     </Stack>

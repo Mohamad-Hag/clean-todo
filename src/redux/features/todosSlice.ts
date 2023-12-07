@@ -29,10 +29,16 @@ export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    replace: (state, action: PayloadAction<TodoProps[]>) =>
+      TodoStore.replace(state, action.payload),
     create: (state, action: PayloadAction<TodoData>) =>
       TodoStore.create(state, action.payload),
     edit: (state, action: PayloadAction<EditData>) =>
       TodoStore.edit(state, action.payload),
+    expandDescription: (state, action: PayloadAction<number>) =>
+      TodoStore.expandDescription(state, action.payload),
+    collapseDescription: (state, action: PayloadAction<number>) =>
+      TodoStore.collapseDescription(state, action.payload),
     remove: (state, action: PayloadAction<RemoveItemPayload>) =>
       TodoStore.remove(state, action.payload),
     removeSome: (state, action: PayloadAction<RemoveItemPayload[]>) =>
@@ -52,7 +58,10 @@ export const todosSlice = createSlice({
 
 export const {
   create,
+  replace,
   edit,
+  expandDescription,
+  collapseDescription,
   remove,
   removeSome,
   removeFinished,

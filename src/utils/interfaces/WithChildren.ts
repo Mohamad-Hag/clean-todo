@@ -7,3 +7,7 @@ export interface WithChildren {
 export interface WithMultipleChildren {
   children: React.ReactNode[];
 }
+
+export interface WithMultipleOrOneChildren {
+  children: React.ReactNode[] | React.ReactNode;
+}

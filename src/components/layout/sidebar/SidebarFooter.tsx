@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { selectSidebar } from "redux/features/sidebarSlice";
-import Perferences from "../../preferences/Perferences";
+import Perferences from "../../preferences/Preferences";
 
 export default function SidebarFooter() {
   const { status } = useSelector(selectSidebar);

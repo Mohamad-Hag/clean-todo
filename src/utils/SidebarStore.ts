@@ -1,6 +1,7 @@
 import { Sidebar, SidebarStatus } from "redux/features/sidebarSlice";
 import changeOppositeStatus from "redux/sidebarActions/changeOppositeStatus";
 import changeStatus from "redux/sidebarActions/changeStatus";
+import replaceSidebar from "redux/sidebarActions/replaceSidebar";
 
 class SidebarStore {
   public static storage = localStorage;
@@ -19,6 +20,12 @@ class SidebarStore {
 
   public static changeStatus(sidebar: Sidebar, status: SidebarStatus) {
     let side = changeStatus(sidebar, status);
+    SidebarStore.set(side);
+    return side;
+  }
+
+  public static replace(sidebar: Sidebar, newSidebar: Sidebar) {
+    let side = replaceSidebar(sidebar, newSidebar);
     SidebarStore.set(side);
     return side;
   }

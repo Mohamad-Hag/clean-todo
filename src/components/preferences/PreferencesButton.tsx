@@ -1,14 +1,15 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
 import { GoSettings } from "react-icons/go";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
+import labels from "data/json/ui-labels.json";
 
-interface PerferencesButtonProps {
+interface PreferencesButtonProps {
   onClick: () => void;
 }
 
-export default function PerferencesButton({ onClick }: PerferencesButtonProps) {
+export default function PreferencesButton({ onClick }: PreferencesButtonProps) {
   return (
-    <Tooltip label="Preferences" placement="top" hasArrow>
+    <Tooltip label={labels.preferences} placement="top" hasArrow>
       <IconButton
         color="white"
         _hover={hoverStyle}

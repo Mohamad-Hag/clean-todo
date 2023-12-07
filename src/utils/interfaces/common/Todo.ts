@@ -10,6 +10,7 @@ export interface TodoEditable {
   isSelected?: boolean;
   isInTrash?: boolean;
   categoryId?: number | null;
+  isDescriptionExpanded?: boolean;
 }
 
 export default interface TodoProps extends TodoEditable {

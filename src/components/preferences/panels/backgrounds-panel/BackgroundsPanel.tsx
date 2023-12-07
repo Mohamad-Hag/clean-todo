@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import bgs from "assets/bgs";
 import useIsActiveArray from "hooks/useIsActiveArray";
-import { selectPerferences } from "redux/features/perferencesSlice";
+import { selectPreferences } from "redux/features/preferencesSlice";
 import Background from "./Background";
 
 export default function BackgroundsPanel() {
-  const perferences = useSelector(selectPerferences);
+  const preferences = useSelector(selectPreferences);
   const length = bgs.length;
-  const initialIndex = bgs.findIndex((bg) => bg === perferences.background);
+  const initialIndex = bgs.findIndex((bg) => bg === preferences.background);
 
   const [isActiveArray, activate] = useIsActiveArray(length, initialIndex);
 

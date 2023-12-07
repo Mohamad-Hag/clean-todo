@@ -49,7 +49,7 @@ export const alertSlice = createSlice({
     },
     disableOkButton: (state) => {
       state.isOkButtonDisabled = true;
-    },
+    },    
   },
 });
 

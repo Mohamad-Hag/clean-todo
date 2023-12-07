@@ -12,7 +12,7 @@ export default function ToolbarBasicInfo({
     <span className="opacity-80">
       {isFilterMode ? `${labels.results} ` : `${labels.total} `}
       <b>{todos.length}</b>{" "}
-      {isTrashPage ? null : (
+      {isTrashPage || isFilterMode ? null : (
         <label>
           / {labels.finished} <b>{finishedCount}</b>
         </label>

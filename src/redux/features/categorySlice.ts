@@ -15,6 +15,8 @@ export const categorySlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
+    replace: (state, action: PayloadAction<Category[]>) =>
+      CategoryStore.replace(state, action.payload),
     create: (state, action: PayloadAction<Category>) =>
       CategoryStore.create(state, action.payload),
     edit: (state, action: PayloadAction<EditData>) =>
@@ -24,7 +26,7 @@ export const categorySlice = createSlice({
   },
 });
 
-export const { create, edit, remove } = categorySlice.actions;
+export const { create, edit, remove, replace } = categorySlice.actions;
 
 export const selectCategories = (state: RootState) => state.categories;
 
