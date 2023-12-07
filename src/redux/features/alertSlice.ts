@@ -12,6 +12,7 @@ const initialState: AlertProps = {
   description: labels.description,
   isOpen: false,
   isOkButtonDisabled: false,
+  icon: "alert",
 };
 
 export const alertSlice = createSlice({
@@ -28,9 +29,13 @@ export const alertSlice = createSlice({
       state.onOk = initialState.onOk;
       state.onCancel = initialState.onCancel;
       state.onClose = initialState.onClose;
+      state.icon = initialState.icon;
     },
     setTitle: (state, action: PayloadAction<string>) => {
       state.title = action.payload;
+    },
+    setIcon: (state, action: PayloadAction<"alert" | "settings">) => {
+      state.icon = action.payload;
     },
     setDescription: (state, action: PayloadAction<React.ReactNode>) => {
       state.description = action.payload;
@@ -49,7 +54,7 @@ export const alertSlice = createSlice({
     },
     disableOkButton: (state) => {
       state.isOkButtonDisabled = true;
-    },    
+    },
   },
 });
 
@@ -57,6 +62,7 @@ export const {
   open,
   close,
   setTitle,
+  setIcon,
   setDescription,
   setOnOk,
   setOnCancel,

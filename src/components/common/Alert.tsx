@@ -8,16 +8,18 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { BiAlarmExclamation } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { IoSettings } from "react-icons/io5";
 import { close } from "redux/features/alertSlice";
 import labels from "data/json/ui-labels.json";
+import { RiAlertFill } from "react-icons/ri";
 
 export interface AlertProps {
   title: string;
   description: React.ReactNode;
   isOpen: boolean;
   isOkButtonDisabled?: boolean;
+  icon?: "alert" | "settings";
   onClose?: () => void;
   onOk?: () => void;
   onCancel?: () => void;
@@ -27,6 +29,7 @@ export default function Alert({
   title,
   description,
   isOpen,
+  icon = "alert",
   isOkButtonDisabled = false,
   onClose,
   onOk,
@@ -49,7 +52,13 @@ export default function Alert({
       <ModalOverlay />
       <ModalContent m={2}>
         <ModalHeader display="flex" alignItems="center" gap="2">
-          <BiAlarmExclamation />
+          {icon === "alert" ? (
+            <RiAlertFill />
+          ) : icon === "settings" ? (
+            <IoSettings />
+          ) : (
+            ""
+          )}
           {title}
         </ModalHeader>
         <ModalCloseButton />

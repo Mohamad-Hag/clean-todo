@@ -3,6 +3,7 @@ import {
   close,
   open,
   setDescription,
+  setIcon,
   setOnOk,
   setTitle,
 } from "redux/features/alertSlice";
@@ -15,6 +16,7 @@ export default function Preferences() {
 
   const openPreferences = () => {
     d(open());
+    d(setIcon("settings"));
     d(setTitle(labels.preferences));
     d(setDescription(<PreferencesModal />));
     d(setOnOk(() => d(close())));

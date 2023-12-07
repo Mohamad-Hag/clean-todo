@@ -13,6 +13,7 @@ export default function AppAlert() {
       isOkButtonDisabled={alert.isOkButtonDisabled}
       onClose={alert.onClose}
       onOk={alert.onOk}
+      icon={alert.icon}
     />
   );
 }
