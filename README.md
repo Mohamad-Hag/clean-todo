@@ -8,6 +8,10 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Select multiple tasks ✅.
 - Filter tasks ✅.
 - Adding a description with task's title ✅.
+- Categories feature ✅.
+- Trash/Restore feature ✅.
+- Many preferences are available ✅.
+- Import/Export data as json feature ✅.
 
 ## Tools Used
 
