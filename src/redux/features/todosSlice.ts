@@ -4,7 +4,7 @@ import TodoProps, {
   TodoData,
   TodoEditable,
 } from "utils/interfaces/common/Todo";
-import TodoStore from "utils/TodoStore";
+import TodoStore from "utils/local-storage/TodoStore";
 import type { RootState } from "../store";
 import { WithConditionCallback } from "../todoActions/selectAllTodos";
 

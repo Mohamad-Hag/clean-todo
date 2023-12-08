@@ -1,5 +1,5 @@
 import sidebarButtons from "data/typescript/sidebarButtons";
-import CategoryStore from "./CategoryStore";
+import CategoryStore from "./local-storage/CategoryStore";
 import IsActiveArrayConditionStatisfied from "./IsActiveArrayConditionStatisfied";
 
 const categories = CategoryStore.get();

@@ -1,3 +1,4 @@
+import PrivacyPanel from "components/preferences/panels/privact-panel/PrivacyPanel";
 import BackgroundsPanel from "components/preferences/panels/backgrounds-panel/BackgroundsPanel";
 import FilterPanel from "components/preferences/panels/filter-panel/FilterPanel";
 import OtherPanel from "components/preferences/panels/other-panel/OtherPanel";
@@ -18,10 +19,18 @@ const preferencesTabs = [
   {
     tab: labels.background,
     panel: <BackgroundsPanel />,
-  },  
+  },
   {
     tab: labels.shortcuts,
     panel: <ShortcutsPanel />,
+  },
+  {
+    tab: labels.privacy,
+    panel: <PrivacyPanel />,
+  },
+  {
+    tab: labels.theme,
+    panel: <ThemePanel />,
   },
   {
     tab: labels.other,

@@ -8,6 +8,7 @@ import sidebarIsActiveArraySlice from "./features/sidebarIsActiveArraySlice";
 import categorySlice from "./features/categorySlice";
 import categoryFormSlice from "./features/categoryFormSlice";
 import categorySelectorSlice from "./features/categorySelectorSlice";
+import passCodeSlice from "./features/passCodeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     sidebarIsActiveArray: sidebarIsActiveArraySlice,
     categories: categorySlice,
     categorySelector: categorySelectorSlice,
+    passCode: passCodeSlice,
   },
 });
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import SidebarStore from "utils/SidebarStore";
+import SidebarStore from "utils/local-storage/SidebarStore";
 import type { RootState } from "../store";
 
 export type SidebarStatus = "hidden" | "shown";

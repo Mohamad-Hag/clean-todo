@@ -16,13 +16,18 @@ import removeTodo from "redux/todoActions/removeTodo";
 import selectAllTodos, {
   WithConditionCallback,
 } from "redux/todoActions/selectAllTodos";
-import TodoProps, { TodoData } from "./interfaces/common/Todo";
+import TodoProps, { TodoData } from "../interfaces/common/Todo";
 import expandDescription from "redux/todoActions/expandDescription";
 import collapseDescription from "redux/todoActions/collapseDescription";
 import replaceTodos from "redux/todoActions/replaceTodos";
+import CryptoJS from "crypto-js";
 
 class TodoStore {
   public static storage = localStorage;
+
+  private static encrypt(): string {
+    return "TEST";
+  }
 
   private static set(value: TodoProps[]) {
     this.storage.setItem("todos", JSON.stringify(value));

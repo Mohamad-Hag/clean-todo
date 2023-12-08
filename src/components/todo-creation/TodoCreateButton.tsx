@@ -3,6 +3,7 @@ import { BiPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import { open, setMode } from "redux/features/formSlice";
+import labels from "data/json/ui-labels.json";
 
 export default function TodoCreateButton() {
   const d = useDispatch();
@@ -16,7 +17,10 @@ export default function TodoCreateButton() {
 
   const label = (
     <p>
-      Create Todo <span className="text-gray-400 text-xs">Ctrl + Q</span>
+      {labels.createTodo}{" "}
+      <span className="text-gray-400 text-xs">
+        {labels.ctrl} {labels.plusSign} {labels.q}
+      </span>
     </p>
   );
 

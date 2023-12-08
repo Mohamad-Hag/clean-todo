@@ -4,7 +4,8 @@ import { replace as replaceCategories } from "redux/features/categorySlice";
 import { replace as replacePreferences } from "redux/features/preferencesSlice";
 import { replace as replaceSidebar } from "redux/features/sidebarSlice";
 import { replace as replaceTodos } from "redux/features/todosSlice";
-import ImportExportData from "utils/interfaces/common/ExportData";
+import { replace as replacePassCode } from "redux/features/passCodeSlice";
+import ImportExportData from "utils/interfaces/common/ImportExportData";
 import labels from "data/json/ui-labels.json";
 
 const useImportData = () => {
@@ -15,8 +16,13 @@ const useImportData = () => {
     let categoryStore = importData.categoryStore;
     let preferencesStore = importData.preferencesStore;
     let sidebarStore = importData.sidebarStore;
+    let passCodeStore = importData.passCodeStore;
     let isImportDataValid =
-      todoStore && categoryStore && preferencesStore && sidebarStore;
+      todoStore &&
+      categoryStore &&
+      preferencesStore &&
+      sidebarStore &&
+      passCodeStore;
 
     if (!isImportDataValid) {
       return labels.cantImport;
@@ -26,6 +32,7 @@ const useImportData = () => {
     d(replaceCategories(categoryStore));
     d(replacePreferences(preferencesStore));
     d(replaceSidebar(sidebarStore));
+    d(replacePassCode(passCodeStore));
     d(close());
 
     return "";

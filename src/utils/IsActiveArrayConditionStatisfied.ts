@@ -1,5 +1,5 @@
 import sidebarButtons from "data/typescript/sidebarButtons";
-import CategoryStore from "./CategoryStore";
+import CategoryStore from "./local-storage/CategoryStore";
 import getCategoryIdByPath from "./getCategoryIdByPath";
 import isCategoryPath from "./isCategoryPath";
 

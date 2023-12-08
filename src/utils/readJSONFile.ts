@@ -1,4 +1,4 @@
-import ImportExportData from "./interfaces/common/ExportData";
+import ImportExportData from "./interfaces/common/ImportExportData";
 
 export default function readJSONFile(
   fileInput: HTMLInputElement,

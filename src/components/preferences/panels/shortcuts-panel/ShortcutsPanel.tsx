@@ -41,6 +41,18 @@ export default function ShortcutsPanel() {
           </Tr>
           <Tr>
             <Td>
+              <Kbd>{labels.shift}</Kbd> {labels.plusSign} <Kbd>{labels.l}</Kbd>
+            </Td>
+            <Td>{labels.lockScreen}</Td>
+          </Tr>
+          <Tr>
+            <Td>
+              <Kbd>{labels.shift}</Kbd> {labels.plusSign} <Kbd>{labels.p}</Kbd>
+            </Td>
+            <Td>{labels.openPreferences}</Td>
+          </Tr>
+          <Tr>
+            <Td>
               <Kbd>{labels.esc}</Kbd>
             </Td>
             <Td>{labels.exitSelectMode}</Td>

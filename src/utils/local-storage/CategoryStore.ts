@@ -1,9 +1,9 @@
 import createCategory from "redux/categoryActions/createCategory";
 import editCategory from "redux/categoryActions/editCategory";
 import removeCategory from "redux/categoryActions/removeCategory";
-import { EditData } from "redux/features/categorySlice";
-import Category from "./interfaces/common/Category";
 import replaceCategory from "redux/categoryActions/replaceCategory";
+import { EditData } from "redux/features/categorySlice";
+import Category from "../interfaces/common/Category";
 
 class CategoryStore {
   public static storage = localStorage;
