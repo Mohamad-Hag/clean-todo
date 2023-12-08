@@ -4,7 +4,7 @@ import PassCodeScreenHeader from "./PassCodeScreenHeader";
 
 export default function PassCodeScreenContent() {
   return (
-    <ModalContent padding="6" textAlign="center">      
+    <ModalContent px="6" py="3" textAlign="center">      
       <PassCodeScreenHeader />
       <PassCodeScreenBody />
     </ModalContent>
