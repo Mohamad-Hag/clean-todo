@@ -12,7 +12,8 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Trash/Restore feature ✅.
 - Many preferences are available ✅.
 - Import/Export data as json feature ✅.
-- Lock ability by using a 4 digit pass code ✅.
+- Lock ability by using a 4 digit pass code with encryption ✅.
+- 4 languages support (English, Spanish, French, Chinese) ✅.
 
 ## Tools Used
 
