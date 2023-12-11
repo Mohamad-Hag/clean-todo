@@ -1,18 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  close,
-  open,
-  setDescription,
-  setOnOk,
-  setTitle,
-} from "redux/features/alertSlice";
 import { remove } from "redux/features/categorySlice";
 import { update } from "redux/features/sidebarIsActiveArraySlice";
 import { addCategorySome, selectTodos } from "redux/features/todosSlice";
 import Category from "utils/interfaces/common/Category";
 import CategoryControl from "./CategoryControl";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
+import useAlert from "hooks/useAlert";
 
 interface RemoveCategoryContainerProps {
   category: Category;
@@ -22,14 +17,16 @@ export default function RemoveCategoryContainer({
   category,
 }: RemoveCategoryContainerProps) {
   const todos = useSelector(selectTodos);
+  const { language } = useLanguage();
   const navigate = useNavigate();
+  const { open, setTitle, setDescription, setOnOk, close } = useAlert();
   const d = useDispatch();
 
   const removeCategoryAlert = () => {
-    d(open());
-    d(setTitle(labels.removeCategory));
-    d(setDescription(labels.sureRemoveCategory));
-    d(setOnOk(remove_));
+    open();
+    setTitle(labels[language.code].removeCategory);
+    setDescription(labels[language.code].sureRemoveCategory);
+    setOnOk(remove_);
   };
 
   const remove_ = () => {
@@ -40,11 +37,11 @@ export default function RemoveCategoryContainer({
 
   const removeCategory = () => {
     d(remove(category.id!));
-    d(close());
+    close();
   };
 
   const updateActiveSidebarButton = () => {
-    d(update(0));
+    update(0);
     navigate("/");
   };
 

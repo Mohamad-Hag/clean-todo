@@ -1,22 +1,25 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useKeyboardShortcut from "hooks/useKeyboardShortcut";
+import useLanguage from "hooks/useLanguage";
 import { GoSettings } from "react-icons/go";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
-import labels from "data/json/ui-labels.json";
-import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 
 interface PreferencesButtonProps {
   onClick: () => void;
 }
 
 export default function PreferencesButton({ onClick }: PreferencesButtonProps) {
+  const { language } = useLanguage();
   const preferencesKey = { key: "P", code: 80 };
   useKeyboardShortcut(onClick, preferencesKey.code, "Shift");
 
   const label = (
     <p className="flex flex-col items-center">
-      {labels.preferences}{" "}
+      {labels[language.code].preferences}{" "}
       <span className="text-gray-400 text-xs">
-        {labels.shift} {labels.plusSign} {preferencesKey.key}
+        {labels[language.code].shift} {labels[language.code].plusSign}{" "}
+        {preferencesKey.key}
       </span>
     </p>
   );

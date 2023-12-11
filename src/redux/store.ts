@@ -9,6 +9,7 @@ import categorySlice from "./features/categorySlice";
 import categoryFormSlice from "./features/categoryFormSlice";
 import categorySelectorSlice from "./features/categorySelectorSlice";
 import passCodeSlice from "./features/passCodeSlice";
+import languageSlice from "./features/languageSlice";
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     categories: categorySlice,
     categorySelector: categorySelectorSlice,
     passCode: passCodeSlice,
+    language: languageSlice,
   },
 });
 

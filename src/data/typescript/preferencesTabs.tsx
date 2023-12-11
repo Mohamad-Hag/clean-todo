@@ -5,35 +5,38 @@ import OtherPanel from "components/preferences/panels/other-panel/OtherPanel";
 import ShortcutsPanel from "components/preferences/panels/shortcuts-panel/ShortcutsPanel";
 import ThemePanel from "components/preferences/panels/theme-panel/ThemePanel";
 import TodoPanel from "components/preferences/panels/todo-panel/TodoPanel";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import LanguageStore from "utils/local-storage/LanguageStore";
+
+const language = LanguageStore.get();
 
 const preferencesTabs = [
   {
-    tab: labels.todo,
+    tab: labels[language.code].todo,
     panel: <TodoPanel />,
   },
   {
-    tab: labels.filter,
+    tab: labels[language.code].filter,
     panel: <FilterPanel />,
   },
   {
-    tab: labels.background,
+    tab: labels[language.code].background,
     panel: <BackgroundsPanel />,
   },
   {
-    tab: labels.shortcuts,
+    tab: labels[language.code].shortcuts,
     panel: <ShortcutsPanel />,
   },
   {
-    tab: labels.privacy,
+    tab: labels[language.code].privacy,
     panel: <PrivacyPanel />,
   },
   {
-    tab: labels.theme,
+    tab: labels[language.code].theme,
     panel: <ThemePanel />,
   },
   {
-    tab: labels.other,
+    tab: labels[language.code].other,
     panel: <OtherPanel />,
   },
 ];

@@ -1,17 +1,18 @@
 import bcrypt from "bcryptjs";
-import { PassCode, PassCodeTimeout } from "redux/features/passCodeSlice";
+import { PassCode, PassCodeTimeouts } from "redux/features/passCodeSlice";
 
 class PassCodeStore {
   public static storage = localStorage;
+  private static nameInStorage = "passCode";
 
   private static set(value: PassCode) {
-    this.storage.setItem("passCode", JSON.stringify(value));
+    this.storage.setItem(this.nameInStorage, JSON.stringify(value));
   }
 
   public static get(): PassCode {
-    if (!this.storage.getItem("passCode"))
+    if (!this.storage.getItem(this.nameInStorage))
       this.set({ passCodeTimeout: "none" });
-    return JSON.parse(this.storage.getItem("passCode") as string);
+    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static setValue(passCode: PassCode, value?: string): PassCode {
@@ -32,7 +33,7 @@ class PassCodeStore {
     return passCode;
   }
 
-  public static unlock(passCode: PassCode): PassCode {    
+  public static unlock(passCode: PassCode): PassCode {
     passCode.isPassed = true;
     return passCode;
   }
@@ -46,7 +47,7 @@ class PassCodeStore {
 
   public static setPassCodeTimeout(
     passCode: PassCode,
-    timeout: PassCodeTimeout
+    timeout: PassCodeTimeouts
   ): PassCode {
     passCode.passCodeTimeout = timeout;
     this.set(passCode);

@@ -6,36 +6,32 @@ import {
 import activateAllTodos from "redux/todoActions/activateAllTodos";
 import addCategorySomeTodos from "redux/todoActions/addCategorySomeTodos";
 import clearTodos from "redux/todoActions/clearTodos";
+import collapseDescription from "redux/todoActions/collapseDescription";
 import createTodo from "redux/todoActions/createTodo";
 import editTodo from "redux/todoActions/editTodo";
+import expandDescription from "redux/todoActions/expandDescription";
 import finishAllTodos from "redux/todoActions/finishAllTodos";
 import finishSomeTodos from "redux/todoActions/finishSomeTodos";
 import removeFinishedTodos from "redux/todoActions/removeFinishedTodos";
 import removeSomeTodos from "redux/todoActions/removeSomeTodos";
 import removeTodo from "redux/todoActions/removeTodo";
+import replaceTodos from "redux/todoActions/replaceTodos";
 import selectAllTodos, {
   WithConditionCallback,
 } from "redux/todoActions/selectAllTodos";
 import TodoProps, { TodoData } from "../interfaces/common/Todo";
-import expandDescription from "redux/todoActions/expandDescription";
-import collapseDescription from "redux/todoActions/collapseDescription";
-import replaceTodos from "redux/todoActions/replaceTodos";
-import CryptoJS from "crypto-js";
 
 class TodoStore {
   public static storage = localStorage;
-
-  private static encrypt(): string {
-    return "TEST";
-  }
+  private static nameInStorage = "todos";
 
   private static set(value: TodoProps[]) {
-    this.storage.setItem("todos", JSON.stringify(value));
+    this.storage.setItem(this.nameInStorage, JSON.stringify(value));
   }
 
   public static get(): TodoProps[] {
-    if (!this.storage.getItem("todos")) this.set([]);
-    return JSON.parse(this.storage.getItem("todos") as string);
+    if (!this.storage.getItem(this.nameInStorage)) this.set([]);
+    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static create(todos: TodoProps[], todo: TodoData) {

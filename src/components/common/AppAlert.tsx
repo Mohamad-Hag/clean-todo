@@ -1,19 +1,28 @@
 import { useSelector } from "react-redux";
 import { selectAlert } from "redux/features/alertSlice";
 import Alert from "./Alert";
+import useAlert from "hooks/useAlert";
 
 export default function AppAlert() {
-  const alert = useSelector(selectAlert);
+  const {
+    title,
+    description,
+    isOpen,
+    isOkButtonDisabled,
+    onClose,
+    onOk,
+    icon,
+  } = useAlert();
 
   return (
     <Alert
-      title={alert.title}
-      description={alert.description}
-      isOpen={alert.isOpen}
-      isOkButtonDisabled={alert.isOkButtonDisabled}
-      onClose={alert.onClose}
-      onOk={alert.onOk}
-      icon={alert.icon}
+      title={title}
+      description={description}
+      isOpen={isOpen}
+      isOkButtonDisabled={isOkButtonDisabled}
+      onClose={onClose}
+      onOk={onOk}
+      icon={icon}
     />
   );
 }

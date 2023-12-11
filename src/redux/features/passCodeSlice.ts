@@ -6,10 +6,10 @@ import PassCodeStore from "utils/local-storage/PassCodeStore";
 export interface PassCode {
   isPassed?: boolean;
   value?: string;
-  passCodeTimeout: PassCodeTimeout;
+  passCodeTimeout: PassCodeTimeouts;
 }
 
-export type PassCodeTimeout = "none" | "15 minute" | "30 minutes" | "1 hour";
+export type PassCodeTimeouts = "none" | "15 minute" | "30 minutes" | "1 hour";
 
 const initialState: PassCode = {
   isPassed: !!!PassCodeStore.get().value,
@@ -27,7 +27,7 @@ export const passCodeSlice = createSlice({
     unlock: (state) => PassCodeStore.unlock(state),
     replace: (state, action: PayloadAction<PassCode>) =>
       PassCodeStore.replace(state, action.payload),
-    setPassCodeTimeout: (state, action: PayloadAction<PassCodeTimeout>) =>
+    setPassCodeTimeout: (state, action: PayloadAction<PassCodeTimeouts>) =>
       PassCodeStore.setPassCodeTimeout(state, action.payload),
   },
 });

@@ -5,7 +5,8 @@ import {
   FormHelperText,
   Stack,
 } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectPreferences,
@@ -16,6 +17,7 @@ import {
 } from "redux/features/preferencesSlice";
 
 export default function TodoPanel() {
+  const { language } = useLanguage();
   let preferences = useSelector(selectPreferences);
   let d = useDispatch();
   let alwaysShowDescription =
@@ -51,11 +53,11 @@ export default function TodoPanel() {
             isChecked={alwaysShowDescription}
             onChange={showDescriptionChanged}
           >
-            {labels.alwaysShowDescription}
+            {labels[language.code].alwaysShowDescription}
           </Checkbox>
         </Flex>
         <FormHelperText>
-          {labels.alwaysShowDescriptionDescription}
+          {labels[language.code].alwaysShowDescriptionDescription}
         </FormHelperText>
       </FormControl>
       <FormControl>
@@ -63,10 +65,10 @@ export default function TodoPanel() {
           isChecked={alwaysShowPriorityIcon}
           onChange={showPriorityIconChanged}
         >
-          {labels.alwaysShowPriorityIcon}
+          {labels[language.code].alwaysShowPriorityIcon}
         </Checkbox>
         <FormHelperText>
-          {labels.alwaysShowPriorityIconDescription}
+          {labels[language.code].alwaysShowPriorityIconDescription}
         </FormHelperText>
       </FormControl>
       <FormControl>
@@ -74,18 +76,18 @@ export default function TodoPanel() {
           isChecked={editOnDoubleClick}
           onChange={editOnDoubleClickChanged}
         >
-          {labels.editOnDoubleClick}
+          {labels[language.code].editOnDoubleClick}
         </Checkbox>
-        <FormHelperText>{labels.editOnDoubleClickDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].editOnDoubleClickDescription}</FormHelperText>
       </FormControl>
       <FormControl>
         <Checkbox
           isChecked={collapseDescription}
           onChange={collapseDescriptionChanged}
         >
-          {labels.collapseDescription}
+          {labels[language.code].collapseDescription}
         </Checkbox>
-        <FormHelperText>{labels.collapseDescriptionDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].collapseDescriptionDescription}</FormHelperText>
       </FormControl>
     </Stack>
   );

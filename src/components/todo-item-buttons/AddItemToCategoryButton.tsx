@@ -2,11 +2,13 @@ import { BiPlus } from "react-icons/bi";
 import useAddToCategory from "hooks/useAddToCategory";
 import SmallIconButton from "../SmallIconButton";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export default function AddItemToCategoryButton({
   id,
 }: TodoItemRightSideProps) {
+  const { language } = useLanguage();
   let addToCategory = useAddToCategory();
 
   let addToCategory_ = () => {
@@ -15,7 +17,7 @@ export default function AddItemToCategoryButton({
 
   return (
     <SmallIconButton
-      label={labels.addEditCategory}
+      label={labels[language.code].addEditCategory}
       color="green"
       icon={<BiPlus />}
       onClick={addToCategory_}

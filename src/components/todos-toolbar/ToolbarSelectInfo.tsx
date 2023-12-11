@@ -1,5 +1,5 @@
 import { Flex, ScaleFade, Stack } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
 import { BiCheck, BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,12 +14,14 @@ import { finishSome, removeSome, selectTodos } from "redux/features/todosSlice";
 import PageCheck from "utils/interfaces/common/PageCheck";
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
+import useLanguage from "hooks/useLanguage";
 
 interface ToolbarSelectInfoProps extends PageCheck {}
 
 export default function ToolbarSelectInfo({
   isTrashPage,
 }: ToolbarSelectInfoProps) {
+  const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
@@ -31,7 +33,7 @@ export default function ToolbarSelectInfo({
   const d = useDispatch();
 
   const removeAllAlert = () => {
-    d(setTitle(labels.removeAll));
+    d(setTitle(labels[language.code].removeAll));
     d(disableOkButton());
     d(
       setDescription(<RemoveSelectedAlertDescription selections={selections} />)
@@ -55,7 +57,7 @@ export default function ToolbarSelectInfo({
       <Flex gap="3" direction="row" align="center">
         <Stack spacing="1" direction="row">
           <SmallIconButton
-            label={labels.remove}
+            label={labels[language.code].remove}
             variant="solid"
             icon={<BiTrash />}
             color="red"
@@ -64,13 +66,13 @@ export default function ToolbarSelectInfo({
           {!isTrashPage && (
             <SmallIconButton
               variant="solid"
-              label={labels.finish}
+              label={labels[language.code].finish}
               icon={<BiCheck />}
               onClick={finishAll}
             />
           )}
         </Stack>
-        <label>{selections.length + " " + labels.selected + " | "}</label>
+        <label>{selections.length + " " + labels[language.code].selected + " | "}</label>
       </Flex>
     </ScaleFade>
   );

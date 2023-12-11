@@ -1,20 +1,24 @@
+import useLanguage from "hooks/useLanguage";
 import { ToolbarProps } from "./Toolbar";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
 
 export default function ToolbarBasicInfo({
   todos,
   isFilterMode,
   isTrashPage,
 }: ToolbarProps) {
+  const { language } = useLanguage();
   const finishedCount = todos.filter((todo) => todo.isFinished).length;
 
   return (
     <span className="opacity-80">
-      {isFilterMode ? `${labels.results} ` : `${labels.total} `}
+      {isFilterMode
+        ? `${labels[language.code].results} `
+        : `${labels[language.code].total} `}
       <b>{todos.length}</b>{" "}
       {isTrashPage || isFilterMode ? null : (
         <label>
-          / {labels.finished} <b>{finishedCount}</b>
+          / {labels[language.code].finished} <b>{finishedCount}</b>
         </label>
       )}
     </span>

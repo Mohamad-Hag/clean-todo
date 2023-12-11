@@ -6,7 +6,8 @@ import {
   selectCategorySelector,
 } from "redux/features/categorySelectorSlice";
 import { edit } from "redux/features/todosSlice";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 interface CategorySelectorFooterProps {
   isButtonsDisabled: boolean;
@@ -17,6 +18,7 @@ export default function CategorySelectorFooter({
   isButtonsDisabled,
   onClose,
 }: CategorySelectorFooterProps) {
+  const { language } = useLanguage();
   const categorySelector = useSelector(selectCategorySelector);
   const d = useDispatch();
 
@@ -42,14 +44,14 @@ export default function CategorySelectorFooter({
 
   return (
     <ModalFooter className="flex items-center gap-1">
-      <Button onClick={close_}>{labels.cancel}</Button>
+      <Button onClick={close_}>{labels[language.code].cancel}</Button>
       <Button
         colorScheme="red"
         variant="solid"
         isDisabled={isButtonsDisabled}
         onClick={() => select_(true)}
       >
-        {labels.remove}
+        {labels[language.code].remove}
       </Button>
       <Button
         colorScheme="blue"
@@ -57,7 +59,7 @@ export default function CategorySelectorFooter({
         isDisabled={isButtonsDisabled}
         onClick={() => select_(false)}
       >
-        {labels.select}
+        {labels[language.code].select}
       </Button>
     </ModalFooter>
   );

@@ -3,10 +3,12 @@ import { BiPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { open, setMode } from "redux/features/categoryFormSlice";
 import useKeyboardShortcut, { Modifier } from "hooks/useKeyboardShortcut";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export default function CreateCategoryButton() {
   const d = useDispatch();
+  const { language } = useLanguage();
   const createKey = { key: "B", code: 66 };
   const createModifier: Modifier = "Ctrl";
 
@@ -25,7 +27,7 @@ export default function CreateCategoryButton() {
       rightIcon={<BiPlus />}
       onClick={create}
     >
-      {labels.createCategory}
+      {labels[language.code].createCategory}
     </Button>
   );
 }

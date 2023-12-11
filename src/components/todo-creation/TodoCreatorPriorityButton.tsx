@@ -1,7 +1,9 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import { BiFlag } from "react-icons/bi";
-import Priority from "utils/types/Priority";
 import S from "string";
+import Priority from "utils/types/Priority";
 
 interface TodoCreatorPriorityButtonProps {
   index: number;
@@ -16,9 +18,16 @@ export default function TodoCreatorPriorityButton({
   isActive = false,
   onSelect,
 }: TodoCreatorPriorityButtonProps) {
+  const { language } = useLanguage();
   const color =
     priority === "low" ? "blue" : priority === "medium" ? "green" : "red";
   const flagColor = isActive ? "white" : color;
+  const tooltipLabel =
+    priority === "low"
+      ? labels[language.code].low
+      : priority === "medium"
+      ? labels[language.code].medium
+      : labels[language.code].high;
 
   const buttonVariant = isActive ? "solid" : "ghost";
 
@@ -27,7 +36,7 @@ export default function TodoCreatorPriorityButton({
   };
 
   return (
-    <Tooltip label={S(priority).capitalize().s} hasArrow>
+    <Tooltip label={tooltipLabel} hasArrow>
       <IconButton
         aria-label={`${priority} priority`}
         size="sm"

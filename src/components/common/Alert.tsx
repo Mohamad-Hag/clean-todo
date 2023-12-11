@@ -11,8 +11,9 @@ import {
 import { useDispatch } from "react-redux";
 import { IoSettings } from "react-icons/io5";
 import { close } from "redux/features/alertSlice";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
 import { RiAlertFill } from "react-icons/ri";
+import useLanguage from "hooks/useLanguage";
 
 export interface AlertProps {
   title: string;
@@ -34,6 +35,7 @@ export default function Alert({
   onClose,
   onOk,
 }: AlertProps) {
+  const { language } = useLanguage();
   const d = useDispatch();
 
   const closed = () => {
@@ -64,17 +66,18 @@ export default function Alert({
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>
         <ModalFooter className="flex items-center justify-end gap-2">
-          <Button onClick={closed}>{labels.cancel}</Button>
+          <Button onClick={closed}>{labels[language.code].cancel}</Button>
           <Button
             variant="solid"
             colorScheme="blue"
             onClick={onOk}
             disabled={isOkButtonDisabled}
           >
-            {labels.ok}
+            {labels[language.code].ok}
           </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
   );
 }
+

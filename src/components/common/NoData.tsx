@@ -1,9 +1,11 @@
 import { Flex, Stack } from "@chakra-ui/react";
 import React, { memo } from "react";
 import { BiCloud } from "react-icons/bi";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
+import LanguageStore from "utils/local-storage/LanguageStore";
 
-interface NoDataProps {
+export interface NoDataProps {
   title?: React.ReactNode;
   description?: React.ReactNode;
   icon?: React.ReactNode;
@@ -11,15 +13,19 @@ interface NoDataProps {
   iconColor?: string;
 }
 
-let initialDescription = labels.clickOnButtonToCreateTodo;
+const lang = LanguageStore.get();
+
+let initialDescription = labels[lang.code].clickOnButtonToCreateTodo;
 
 function NoData({
-  title = labels.nothingToShow,
+  title = labels[lang.code].nothingToShow,
   description = initialDescription,
   iconColor = "#3b82f6",
   icon = <BiCloud fill={iconColor} size={45} />,
   textColor,
 }: NoDataProps) {
+  const { language } = useLanguage();
+
   return (
     <Flex
       gap="2"

@@ -4,6 +4,8 @@ import NoData from "./common/NoData";
 import TodoItem from "./todo-item/TodoItem";
 import { TodosContainerProps } from "./TodosContainer";
 import isEmpty from "utils/isEmpty";
+import useLanguage from "hooks/useLanguage";
+import labels from "data/typescript/uiLabels";
 
 interface TodosInnerContainerProps extends TodosContainerProps {}
 
@@ -11,12 +13,13 @@ export default function TodosInnerContainer({
   todos,
   isFilterMode,
 }: TodosInnerContainerProps) {
+  const { language } = useLanguage();
   const isTodosEmpty = isEmpty(todos);
   const noDataProps = isFilterMode
     ? {
-        title: "No Search Results",
+        title: labels[language.code].noSearchResults,
         icon: <BiSearch size={45} className="text-blue-500" />,
-        description: "Try different keywords.",
+        description: labels[language.code].tryDifferentKeywords,
       }
     : undefined;
 

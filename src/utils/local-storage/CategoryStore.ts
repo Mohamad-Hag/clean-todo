@@ -7,14 +7,15 @@ import Category from "../interfaces/common/Category";
 
 class CategoryStore {
   public static storage = localStorage;
+  private static nameInStorage = "categories";
 
   private static set(value: Category[]) {
-    this.storage.setItem("categories", JSON.stringify(value));
+    this.storage.setItem(this.nameInStorage, JSON.stringify(value));
   }
 
   public static get(): Category[] {
-    if (!this.storage.getItem("categories")) this.set([]);
-    return JSON.parse(this.storage.getItem("categories") as string);
+    if (!this.storage.getItem(this.nameInStorage)) this.set([]);
+    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static create(categories: Category[], category: Category) {

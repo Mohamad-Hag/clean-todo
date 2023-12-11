@@ -10,7 +10,8 @@ import {
 } from "@chakra-ui/react";
 import bcrypt from "bcryptjs";
 import ConditionalRenderer from "components/common/ConditionalRenderer";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import useLockScreen from "hooks/useLockScreen";
 import usePassCodeTimeout from "hooks/usePassCodeTimeout";
 import useResetAccount from "hooks/useResetAcount";
@@ -18,17 +19,18 @@ import { useEffect, useState } from "react";
 
 export default function PassCodeScreenBody() {
   let runTimeout = usePassCodeTimeout("15 minute");
+  const { language } = useLanguage();
   const resetAccount = useResetAccount();
   const [passCodeValue, setPassCodeValue] = useState<string>("");
   const timeout = 5000;
   const [confirmMode, setConfirmMode] = useState<boolean>(false);
-  const [errorText, setErrorText] = useState<string>(labels.cantEmpty4);
+  const [errorText, setErrorText] = useState<string>(labels[language.code].cantEmpty4);
   const { hashedValue, unlock } = useLockScreen();
 
   let isValid = passCodeValue !== "" && passCodeValue.length === 4;
 
   useEffect(() => {
-    if (!isValid) setErrorText(labels.cantEmpty4);
+    if (!isValid) setErrorText(labels[language.code].cantEmpty4);
     else setErrorText("");
   }, [passCodeValue.length]);
 
@@ -42,7 +44,7 @@ export default function PassCodeScreenBody() {
     let canUnlock = isValid && bcrypt.compareSync(passCodeValue, hashedValue!);
 
     if (canUnlock) unlock();
-    else setErrorText(labels.invalidPassCode);
+    else setErrorText(labels[language.code].invalidPassCode);
   };
 
   const disablePassCode = () => {
@@ -58,7 +60,7 @@ export default function PassCodeScreenBody() {
     <ModalBody>
       <form className="flex flex-col gap-6" onSubmit={submitted}>
         <FormControl isInvalid={!isValid || errorText !== ""}>
-          <FormLabel>{labels.passCode}</FormLabel>
+          <FormLabel>{labels[language.code].passCode}</FormLabel>
           <Input
             letterSpacing={2}
             textAlign="center"
@@ -72,7 +74,7 @@ export default function PassCodeScreenBody() {
         </FormControl>
         <Flex flexDirection="column" gap={1}>
           <Button type="submit" variant="solid" colorScheme="blue">
-            {labels.check}
+            {labels[language.code].check}
           </Button>
           <FormControl width="100%">
             <Button
@@ -82,10 +84,10 @@ export default function PassCodeScreenBody() {
               colorScheme="red"
               onClick={disablePassCode}
             >
-              {confirmMode ? labels.clickToConfirm : labels.disablePassCode}
+              {confirmMode ? labels[language.code].clickToConfirm : labels[language.code].disablePassCode}
             </Button>
             <ConditionalRenderer condition={confirmMode}>
-              <FormHelperText>{labels.loseAllData}</FormHelperText>
+              <FormHelperText>{labels[language.code].loseAllData}</FormHelperText>
             </ConditionalRenderer>
           </FormControl>
         </Flex>

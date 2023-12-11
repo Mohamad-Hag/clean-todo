@@ -5,13 +5,15 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import useLockScreen from "hooks/useLockScreen";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { close } from "redux/features/alertSlice";
 
 export default function PrivacyPanelContent() {
+  const { language } = useLanguage();
   const [passCodeValue, setPassCodeValue] = useState<string>();
   const [confirmMode, setConfirmMode] = useState<boolean>(false);
   const d = useDispatch();
@@ -65,7 +67,7 @@ export default function PrivacyPanelContent() {
   return (
     <form className="flex flex-col gap-3" onSubmit={submitted}>
       <FormControl isInvalid={!canSetPassCode}>
-        <FormLabel>{labels.enterPassCode}</FormLabel>
+        <FormLabel>{labels[language.code].enterPassCode}</FormLabel>
         <Input
           maxLength={4}
           type="password"
@@ -74,7 +76,7 @@ export default function PrivacyPanelContent() {
         />
       </FormControl>
       <FormControl isInvalid={!canSetPassCode}>
-        <FormLabel>{labels.reenter}</FormLabel>
+        <FormLabel>{labels[language.code].reenter}</FormLabel>
         <Input
           type="password"
           maxLength={4}
@@ -82,18 +84,18 @@ export default function PrivacyPanelContent() {
           onChange={reenteredPassCodeValueChanged}
         />
         {!canSetPassCode && (
-          <FormErrorMessage>{labels.cantEmptyNotMatch}</FormErrorMessage>
+          <FormErrorMessage>{labels[language.code].cantEmptyNotMatch}</FormErrorMessage>
         )}
       </FormControl>
       <Button type="submit" variant="solid" colorScheme="blue">
-        {labels.setPassCode}
+        {labels[language.code].setPassCode}
       </Button>
       <Button
         variant={confirmMode ? "outline" : "ghost"}
         colorScheme="blue"
         onClick={disablePassCode}
       >
-        {confirmMode ? labels.clickToConfirm : labels.disablePassCode}
+        {confirmMode ? labels[language.code].clickToConfirm : labels[language.code].disablePassCode}
       </Button>
     </form>
   );

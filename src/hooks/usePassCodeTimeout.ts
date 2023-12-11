@@ -1,9 +1,7 @@
-import { useState } from "react";
-import { PassCodeTimeout } from "redux/features/passCodeSlice";
+import { PassCodeTimeouts } from "redux/features/passCodeSlice";
 import useLockScreen from "./useLockScreen";
-import { useSelector } from "react-redux";
 
-const usePassCodeTimeout = (timeoutValue: PassCodeTimeout) => {
+const usePassCodeTimeout = (timeoutValue: PassCodeTimeouts) => {
   let { hashedValue, isPassed, lock } = useLockScreen();
 
   let timeout: NodeJS.Timeout;

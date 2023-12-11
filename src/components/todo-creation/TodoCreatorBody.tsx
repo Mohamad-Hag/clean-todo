@@ -10,11 +10,13 @@ import {
 } from "redux/features/formSlice";
 import Priority from "utils/types/Priority";
 import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
+  const { language } = useLanguage();
   const form = useSelector(selectForm);
   const d = useDispatch();
   const titleRef = useRef<HTMLInputElement>(null!);
@@ -47,11 +49,11 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   return (
     <Stack spacing="3">
       <FormControl>
-        <FormLabel>{labels.title}</FormLabel>
+        <FormLabel>{labels[language.code].title}</FormLabel>
         <Input ref={titleRef} value={form.title} onChange={titleChanged} />
       </FormControl>
       <FormControl>
-        <FormLabel>{labels.description}</FormLabel>
+        <FormLabel>{labels[language.code].description}</FormLabel>
         <ContentEditable
           className="todo-creator-description"
           html={form.description!}
@@ -59,7 +61,7 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
         />
       </FormControl>
       <FormControl>
-        <FormLabel>{labels.priority}</FormLabel>
+        <FormLabel>{labels[language.code].priority}</FormLabel>
         <TodoCreatorPriorityButtons
           priority={form.priority!}
           onSelect={prioritySelected}

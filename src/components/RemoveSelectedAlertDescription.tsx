@@ -1,11 +1,7 @@
+import useAlert from "hooks/useAlert";
 import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import {
-  disableOkButton,
-  enableOkButton,
-  selectAlert,
-} from "redux/features/alertSlice";
 import isReachBottom from "utils/interfaces/common/isReachBottom";
 import TodoProps from "utils/interfaces/common/Todo";
 
@@ -16,20 +12,19 @@ interface RemoveSelectedAlertDescriptionProps {
 export default function RemoveSelectedAlertDescription({
   selections,
 }: RemoveSelectedAlertDescriptionProps) {
-  const alert = useSelector(selectAlert);
-  const d = useDispatch();
+  const { disableOkButton, enableOkButton, isOkButtonDisabled } = useAlert();
   const scrollableULRef = useRef<HTMLUListElement>(null!);
 
   const selectionsScroll = (e: any) => {
-    if (isReachBottom(e.target)) d(enableOkButton());
-    else d(disableOkButton());
+    if (isReachBottom(e.target)) enableOkButton();
+    else disableOkButton();
   };
 
   const hasVerticalScrollbar = () =>
     scrollableULRef.current.scrollHeight > scrollableULRef.current.clientHeight;
 
   useEffect(() => {
-    if (!hasVerticalScrollbar()) d(enableOkButton());
+    if (!hasVerticalScrollbar()) enableOkButton();
   }, []);
 
   return (
@@ -46,7 +41,7 @@ export default function RemoveSelectedAlertDescription({
           </li>
         ))}
       </ul>
-      {alert.isOkButtonDisabled && (
+      {isOkButtonDisabled && (
         <small className="text-gray-500">
           Check all items to enable "Ok" button...
         </small>

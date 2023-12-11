@@ -13,11 +13,13 @@ import {
   setTitle,
 } from "redux/features/categoryFormSlice";
 import CategoryCreatorIcons from "./CategoryCreatorIcons";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
+  const { language } = useLanguage();
   const form = useSelector(selectCategoryForm);
   const d = useDispatch();
   const titleRef = useRef<HTMLInputElement>(null!);
@@ -46,17 +48,17 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   return (
     <Stack spacing="3">
       <FormControl>
-        <FormLabel>{labels.title}</FormLabel>
+        <FormLabel>{labels[language.code].title}</FormLabel>
         <Input
           ref={titleRef}
           value={form.title}
           onChange={titleChanged}
           maxLength={20}
         />
-        <FormHelperText>{labels.maxAllowedChars10}</FormHelperText>
+        <FormHelperText>{labels[language.code].maxAllowedChars10}</FormHelperText>
       </FormControl>
       <FormControl>
-        <FormLabel>{labels.icon}</FormLabel>
+        <FormLabel>{labels[language.code].icon}</FormLabel>
         <CategoryCreatorIcons onSelect={iconChanged} icon={form.icon!} />
       </FormControl>
     </Stack>

@@ -6,9 +6,11 @@ import { replace as replaceSidebar } from "redux/features/sidebarSlice";
 import { replace as replaceTodos } from "redux/features/todosSlice";
 import { replace as replacePassCode } from "redux/features/passCodeSlice";
 import ImportExportData from "utils/interfaces/common/ImportExportData";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "./useLanguage";
 
 const useImportData = () => {
+  const { language } = useLanguage();
   let d = useDispatch();
 
   return (importData: ImportExportData): string => {
@@ -25,7 +27,7 @@ const useImportData = () => {
       passCodeStore;
 
     if (!isImportDataValid) {
-      return labels.cantImport;
+      return labels[language.code].cantImport;
     }
 
     d(replaceTodos(todoStore));

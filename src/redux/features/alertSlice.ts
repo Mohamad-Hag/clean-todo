@@ -3,13 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import React from "react";
 import { AlertProps } from "components/common/Alert";
 import type { RootState } from "../store";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import LanguageStore from "utils/local-storage/LanguageStore";
 
 export type FormMode = "create" | "edit";
 
+const language = LanguageStore.get();
+
 const initialState: AlertProps = {
-  title: labels.title,
-  description: labels.description,
+  title: labels[language.code].title,
+  description: labels[language.code].description,
   isOpen: false,
   isOkButtonDisabled: false,
   icon: "alert",

@@ -1,16 +1,18 @@
 import { useToast } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
 import { BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { remove, selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
 import UndoToast from "../UndoToast";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
+import useLanguage from "hooks/useLanguage";
 
 export default function RemoveItemButton({
   id,
   hideItemCallback,
 }: TodoItemRightSideProps) {
+  const { language } = useLanguage();
   const d = useDispatch();
   const toast = useToast();
   const todos = useSelector(selectTodos);
@@ -44,7 +46,7 @@ export default function RemoveItemButton({
 
   return (
     <SmallIconButton
-      label={labels.remove}
+      label={labels[language.code].remove}
       icon={<BiTrash />}
       color="red"
       onClick={removed}

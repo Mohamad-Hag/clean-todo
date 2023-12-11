@@ -1,6 +1,8 @@
 import { ModalCloseButton, ModalContent, ModalHeader } from "@chakra-ui/react";
 import CategorySelectorBody from "./CategorySelectorBody";
 import CategorySelectorFooter from "./CategorySelectorFooter";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 interface CategorySelectorContentProps {
   onClose: () => void;
@@ -14,6 +16,7 @@ export default function CategorySelectorContent({
   isActiveArray,
 }: CategorySelectorContentProps) {
   const isFooterButtonsDisabled = !isActiveArray.find((value) => value);
+  const { language } = useLanguage();
 
   const close_ = () => {
     if (onClose) onClose();
@@ -25,7 +28,7 @@ export default function CategorySelectorContent({
 
   return (
     <ModalContent m={2}>
-      <ModalHeader>Select a Category...</ModalHeader>
+      <ModalHeader>{labels[language.code].selectCategoryDots}</ModalHeader>
       <ModalCloseButton />
       <CategorySelectorBody
         isActiveArray={isActiveArray}

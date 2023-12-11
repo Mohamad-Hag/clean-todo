@@ -12,15 +12,17 @@ import setTodoShowPriorityIcon from "redux/preferencesActions/setTodoShowPriorit
 
 class PreferencesStore {
   public static storage = localStorage;
+  private static nameInStorage = "preferences";
   private static initialPreferences: Preferences = initialPreferences;
 
   private static set(value: Preferences) {
-    this.storage.setItem("preferences", JSON.stringify(value));
+    this.storage.setItem(this.nameInStorage, JSON.stringify(value));
   }
 
   public static get(): Preferences {
-    if (!this.storage.getItem("preferences")) this.set(this.initialPreferences);
-    return JSON.parse(this.storage.getItem("preferences") as string);
+    if (!this.storage.getItem(this.nameInStorage))
+      this.set(this.initialPreferences);
+    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static changeBackground(preferences: Preferences, background: string) {

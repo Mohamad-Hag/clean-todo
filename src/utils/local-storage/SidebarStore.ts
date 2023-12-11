@@ -5,17 +5,18 @@ import replaceSidebar from "redux/sidebarActions/replaceSidebar";
 
 class SidebarStore {
   public static storage = localStorage;
+  private static nameInStorage = "sidebar";
   private static initialSidebar: Sidebar = {
     status: "shown",
   };
 
   private static set(value: Sidebar) {
-    this.storage.setItem("sidebar", JSON.stringify(value));
+    this.storage.setItem(this.nameInStorage, JSON.stringify(value));
   }
 
   public static get(): Sidebar {
-    if (!this.storage.getItem("sidebar")) this.set(this.initialSidebar);
-    return JSON.parse(this.storage.getItem("sidebar") as string);
+    if (!this.storage.getItem(this.nameInStorage)) this.set(this.initialSidebar);
+    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static changeStatus(sidebar: Sidebar, status: SidebarStatus) {

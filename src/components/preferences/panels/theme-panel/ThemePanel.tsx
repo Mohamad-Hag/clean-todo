@@ -1,3 +1,8 @@
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
+
 export default function ThemePanel() {
-  return <div>Not Supported Yet!</div>;
+  const { language } = useLanguage();
+
+  return <div>{labels[language.code].notSupportedYet}</div>;
 }

@@ -5,7 +5,8 @@ import {
   FormHelperText,
   Stack,
 } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectPreferences,
@@ -15,6 +16,7 @@ import {
 } from "redux/features/preferencesSlice";
 
 export default function FilterPanel() {
+  const { language } = useLanguage();
   let preferences = useSelector(selectPreferences);
   let d = useDispatch();
   let includeDescription = preferences.filterPreferences?.includeDescription;
@@ -43,22 +45,22 @@ export default function FilterPanel() {
             isChecked={includeDescription}
             onChange={includeDescriptionChanged}
           >
-            {labels.includeDescription}
+            {labels[language.code].includeDescription}
           </Checkbox>
         </Flex>
-        <FormHelperText>{labels.includeDescriptionDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].includeDescriptionDescription}</FormHelperText>
       </FormControl>
       <FormControl>
         <Checkbox isChecked={includeCategory} onChange={includeCategoryChanged}>
-          {labels.includeCategory}
+          {labels[language.code].includeCategory}
         </Checkbox>
-        <FormHelperText>{labels.includeCategoryDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].includeCategoryDescription}</FormHelperText>
       </FormControl>
       <FormControl>
         <Checkbox isChecked={includeDate} onChange={includeDateChanged}>
-          {labels.includeDate}
+          {labels[language.code].includeDate}
         </Checkbox>
-        <FormHelperText>{labels.includeDateDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].includeDateDescription}</FormHelperText>
       </FormControl>
     </Stack>
   );

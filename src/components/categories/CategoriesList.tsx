@@ -10,7 +10,7 @@ export default function CategoriesList() {
   return (
     <>
       {isEmpty(categories) ? (
-        <CategoriesEmptyList />
+        <CategoriesEmptyList description="" />
       ) : (
         <CategoriesFilledList categories={categories} />
       )}

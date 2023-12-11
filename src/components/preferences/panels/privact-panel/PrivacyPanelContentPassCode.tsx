@@ -6,9 +6,10 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
 import bcrypt from "bcryptjs";
 import useLockScreen from "hooks/useLockScreen";
+import useLanguage from "hooks/useLanguage";
 
 interface PrivacyPanelContentPassCodeProps {
   onValidate: (isValid: boolean) => void;
@@ -17,6 +18,7 @@ interface PrivacyPanelContentPassCodeProps {
 export default function PrivacyPanelContentPassCode({
   onValidate,
 }: PrivacyPanelContentPassCodeProps) {
+  const { language } = useLanguage();
   const [passCodeValue, setPassCodeValue] = useState<string>("");
   const [errorText, setErrorText] = useState<string>("");
   const { hashedValue } = useLockScreen();
@@ -31,7 +33,7 @@ export default function PrivacyPanelContentPassCode({
 
     let isValid = passCodeValue !== "" && bcrypt.compareSync(passCodeValue, hashedValue!);
 
-    if (!isValid) setErrorText(labels.invalidPassCode);
+    if (!isValid) setErrorText(labels[language.code].invalidPassCode);
     else setErrorText("");
 
     if (onValidate) onValidate(isValid);
@@ -40,7 +42,7 @@ export default function PrivacyPanelContentPassCode({
   return (
     <form onSubmit={submitted} className="flex flex-col gap-3">
       <FormControl isInvalid={errorText !== ""}>
-        <FormLabel>{labels.enterPassCode}</FormLabel>
+        <FormLabel>{labels[language.code].enterPassCode}</FormLabel>
         <Input
           type="password"
           value={passCodeValue}
@@ -49,7 +51,7 @@ export default function PrivacyPanelContentPassCode({
         <FormErrorMessage>{errorText}</FormErrorMessage>
       </FormControl>
       <Button type="submit" variant="solid" colorScheme="blue">
-        {labels.check}
+        {labels[language.code].check}
       </Button>
     </form>
   );

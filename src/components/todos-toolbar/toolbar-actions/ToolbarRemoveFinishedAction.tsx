@@ -2,9 +2,11 @@ import { BiXCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { removeFinished } from "redux/features/todosSlice";
 import ToolbarAction from "../ToolbarAction";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export default function ToolbarRemovedFinishedAction() {
+  const { language } = useLanguage();
   const d = useDispatch();
 
   const remove = () => {
@@ -14,7 +16,7 @@ export default function ToolbarRemovedFinishedAction() {
   return (
     <ToolbarAction
       icon={<BiXCircle />}
-      title={labels.removeFinished}
+      title={labels[language.code].removeFinished}
       onAction={remove}
     />
   );

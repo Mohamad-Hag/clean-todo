@@ -4,9 +4,11 @@ import { openAsEdit } from "redux/features/formSlice";
 import { selectTodos } from "redux/features/todosSlice";
 import SmallIconButton from "../SmallIconButton";
 import { TodoItemRightSideProps } from "../todo-item/TodoItemRightSide";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export default function EditItemButton({ id }: TodoItemRightSideProps) {
+  const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const todo = todos.find((td) => td.id === id)!;
   let d = useDispatch();
@@ -22,6 +24,6 @@ export default function EditItemButton({ id }: TodoItemRightSideProps) {
     );
   };
   return (
-    <SmallIconButton label={labels.edit} icon={<BiPencil />} onClick={edit} />
+    <SmallIconButton label={labels[language.code].edit} icon={<BiPencil />} onClick={edit} />
   );
 }

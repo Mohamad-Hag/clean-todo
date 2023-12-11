@@ -14,6 +14,8 @@ import isInclude from "utils/isInclude";
 import { useSelector } from "react-redux";
 import { selectCategories } from "redux/features/categorySlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -24,6 +26,7 @@ export default function FilterInput({
   onFilterDone,
   filterData,
 }: FilterInputProps) {
+  const { language } = useLanguage();
   const inputRef = useRef<HTMLInputElement>(null!);
   const filterKey = { key: "/", code: 191 };
   const preferences = useSelector(selectPreferences);
@@ -82,7 +85,7 @@ export default function FilterInput({
           onChange={filter}
           variant="filled"
           size="lg"
-          placeholder="Filter Todos..."
+          placeholder={labels[language.code].filterTodosDots}
           _focus={{ border: "none" }}
           border="none"
         />

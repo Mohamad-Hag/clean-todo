@@ -5,7 +5,8 @@ import { selectForm } from "redux/features/formSlice";
 import { create, edit } from "redux/features/todosSlice";
 import TodoCreatorBody from "./TodoCreatorBody";
 import TodoCreatorFooter from "./TodoCreatorFooter";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 interface TodoCreatorFormProps {
   closeCallback: () => void;
@@ -14,8 +15,9 @@ interface TodoCreatorFormProps {
 export default function TodoCreatorForm({
   closeCallback,
 }: TodoCreatorFormProps) {
+  const { language } = useLanguage();
   const form = useSelector(selectForm);
-  const formTitle = form.mode === "create" ? labels.create : labels.edit;
+  const formTitle = form.mode === "create" ? labels[language.code].create : labels[language.code].edit;
   const description = form.description?.replace(/\n\r?/g, "<br/>").trim();
   const d = useDispatch();
 

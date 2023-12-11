@@ -8,54 +8,57 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import labels from "data/json/ui-labels.json";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 
 export default function ShortcutsPanel() {
+  const { language } = useLanguage();
+
   return (
     <TableContainer>
       <Table variant="simple">
         <Thead>
           <Tr>
-            <Th>{labels.shortcut}</Th>
-            <Th>{labels.description}</Th>
+            <Th>{labels[language.code].shortcut}</Th>
+            <Th>{labels[language.code].description}</Th>
           </Tr>
         </Thead>
         <Tbody>
           <Tr>
             <Td>
-              <Kbd>{labels.ctrl}</Kbd> {labels.plusSign} <Kbd>{labels.q}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].q}</Kbd>
             </Td>
-            <Td>{labels.createNewTodo}</Td>
+            <Td>{labels[language.code].createNewTodo}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels.ctrl}</Kbd> {labels.plusSign} <Kbd>{labels.b}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].b}</Kbd>
             </Td>
-            <Td>{labels.createNewCategory}</Td>
+            <Td>{labels[language.code].createNewCategory}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels.ctrl}</Kbd> {labels.plusSign} <Kbd>{labels.a}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].a}</Kbd>
             </Td>
-            <Td>{labels.selectAllTodos}</Td>
+            <Td>{labels[language.code].selectAllTodos}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels.shift}</Kbd> {labels.plusSign} <Kbd>{labels.l}</Kbd>
+              <Kbd>{labels[language.code].shift}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].l}</Kbd>
             </Td>
-            <Td>{labels.lockScreen}</Td>
+            <Td>{labels[language.code].lockScreen}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels.shift}</Kbd> {labels.plusSign} <Kbd>{labels.p}</Kbd>
+              <Kbd>{labels[language.code].shift}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].p}</Kbd>
             </Td>
-            <Td>{labels.openPreferences}</Td>
+            <Td>{labels[language.code].openPreferences}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels.esc}</Kbd>
+              <Kbd>{labels[language.code].esc}</Kbd>
             </Td>
-            <Td>{labels.exitSelectMode}</Td>
+            <Td>{labels[language.code].exitSelectMode}</Td>
           </Tr>
         </Tbody>
       </Table>
