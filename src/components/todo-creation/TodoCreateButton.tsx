@@ -18,7 +18,7 @@ export default function TodoCreateButton() {
     d(open());
   };
 
-  const bottomRight = isMobile ? "5" : "10";
+  // const bottomRight = isMobile ? "5" : "10";
 
   const label = isMobile ? undefined : (
     <p>
