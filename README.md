@@ -14,6 +14,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Import/Export data as json feature ✅.
 - Lock ability by using a 4 digit pass code with encryption ✅.
 - 4 languages support (English, Spanish, French, Chinese) ✅.
+- Supported for mobile devices (Responsive) ✅.
 
 ## Tools Used
 
@@ -24,9 +25,8 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Redux Toolkit.
 - Local Storage.
 - React Icons.
+- BCrypt JS.
   <br/>
   <br/>
-
-`🛑 Not Supported For Mobile Devices`
 
 Thank You.

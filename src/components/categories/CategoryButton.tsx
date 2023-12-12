@@ -3,13 +3,11 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { openAsEdit } from "redux/features/categoryFormSlice";
 import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
-import
-  {
-    activeStyle,
-    hoverStyle,
-  } from "utils/styles/SidebarButtonStyles";
+import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import { URLString } from "components/layout/sidebar/SidebarButton";
 import CategoryButtonContent from "./CategoryButtonContent";
+import { isMobile } from "react-device-detect";
+import { changeOppositeStatus } from "redux/features/sidebarSlice";
 
 export interface CategoryButtonProps {
   id: number;
@@ -46,7 +44,10 @@ export default function CategoryButton({
   };
 
   const select = () => {
-    if (onSelect) onSelect(index);
+    if (onSelect) {
+      onSelect(index);
+      if (isMobile) d(changeOppositeStatus("shown"));
+    }
   };
 
   return (

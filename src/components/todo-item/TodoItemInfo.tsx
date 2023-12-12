@@ -6,6 +6,7 @@ import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
 import TodoItemTitle from "./TodoItemTitle";
 import { selectPreferences } from "redux/features/preferencesSlice";
+import { isMobile } from "react-device-detect";
 
 interface TodoItemInfo {
   id: number;
@@ -47,6 +48,7 @@ function TodoItemInfo({ id }: TodoItemInfo) {
         bg: "#22222210",
       }}
       p="2"
+      width={isMobile ? "100%" : undefined}
       borderRadius="md"
     >
       <Stack spacing="-0.5">

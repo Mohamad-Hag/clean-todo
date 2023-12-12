@@ -1,6 +1,7 @@
 import useLanguage from "hooks/useLanguage";
 import { ToolbarProps } from "./Toolbar";
 import labels from "data/typescript/uiLabels";
+import { isMobile } from "react-device-detect";
 
 export default function ToolbarBasicInfo({
   todos,
@@ -16,7 +17,7 @@ export default function ToolbarBasicInfo({
         ? `${labels[language.code].results} `
         : `${labels[language.code].total} `}
       <b>{todos.length}</b>{" "}
-      {isTrashPage || isFilterMode ? null : (
+      {isTrashPage || isFilterMode || isMobile ? null : (
         <label>
           / {labels[language.code].finished} <b>{finishedCount}</b>
         </label>

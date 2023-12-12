@@ -7,10 +7,11 @@ import ThemePanel from "components/preferences/panels/theme-panel/ThemePanel";
 import TodoPanel from "components/preferences/panels/todo-panel/TodoPanel";
 import labels from "data/typescript/uiLabels";
 import LanguageStore from "utils/local-storage/LanguageStore";
+import { isMobile } from "react-device-detect";
 
 const language = LanguageStore.get();
 
-const preferencesTabs = [
+let preferencesTabs = [
   {
     tab: labels[language.code].todo,
     panel: <TodoPanel />,
@@ -40,5 +41,10 @@ const preferencesTabs = [
     panel: <OtherPanel />,
   },
 ];
+
+if (isMobile)
+  preferencesTabs = preferencesTabs.filter(
+    (tab) => tab.tab !== labels[language.code].shortcuts
+  );
 
 export default preferencesTabs;

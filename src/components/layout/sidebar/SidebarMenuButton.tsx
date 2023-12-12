@@ -5,25 +5,28 @@ import {
   changeOppositeStatus,
   selectSidebar,
 } from "redux/features/sidebarSlice";
-import {
-  activeStyle,
-  hoverStyle,
-} from "utils/styles/SidebarButtonStyles";
+import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import { isMobile } from "react-device-detect";
 
 export default function SidebarMenuButton() {
   const { language } = useLanguage();
   const { status } = useSelector(selectSidebar);
   const d = useDispatch();
 
-  const label =
-    (status === "shown" ? labels[language.code].hide : labels[language.code].show) + " " + labels[language.code].sidebar;
+  const label = isMobile
+    ? null
+    : (status === "shown"
+        ? labels[language.code].hide
+        : labels[language.code].show) +
+      " " +
+      labels[language.code].sidebar;
   const icon =
     status === "shown" ? (
       <FaArrowLeft color="white" />
     ) : (
-      <FaBars color="white" />
+      <FaBars color={isMobile ? "#555555" : "white"} />
     );
 
   const click = () => {

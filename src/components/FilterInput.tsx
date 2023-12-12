@@ -16,6 +16,9 @@ import { selectCategories } from "redux/features/categorySlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import ConditionalRenderer from "./common/ConditionalRenderer";
+import { isMobile } from "react-device-detect";
+import SidebarMenuButton from "./layout/sidebar/SidebarMenuButton";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -76,7 +79,12 @@ export default function FilterInput({
     <FormControl className="bg-white rounded-md shadow-md select-none">
       <InputGroup>
         <InputLeftElement height="100%">
-          <BiFilterAlt size={24} color="#BBB" />
+          <ConditionalRenderer
+            condition={!isMobile}
+            replaceWith={<SidebarMenuButton />}
+          >
+            <BiFilterAlt size={24} color="#BBB" />
+          </ConditionalRenderer>
         </InputLeftElement>
         <Input
           ref={inputRef}
@@ -89,9 +97,11 @@ export default function FilterInput({
           _focus={{ border: "none" }}
           border="none"
         />
-        <InputRightElement h="100%" pr="50px">
-          <Kbd>{filterModifierKey}</Kbd> + <Kbd>{filterKey.key}</Kbd>
-        </InputRightElement>
+        <ConditionalRenderer condition={!isMobile}>
+          <InputRightElement h="100%" pr="50px">
+            <Kbd>{filterModifierKey}</Kbd> + <Kbd>{filterKey.key}</Kbd>
+          </InputRightElement>
+        </ConditionalRenderer>
       </InputGroup>
     </FormControl>
   );

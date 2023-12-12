@@ -1,9 +1,11 @@
-import { Stack } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import RestoreItemButton from "components/todo-item-buttons/RestoreItemButton";
 import { useSelector } from "react-redux";
 import { selectTodos } from "redux/features/todosSlice";
 import RemoveItemButton from "../todo-item-buttons/RemoveItemButton";
 import TodoItemNormalButtons from "./TodoItemNormalButtons";
+import { isMobile } from "react-device-detect";
+import TodoItemRightSideMask from "./TodoItemRightSideMask";
 
 export interface TodoItemRightSideProps {
   id: number;
@@ -19,13 +21,13 @@ export default function TodoItemRightSide({
   const isTodoInTrash = todo && !todo.isInTrash;
 
   return (
-    <Stack direction="row">
+    <TodoItemRightSideMask>
       {isTodoInTrash ? (
         <TodoItemNormalButtons id={id!} />
       ) : (
         <RestoreItemButton id={id!} />
       )}
       <RemoveItemButton id={id!} hideItemCallback={hideItemCallback} />
-    </Stack>
+    </TodoItemRightSideMask>
   );
 }

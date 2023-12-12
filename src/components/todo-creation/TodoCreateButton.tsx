@@ -5,6 +5,7 @@ import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import { open, setMode } from "redux/features/formSlice";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import { isMobile } from "react-device-detect";
 
 export default function TodoCreateButton() {
   const { language } = useLanguage();
@@ -17,17 +18,20 @@ export default function TodoCreateButton() {
     d(open());
   };
 
-  const label = (
+  const bottomRight = isMobile ? "5" : "10";
+
+  const label = isMobile ? undefined : (
     <p>
       {labels[language.code].createTodo}{" "}
       <span className="text-gray-400 text-xs">
-        {labels[language.code].ctrl} {labels[language.code].plusSign} {labels[language.code].q}
+        {labels[language.code].ctrl} {labels[language.code].plusSign}{" "}
+        {labels[language.code].q}
       </span>
     </p>
   );
 
   return (
-    <div className="z-50 fixed bottom-10 right-10">
+    <div className={`z-50 fixed bottom-${bottomRight} right-${bottomRight}`}>
       <Tooltip label={label} placement="right" hasArrow>
         <IconButton
           className="create-btn"

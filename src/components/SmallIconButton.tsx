@@ -1,5 +1,6 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
 import React from "react";
+import { isMobile } from "react-device-detect";
 
 interface TodoItemButton {
   label: string;
@@ -16,8 +17,10 @@ export default function SmallIconButton({
   onClick,
   variant = "ghost",
 }: TodoItemButton) {
+  const mobileLabel = !isMobile ? label : null;
+
   return (
-    <Tooltip label={label} hasArrow>
+    <Tooltip label={mobileLabel} hasArrow>
       <IconButton
         variant={variant}
         aria-label={`${label} icon`}

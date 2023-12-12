@@ -1,5 +1,8 @@
 import { Badge, Button } from "@chakra-ui/react";
+import { isMobile } from "react-device-detect";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { changeOppositeStatus } from "redux/features/sidebarSlice";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 export type URLString = string;
@@ -23,8 +26,13 @@ export default function SidebarButton({
   badgeText,
   isActive = false,
 }: SidebarButtonProps) {
+  const d = useDispatch();
+
   const select = () => {
-    if (onSelect) onSelect(index);
+    if (onSelect) {
+    if (isMobile) d(changeOppositeStatus("shown"));
+      onSelect(index);
+    }
   };
 
   return (

@@ -2,6 +2,7 @@ import { IconButton, Tooltip } from "@chakra-ui/react";
 import labels from "data/typescript/uiLabels";
 import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import useLanguage from "hooks/useLanguage";
+import { isMobile } from "react-device-detect";
 import { GoSettings } from "react-icons/go";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
@@ -14,7 +15,7 @@ export default function PreferencesButton({ onClick }: PreferencesButtonProps) {
   const preferencesKey = { key: "P", code: 80 };
   useKeyboardShortcut(onClick, preferencesKey.code, "Shift");
 
-  const label = (
+  const label = isMobile ? undefined : (
     <p className="flex flex-col items-center">
       {labels[language.code].preferences}{" "}
       <span className="text-gray-400 text-xs">
