@@ -53,7 +53,7 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
           ref={titleRef}
           value={form.title}
           onChange={titleChanged}
-          maxLength={20}
+          maxLength={10}
         />
         <FormHelperText>{labels[language.code].maxAllowedChars10}</FormHelperText>
       </FormControl>
