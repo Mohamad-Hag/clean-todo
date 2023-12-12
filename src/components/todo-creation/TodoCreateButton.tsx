@@ -31,7 +31,7 @@ export default function TodoCreateButton() {
   );
 
   return (
-    <div className={`z-50 fixed bottom-${bottomRight} right-${bottomRight}`}>
+    <div className={`z-50 fixed bottom-10 right-10`}>
       <Tooltip label={label} placement="right" hasArrow>
         <IconButton
           className="create-btn"
