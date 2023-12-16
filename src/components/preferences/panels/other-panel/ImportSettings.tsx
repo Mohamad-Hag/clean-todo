@@ -27,7 +27,7 @@ export default function ImportSettings() {
       <FormLabel>{labels[language.code].importData}</FormLabel>
       <input
         ref={fileInputRef}
-        className="file-in"
+        className="file-in mb-2"
         type="file"
         accept="application/json"
       />

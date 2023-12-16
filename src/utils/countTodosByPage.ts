@@ -3,8 +3,10 @@ import TodoProps from "utils/interfaces/common/Todo";
 
 const countTodosByPage = (todos: TodoProps[], pathname: string): number => {
   let allTodos = todos.filter((todo) => !todo.isInTrash);
-  let activeTodos = todos.filter((todo) => !todo.isFinished);
-  let finishedTodos = todos.filter((todo) => todo.isFinished);
+  let activeTodos = todos.filter((todo) => !todo.isFinished && !todo.isInTrash);
+  let finishedTodos = todos.filter(
+    (todo) => todo.isFinished && !todo.isInTrash
+  );
   let trashTodos = todos.filter((todo) => todo.isInTrash);
 
   switch (pathname) {

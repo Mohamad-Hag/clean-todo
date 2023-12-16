@@ -1,4 +1,5 @@
 import { Button, Flex } from "@chakra-ui/react";
+import useIsMobile from "hooks/useIsMobile";
 import { BiInfoCircle } from "react-icons/bi";
 
 interface UndoToastProps {
@@ -10,11 +11,15 @@ export default function UndoToast({
   onUndo,
   title = "Undo the operation?",
 }: UndoToastProps) {
+  const isMobile = useIsMobile();
+  let width = isMobile ? "100%" : undefined;
+
   return (
     <Flex
       p="3"
       align="center"
       gap="3"
+      width={width}
       className="bg-blue-200 rounded-md w-96"
       justify="space-between"
     >

@@ -1,13 +1,14 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useIsMobile from "hooks/useIsMobile";
+import useKeyboardShortcut from "hooks/useKeyboardShortcut";
+import useLanguage from "hooks/useLanguage";
 import { BiPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import { open, setMode } from "redux/features/formSlice";
-import labels from "data/typescript/uiLabels";
-import useLanguage from "hooks/useLanguage";
-import { isMobile } from "react-device-detect";
 
 export default function TodoCreateButton() {
+  const isMobile = useIsMobile();
   const { language } = useLanguage();
   const d = useDispatch();
 

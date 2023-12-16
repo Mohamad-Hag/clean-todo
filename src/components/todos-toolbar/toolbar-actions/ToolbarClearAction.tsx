@@ -1,31 +1,26 @@
 import { BiTrash } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import {
-  close,
-  open,
-  setDescription,
-  setOnOk,
-  setTitle,
-} from "redux/features/alertSlice";
 import { clear } from "redux/features/todosSlice";
 import ToolbarAction from "../ToolbarAction";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import useAlert from "hooks/useAlert";
 
 export default function ToolbarClearAction() {
   const { language } = useLanguage();
   const d = useDispatch();
+  const { close, open, setDescription, setOnOk, setTitle } = useAlert();
 
   const clearAllAlert = () => {
-    d(open());
-    d(setTitle(labels[language.code].clearAll));
-    d(setDescription(labels[language.code].sureClearAllItems));
-    d(setOnOk(clearAll));
+    open();
+    setTitle(labels[language.code].clearAll);
+    setDescription(labels[language.code].sureClearAllItems);
+    setOnOk(clearAll);
   };
 
   const clearAll = () => {
     d(clear());
-    d(close());
+    close();
   };
 
   return (

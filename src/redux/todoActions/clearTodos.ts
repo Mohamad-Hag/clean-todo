@@ -1,7 +1,10 @@
 import TodoProps from "utils/interfaces/common/Todo";
 
 function clearTodos(todos: TodoProps[]) {
-  todos = todos.filter((todo) => todo.isInTrash); // Keep the todos that exist in trash.
+  todos = todos.map((todo) => {
+    if (!todo.isInTrash) todo.isInTrash = true;
+    return todo;
+  }); // Keep the todos that exist in trash.
   return todos;
 }
 

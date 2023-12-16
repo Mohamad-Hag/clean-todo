@@ -1,13 +1,14 @@
+import labels from "data/typescript/uiLabels";
+import useIsMobile from "hooks/useIsMobile";
 import useLanguage from "hooks/useLanguage";
 import { ToolbarProps } from "./Toolbar";
-import labels from "data/typescript/uiLabels";
-import { isMobile } from "react-device-detect";
 
 export default function ToolbarBasicInfo({
   todos,
   isFilterMode,
   isTrashPage,
 }: ToolbarProps) {
+  const isMobile = useIsMobile();
   const { language } = useLanguage();
   const finishedCount = todos.filter((todo) => todo.isFinished).length;
 

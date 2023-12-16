@@ -44,7 +44,7 @@ export const todosSlice = createSlice({
     removeSome: (state, action: PayloadAction<RemoveItemPayload[]>) =>
       TodoStore.removeSome(state, action.payload),
     removeFinished: (state) => TodoStore.removeFinished(state),
-    clear: (state) => TodoStore.clear(state),
+    clear: (state) => void TodoStore.clear(state),
     finishAll: (state) => TodoStore.finishAll(state),
     finishSome: (state, action: PayloadAction<number[]>) =>
       TodoStore.finishSome(state, action.payload),

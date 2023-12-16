@@ -4,5 +4,6 @@
         "contenteditable",
         "todos",
         "ازالة"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

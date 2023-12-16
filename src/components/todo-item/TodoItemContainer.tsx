@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
+import useIsMobile from "hooks/useIsMobile";
 import React from "react";
-import { isMobile } from "react-device-detect";
 import { useSelector } from "react-redux";
 import { selectTodos } from "redux/features/todosSlice";
 import { WithMultipleChildren } from "utils/interfaces/WithChildren";
@@ -14,6 +14,7 @@ const TodoItemContainer = React.forwardRef(
     { id, children }: TodoItemContainerProps,
     ref: React.Ref<HTMLDivElement>
   ) => {
+    const isMobile = useIsMobile();
     const todos = useSelector(selectTodos);
     let isFinished: boolean = !!todos.find((todo) => todo.id === id)
       ?.isFinished;

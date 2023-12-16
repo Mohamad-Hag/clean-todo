@@ -4,11 +4,13 @@ import { selectCategories } from "redux/features/categorySlice";
 import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
 import { Badge } from "@chakra-ui/react";
 
-interface TodoItemCategoryBadge {
+interface TodoItemCategoryBadgeProps {
   id: number;
 }
 
-export default function TodoItemCategoryBadge({ id }: TodoItemCategoryBadge) {
+export default function TodoItemCategoryBadge({
+  id,
+}: TodoItemCategoryBadgeProps) {
   const todos = useSelector(selectTodos);
   const categories = useSelector(selectCategories);
   const todo = todos.find((td) => td.id === id)!;

@@ -1,4 +1,7 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useIsMobile from "hooks/useIsMobile";
+import useLanguage from "hooks/useLanguage";
 import { FaArrowLeft, FaBars } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -6,11 +9,9 @@ import {
   selectSidebar,
 } from "redux/features/sidebarSlice";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
-import labels from "data/typescript/uiLabels";
-import useLanguage from "hooks/useLanguage";
-import { isMobile } from "react-device-detect";
 
 export default function SidebarMenuButton() {
+  const isMobile = useIsMobile();
   const { language } = useLanguage();
   const { status } = useSelector(selectSidebar);
   const d = useDispatch();

@@ -1,11 +1,11 @@
 import { Flex } from "@chakra-ui/react";
+import pathnames from "data/json/pathnames.json";
+import useIsMobile from "hooks/useIsMobile";
+import { useLocation } from "react-router-dom";
+import PageCheck from "utils/interfaces/common/PageCheck";
 import TodoProps from "utils/interfaces/common/Todo";
 import ToolbarLeftSide from "./ToolbarLeftSide";
 import ToolbarRightSide from "./ToolbarRightSide";
-import PageCheck from "utils/interfaces/common/PageCheck";
-import { useLocation } from "react-router-dom";
-import pathnames from "data/json/pathnames.json";
-import { isMobile } from "react-device-detect";
 
 export interface ToolbarProps extends PageCheck {
   todos: TodoProps[];
@@ -13,6 +13,7 @@ export interface ToolbarProps extends PageCheck {
 }
 
 export default function Toolbar({ todos, isFilterMode = false }: ToolbarProps) {
+  const isMobile = useIsMobile();
   const { pathname } = useLocation();
   const isTrashPage = pathname === pathnames.trashPathName;
   const paddingX = isMobile ? "5" : "10";

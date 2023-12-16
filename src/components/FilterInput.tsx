@@ -17,8 +17,8 @@ import { selectPreferences } from "redux/features/preferencesSlice";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import ConditionalRenderer from "./common/ConditionalRenderer";
-import { isMobile } from "react-device-detect";
 import SidebarMenuButton from "./layout/sidebar/SidebarMenuButton";
+import useIsMobile from "hooks/useIsMobile";
 
 export interface FilterInputProps {
   onFilterDone: (filteredTodos: TodoProps[], currentQuery: string) => void;
@@ -29,6 +29,7 @@ export default function FilterInput({
   onFilterDone,
   filterData,
 }: FilterInputProps) {
+  const isMobile = useIsMobile();
   const { language } = useLanguage();
   const inputRef = useRef<HTMLInputElement>(null!);
   const filterKey = { key: "/", code: 191 };

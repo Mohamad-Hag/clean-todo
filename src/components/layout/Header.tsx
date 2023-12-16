@@ -1,12 +1,11 @@
 import { Flex } from "@chakra-ui/react";
 import FilterInput, { FilterInputProps } from "../FilterInput";
-import { isMobile } from "react-device-detect";
-import SidebarMenuButton from "./sidebar/SidebarMenuButton";
-import ConditionalRenderer from "components/common/ConditionalRenderer";
+import useIsMobile from "hooks/useIsMobile";
 
 interface HeaderProps extends FilterInputProps {}
 
 export default function Header({ onFilterDone, filterData }: HeaderProps) {
+  const isMobile = useIsMobile();
   const paddingX = isMobile ? "2" : "5";
 
   return (

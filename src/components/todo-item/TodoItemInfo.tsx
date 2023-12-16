@@ -1,17 +1,18 @@
 import { Stack } from "@chakra-ui/react";
+import useIsMobile from "hooks/useIsMobile";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "redux/features/formSlice";
+import { selectPreferences } from "redux/features/preferencesSlice";
 import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
 import TodoItemTitle from "./TodoItemTitle";
-import { selectPreferences } from "redux/features/preferencesSlice";
-import { isMobile } from "react-device-detect";
 
-interface TodoItemInfo {
+interface TodoItemInfoProps {
   id: number;
 }
-function TodoItemInfo({ id }: TodoItemInfo) {
+function TodoItemInfo({ id }: TodoItemInfoProps) {
+  const isMobile = useIsMobile();
   const todos = useSelector(selectTodos);
   const todo = todos.find((td) => td.id === id)!;
   const preferences = useSelector(selectPreferences);

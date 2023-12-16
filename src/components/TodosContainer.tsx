@@ -14,7 +14,7 @@ export default function TodosContainer({
   isFilterMode = false,
 }: TodosContainerProps) {
   return (
-    <Container>
+    <Container >
       <Toolbar todos={todos} isFilterMode={isFilterMode} />
       <TodosInnerContainer todos={todos} isFilterMode={isFilterMode} />
       <CategorySelector />

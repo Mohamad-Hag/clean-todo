@@ -1,0 +1,7 @@
+{
+    "name": "cleanTodo",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "react"
+}

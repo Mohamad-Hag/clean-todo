@@ -6,8 +6,8 @@ import getCategoryIconByTitle from "utils/getCategoryIconByTitle";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import { URLString } from "components/layout/sidebar/SidebarButton";
 import CategoryButtonContent from "./CategoryButtonContent";
-import { isMobile } from "react-device-detect";
 import { changeOppositeStatus } from "redux/features/sidebarSlice";
+import useIsMobile from "hooks/useIsMobile";
 
 export interface CategoryButtonProps {
   id: number;
@@ -28,6 +28,7 @@ export default function CategoryButton({
   onSelect,
   index,
 }: CategoryButtonProps) {
+  const isMobile = useIsMobile();
   const categoryIcon = getCategoryIconByTitle(icon);
   const background = isActive ? "blue.100" : "transparent";
   const color = isActive ? "black" : "white";

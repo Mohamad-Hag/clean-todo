@@ -18,6 +18,8 @@ export default function TodoItemPriorityFlag({
         bg={color}
         h="6"
         w="6"
+        minW="6"
+        minH="6"
         borderRadius="md"
         justify="center"
         align="center"
