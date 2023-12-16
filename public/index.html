@@ -51,6 +51,38 @@
     <meta property="twitter:image" content="/assets/meta-image.png" />
   </head>
   <body>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "All",
+            "item": "https://clean-to-do.netlify.app"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Active",
+            "item": "https://clean-to-do.netlify.app/active"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Finished",
+            "item": "https://clean-to-do.netlify.app/finished"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Trash",
+            "item": "https://clean-to-do.netlify.app/trash"
+          }
+        ]
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
