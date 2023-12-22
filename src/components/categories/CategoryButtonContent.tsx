@@ -13,7 +13,7 @@ export default function CategoryButtonContent({
 }: CategoryButtonContentProps) {
   const todos = useSelector(selectTodos);
   const todosCountPerCategory = todos.filter(
-    (todo) => todo.categoryId === id
+    (todo) => todo.categoryId === id && !todo.isInTrash
   ).length;
 
   return (

@@ -15,9 +15,9 @@ function openCategoryFormAs(
   let icon = updatedForm?.icon;
   form.isOpen = true;
   form.mode = mode;
-  form.id = mode === "edit" ? updatedForm?.id : form.id;
-  form.title = mode === "edit" ? title : "";
-  form.icon = mode === "edit" ? icon : defaultCategoryIcon;
+  form.id = mode === "edit" || mode === "draft" ? updatedForm?.id : form.id;
+  form.title = mode === "edit" || mode === "draft" ? title : "";
+  form.icon = mode === "edit" || mode === "draft" ? icon : defaultCategoryIcon;
 }
 
 export default openCategoryFormAs;

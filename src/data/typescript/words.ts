@@ -118,7 +118,9 @@ enum Words {
   "W116" = "filterTodosDots",
   "W117" = "noSearchResults",
   "W118" = "tryDifferentKeywords",
-  "W119" = "activate",  
+  "W119" = "activate",
+  "W120" = "allowDrafts",
+  "W121" = "allowDraftsDescription",
 }
 
 export default Words;

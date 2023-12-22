@@ -17,7 +17,10 @@ export default function TodoCreatorForm({
 }: TodoCreatorFormProps) {
   const { language } = useLanguage();
   const form = useSelector(selectForm);
-  const formTitle = form.mode === "create" ? labels[language.code].create : labels[language.code].edit;
+  const formTitle =
+    form.mode === "create" || form.mode === "draft"
+      ? labels[language.code].create
+      : labels[language.code].edit;
   const description = form.description?.replace(/\n\r?/g, "<br/>").trim();
   const d = useDispatch();
 
@@ -50,7 +53,7 @@ export default function TodoCreatorForm({
   const create_ = () => {
     const isTitleDefined = form.title?.trim() !== "" && form.title;
     if (!isTitleDefined) return;
-    if (form.mode === "create") createTodo();
+    if (form.mode === "create" || form.mode === "draft") createTodo();
     else editTodo();
     closeCallback();
   };

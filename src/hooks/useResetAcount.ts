@@ -1,5 +1,6 @@
 import initialPreferences from "data/typescript/initialPreferences";
 import useImportData from "./useImportData";
+import initialDraft from "data/typescript/initialDraft";
 
 const useResetAccount = () => {
   const importData = useImportData();
@@ -13,6 +14,7 @@ const useResetAccount = () => {
       passCodeStore: {
         passCodeTimeout: "none",
       },
+      draftStore: initialDraft,
     });
   };
 

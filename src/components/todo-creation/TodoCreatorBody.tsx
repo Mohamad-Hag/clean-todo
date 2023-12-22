@@ -1,7 +1,14 @@
 import { FormControl, FormLabel, Input, Stack } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import React, { useEffect, useRef } from "react";
 import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  setFormDescriptionDraft,
+  setFormPriorityDraft,
+  setFormTitleDraft,
+} from "redux/features/draftSlice";
 import {
   selectForm,
   setDescription,
@@ -10,14 +17,15 @@ import {
 } from "redux/features/formSlice";
 import Priority from "utils/types/Priority";
 import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
-import labels from "data/typescript/uiLabels";
-import useLanguage from "hooks/useLanguage";
+import { selectPreferences } from "redux/features/preferencesSlice";
 
 interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   const { language } = useLanguage();
   const form = useSelector(selectForm);
+  const { todoPreferences } = useSelector(selectPreferences);
+  const allowDrafts = form.mode === "draft" && todoPreferences?.allowDrafts;
   const d = useDispatch();
   const titleRef = useRef<HTMLInputElement>(null!);
 
@@ -35,15 +43,21 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   }, [form.isOpen]);
 
   const titleChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-    d(setTitle(e.target.value));
+    let value = e.target.value;
+    d(setTitle(value));
+    if (form.mode === "draft" && todoPreferences?.allowDrafts)
+      d(setFormTitleDraft(value));
   };
 
   const descriptionChanged = (e: ContentEditableEvent) => {
-    d(setDescription(e.target.value));
+    let value = e.target.value;
+    d(setDescription(value));
+    if (allowDrafts) d(setFormDescriptionDraft(value));
   };
 
   const prioritySelected = (priority: Priority) => {
     d(setPriority(priority));
+    if (allowDrafts) d(setFormPriorityDraft(priority));
   };
 
   return (

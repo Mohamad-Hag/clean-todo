@@ -9,10 +9,11 @@ export default function TodoCreatorHeader() {
   const { language } = useLanguage();
   const form = useSelector(selectForm);
   const formTitle =
-    form.mode === "create"
+    form.mode === "create" || form.mode === "draft"
       ? labels[language.code].create
       : labels[language.code].edit;
-  const formIcon = form.mode === "create" ? <BiPlus /> : <BiPencil />;
+  const formIcon =
+    form.mode === "create" || form.mode === "draft" ? <BiPlus /> : <BiPencil />;
 
   return (
     <ModalHeader display="flex" alignItems="center" gap="2">

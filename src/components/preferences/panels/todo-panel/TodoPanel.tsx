@@ -5,11 +5,14 @@ import {
   FormHelperText,
   Stack,
 } from "@chakra-ui/react";
+import initialDraft from "data/typescript/initialDraft";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
+import { replace } from "redux/features/draftSlice";
 import {
   selectPreferences,
+  setTodoAllowDrafts,
   setTodoCollapseDescription,
   setTodoEditOnDoubleClick,
   setTodoShowDescription,
@@ -26,6 +29,7 @@ export default function TodoPanel() {
     preferences.todoPreferences?.alwaysShowPriorityIcon;
   let editOnDoubleClick = preferences.todoPreferences?.editOnDoubleClick;
   let collapseDescription = preferences.todoPreferences?.collapseDescription;
+  let allowDrafts = preferences.todoPreferences?.allowDrafts;
 
   const showDescriptionChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     d(setTodoShowDescription(e.target.checked));
@@ -43,6 +47,11 @@ export default function TodoPanel() {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     d(setTodoCollapseDescription(e.target.checked));
+  };
+
+  const allowDraftsChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    d(setTodoAllowDrafts(e.target.checked));
+    d(replace(initialDraft));
   };
 
   return (
@@ -78,7 +87,9 @@ export default function TodoPanel() {
         >
           {labels[language.code].editOnDoubleClick}
         </Checkbox>
-        <FormHelperText>{labels[language.code].editOnDoubleClickDescription}</FormHelperText>
+        <FormHelperText>
+          {labels[language.code].editOnDoubleClickDescription}
+        </FormHelperText>
       </FormControl>
       <FormControl>
         <Checkbox
@@ -87,7 +98,17 @@ export default function TodoPanel() {
         >
           {labels[language.code].collapseDescription}
         </Checkbox>
-        <FormHelperText>{labels[language.code].collapseDescriptionDescription}</FormHelperText>
+        <FormHelperText>
+          {labels[language.code].collapseDescriptionDescription}
+        </FormHelperText>
+      </FormControl>
+      <FormControl>
+        <Checkbox isChecked={allowDrafts} onChange={allowDraftsChanged}>
+          {labels[language.code].allowDrafts}
+        </Checkbox>
+        <FormHelperText>
+          {labels[language.code].allowDraftsDescription}
+        </FormHelperText>
       </FormControl>
     </Stack>
   );

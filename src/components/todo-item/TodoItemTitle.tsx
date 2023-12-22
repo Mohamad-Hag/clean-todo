@@ -19,7 +19,7 @@ export default function TodoItemTitle({ id }: TodoItemTitleProps) {
   let title = todo.title;
   let priority = todo.priority;
   let flexWrap = isMobile ? "wrap" : "nowrap";
-  let flexGap = isMobile ? "2" : "5";
+  let flexGap = isMobile ? "2" : "4";
 
   return (
     <div className="text-xl font-semibold toolbar-item-info-title flex items-center gap-3">

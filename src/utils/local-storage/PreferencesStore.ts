@@ -9,6 +9,7 @@ import setTodoCollapseDescription from "redux/preferencesActions/setTodoCollapse
 import setTodoEditOnDoubleClick from "redux/preferencesActions/setTodoEditOnDoubleClick";
 import setTodoShowDescription from "redux/preferencesActions/setTodoShowDescription";
 import setTodoShowPriorityIcon from "redux/preferencesActions/setTodoShowPriorityIcon";
+import setTodoAllowDrafts from "redux/preferencesActions/setTodoAllowDrafts";
 
 class PreferencesStore {
   public static storage = localStorage;
@@ -96,6 +97,15 @@ class PreferencesStore {
     collapseDescription: boolean
   ) {
     let prefs = setTodoCollapseDescription(preferences, collapseDescription);
+    PreferencesStore.set(prefs);
+    return prefs;
+  }
+
+  public static setTodoAllowDrafts(
+    preferences: Preferences,
+    allowDrafts: boolean
+  ) {
+    let prefs = setTodoAllowDrafts(preferences, allowDrafts);
     PreferencesStore.set(prefs);
     return prefs;
   }

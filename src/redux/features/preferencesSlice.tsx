@@ -16,6 +16,7 @@ export interface TodoPreferences {
   alwaysShowPriorityIcon?: boolean;
   editOnDoubleClick?: boolean;
   collapseDescription?: boolean;
+  allowDrafts?: boolean;
 }
 
 export interface Preferences {
@@ -48,6 +49,8 @@ export const preferencesSlice = createSlice({
       PreferencesStore.setTodoEditOnDoubleClick(state, action.payload),
     setTodoCollapseDescription: (state, action: PayloadAction<boolean>) =>
       PreferencesStore.setTodoCollapseDescription(state, action.payload),
+    setTodoAllowDrafts: (state, action: PayloadAction<boolean>) =>
+      PreferencesStore.setTodoAllowDrafts(state, action.payload),
     resetPreferences: (state) => PreferencesStore.resetPreferences(state),
   },
 });
@@ -61,6 +64,7 @@ export const {
   setTodoShowDescription,
   setTodoShowPriorityIcon,
   setTodoCollapseDescription,
+  setTodoAllowDrafts,
   resetPreferences,
   replace,
 } = preferencesSlice.actions;

@@ -10,6 +10,7 @@ import categoryFormSlice from "./features/categoryFormSlice";
 import categorySelectorSlice from "./features/categorySelectorSlice";
 import passCodeSlice from "./features/passCodeSlice";
 import languageSlice from "./features/languageSlice";
+import draftSlice from "./features/draftSlice";
 
 export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
@@ -35,6 +36,7 @@ export const store = configureStore({
     categorySelector: categorySelectorSlice,
     passCode: passCodeSlice,
     language: languageSlice,
+    draft: draftSlice,
   },
 });
 

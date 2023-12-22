@@ -30,6 +30,8 @@ export const categoryFormSlice = createSlice({
       openCategoryFormAs(state, "create", action.payload),
     openAsEdit: (state, action: PayloadAction<CategoryForm>) =>
       openCategoryFormAs(state, "edit", action.payload),
+    openAsDraft: (state, action: PayloadAction<CategoryForm>) =>
+      openCategoryFormAs(state, "draft", action.payload),
     close: (state) => closeCategoryForm(state),
     setId: (state, action: PayloadAction<number>) => {
       state.id = action.payload;
@@ -50,6 +52,7 @@ export const {
   open,
   openAsCreate,
   openAsEdit,
+  openAsDraft,
   close,
   setId,
   setIcon,

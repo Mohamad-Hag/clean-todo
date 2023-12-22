@@ -1,7 +1,10 @@
 import UILabels from "utils/types/UILabels";
 
 const labels: UILabels = {
-  en: {        
+  en: {
+    allowDrafts: "Allow Drafts",
+    allowDraftsDescription:
+      "Do not save any drafts when creating todos/categories form",
     activate: "Activate",
     noSearchResults: "No Search Results",
     tryDifferentKeywords: "Try different Keywords",
@@ -137,6 +140,8 @@ const labels: UILabels = {
     category: "Category",
   },
   "zh-CN": {
+    allowDrafts: "允许草稿",
+    allowDraftsDescription: "创建待办事项/类别表单时不要保存任何草稿",
     activate: "启用",
     noSearchResults: "没有搜索结果",
     tryDifferentKeywords: "尝试不同的关键词",
@@ -263,6 +268,9 @@ const labels: UILabels = {
     category: "类别",
   },
   fr: {
+    allowDrafts: "Autoriser Brouillons",
+    allowDraftsDescription:
+      "Ne pas enregistrer de brouillons lors de la création d'un formulaire de tâches/catégories",
     activate: "Activer",
     noSearchResults: "Aucun Résultat Trouvé",
     tryDifferentKeywords: "Essayez différents mots clés.",
@@ -402,6 +410,9 @@ const labels: UILabels = {
     category: "Catégorie",
   },
   es: {
+    allowDrafts: "Permitir Borradores",
+    allowDraftsDescription:
+      "No guarde ningún borrador al crear el formulario de todos/categorías",
     activate: "Activar",
     noSearchResults: "No Hay Resultados de Búsqueda",
     tryDifferentKeywords: "Pruebe diferentes palabras clave.",

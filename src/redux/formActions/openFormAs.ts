@@ -10,10 +10,10 @@ function openFormAs(form: Form, mode?: FormMode, updatedForm?: Form) {
   let priority = updatedForm?.priority;
   form.isOpen = true;
   form.mode = mode;
-  form.id = mode === "edit" ? updatedForm?.id : form.id;
-  form.title = mode === "edit" ? title : "";
-  form.description = mode === "edit" ? description : "";
-  form.priority = mode === "edit" ? priority : "low";
+  form.id = mode === "edit" || mode === "draft" ? updatedForm?.id : form.id;
+  form.title = mode === "edit" || mode === "draft" ? title : "";
+  form.description = mode === "edit" || mode === "draft" ? description : "";
+  form.priority = mode === "edit" || mode === "draft" ? priority : "low";
 }
 
 export default openFormAs;

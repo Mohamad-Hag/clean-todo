@@ -16,7 +16,7 @@ export default function CategoryCreatorForm({
 }: CategoryCreatorFormProps) {
   const { language } = useLanguage();
   const form = useSelector(selectCategoryForm);
-  const formTitle = form.mode === "create" ? labels[language.code].create : labels[language.code].edit;
+  const formTitle = form.mode === "create" || form.mode === "draft" ? labels[language.code].create : labels[language.code].edit;
   const d = useDispatch();
 
   const editCategory = () => {
@@ -43,7 +43,7 @@ export default function CategoryCreatorForm({
   const create_ = () => {
     const isTitleDefined = form.title?.trim() !== "" && form.title;
     if (!isTitleDefined) return;
-    if (form.mode === "create") createCategory();
+    if (form.mode === "create" || form.mode === "draft") createCategory();
     else editCategory();
     closeCallback();
   };

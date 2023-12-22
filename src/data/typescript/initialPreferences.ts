@@ -13,6 +13,7 @@ const initialPreferences: Preferences = {
     alwaysShowPriorityIcon: true,
     editOnDoubleClick: true,
     collapseDescription: true,
+    allowDrafts: true,
   },
 };
 

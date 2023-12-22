@@ -15,12 +15,19 @@ import {
 import CategoryCreatorIcons from "./CategoryCreatorIcons";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import {
+  setCategoryFormIconDraft,
+  setCategoryFormTitleDraft,
+} from "redux/features/draftSlice";
+import { selectPreferences } from "redux/features/preferencesSlice";
 
 interface TodoCreatorBodyProps {}
 
 export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   const { language } = useLanguage();
   const form = useSelector(selectCategoryForm);
+  const { todoPreferences } = useSelector(selectPreferences);
+  const allowDrafts = form.mode === "draft" && todoPreferences?.allowDrafts;
   const d = useDispatch();
   const titleRef = useRef<HTMLInputElement>(null!);
 
@@ -38,11 +45,14 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
   }, [form.isOpen]);
 
   const titleChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-    d(setTitle(e.target.value));
+    let value = e.target.value;
+    d(setTitle(value));
+    if (allowDrafts) d(setCategoryFormTitleDraft(value));
   };
 
   const iconChanged = (newIcon: string) => {
     d(setIcon(newIcon));
+    if (allowDrafts) d(setCategoryFormIconDraft(newIcon));
   };
 
   return (
@@ -55,7 +65,9 @@ export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
           onChange={titleChanged}
           maxLength={10}
         />
-        <FormHelperText>{labels[language.code].maxAllowedChars10}</FormHelperText>
+        <FormHelperText>
+          {labels[language.code].maxAllowedChars10}
+        </FormHelperText>
       </FormControl>
       <FormControl>
         <FormLabel>{labels[language.code].icon}</FormLabel>

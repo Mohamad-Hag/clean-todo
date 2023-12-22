@@ -4,19 +4,28 @@ import useIsMobile from "hooks/useIsMobile";
 import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import useLanguage from "hooks/useLanguage";
 import { BiPlus } from "react-icons/bi";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { open, setMode } from "redux/features/formSlice";
+import { selectDraft } from "redux/features/draftSlice";
+import { open, openAsDraft, setMode } from "redux/features/formSlice";
+import isDraft from "utils/isDraft";
+import getFormDraft from "utils/types/getFormDraft";
 
 export default function TodoCreateButton() {
   const isMobile = useIsMobile();
   const { language } = useLanguage();
+  const draft = useSelector(selectDraft);
   const d = useDispatch();
 
   useKeyboardShortcut(() => create(), 81, "Ctrl");
 
   const create = () => {
-    d(setMode("create"));
-    d(open());
+    if (isDraft(draft, "todo")) {
+      d(openAsDraft(getFormDraft(draft, "todo")));
+    } else {
+      d(setMode("create"));
+      d(open());
+    }
   };
 
   // const bottomRight = isMobile ? "5" : "10";
