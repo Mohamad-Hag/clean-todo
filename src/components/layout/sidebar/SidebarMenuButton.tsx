@@ -1,4 +1,5 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
+import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 import labels from "data/typescript/uiLabels";
 import useIsMobile from "hooks/useIsMobile";
 import useLanguage from "hooks/useLanguage";
@@ -34,9 +35,20 @@ export default function SidebarMenuButton() {
     d(changeOppositeStatus(status));
   };
 
+  const dropped = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
+  const draggedOver = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    d(changeOppositeStatus("hidden"));
+  };
+
   return (
     <Tooltip label={label} hasArrow>
       <IconButton
+        onDragOver={draggedOver}
+        onDrop={dropped}
         _hover={hoverStyle}
         _active={activeStyle}
         variant="ghost"
