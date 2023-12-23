@@ -20,6 +20,8 @@ import selectAllTodos, {
   WithConditionCallback,
 } from "redux/todoActions/selectAllTodos";
 import TodoProps, { TodoData } from "../interfaces/common/Todo";
+import restoreSomeTodos from "redux/todoActions/restoreSomeTodos";
+import activateSomeTodos from "redux/todoActions/activateSomeTodos";
 
 class TodoStore {
   public static storage = localStorage;
@@ -99,6 +101,18 @@ class TodoStore {
     let itemsAfterFinishSome = finishSomeTodos(todos, identifiers);
     TodoStore.set(itemsAfterFinishSome);
     return itemsAfterFinishSome;
+  }
+
+  public static activateSome(todos: TodoProps[], identifiers: number[]) {
+    let itemsAfterActivateSome = activateSomeTodos(todos, identifiers);
+    TodoStore.set(itemsAfterActivateSome);
+    return itemsAfterActivateSome;
+  }
+
+  public static restoreSome(todos: TodoProps[], identifiers: number[]) {
+    let itemsAfterRestoreSome = restoreSomeTodos(todos, identifiers);
+    TodoStore.set(itemsAfterRestoreSome);
+    return itemsAfterRestoreSome;
   }
 
   public static activateAll(todos: TodoProps[]) {

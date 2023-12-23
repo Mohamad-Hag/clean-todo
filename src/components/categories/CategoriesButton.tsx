@@ -4,9 +4,22 @@ import { BiCategory } from "react-icons/bi";
 
 interface CategoriesButtonProps {
   title: string;
+  setIndex: (value: React.SetStateAction<number>) => void;
 }
 
-export default function CategoriesButton({ title }: CategoriesButtonProps) {
+export default function CategoriesButton({
+  setIndex,
+  title,
+}: CategoriesButtonProps) {
+  const dropped = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  };
+
+  const draggedOver = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIndex(0);
+  };
+
   return (
     <AccordionButton
       className="w-full text-left pl-5 text-white"
@@ -16,6 +29,8 @@ export default function CategoriesButton({ title }: CategoriesButtonProps) {
       justifyContent="flex-start"
       _hover={hoverStyle}
       _active={activeStyle}
+      onDrop={dropped}
+      onDragOver={draggedOver}
     >
       <BiCategory style={{ marginRight: "0.5rem" }} />
       <Box className="flex-1 flex justify-between items-center">

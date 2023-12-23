@@ -71,6 +71,9 @@ export default function PassCodeScreenBody() {
             type="password"
             inputMode="numeric"
             pattern="[0-9]*"
+            onInvalid={(e) => {
+              e.preventDefault();
+            }}
             value={passCodeValue}
             onInput={passCodeValueChanged}
           />

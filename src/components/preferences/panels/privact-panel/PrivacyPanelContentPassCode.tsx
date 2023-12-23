@@ -50,6 +50,9 @@ export default function PrivacyPanelContentPassCode({
           inputMode="numeric"
           maxLength={4}
           value={passCodeValue}
+          onInvalid={(e) => {
+            e.preventDefault();
+          }}
           onChange={passCodeValueChanged}
         />
         <FormErrorMessage>{errorText}</FormErrorMessage>

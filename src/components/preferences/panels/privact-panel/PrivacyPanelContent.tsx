@@ -73,6 +73,9 @@ export default function PrivacyPanelContent() {
           type="password"
           inputMode="numeric"
           pattern="[0-9]*"
+          onInvalid={(e) => {
+            e.preventDefault();
+          }}
           value={passCodeValue}
           onChange={passCodeValueChanged}
         />
@@ -83,6 +86,9 @@ export default function PrivacyPanelContent() {
           type="password"
           inputMode="numeric"
           pattern="[0-9]*"
+          onInvalid={(e) => {
+            e.preventDefault();
+          }}
           maxLength={4}
           value={reenteredPassCodeValue}
           onChange={reenteredPassCodeValueChanged}

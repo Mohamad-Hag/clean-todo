@@ -1,16 +1,30 @@
-import { Accordion, AccordionItem, AccordionPanel } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  useAccordionItem,
+} from "@chakra-ui/react";
 import { WithMultipleChildren } from "utils/interfaces/WithChildren";
 import CategoriesButton from "./CategoriesButton";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import { useState } from "react";
 
 export default function CategoriesWrapper({ children }: WithMultipleChildren) {
   const { language } = useLanguage();
+  const [index, setIndex] = useState<number>(1);
+
+  const changed = () => {
+    setIndex(index === 0 ? 1 : 0);
+  };
 
   return (
-    <Accordion allowMultiple>
+    <Accordion allowToggle index={index} onChange={changed}>
       <AccordionItem className="border-none">
-        <CategoriesButton title={labels[language.code].categories} />
+        <CategoriesButton
+          setIndex={setIndex}
+          title={labels[language.code].categories}
+        />
         <AccordionPanel
           className="ml-4 mr-6 rounded-md flex flex-col"
           style={{ backgroundColor: "#00000020" }}

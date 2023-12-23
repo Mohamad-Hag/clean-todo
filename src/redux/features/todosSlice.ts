@@ -51,6 +51,10 @@ export const todosSlice = createSlice({
     addCategorySome: (state, action: PayloadAction<ItemIds_CategoryId>) =>
       TodoStore.addCategorySome(state, action.payload),
     activateAll: (state) => TodoStore.activateAll(state),
+    activateSome: (state, action: PayloadAction<number[]>) =>
+      TodoStore.activateSome(state, action.payload),
+    restoreSome: (state, action: PayloadAction<number[]>) =>
+      TodoStore.restoreSome(state, action.payload),
     selectAll: (state, action: PayloadAction<WithConditionCallback>) =>
       TodoStore.selectAll(state, action.payload),
   },
@@ -69,8 +73,10 @@ export const {
   finishAll,
   finishSome,
   activateAll,
+  activateSome,
   addCategorySome,
   selectAll,
+  restoreSome,
 } = todosSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos;

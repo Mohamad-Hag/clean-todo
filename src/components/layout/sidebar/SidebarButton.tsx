@@ -1,13 +1,12 @@
 import { Badge, Button } from "@chakra-ui/react";
+import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 import useIsMobile from "hooks/useIsMobile";
+import useSidebarButtonDrop from "hooks/useSidebarButtonDrop";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeOppositeStatus } from "redux/features/sidebarSlice";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
-import { edit } from "redux/features/todosSlice";
-import useSidebarButtonDrop from "hooks/useSidebarButtonDrop";
-import { useState } from "react";
-import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 
 export type URLString = string;
 
@@ -50,8 +49,8 @@ export default function SidebarButton({
     let identifier = split[0];
     if (identifier !== dragDropIdentifier) return;
 
-    let id = parseInt(split[1]);
-    drop(id);
+    let idOrIds = split[1];
+    drop(idOrIds);
   };
 
   const draggedOver = (e: React.DragEvent<HTMLButtonElement>) => {
