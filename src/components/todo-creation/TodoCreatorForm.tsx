@@ -7,6 +7,7 @@ import TodoCreatorBody from "./TodoCreatorBody";
 import TodoCreatorFooter from "./TodoCreatorFooter";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import { clearForm } from "redux/features/draftSlice";
 
 interface TodoCreatorFormProps {
   closeCallback: () => void;
@@ -48,6 +49,7 @@ export default function TodoCreatorForm({
         nodeRef: nodeRef,
       })
     );
+    d(clearForm());
   };
 
   const create_ = () => {

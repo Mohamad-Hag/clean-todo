@@ -8,6 +8,8 @@ import Priority, { defaultPriority } from "utils/types/Priority";
 import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
 import initialDraft from "data/typescript/initialDraft";
 import replaceDraft from "redux/draftActions/replaceDraft";
+import clearForm from "redux/draftActions/clearForm";
+import clearCategoryForm from "redux/draftActions/clearCategoryForm";
 
 class DraftStore {
   public static storage = localStorage;
@@ -46,6 +48,18 @@ class DraftStore {
     let itemsAfterReplace = replaceDraft(draft, newDraft);
     DraftStore.set(itemsAfterReplace);
     return itemsAfterReplace;
+  }
+
+  public static clearForm(draft: Draft) {
+    let itemsAfterClear = clearForm(draft);
+    DraftStore.set(itemsAfterClear);
+    return itemsAfterClear;
+  }
+
+  public static clearCategoryForm(draft: Draft) {
+    let itemsAfterClear = clearCategoryForm(draft);
+    DraftStore.set(itemsAfterClear);
+    return itemsAfterClear;
   }
 }
 

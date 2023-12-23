@@ -10,6 +10,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Adding a description with task's title ✅.
 - Categories feature ✅.
 - Trash/Restore feature ✅.
+- Drag & Drop feature ✅.
 - Many preferences are available ✅.
 - Import/Export data as json feature ✅.
 - Lock ability by using a 4 digit pass code with encryption ✅.

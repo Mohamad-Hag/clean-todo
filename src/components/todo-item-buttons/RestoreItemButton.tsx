@@ -10,7 +10,7 @@ export default function RestoreItemButton({ id }: TodoItemRightSideProps) {
   const { language } = useLanguage();
   const d = useDispatch();
 
-  const stored = () => {
+  const restored = () => {
     d(
       edit({
         id: id!,
@@ -26,7 +26,7 @@ export default function RestoreItemButton({ id }: TodoItemRightSideProps) {
       label={labels[language.code].restore}
       icon={<BiRefresh />}
       color="green"
-      onClick={stored}
+      onClick={restored}
     />
   );
 }

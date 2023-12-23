@@ -29,6 +29,8 @@ export const draftSlice = createSlice({
       DraftStore.setFormDescriptionDraft(state, action.payload),
     setFormPriorityDraft: (state, action: PayloadAction<Priority>) =>
       DraftStore.setFormPriorityDraft(state, action.payload),
+    clearForm: (state) => DraftStore.clearForm(state),
+    clearCategoryForm: (state) => DraftStore.clearCategoryForm(state),
     replace: (state, action: PayloadAction<Draft>) =>
       DraftStore.replace(state, action.payload),
   },
@@ -40,6 +42,8 @@ export const {
   setCategoryFormTitleDraft,
   setFormDescriptionDraft,
   setFormPriorityDraft,
+  clearForm,
+  clearCategoryForm,
   replace,
 } = draftSlice.actions;
 

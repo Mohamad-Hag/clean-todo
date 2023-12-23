@@ -6,6 +6,7 @@ import CategoryCreatorBody from "./CategoryCreatorBody";
 import CategoryCreatorFooter from "./CategoryCreatorFooter";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import { clearCategoryForm } from "redux/features/draftSlice";
 
 interface CategoryCreatorFormProps {
   closeCallback: () => void;
@@ -16,7 +17,10 @@ export default function CategoryCreatorForm({
 }: CategoryCreatorFormProps) {
   const { language } = useLanguage();
   const form = useSelector(selectCategoryForm);
-  const formTitle = form.mode === "create" || form.mode === "draft" ? labels[language.code].create : labels[language.code].edit;
+  const formTitle =
+    form.mode === "create" || form.mode === "draft"
+      ? labels[language.code].create
+      : labels[language.code].edit;
   const d = useDispatch();
 
   const editCategory = () => {
@@ -38,6 +42,7 @@ export default function CategoryCreatorForm({
         icon: form.icon,
       })
     );
+    d(clearCategoryForm());
   };
 
   const create_ = () => {
