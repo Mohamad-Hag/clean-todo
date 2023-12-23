@@ -1,14 +1,9 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionPanel,
-  useAccordionItem,
-} from "@chakra-ui/react";
-import { WithMultipleChildren } from "utils/interfaces/WithChildren";
-import CategoriesButton from "./CategoriesButton";
+import { Accordion, AccordionItem, AccordionPanel } from "@chakra-ui/react";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import { useState } from "react";
+import { WithMultipleChildren } from "utils/interfaces/WithChildren";
+import CategoriesButton from "./CategoriesButton";
 
 export default function CategoriesWrapper({ children }: WithMultipleChildren) {
   const { language } = useLanguage();

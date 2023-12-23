@@ -1,5 +1,6 @@
 import pathnames from "data/json/pathnames.json";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import {
   activateSome,
   edit,
@@ -15,6 +16,7 @@ const useSidebarButtonDrop = (link: string) => {
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
+  const { pathname } = useLocation();
 
   const processSingleDrop = (id: number) => {
     switch (link) {
@@ -68,14 +70,15 @@ const useSidebarButtonDrop = (link: string) => {
         d(finishSome(ids));
         break;
       case pathnames.trashPathName:
-        d(
-          removeSome(
-            selections.map((selection) => ({
-              id: selection.id,
-              isInTrash: selection.isInTrash,
-            }))
-          )
-        );
+        if (pathname !== pathnames.trashPathName)
+          d(
+            removeSome(
+              selections.map((selection) => ({
+                id: selection.id,
+                isInTrash: selection.isInTrash,
+              }))
+            )
+          );
         break;
     }
   };
