@@ -1,4 +1,5 @@
 import { Stack } from "@chakra-ui/react";
+import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 import useIsMobile from "hooks/useIsMobile";
 import React from "react";
 import { WithMultipleChildren } from "utils/interfaces/WithChildren";
@@ -19,8 +20,11 @@ export default function TodoItemInfoContainer({
 }: TodoItemInfoContainerProps) {
   const isMobile = useIsMobile();
 
-  const draggedStart = (e: React.DragEvent<HTMLDivElement>) => {    
-    e.dataTransfer.setData("text/plain", id.toString());
+  const draggedStart = (e: React.DragEvent<HTMLDivElement>) => {
+    e.dataTransfer.setData(
+      "text/plain",
+      `${dragDropIdentifier};${id.toString()}`
+    );
     e.dataTransfer.dropEffect = "move";
   };
 

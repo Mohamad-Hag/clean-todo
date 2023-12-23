@@ -7,6 +7,7 @@ import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import { edit } from "redux/features/todosSlice";
 import useSidebarButtonDrop from "hooks/useSidebarButtonDrop";
 import { useState } from "react";
+import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 
 export type URLString = string;
 
@@ -43,9 +44,14 @@ export default function SidebarButton({
 
   const dropped = (e: React.DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    let id = parseInt(e.dataTransfer.getData("text/plain"));
-    drop(id);
     setDropBorder(undefined);
+
+    let split = e.dataTransfer.getData("text/plain").split(";");
+    let identifier = split[0];
+    if (identifier !== dragDropIdentifier) return;
+
+    let id = parseInt(split[1]);
+    drop(id);
   };
 
   const draggedOver = (e: React.DragEvent<HTMLButtonElement>) => {
