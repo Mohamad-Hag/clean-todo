@@ -1,5 +1,4 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
-import dragDropIdentifier from "data/typescript/dragDropIdentifier";
 import labels from "data/typescript/uiLabels";
 import useIsMobile from "hooks/useIsMobile";
 import useLanguage from "hooks/useLanguage";
