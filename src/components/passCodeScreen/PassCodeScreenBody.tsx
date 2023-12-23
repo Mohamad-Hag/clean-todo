@@ -24,7 +24,9 @@ export default function PassCodeScreenBody() {
   const [passCodeValue, setPassCodeValue] = useState<string>("");
   const timeout = 5000;
   const [confirmMode, setConfirmMode] = useState<boolean>(false);
-  const [errorText, setErrorText] = useState<string>(labels[language.code].cantEmpty4);
+  const [errorText, setErrorText] = useState<string>(
+    labels[language.code].cantEmpty4
+  );
   const { hashedValue, unlock } = useLockScreen();
 
   let isValid = passCodeValue !== "" && passCodeValue.length === 4;
@@ -67,6 +69,8 @@ export default function PassCodeScreenBody() {
             fontFamily="monospace"
             maxLength={4}
             type="password"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={passCodeValue}
             onInput={passCodeValueChanged}
           />
@@ -84,10 +88,14 @@ export default function PassCodeScreenBody() {
               colorScheme="red"
               onClick={disablePassCode}
             >
-              {confirmMode ? labels[language.code].clickToConfirm : labels[language.code].disablePassCode}
+              {confirmMode
+                ? labels[language.code].clickToConfirm
+                : labels[language.code].disablePassCode}
             </Button>
             <ConditionalRenderer condition={confirmMode}>
-              <FormHelperText>{labels[language.code].loseAllData}</FormHelperText>
+              <FormHelperText>
+                {labels[language.code].loseAllData}
+              </FormHelperText>
             </ConditionalRenderer>
           </FormControl>
         </Flex>

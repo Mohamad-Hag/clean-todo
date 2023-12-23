@@ -31,7 +31,8 @@ export default function PrivacyPanelContentPassCode({
   const submitted = (e: React.FormEvent) => {
     e.preventDefault();
 
-    let isValid = passCodeValue !== "" && bcrypt.compareSync(passCodeValue, hashedValue!);
+    let isValid =
+      passCodeValue !== "" && bcrypt.compareSync(passCodeValue, hashedValue!);
 
     if (!isValid) setErrorText(labels[language.code].invalidPassCode);
     else setErrorText("");
@@ -45,6 +46,9 @@ export default function PrivacyPanelContentPassCode({
         <FormLabel>{labels[language.code].enterPassCode}</FormLabel>
         <Input
           type="password"
+          pattern="[0-9]*"
+          inputMode="numeric"
+          maxLength={4}
           value={passCodeValue}
           onChange={passCodeValueChanged}
         />

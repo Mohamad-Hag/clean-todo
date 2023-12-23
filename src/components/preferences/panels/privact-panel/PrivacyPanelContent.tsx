@@ -71,6 +71,8 @@ export default function PrivacyPanelContent() {
         <Input
           maxLength={4}
           type="password"
+          inputMode="numeric"
+          pattern="[0-9]*"
           value={passCodeValue}
           onChange={passCodeValueChanged}
         />
@@ -79,12 +81,16 @@ export default function PrivacyPanelContent() {
         <FormLabel>{labels[language.code].reenter}</FormLabel>
         <Input
           type="password"
+          inputMode="numeric"
+          pattern="[0-9]*"
           maxLength={4}
           value={reenteredPassCodeValue}
           onChange={reenteredPassCodeValueChanged}
         />
         {!canSetPassCode && (
-          <FormErrorMessage>{labels[language.code].cantEmptyNotMatch}</FormErrorMessage>
+          <FormErrorMessage>
+            {labels[language.code].cantEmptyNotMatch}
+          </FormErrorMessage>
         )}
       </FormControl>
       <Button type="submit" variant="solid" colorScheme="blue">
@@ -95,7 +101,9 @@ export default function PrivacyPanelContent() {
         colorScheme="blue"
         onClick={disablePassCode}
       >
-        {confirmMode ? labels[language.code].clickToConfirm : labels[language.code].disablePassCode}
+        {confirmMode
+          ? labels[language.code].clickToConfirm
+          : labels[language.code].disablePassCode}
       </Button>
     </form>
   );
