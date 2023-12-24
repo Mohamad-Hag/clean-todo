@@ -1,6 +1,7 @@
 import { AccordionButton, AccordionIcon, Box, Button } from "@chakra-ui/react";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import { BiCategory } from "react-icons/bi";
+import useTodoItemDrop from "hooks/useTodoItemDrop";
 
 interface CategoriesButtonProps {
   title: string;
@@ -11,9 +12,7 @@ export default function CategoriesButton({
   setIndex,
   title,
 }: CategoriesButtonProps) {
-  const dropped = (e: React.DragEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-  };
+  const { drop } = useTodoItemDrop(undefined, true);
 
   const draggedOver = (e: React.DragEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ export default function CategoriesButton({
       justifyContent="flex-start"
       _hover={hoverStyle}
       _active={activeStyle}
-      onDrop={dropped}
+      onDrop={drop}
       onDragOver={draggedOver}
     >
       <BiCategory style={{ marginRight: "0.5rem" }} />

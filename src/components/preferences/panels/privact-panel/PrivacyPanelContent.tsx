@@ -8,12 +8,13 @@ import {
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import useLockScreen from "hooks/useLockScreen";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { close } from "redux/features/alertSlice";
 
 export default function PrivacyPanelContent() {
   const { language } = useLanguage();
+  const passCodeRef = useRef<HTMLInputElement>(null!);
   const [passCodeValue, setPassCodeValue] = useState<string>();
   const [confirmMode, setConfirmMode] = useState<boolean>(false);
   const d = useDispatch();
@@ -30,6 +31,10 @@ export default function PrivacyPanelContent() {
     reenteredPassCodeValue.length === 4 &&
     passCodeValue === reenteredPassCodeValue
   );
+
+  useEffect(() => {
+    passCodeRef.current.focus();
+  }, []);
 
   const passCodeValueChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassCodeValue(e.target.value);
@@ -69,6 +74,7 @@ export default function PrivacyPanelContent() {
       <FormControl isInvalid={!canSetPassCode}>
         <FormLabel>{labels[language.code].enterPassCode}</FormLabel>
         <Input
+          ref={passCodeRef}
           maxLength={4}
           type="password"
           inputMode="numeric"

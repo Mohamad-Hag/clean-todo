@@ -5,7 +5,7 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import labels from "data/typescript/uiLabels";
 import bcrypt from "bcryptjs";
 import useLockScreen from "hooks/useLockScreen";
@@ -19,9 +19,14 @@ export default function PrivacyPanelContentPassCode({
   onValidate,
 }: PrivacyPanelContentPassCodeProps) {
   const { language } = useLanguage();
+  const passCodeRef = useRef<HTMLInputElement>(null!);
   const [passCodeValue, setPassCodeValue] = useState<string>("");
   const [errorText, setErrorText] = useState<string>("");
   const { hashedValue } = useLockScreen();
+
+  useEffect(() => {
+    passCodeRef.current.focus();
+  }, []);
 
   const passCodeValueChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     setErrorText("");
@@ -45,6 +50,7 @@ export default function PrivacyPanelContentPassCode({
       <FormControl isInvalid={errorText !== ""}>
         <FormLabel>{labels[language.code].enterPassCode}</FormLabel>
         <Input
+          ref={passCodeRef}
           type="password"
           pattern="[0-9]*"
           inputMode="numeric"

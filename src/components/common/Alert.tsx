@@ -1,19 +1,14 @@
 import {
-  Button,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { IoSettings } from "react-icons/io5";
 import { close } from "redux/features/alertSlice";
-import labels from "data/typescript/uiLabels";
-import { RiAlertFill } from "react-icons/ri";
-import useLanguage from "hooks/useLanguage";
+import AlertFooter from "./AlertFooter";
+import AlertHeader from "./AlertHeader";
 
 export interface AlertProps {
   title: string;
@@ -35,7 +30,6 @@ export default function Alert({
   onClose,
   onOk,
 }: AlertProps) {
-  const { language } = useLanguage();
   const d = useDispatch();
 
   const closed = () => {
@@ -53,31 +47,15 @@ export default function Alert({
     >
       <ModalOverlay />
       <ModalContent m={2}>
-        <ModalHeader display="flex" alignItems="center" gap="2">
-          {icon === "alert" ? (
-            <RiAlertFill />
-          ) : icon === "settings" ? (
-            <IoSettings />
-          ) : (
-            ""
-          )}
-          {title}
-        </ModalHeader>
+        <AlertHeader icon={icon} title={title} />
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>
-        <ModalFooter className="flex items-center justify-end gap-2">
-          <Button onClick={closed}>{labels[language.code].cancel}</Button>
-          <Button
-            variant="solid"
-            colorScheme="blue"
-            onClick={onOk}
-            disabled={isOkButtonDisabled}
-          >
-            {labels[language.code].ok}
-          </Button>
-        </ModalFooter>
+        <AlertFooter
+          onClose={closed}
+          isOkButtonDisabled={isOkButtonDisabled}
+          onOk={onOk}
+        />
       </ModalContent>
     </Modal>
   );
 }
-
