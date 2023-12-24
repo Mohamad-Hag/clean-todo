@@ -2,6 +2,7 @@ import UILabels from "utils/types/UILabels";
 
 const labels: UILabels = {
   en: {
+    itemsHasMovedTo: "items have been moved to",
     allowDrafts: "Allow Drafts",
     allowDraftsDescription:
       "Do not save any drafts when creating todos/categories form",
@@ -140,6 +141,7 @@ const labels: UILabels = {
     category: "Category",
   },
   "zh-CN": {
+    itemsHasMovedTo: "件商品已移至",
     allowDrafts: "允许草稿",
     allowDraftsDescription: "创建待办事项/类别表单时不要保存任何草稿",
     activate: "启用",
@@ -268,6 +270,7 @@ const labels: UILabels = {
     category: "类别",
   },
   fr: {
+    itemsHasMovedTo: "éléments ont été déplacés vers",
     allowDrafts: "Autoriser Brouillons",
     allowDraftsDescription:
       "Ne pas enregistrer de brouillons lors de la création d'un formulaire de tâches/catégories",
@@ -410,6 +413,7 @@ const labels: UILabels = {
     category: "Catégorie",
   },
   es: {
+    itemsHasMovedTo: "artículos han sido movidos a",
     allowDrafts: "Permitir Borradores",
     allowDraftsDescription:
       "No guarde ningún borrador al crear el formulario de todos/categorías",

@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import pathnames from "data/json/pathnames.json";
+import labels from "data/typescript/uiLabels";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import {
@@ -9,8 +10,10 @@ import {
   remove,
   removeSome,
   restoreSome,
+  selectAll,
   selectTodos,
 } from "redux/features/todosSlice";
+import useLanguage from "./useLanguage";
 
 interface ProcessDrop {
   itemsCount: number;
@@ -19,6 +22,7 @@ interface ProcessDrop {
 
 const useSidebarButtonDrop = (link: string) => {
   const d = useDispatch();
+  const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
@@ -42,7 +46,7 @@ const useSidebarButtonDrop = (link: string) => {
             },
           })
         );
-        processDrop.dropTarget = "Active";
+        processDrop.dropTarget = labels[language.code].active;
         break;
       case pathnames.allPathName:
         d(
@@ -53,7 +57,7 @@ const useSidebarButtonDrop = (link: string) => {
             },
           })
         );
-        processDrop.dropTarget = "All";
+        processDrop.dropTarget = labels[language.code].all;
         break;
       case pathnames.finishedPathName:
         d(
@@ -65,11 +69,11 @@ const useSidebarButtonDrop = (link: string) => {
             },
           })
         );
-        processDrop.dropTarget = "Finished";
+        processDrop.dropTarget = labels[language.code].finished;
         break;
       case pathnames.trashPathName:
         d(remove({ id: id, isInTrash: false }));
-        processDrop.dropTarget = "Trash";
+        processDrop.dropTarget = labels[language.code].trash;
         break;
     }
 
@@ -85,15 +89,15 @@ const useSidebarButtonDrop = (link: string) => {
     switch (link) {
       case pathnames.activePathName:
         d(activateSome(ids));
-        processDrop.dropTarget = "Active";
+        processDrop.dropTarget = labels[language.code].active;
         break;
       case pathnames.allPathName:
         d(restoreSome(ids));
-        processDrop.dropTarget = "All";
+        processDrop.dropTarget = labels[language.code].all;
         break;
       case pathnames.finishedPathName:
         d(finishSome(ids));
-        processDrop.dropTarget = "Finished";
+        processDrop.dropTarget = labels[language.code].finished;
         break;
       case pathnames.trashPathName:
         if (pathname !== pathnames.trashPathName)
@@ -105,9 +109,11 @@ const useSidebarButtonDrop = (link: string) => {
               }))
             )
           );
-        processDrop.dropTarget = "Trash";
+        processDrop.dropTarget = labels[language.code].trash;
         break;
     }
+
+    d(selectAll({ isSelectAll: false }));
 
     return processDrop;
   };
@@ -125,10 +131,12 @@ const useSidebarButtonDrop = (link: string) => {
     let itemsCount = processDrop.itemsCount;
     let dropTarget = processDrop.dropTarget;
 
-    toast({      
+    toast({
       duration: 3000,
       variant: "subtle",
-      title: `${itemsCount} items has been moved to "${dropTarget}".`,
+      title: `${itemsCount} ${
+        labels[language.code].itemsHasMovedTo
+      } "${dropTarget}".`,
     });
   };
 

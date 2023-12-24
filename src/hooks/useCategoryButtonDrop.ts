@@ -4,9 +4,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addCategorySome, edit, selectTodos } from "redux/features/todosSlice";
+import useLanguage from "./useLanguage";
+import labels from "data/typescript/uiLabels";
 
 const useCategoryButtonDrop = (categoryId: number) => {
   const d = useDispatch();
+  const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
@@ -44,7 +47,7 @@ const useCategoryButtonDrop = (categoryId: number) => {
     toast({
       duration: 3000,
       variant: "subtle",
-      title: `${itemsCount} items has been moved to "category-${categoryId}".`,
+      title: `${itemsCount} ${labels[language.code].itemsHasMovedTo} "category-${categoryId}".`,
     });
   };
 
