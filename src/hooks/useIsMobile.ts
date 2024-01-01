@@ -1,6 +1,6 @@
 import { isMobileScreen } from "utils/screen-sizes";
-import useScreenSize from "./useScreenSize";
 import { isMobile } from "react-device-detect";
+import useScreenSize from "./useScreenSize";
 
 const useIsMobile = () => {
   const { width } = useScreenSize();
