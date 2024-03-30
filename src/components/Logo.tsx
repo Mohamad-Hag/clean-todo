@@ -3,9 +3,10 @@ import { FaCheckCircle } from "react-icons/fa";
 
 interface LogoProps {
   theme?: "dark" | "light";
+  className?: string;
 }
 
-export default function Logo({ theme = "dark" }: LogoProps) {
+export default function Logo({ theme = "dark", className }: LogoProps) {
   return (
     <Flex
       gap="2"
@@ -13,6 +14,7 @@ export default function Logo({ theme = "dark" }: LogoProps) {
       align="center"
       zIndex="1000"
       position="relative"
+      className={className}
     >
       <FaCheckCircle
         className={theme === "dark" ? "text-white" : "text-black"}
