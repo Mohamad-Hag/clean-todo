@@ -1,6 +1,6 @@
-import sidebarButtons from "data/typescript/sidebarButtons";
 import CategoryStore from "./local-storage/CategoryStore";
-import IsActiveArrayConditionStatisfied from "./IsActiveArrayConditionStatisfied";
+import IsActiveArrayConditionSatisfied from "./IsActiveArrayConditionSatisfied";
+import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
 
 const categories = CategoryStore.get();
 const categoriesLength = categories.length;
@@ -10,7 +10,7 @@ const isActiveArrayLength = sidebarButtonsLength + categoriesLength;
 function initializeIsActiveArray(): boolean[] {
   return Array(isActiveArrayLength)
     .fill(false)
-    .map((_, i) => IsActiveArrayConditionStatisfied(i));
+    .map((_, i) => IsActiveArrayConditionSatisfied(i));
 }
 
 export default initializeIsActiveArray;

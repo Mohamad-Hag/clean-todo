@@ -1,5 +1,7 @@
-import bgs from "assets/bgs";
+import getBgs from "assets/getBgs";
 import { Preferences } from "redux/features/preferencesSlice";
+
+const bgs = getBgs();
 
 const initialPreferences: Preferences = {
   background: bgs[0],

@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { selectPreferences } from "redux/features/preferencesSlice";
 
 const useChangeBackground = () => {
-  const perferences = useSelector(selectPreferences);
+  const preferences = useSelector(selectPreferences);
 
   useEffect(() => {
-    let src = `url(${perferences.background})`;
+    let src = `url(${preferences.background})`;
     document.body.style.backgroundImage = src;
-  }, [perferences.background]);
+  }, [preferences.background]);
 };
 
 export default useChangeBackground;

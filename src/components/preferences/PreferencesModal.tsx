@@ -1,5 +1,6 @@
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import preferencesTabs from "data/typescript/preferencesTabs";
+import { TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import PreferencesTabs, { preferencesTabs } from "./PreferencesTabs";
+import preferencesPanels from "data/typescript/preferencesPanels";
 
 export default function PreferencesModal() {
   return (
@@ -10,13 +11,11 @@ export default function PreferencesModal() {
         borderTopWidth="0"
         borderX={0}
       >
-        {preferencesTabs.map((tab) => (
-          <Tab key={tab.tab}>{tab.tab}</Tab>
-        ))}
+        <PreferencesTabs />
       </TabList>
       <TabPanels>
-        {preferencesTabs.map((tab) => (
-          <TabPanel key={tab.tab}>{tab.panel}</TabPanel>
+        {preferencesPanels.map((panel, index) => (
+          <TabPanel key={index}>{panel}</TabPanel>
         ))}
       </TabPanels>
     </Tabs>

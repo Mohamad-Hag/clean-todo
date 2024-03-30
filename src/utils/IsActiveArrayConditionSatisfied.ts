@@ -1,13 +1,13 @@
-import sidebarButtons from "data/typescript/sidebarButtons";
 import CategoryStore from "./local-storage/CategoryStore";
 import getCategoryIdByPath from "./getCategoryIdByPath";
 import isCategoryPath from "./isCategoryPath";
+import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
 
 const pathname = window.location.pathname;
 const categories = CategoryStore.get();
 const sidebarButtonsLength = sidebarButtons.length;
 
-function IsActiveArrayConditionStatisfied(index: number): boolean {
+function IsActiveArrayConditionSatisfied(index: number): boolean {
   if (isCategoryPath(pathname)) {
     let categoryId = getCategoryIdByPath(pathname);
     let categoryIndex = categories.findIndex(
@@ -23,4 +23,4 @@ function IsActiveArrayConditionStatisfied(index: number): boolean {
   }
 }
 
-export default IsActiveArrayConditionStatisfied;
+export default IsActiveArrayConditionSatisfied;

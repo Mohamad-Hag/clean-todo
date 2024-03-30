@@ -1,7 +1,7 @@
+import labels from "data/typescript/uiLabels";
 import useAlert from "hooks/useAlert";
+import useLanguage from "hooks/useLanguage";
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import isReachBottom from "utils/interfaces/common/isReachBottom";
 import TodoProps from "utils/interfaces/common/Todo";
 
@@ -13,6 +13,7 @@ export default function RemoveSelectedAlertDescription({
   selections,
 }: RemoveSelectedAlertDescriptionProps) {
   const { disableOkButton, enableOkButton, isOkButtonDisabled } = useAlert();
+  const { language } = useLanguage();
   const scrollableULRef = useRef<HTMLUListElement>(null!);
 
   const selectionsScroll = (e: any) => {
@@ -29,7 +30,7 @@ export default function RemoveSelectedAlertDescription({
 
   return (
     <>
-      <p>Are you sure you want to remove all the following items?</p>
+      <p>{labels[language.code].areYouSureRemoveItems}</p>
       <ul
         ref={scrollableULRef}
         className="overflow-auto max-h-32 scrollbar-thumb-gray-200 scrollbar-thin scrollbar-track-transparent"
@@ -43,7 +44,7 @@ export default function RemoveSelectedAlertDescription({
       </ul>
       {isOkButtonDisabled && (
         <small className="text-gray-500">
-          Check all items to enable "Ok" button...
+          {labels[language.code].checkItemsEnableOk}
         </small>
       )}
     </>

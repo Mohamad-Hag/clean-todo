@@ -7,7 +7,7 @@ import {
 import labels from "data/typescript/uiLabels";
 import useImportData from "hooks/useImportData";
 import useLanguage from "hooks/useLanguage";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { BiImport } from "react-icons/bi";
 import readJSONFile from "utils/readJSONFile";
 

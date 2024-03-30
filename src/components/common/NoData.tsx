@@ -13,18 +13,17 @@ export interface NoDataProps {
   iconColor?: string;
 }
 
-const lang = LanguageStore.get();
-
-let initialDescription = labels[lang.code].clickOnButtonToCreateTodo;
-
-function NoData({
-  title = labels[lang.code].nothingToShow,
-  description = initialDescription,
-  iconColor = "#3b82f6",
-  icon = <BiCloud fill={iconColor} size={45} />,
-  textColor,
-}: NoDataProps) {
+function NoData(props: NoDataProps) {
   const { language } = useLanguage();
+  const initialDescription = labels[language.code].clickOnButtonToCreateTodo;
+  const initialTitle = labels[language.code].nothingToShow;
+  const {
+    title = initialTitle,
+    description = initialDescription,
+    iconColor = "#3b82f6",
+    icon = <BiCloud fill={iconColor} size={45} />,
+    textColor,
+  } = props;
 
   return (
     <Flex

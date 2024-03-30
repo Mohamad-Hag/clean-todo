@@ -6,6 +6,7 @@ type SourceString = string;
 
 interface BackgroundProps {
   source: SourceString;
+  minifiedSource: SourceString;
   isActive?: boolean;
   index: number;
   onSelect: (index: number) => void;
@@ -13,12 +14,13 @@ interface BackgroundProps {
 
 export default function Background({
   source,
+  minifiedSource,
   isActive = false,
   index,
   onSelect,
 }: BackgroundProps) {
   const d = useDispatch();
-
+console.log(minifiedSource)
   const click = () => {
     if (onSelect) onSelect(index);
     d(changeBackground(source));
@@ -32,7 +34,7 @@ export default function Background({
       objectFit="cover"
       objectPosition="center"
       alt="Background"
-      src={source}
+      src={minifiedSource}
     />
   );
 }

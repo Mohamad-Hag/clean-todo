@@ -14,7 +14,6 @@ export default function LanguageSettings() {
 
   const languageChanged = (e: React.ChangeEvent<HTMLSelectElement>) => {
     set(e.target.value as LanguageCodes);
-    window.location.reload();
   };
 
   return (

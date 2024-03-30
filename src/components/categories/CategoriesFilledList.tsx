@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { default as ICategory } from "utils/interfaces/common/Category";
-import sidebarButtons from "data/typescript/sidebarButtons";
 import Category from "./Category";
 import {
   selectSidebarIsActiveArray,
   update,
 } from "redux/features/sidebarIsActiveArraySlice";
 import { useDispatch } from "react-redux";
+import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
 
 interface CategoriesFilledListProps {
   categories: ICategory[];
