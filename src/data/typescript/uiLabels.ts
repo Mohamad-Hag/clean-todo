@@ -2,6 +2,8 @@ import UILabels from "utils/types/UILabels";
 
 const labels: UILabels = {
   en: {
+    loading: "Loading",
+    loadingTasks: "Loading Your Tasks",
     itemsHasMovedTo: "items have been moved to",
     allowDrafts: "Allow Drafts",
     allowDraftsDescription:
@@ -141,6 +143,8 @@ const labels: UILabels = {
     category: "Category",
   },
   "zh-CN": {
+    loading: "加载中",
+    loadingTasks: "正在加载您的任务",
     itemsHasMovedTo: "件商品已移至",
     allowDrafts: "允许草稿",
     allowDraftsDescription: "创建待办事项/类别表单时不要保存任何草稿",
@@ -270,6 +274,8 @@ const labels: UILabels = {
     category: "类别",
   },
   fr: {
+    loading: "Chargement",
+    loadingTasks: "Chargement des tâches",
     itemsHasMovedTo: "éléments ont été déplacés vers",
     allowDrafts: "Autoriser Brouillons",
     allowDraftsDescription:
@@ -413,6 +419,8 @@ const labels: UILabels = {
     category: "Catégorie",
   },
   es: {
+    loading: "Cargando",
+    loadingTasks: "Cargando Tus Tareas",
     itemsHasMovedTo: "artículos han sido movidos a",
     allowDrafts: "Permitir Borradores",
     allowDraftsDescription:

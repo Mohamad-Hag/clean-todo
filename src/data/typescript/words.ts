@@ -122,6 +122,8 @@ enum Words {
   "W120" = "allowDrafts",
   "W121" = "allowDraftsDescription",
   "W122" = "itemsHasMovedTo",
+  "W123" = "loading",
+  "W124" = "loadingTasks",
 }
 
 export default Words;
