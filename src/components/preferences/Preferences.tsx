@@ -1,4 +1,8 @@
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   close,
   open,
@@ -10,10 +14,6 @@ import {
 } from "redux/features/alertSlice";
 import PreferencesButton from "./PreferencesButton";
 import PreferencesModal from "./PreferencesModal";
-import labels from "data/typescript/uiLabels";
-import useLanguage from "hooks/useLanguage";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 export default function Preferences() {
   const { language } = useLanguage();

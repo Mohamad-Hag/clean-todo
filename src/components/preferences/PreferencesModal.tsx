@@ -1,6 +1,6 @@
 import { TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import PreferencesTabs, { preferencesTabs } from "./PreferencesTabs";
 import preferencesPanels from "data/typescript/preferencesPanels";
+import PreferencesTabs from "./PreferencesTabs";
 
 export default function PreferencesModal() {
   return (
