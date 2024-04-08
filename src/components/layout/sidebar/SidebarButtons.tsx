@@ -1,10 +1,5 @@
-import {
-  default as SidebarBtn,
-  URLString,
-} from "components/layout/sidebar/SidebarButton";
-import labels from "data/typescript/uiLabels";
-import useLanguage from "hooks/useLanguage";
-import { BiCheck, BiListUl, BiStar, BiTrash } from "react-icons/bi";
+import { default as SidebarBtn } from "components/layout/sidebar/SidebarButton";
+import useGetSidebarButtons from "hooks/useGetSidebarButtons";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSidebarIsActiveArray,
@@ -13,44 +8,15 @@ import {
 import { selectTodos } from "redux/features/todosSlice";
 import countTodosByPage from "utils/countTodosByPage";
 
-interface SidebarButtonProps {
-  to: URLString;
-  title: string;
-  icon: React.ReactElement;
-}
-export let sidebarButtons: SidebarButtonProps[] = [];
-
 export default function SidebarButtons() {
-  const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const isActiveArray = useSelector(selectSidebarIsActiveArray);
+  const sidebarButtons = useGetSidebarButtons();
   const d = useDispatch();
+
   const select = (index: number) => {
     d(update(index));
   };
-
-  sidebarButtons = [
-    {
-      title: labels[language.code].all,
-      to: "/",
-      icon: <BiListUl />,
-    },
-    {
-      title: labels[language.code].active,
-      to: "/active",
-      icon: <BiStar />,
-    },
-    {
-      title: labels[language.code].finished,
-      to: "/finished",
-      icon: <BiCheck />,
-    },
-    {
-      title: labels[language.code].trash,
-      to: "/trash",
-      icon: <BiTrash />,
-    },
-  ];
 
   return (
     <>

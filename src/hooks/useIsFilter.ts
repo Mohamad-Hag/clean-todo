@@ -5,7 +5,7 @@ import getFolderIdByPath from "utils/getFolderIdByPath";
 import pathnames from "data/json/pathnames.json";
 
 const useIsFilter = () => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation();  
 
   const isFilter = (todo: TodoProps) =>
     pathname === pathnames.activePathName

@@ -51,6 +51,13 @@ body {
 ::-webkit-scrollbar-thumb:active {
   background-color: #c4c4c490 !important;
 }
+* {
+  scrollbar-color: transparent transparent !important;
+  transition: scrollbar-color .3s ease;
+}
+*:hover {
+  scrollbar-color: #c4c4c460 transparent !important;
+}
 .toolbar-item-info-title {
   overflow: hidden;
   line-clamp: 1;

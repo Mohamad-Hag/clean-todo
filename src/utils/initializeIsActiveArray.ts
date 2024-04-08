@@ -1,10 +1,10 @@
 import FolderStore from "./local-storage/FolderStore";
 import IsActiveArrayConditionSatisfied from "./IsActiveArrayConditionSatisfied";
-import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
+import sidebarButtonsBase from "data/typescript/sidebarButtonsBase";
 
 const folders = FolderStore.get();
 const foldersLength = folders.length;
-const sidebarButtonsLength = sidebarButtons.length;
+const sidebarButtonsLength = sidebarButtonsBase.length;
 const isActiveArrayLength = sidebarButtonsLength + foldersLength;
 
 function initializeIsActiveArray(): boolean[] {

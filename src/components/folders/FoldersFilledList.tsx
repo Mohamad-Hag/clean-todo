@@ -6,16 +6,15 @@ import {
   update,
 } from "redux/features/sidebarIsActiveArraySlice";
 import { useDispatch } from "react-redux";
-import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
+import useGetSidebarButtons from "hooks/useGetSidebarButtons";
 
 interface FoldersFilledListProps {
   folders: IFolder[];
 }
 
-export default function FoldersFilledList({
-  folders,
-}: FoldersFilledListProps) {
+export default function FoldersFilledList({ folders }: FoldersFilledListProps) {
   const isActiveArray = useSelector(selectSidebarIsActiveArray);
+  const sidebarButtons = useGetSidebarButtons();
 
   const d = useDispatch();
 
