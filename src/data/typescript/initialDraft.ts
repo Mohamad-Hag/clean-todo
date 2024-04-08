@@ -1,11 +1,11 @@
 import { Draft } from "redux/features/draftSlice";
-import defaultCategoryIcon from "./defaultCategoryIcon";
+import defaultFolderIcon from "./defaultFolderIcon";
 import { defaultPriority } from "utils/types/Priority";
 
 const initialDraft: Draft = {
-  createCategory: {
+  createFolder: {
     title: "",
-    icon: defaultCategoryIcon,
+    icon: defaultFolderIcon,
   },
   createTodo: {
     title: "",

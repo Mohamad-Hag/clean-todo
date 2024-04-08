@@ -2,7 +2,7 @@ import initialPreferences from "data/typescript/initialPreferences";
 import { Preferences } from "redux/features/preferencesSlice";
 import replacePreferences from "redux/preferencesActions/replacePreferences";
 import changeBackground from "redux/preferencesActions/changeBackground";
-import setFilterIncludeCategory from "redux/preferencesActions/setFilterIncludeCategory";
+import setFilterIncludeFolder from "redux/preferencesActions/setFilterIncludeFolder";
 import setFilterIncludeDate from "redux/preferencesActions/setFilterIncludeDate";
 import setFilterIncludeDescription from "redux/preferencesActions/setFilterIncludeDescription";
 import setTodoCollapseDescription from "redux/preferencesActions/setTodoCollapseDescription";
@@ -38,11 +38,11 @@ class PreferencesStore {
     return prefs;
   }
 
-  public static setFilterIncludeCategory(
+  public static setFilterIncludeFolder(
     preferences: Preferences,
-    includeCategory: boolean
+    includeFolder: boolean
   ) {
-    let prefs = setFilterIncludeCategory(preferences, includeCategory);
+    let prefs = setFilterIncludeFolder(preferences, includeFolder);
     PreferencesStore.set(prefs);
     return prefs;
   }

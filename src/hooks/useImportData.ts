@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { close } from "redux/features/alertSlice";
-import { replace as replaceCategories } from "redux/features/categorySlice";
+import { replace as replaceFolders } from "redux/features/folderSlice";
 import { replace as replacePreferences } from "redux/features/preferencesSlice";
 import { replace as replaceSidebar } from "redux/features/sidebarSlice";
 import { replace as replaceTodos } from "redux/features/todosSlice";
@@ -16,14 +16,14 @@ const useImportData = () => {
 
   return (importData: ImportExportData): string => {
     let todoStore = importData.todoStore;
-    let categoryStore = importData.categoryStore;
+    let folderStore = importData.folderStore;
     let preferencesStore = importData.preferencesStore;
     let sidebarStore = importData.sidebarStore;
     let passCodeStore = importData.passCodeStore;
     let draftStore = importData.draftStore;
     let isImportDataValid =
       todoStore &&
-      categoryStore &&
+      folderStore &&
       preferencesStore &&
       sidebarStore &&
       passCodeStore &&
@@ -34,7 +34,7 @@ const useImportData = () => {
     }
 
     d(replaceTodos(todoStore));
-    d(replaceCategories(categoryStore));
+    d(replaceFolders(folderStore));
     d(replacePreferences(preferencesStore));
     d(replaceSidebar(sidebarStore));
     d(replacePassCode(passCodeStore));

@@ -13,8 +13,8 @@ export interface EditData {
   editable: TodoEditable;
 }
 
-export interface ItemIds_CategoryId {
-  categoryId?: number;
+export interface ItemIds_FolderId {
+  folderId?: number;
   itemIds: number[];
 }
 
@@ -48,8 +48,8 @@ export const todosSlice = createSlice({
     finishAll: (state) => TodoStore.finishAll(state),
     finishSome: (state, action: PayloadAction<number[]>) =>
       TodoStore.finishSome(state, action.payload),
-    addCategorySome: (state, action: PayloadAction<ItemIds_CategoryId>) =>
-      TodoStore.addCategorySome(state, action.payload),
+    addFolderSome: (state, action: PayloadAction<ItemIds_FolderId>) =>
+      TodoStore.addFolderSome(state, action.payload),
     activateAll: (state) => TodoStore.activateAll(state),
     activateSome: (state, action: PayloadAction<number[]>) =>
       TodoStore.activateSome(state, action.payload),
@@ -74,7 +74,7 @@ export const {
   finishSome,
   activateAll,
   activateSome,
-  addCategorySome,
+  addFolderSome,
   selectAll,
   restoreSome,
 } = todosSlice.actions;

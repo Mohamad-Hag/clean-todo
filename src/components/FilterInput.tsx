@@ -12,7 +12,7 @@ import useKeyboardShortcut, { Modifier } from "hooks/useKeyboardShortcut";
 import TodoProps from "utils/interfaces/common/Todo";
 import isInclude from "utils/isInclude";
 import { useSelector } from "react-redux";
-import { selectCategories } from "redux/features/categorySlice";
+import { selectFolders } from "redux/features/folderSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
@@ -35,10 +35,10 @@ export default function FilterInput({
   const filterKey = { key: "/", code: 191 };
   const preferences = useSelector(selectPreferences);
   const includeDescription = preferences.filterPreferences?.includeDescription;
-  const includeCategory = preferences.filterPreferences?.includeCategory;
+  const includeFolder = preferences.filterPreferences?.includeFolder;
   const includeDate = preferences.filterPreferences?.includeDate;
   const filterModifierKey: Modifier = "Ctrl";
-  const categories = useSelector(selectCategories);
+  const folders = useSelector(selectFolders);
 
   useKeyboardShortcut(() => inputRef.current.focus(), filterKey.code, "Ctrl");
 
@@ -51,17 +51,17 @@ export default function FilterInput({
     let isMatchTitle = isInclude(todo.title!, criteria);
     let isMatchDescription = isInclude(todo.description!, criteria);
     let isMatchDate = isInclude(todo.date, criteria);
-    let isMatchCategoryTitle = false;
-    if (todo.categoryId)
-      isMatchCategoryTitle = isInclude(
-        categories.find((category) => category.id === todo.categoryId)?.title!,
+    let isMatchFolderTitle = false;
+    if (todo.folderId)
+      isMatchFolderTitle = isInclude(
+        folders.find((folder) => folder.id === todo.folderId)?.title!,
         criteria
       );
 
     let filterArray = [isMatchTitle];
 
     if (includeDescription) filterArray.push(isMatchDescription);
-    if (includeCategory) filterArray.push(isMatchCategoryTitle);
+    if (includeFolder) filterArray.push(isMatchFolderTitle);
     if (includeDate) filterArray.push(isMatchDate);
 
     let isFilter = !!filterArray.find((value) => value === true);

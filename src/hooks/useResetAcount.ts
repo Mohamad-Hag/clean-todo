@@ -7,7 +7,7 @@ const useResetAccount = () => {
 
   const resetAccount = () => {
     importData({
-      categoryStore: [],
+      folderStore: [],
       preferencesStore: initialPreferences,
       sidebarStore: { status: "shown" },
       todoStore: [],

@@ -5,9 +5,9 @@ import preferencesSlice from "./features/preferencesSlice";
 import sidebarSlice from "./features/sidebarSlice";
 import todosSlice from "./features/todosSlice";
 import sidebarIsActiveArraySlice from "./features/sidebarIsActiveArraySlice";
-import categorySlice from "./features/categorySlice";
-import categoryFormSlice from "./features/categoryFormSlice";
-import categorySelectorSlice from "./features/categorySelectorSlice";
+import folderSlice from "./features/folderSlice";
+import folderFormSlice from "./features/folderFormSlice";
+import folderSelectorSlice from "./features/folderSelectorSlice";
 import passCodeSlice from "./features/passCodeSlice";
 import languageSlice from "./features/languageSlice";
 import draftSlice from "./features/draftSlice";
@@ -27,13 +27,13 @@ export const store = configureStore({
   reducer: {
     todos: todosSlice,
     form: formSlice,
-    categoryForm: categoryFormSlice,
+    folderForm: folderFormSlice,
     alert: alertSlice,
     sidebar: sidebarSlice,
     preferences: preferencesSlice,
     sidebarIsActiveArray: sidebarIsActiveArraySlice,
-    categories: categorySlice,
-    categorySelector: categorySelectorSlice,
+    folders: folderSlice,
+    folderSelector: folderSelectorSlice,
     passCode: passCodeSlice,
     language: languageSlice,
     draft: draftSlice,

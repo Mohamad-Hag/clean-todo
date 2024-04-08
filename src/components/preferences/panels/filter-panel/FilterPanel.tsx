@@ -10,7 +10,7 @@ import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectPreferences,
-  setFilterIncludeCategory,
+  setFilterIncludeFolder,
   setFilterIncludeDate,
   setFilterIncludeDescription,
 } from "redux/features/preferencesSlice";
@@ -20,7 +20,7 @@ export default function FilterPanel() {
   let preferences = useSelector(selectPreferences);
   let d = useDispatch();
   let includeDescription = preferences.filterPreferences?.includeDescription;
-  let includeCategory = preferences.filterPreferences?.includeCategory;
+  let includeFolder = preferences.filterPreferences?.includeFolder;
   let includeDate = preferences.filterPreferences?.includeDate;
 
   const includeDescriptionChanged = (
@@ -29,8 +29,8 @@ export default function FilterPanel() {
     d(setFilterIncludeDescription(e.target.checked));
   };
 
-  const includeCategoryChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
-    d(setFilterIncludeCategory(e.target.checked));
+  const includeFolderChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    d(setFilterIncludeFolder(e.target.checked));
   };
 
   const includeDateChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,10 +51,10 @@ export default function FilterPanel() {
         <FormHelperText>{labels[language.code].includeDescriptionDescription}</FormHelperText>
       </FormControl>
       <FormControl>
-        <Checkbox isChecked={includeCategory} onChange={includeCategoryChanged}>
-          {labels[language.code].includeCategory}
+        <Checkbox isChecked={includeFolder} onChange={includeFolderChanged}>
+          {labels[language.code].includeFolder}
         </Checkbox>
-        <FormHelperText>{labels[language.code].includeCategoryDescription}</FormHelperText>
+        <FormHelperText>{labels[language.code].includeFolderDescription}</FormHelperText>
       </FormControl>
       <FormControl>
         <Checkbox isChecked={includeDate} onChange={includeDateChanged}>

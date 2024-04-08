@@ -34,7 +34,7 @@ export default function ShortcutsPanel() {
             <Td>
               <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].b}</Kbd>
             </Td>
-            <Td>{labels[language.code].createNewCategory}</Td>
+            <Td>{labels[language.code].createNewFolder}</Td>
           </Tr>
           <Tr>
             <Td>

@@ -9,7 +9,7 @@ export interface TodoEditable {
   isFinished?: boolean;
   isSelected?: boolean;
   isInTrash?: boolean;
-  categoryId?: number | null;
+  folderId?: number | null;
   isDescriptionExpanded?: boolean;
 }
 

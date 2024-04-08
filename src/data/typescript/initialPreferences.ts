@@ -6,7 +6,7 @@ const bgs = getBgs();
 const initialPreferences: Preferences = {
   background: bgs[0],
   filterPreferences: {
-    includeCategory: false,
+    includeFolder: false,
     includeDescription: true,
     includeDate: false,
   },

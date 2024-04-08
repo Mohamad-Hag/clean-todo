@@ -1,11 +1,11 @@
-import CategoryStore from "./local-storage/CategoryStore";
+import FolderStore from "./local-storage/FolderStore";
 import IsActiveArrayConditionSatisfied from "./IsActiveArrayConditionSatisfied";
 import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
 
-const categories = CategoryStore.get();
-const categoriesLength = categories.length;
+const folders = FolderStore.get();
+const foldersLength = folders.length;
 const sidebarButtonsLength = sidebarButtons.length;
-const isActiveArrayLength = sidebarButtonsLength + categoriesLength;
+const isActiveArrayLength = sidebarButtonsLength + foldersLength;
 
 function initializeIsActiveArray(): boolean[] {
   return Array(isActiveArrayLength)

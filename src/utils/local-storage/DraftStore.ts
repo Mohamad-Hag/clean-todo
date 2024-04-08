@@ -1,14 +1,14 @@
 import setFormTitleDraft from "redux/draftActions/setFormTitleDraft";
 import { Draft } from "redux/features/draftSlice";
-import setCategoryFormTitleDraft from "redux/draftActions/setCategoryFormTitleDraft";
-import setCategoryFormIconDraft from "redux/draftActions/setCategoryFormIconDraft";
+import setFolderFormTitleDraft from "redux/draftActions/setFolderFormTitleDraft";
+import setFolderFormIconDraft from "redux/draftActions/setFolderFormIconDraft";
 import setFormDescriptionDraft from "redux/draftActions/setFormDescriptionDraft";
 import setFormPriorityDraft from "redux/draftActions/setFormPriorityDraft";
 import Priority from "utils/types/Priority";
 import initialDraft from "data/typescript/initialDraft";
 import replaceDraft from "redux/draftActions/replaceDraft";
 import clearForm from "redux/draftActions/clearForm";
-import clearCategoryForm from "redux/draftActions/clearCategoryForm";
+import clearFolderForm from "redux/draftActions/clearFolderForm";
 
 class DraftStore {
   public static storage = localStorage;
@@ -27,12 +27,12 @@ class DraftStore {
     DraftStore.set(setFormTitleDraft(draft, title));
   }
 
-  public static setCategoryFormTitleDraft(draft: Draft, title: string) {
-    DraftStore.set(setCategoryFormTitleDraft(draft, title));
+  public static setFolderFormTitleDraft(draft: Draft, title: string) {
+    DraftStore.set(setFolderFormTitleDraft(draft, title));
   }
 
-  public static setCategoryFormIconDraft(draft: Draft, icon: string) {
-    DraftStore.set(setCategoryFormIconDraft(draft, icon));
+  public static setFolderFormIconDraft(draft: Draft, icon: string) {
+    DraftStore.set(setFolderFormIconDraft(draft, icon));
   }
 
   public static setFormDescriptionDraft(draft: Draft, description: string) {
@@ -55,8 +55,8 @@ class DraftStore {
     return itemsAfterClear;
   }
 
-  public static clearCategoryForm(draft: Draft) {
-    let itemsAfterClear = clearCategoryForm(draft);
+  public static clearFolderForm(draft: Draft) {
+    let itemsAfterClear = clearFolderForm(draft);
     DraftStore.set(itemsAfterClear);
     return itemsAfterClear;
   }

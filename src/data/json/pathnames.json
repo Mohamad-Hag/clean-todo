@@ -3,5 +3,5 @@
     "activePathName": "/active",
     "finishedPathName": "/finished",
     "trashPathName": "/trash",
-    "categoriesPathName": "/categories"
+    "foldersPathName": "/folders"
 }

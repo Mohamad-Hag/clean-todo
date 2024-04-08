@@ -8,7 +8,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Select multiple tasks ✅.
 - Filter tasks ✅.
 - Adding a description with task's title ✅.
-- Categories feature ✅.
+- Folders feature ✅.
 - Trash/Restore feature ✅.
 - Drag & Drop feature ✅.
 - Many preferences are available ✅.

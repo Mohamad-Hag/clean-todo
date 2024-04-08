@@ -11,7 +11,7 @@ export interface Form {
   id?: number;
   title?: string;
   description?: string;
-  categoryId?: number;
+  folderId?: number;
   priority?: Priority;
   isOpen?: boolean;
   mode?: FormMode;
@@ -49,8 +49,8 @@ export const formSlice = createSlice({
     setPriority: (state, action: PayloadAction<Priority>) => {
       state.priority = action.payload;
     },
-    setCategoryId: (state, action: PayloadAction<number>) => {
-      state.categoryId = action.payload;
+    setFolderId: (state, action: PayloadAction<number>) => {
+      state.folderId = action.payload;
     },
     setMode: (state, action: PayloadAction<FormMode>) => {
       state.mode = action.payload;
@@ -68,7 +68,7 @@ export const {
   setTitle,
   setDescription,
   setPriority,
-  setCategoryId,
+  setFolderId,
   setMode,
 } = formSlice.actions;
 

@@ -6,7 +6,7 @@ import type { RootState } from "../store";
 export type PreferencesMode = "create" | "edit";
 
 export interface FilterPreferences {
-  includeCategory?: boolean;
+  includeFolder?: boolean;
   includeDescription?: boolean;
   includeDate?: boolean;
 }
@@ -35,8 +35,8 @@ export const preferencesSlice = createSlice({
       PreferencesStore.replace(state, action.payload),
     changeBackground: (state, action: PayloadAction<string>) =>
       PreferencesStore.changeBackground(state, action.payload),
-    setFilterIncludeCategory: (state, action: PayloadAction<boolean>) =>
-      PreferencesStore.setFilterIncludeCategory(state, action.payload),
+    setFilterIncludeFolder: (state, action: PayloadAction<boolean>) =>
+      PreferencesStore.setFilterIncludeFolder(state, action.payload),
     setFilterIncludeDescription: (state, action: PayloadAction<boolean>) =>
       PreferencesStore.setFilterIncludeDescription(state, action.payload),
     setFilterIncludeDate: (state, action: PayloadAction<boolean>) =>
@@ -57,7 +57,7 @@ export const preferencesSlice = createSlice({
 
 export const {
   changeBackground,
-  setFilterIncludeCategory,
+  setFilterIncludeFolder,
   setFilterIncludeDescription,
   setFilterIncludeDate,
   setTodoEditOnDoubleClick,

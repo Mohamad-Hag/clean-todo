@@ -1,17 +1,17 @@
-import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
-import { CategoryForm } from "redux/features/categoryFormSlice";
+import defaultFolderIcon from "data/typescript/defaultFolderIcon";
+import { FolderForm } from "redux/features/folderFormSlice";
 import { Draft } from "redux/features/draftSlice";
 import { Form } from "redux/features/formSlice";
 import { defaultPriority } from "./Priority";
 
 export default function getFormDraft(
   draft: Draft,
-  draftType: "todo" | "category"
-): Form | CategoryForm {
+  draftType: "todo" | "folder"
+): Form | FolderForm {
   let createTodo = draft.createTodo;
-  let createCategory = draft.createCategory;
+  let createFolder = draft.createFolder;
   let form: Form = {};
-  let categoryForm: CategoryForm = {};
+  let folderForm: FolderForm = {};
 
   if (draftType === "todo" && createTodo)
     form = {
@@ -23,17 +23,17 @@ export default function getFormDraft(
           : "",
       priority: createTodo.priority ? createTodo.priority : defaultPriority,
     };
-  else if (draftType === "category" && createCategory)
-    categoryForm = {
+  else if (draftType === "folder" && createFolder)
+    folderForm = {
       title:
-        createCategory.title && createCategory.title !== ""
-          ? createCategory.title
+        createFolder.title && createFolder.title !== ""
+          ? createFolder.title
           : "",
       icon:
-        createCategory.icon && createCategory.icon !== ""
-          ? createCategory.icon
-          : defaultCategoryIcon,
+        createFolder.icon && createFolder.icon !== ""
+          ? createFolder.icon
+          : defaultFolderIcon,
     };
 
-  return draftType === "todo" ? form : categoryForm;
+  return draftType === "todo" ? form : folderForm;
 }

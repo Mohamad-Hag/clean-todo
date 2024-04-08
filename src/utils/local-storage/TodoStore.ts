@@ -1,10 +1,10 @@
 import {
   EditData,
-  ItemIds_CategoryId,
+  ItemIds_FolderId,
   RemoveItemPayload,
 } from "redux/features/todosSlice";
 import activateAllTodos from "redux/todoActions/activateAllTodos";
-import addCategorySomeTodos from "redux/todoActions/addCategorySomeTodos";
+import addFolderSomeTodos from "redux/todoActions/addFolderSomeTodos";
 import clearTodos from "redux/todoActions/clearTodos";
 import collapseDescription from "redux/todoActions/collapseDescription";
 import createTodo from "redux/todoActions/createTodo";
@@ -121,16 +121,16 @@ class TodoStore {
     return itemsAfterActivateAll;
   }
 
-  public static addCategorySome(
+  public static addFolderSome(
     todos: TodoProps[],
-    itemIds_categoryId: ItemIds_CategoryId
+    itemIds_folderId: ItemIds_FolderId
   ) {
-    let itemsAfterAddCategorySome = addCategorySomeTodos(
+    let itemsAfterAddFolderSome = addFolderSomeTodos(
       todos,
-      itemIds_categoryId
+      itemIds_folderId
     );
-    TodoStore.set(itemsAfterAddCategorySome);
-    return itemsAfterAddCategorySome;
+    TodoStore.set(itemsAfterAddFolderSome);
+    return itemsAfterAddFolderSome;
   }
 
   public static selectAll(

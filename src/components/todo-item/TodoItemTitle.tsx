@@ -3,7 +3,7 @@ import useIsMobile from "hooks/useIsMobile";
 import { useSelector } from "react-redux";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import { selectTodos } from "redux/features/todosSlice";
-import TodoItemCategoryBadge from "./TodoItemCategoryBadge";
+import TodoItemFolderBadge from "./TodoItemFolderBadge";
 import TodoItemPriorityFlag from "./TodoItemPriorityFlag";
 
 interface TodoItemTitleProps {
@@ -28,7 +28,7 @@ export default function TodoItemTitle({ id }: TodoItemTitleProps) {
       </ConditionalRenderer>
       <div className={`flex items-center gap-${flexGap} flex-${flexWrap}`}>
         <h1>{title}</h1>
-        <TodoItemCategoryBadge id={id} />
+        <TodoItemFolderBadge id={id} />
       </div>
     </div>
   );

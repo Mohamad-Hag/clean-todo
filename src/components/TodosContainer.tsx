@@ -1,6 +1,6 @@
 import TodoProps from "utils/interfaces/common/Todo";
 import Container from "./Container";
-import CategorySelector from "./categories/category-selection/CategorySelector";
+import FolderSelector from "./folders/folder-selection/FolderSelector";
 import Toolbar from "./todos-toolbar/Toolbar";
 import TodosInnerContainer from "./TodosInnerContainer";
 
@@ -17,7 +17,7 @@ export default function TodosContainer({
     <Container>
       <Toolbar todos={todos} isFilterMode={isFilterMode} />
       <TodosInnerContainer todos={todos} isFilterMode={isFilterMode} />
-      <CategorySelector />
+      <FolderSelector />
     </Container>
   );
 }

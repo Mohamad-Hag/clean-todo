@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import DraftStore from "utils/local-storage/DraftStore";
 import Priority from "utils/types/Priority";
 import type { RootState } from "../store";
-import { CategoryForm } from "./categoryFormSlice";
+import { FolderForm } from "./folderFormSlice";
 import { Form } from "./formSlice";
 
 export interface Draft {
   createTodo: Form;
-  createCategory: CategoryForm;
+  createFolder: FolderForm;
 }
 
 const initialState: Draft = DraftStore.get();
@@ -19,16 +19,16 @@ export const draftSlice = createSlice({
   reducers: {
     setFormTitleDraft: (state, action: PayloadAction<string>) =>
       DraftStore.setFormTitleDraft(state, action.payload),
-    setCategoryFormTitleDraft: (state, action: PayloadAction<string>) =>
-      DraftStore.setCategoryFormTitleDraft(state, action.payload),
-    setCategoryFormIconDraft: (state, action: PayloadAction<string>) =>
-      DraftStore.setCategoryFormIconDraft(state, action.payload),
+    setFolderFormTitleDraft: (state, action: PayloadAction<string>) =>
+      DraftStore.setFolderFormTitleDraft(state, action.payload),
+    setFolderFormIconDraft: (state, action: PayloadAction<string>) =>
+      DraftStore.setFolderFormIconDraft(state, action.payload),
     setFormDescriptionDraft: (state, action: PayloadAction<string>) =>
       DraftStore.setFormDescriptionDraft(state, action.payload),
     setFormPriorityDraft: (state, action: PayloadAction<Priority>) =>
       DraftStore.setFormPriorityDraft(state, action.payload),
     clearForm: (state) => DraftStore.clearForm(state),
-    clearCategoryForm: (state) => DraftStore.clearCategoryForm(state),
+    clearFolderForm: (state) => DraftStore.clearFolderForm(state),
     replace: (state, action: PayloadAction<Draft>) =>
       DraftStore.replace(state, action.payload),
   },
@@ -36,12 +36,12 @@ export const draftSlice = createSlice({
 
 export const {
   setFormTitleDraft,
-  setCategoryFormIconDraft,
-  setCategoryFormTitleDraft,
+  setFolderFormIconDraft,
+  setFolderFormTitleDraft,
   setFormDescriptionDraft,
   setFormPriorityDraft,
   clearForm,
-  clearCategoryForm,
+  clearFolderForm,
   replace,
 } = draftSlice.actions;
 

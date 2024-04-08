@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { selectSidebar } from "redux/features/sidebarSlice";
 import { ScrollbarThinStyle } from "utils/styles/ScrollbarStyles";
-import SidebarCategoriesContainer from "../../categories/CategoriesContainer";
+import SidebarFoldersContainer from "../../folders/FoldersContainer";
 import SidebarButtons from "./SidebarButtons";
 
 export default function SidebarBody() {
@@ -15,7 +15,7 @@ export default function SidebarBody() {
       display={display("initial")}
     >
       <SidebarButtons />
-      <SidebarCategoriesContainer />
+      <SidebarFoldersContainer />
     </Box>
   );
 }

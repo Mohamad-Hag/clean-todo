@@ -1,20 +1,20 @@
-import CategoryStore from "./local-storage/CategoryStore";
-import getCategoryIdByPath from "./getCategoryIdByPath";
-import isCategoryPath from "./isCategoryPath";
+import FolderStore from "./local-storage/FolderStore";
+import getFolderIdByPath from "./getFolderIdByPath";
+import isFolderPath from "./isFolderPath";
 import { sidebarButtons } from "components/layout/sidebar/SidebarButtons";
 
 const pathname = window.location.pathname;
-const categories = CategoryStore.get();
+const folders = FolderStore.get();
 const sidebarButtonsLength = sidebarButtons.length;
 
 function IsActiveArrayConditionSatisfied(index: number): boolean {
-  if (isCategoryPath(pathname)) {
-    let categoryId = getCategoryIdByPath(pathname);
-    let categoryIndex = categories.findIndex(
-      (category) => category.id === categoryId
+  if (isFolderPath(pathname)) {
+    let folderId = getFolderIdByPath(pathname);
+    let folderIndex = folders.findIndex(
+      (folder) => folder.id === folderId
     );
-    let categoryIndexInArray = categoryIndex + sidebarButtonsLength;
-    return index === categoryIndexInArray;
+    let folderIndexInArray = folderIndex + sidebarButtonsLength;
+    return index === folderIndexInArray;
   } else {
     let sidebarButtonIndex = sidebarButtons.findIndex(
       (sidebarButton) => sidebarButton.to === pathname

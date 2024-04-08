@@ -3,7 +3,7 @@ interface PageCheck {
   isAllPage?: boolean;
   isActivePage?: boolean;
   isFinishedPage?: boolean;
-  isCategoriesPages?: boolean;
+  isFoldersPages?: boolean;
 }
 
 export default PageCheck;

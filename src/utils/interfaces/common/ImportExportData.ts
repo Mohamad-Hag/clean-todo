@@ -1,6 +1,6 @@
 import { Preferences } from "redux/features/preferencesSlice";
 import TodoProps from "./Todo";
-import Category from "./Category";
+import Folder from "./Folder";
 import { Sidebar } from "redux/features/sidebarSlice";
 import { PassCode } from "redux/features/passCodeSlice";
 import { Draft } from "redux/features/draftSlice";
@@ -8,7 +8,7 @@ import { Draft } from "redux/features/draftSlice";
 interface ImportExportData {
   todoStore: TodoProps[];
   preferencesStore: Preferences;
-  categoryStore: Category[];
+  folderStore: Folder[];
   sidebarStore: Sidebar;
   passCodeStore: PassCode;
   draftStore: Draft;

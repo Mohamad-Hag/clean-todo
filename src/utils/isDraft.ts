@@ -1,8 +1,8 @@
 import { Draft } from "redux/features/draftSlice";
 
-export default function isDraft(draft: Draft, draftType: "todo" | "category") {
+export default function isDraft(draft: Draft, draftType: "todo" | "folder") {
   let createTodo = draft.createTodo;
-  let createCategory = draft.createCategory;
+  let createFolder = draft.createFolder;
 
   if (draftType === "todo" && createTodo)
     return (
@@ -11,10 +11,10 @@ export default function isDraft(draft: Draft, draftType: "todo" | "category") {
       createTodo.priority
     );
 
-  if (draftType === "category" && createCategory)
+  if (draftType === "folder" && createFolder)
     return (
-      (createCategory.title && createCategory.title !== "") ||
-      (createCategory.icon && createCategory.icon !== "")
+      (createFolder.title && createFolder.title !== "") ||
+      (createFolder.icon && createFolder.icon !== "")
     );
 
   return false;
