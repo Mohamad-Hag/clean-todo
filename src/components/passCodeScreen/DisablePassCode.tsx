@@ -5,9 +5,7 @@ import useLanguage from "hooks/useLanguage";
 import useResetAccount from "hooks/useResetAcount";
 import useTimeoutConfirmation from "hooks/useTimeoutConfirmation";
 
-interface DisablePassCodeProps {}
-
-export default function DisablePassCode({}: DisablePassCodeProps) {
+export default function DisablePassCode() {
   const { language } = useLanguage();
   const resetAccount = useResetAccount();
   const { confirm, confirmMode } = useTimeoutConfirmation(resetAccount);

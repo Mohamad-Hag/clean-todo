@@ -1,8 +1,5 @@
 import { Button, ModalBody } from "@chakra-ui/react";
-import NoData from "components/common/NoData";
-import { BiCategory } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import labels from "data/typescript/uiLabels";
 import {
   change,
   selectCategorySelector,

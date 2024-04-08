@@ -1,4 +1,4 @@
-import SidebarButton, {
+import {
   default as SidebarBtn,
   URLString,
 } from "components/layout/sidebar/SidebarButton";
@@ -13,12 +13,12 @@ import {
 import { selectTodos } from "redux/features/todosSlice";
 import countTodosByPage from "utils/countTodosByPage";
 
-interface SidebarButton {
+interface SidebarButtonProps {
   to: URLString;
   title: string;
   icon: React.ReactElement;
 }
-export let sidebarButtons: SidebarButton[] = [];
+export let sidebarButtons: SidebarButtonProps[] = [];
 
 export default function SidebarButtons() {
   const { language } = useLanguage();

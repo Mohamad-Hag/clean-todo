@@ -1,4 +1,4 @@
-import { Sidebar, SidebarStatus } from "../features/sidebarSlice";
+import { Sidebar } from "../features/sidebarSlice";
 
 function replaceSidebar(sidebar: Sidebar, newSidebar: Sidebar) {
   sidebar = newSidebar;

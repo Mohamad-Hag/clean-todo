@@ -4,8 +4,7 @@ import setCategoryFormTitleDraft from "redux/draftActions/setCategoryFormTitleDr
 import setCategoryFormIconDraft from "redux/draftActions/setCategoryFormIconDraft";
 import setFormDescriptionDraft from "redux/draftActions/setFormDescriptionDraft";
 import setFormPriorityDraft from "redux/draftActions/setFormPriorityDraft";
-import Priority, { defaultPriority } from "utils/types/Priority";
-import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
+import Priority from "utils/types/Priority";
 import initialDraft from "data/typescript/initialDraft";
 import replaceDraft from "redux/draftActions/replaceDraft";
 import clearForm from "redux/draftActions/clearForm";

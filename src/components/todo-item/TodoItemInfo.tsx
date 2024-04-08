@@ -1,13 +1,12 @@
 import { Stack } from "@chakra-ui/react";
-import useIsMobile from "hooks/useIsMobile";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "redux/features/formSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
-import TodoItemTitle from "./TodoItemTitle";
 import TodoItemInfoContainer from "./TodoItemInfoContainer";
+import TodoItemTitle from "./TodoItemTitle";
 
 interface TodoItemInfoProps {
   id: number;

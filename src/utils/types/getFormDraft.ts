@@ -1,9 +1,8 @@
-import { title } from "process";
+import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
+import { CategoryForm } from "redux/features/categoryFormSlice";
 import { Draft } from "redux/features/draftSlice";
 import { Form } from "redux/features/formSlice";
 import { defaultPriority } from "./Priority";
-import { CategoryForm } from "redux/features/categoryFormSlice";
-import defaultCategoryIcon from "data/typescript/defaultCategoryIcon";
 
 export default function getFormDraft(
   draft: Draft,

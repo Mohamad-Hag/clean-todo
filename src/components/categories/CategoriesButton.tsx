@@ -1,7 +1,7 @@
-import { AccordionButton, AccordionIcon, Box, Button } from "@chakra-ui/react";
-import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
-import { BiCategory } from "react-icons/bi";
+import { AccordionButton, AccordionIcon, Box } from "@chakra-ui/react";
 import useTodoItemDrop from "hooks/useTodoItemDrop";
+import { BiCategory } from "react-icons/bi";
+import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 interface CategoriesButtonProps {
   title: string;

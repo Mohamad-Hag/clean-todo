@@ -1,12 +1,10 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-import Category from "utils/interfaces/common/Category";
-import CategoryStore from "utils/local-storage/CategoryStore";
+import DraftStore from "utils/local-storage/DraftStore";
+import Priority from "utils/types/Priority";
 import type { RootState } from "../store";
 import { CategoryForm } from "./categoryFormSlice";
 import { Form } from "./formSlice";
-import DraftStore from "utils/local-storage/DraftStore";
-import Priority from "utils/types/Priority";
 
 export interface Draft {
   createTodo: Form;

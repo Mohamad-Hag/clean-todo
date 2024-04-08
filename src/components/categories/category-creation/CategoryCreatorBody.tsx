@@ -21,9 +21,7 @@ import {
 } from "redux/features/draftSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 
-interface TodoCreatorBodyProps {}
-
-export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
+export default function TodoCreatorBody() {
   const { language } = useLanguage();
   const form = useSelector(selectCategoryForm);
   const { todoPreferences } = useSelector(selectPreferences);

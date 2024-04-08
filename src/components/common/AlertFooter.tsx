@@ -1,8 +1,6 @@
 import { Button, ModalFooter } from "@chakra-ui/react";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
-import { useDispatch } from "react-redux";
-import { close } from "redux/features/alertSlice";
 
 interface AlertFooterProps {
   isOkButtonDisabled: boolean;

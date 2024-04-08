@@ -1,12 +1,11 @@
 import Autolinker from "autolinker";
 import ConditionalRenderer from "components/common/ConditionalRenderer";
-import { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import {
-  expandDescription,
   collapseDescription,
+  expandDescription,
   selectTodos,
 } from "redux/features/todosSlice";
 

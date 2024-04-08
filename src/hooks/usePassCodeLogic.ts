@@ -1,9 +1,7 @@
 import bcrypt from "bcryptjs";
 import labels from "data/typescript/uiLabels";
-import useLanguage from "./useLanguage";
-import useResetAccount from "./useResetAcount";
-import useTimeoutConfirmation from "./useTimeoutConfirmation";
 import { useEffect, useState } from "react";
+import useLanguage from "./useLanguage";
 import useLockScreen from "./useLockScreen";
 
 const usePassCodeLogic = () => {

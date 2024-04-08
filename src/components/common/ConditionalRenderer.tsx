@@ -1,6 +1,6 @@
 import { WithMultipleOrOneChildren } from "utils/interfaces/WithChildren";
 
-interface ConditionalRenderer extends WithMultipleOrOneChildren {
+interface ConditionalRendererProps extends WithMultipleOrOneChildren {
   condition?: boolean;
   replaceWith?: React.ReactNode | React.ReactElement;
 }
@@ -9,6 +9,6 @@ export default function ConditionalRenderer({
   condition = true,
   children,
   replaceWith,
-}: ConditionalRenderer) {
+}: ConditionalRendererProps) {
   return condition ? <>{children}</> : replaceWith ? <>{replaceWith}</> : null;
 }

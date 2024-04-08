@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 /**
  * Checks if the variable is empty, and that's according to its type:
  * 1. **string**: `null` / `empty string`, eg: ""

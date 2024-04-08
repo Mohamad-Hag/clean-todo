@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { close, selectForm } from "redux/features/formSlice";
 import TodoCreatorContent from "./TodoCreatorContent";
 
-interface TodoCreatorProps {}
-
-export default function TodoCreator({}: TodoCreatorProps) {
+export default function TodoCreator() {
   const form = useSelector(selectForm);
   const d = useDispatch();
 

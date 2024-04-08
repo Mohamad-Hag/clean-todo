@@ -19,9 +19,7 @@ import Priority from "utils/types/Priority";
 import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
 import { selectPreferences } from "redux/features/preferencesSlice";
 
-interface TodoCreatorBodyProps {}
-
-export default function TodoCreatorBody({}: TodoCreatorBodyProps) {
+export default function TodoCreatorBody() {
   const { language } = useLanguage();
   const form = useSelector(selectForm);
   const { todoPreferences } = useSelector(selectPreferences);
