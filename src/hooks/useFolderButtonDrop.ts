@@ -6,11 +6,14 @@ import { useLocation } from "react-router-dom";
 import { addFolderSome, edit, selectTodos } from "redux/features/todosSlice";
 import useLanguage from "./useLanguage";
 import labels from "data/typescript/uiLabels";
+import { selectFolders } from "redux/features/folderSlice";
 
 const useFolderButtonDrop = (folderId: number) => {
   const d = useDispatch();
   const { language } = useLanguage();
   const todos = useSelector(selectTodos);
+  const folders = useSelector(selectFolders);
+  const folderTitle = folders.find((folder) => folder.id === folderId)?.title;
   const selections = todos.filter((todo) => todo.isSelected);
   const isSelectMode = selections.length > 0;
   const { pathname } = useLocation();
@@ -47,7 +50,9 @@ const useFolderButtonDrop = (folderId: number) => {
     toast({
       duration: 3000,
       variant: "subtle",
-      title: `${itemsCount} ${labels[language.code].itemsHasMovedTo} "folder-${folderId}".`,
+      title: `${itemsCount} ${
+        labels[language.code].itemsHasMovedTo
+      } "${folderTitle}" ${labels[language.code].folder.toLowerCase()}.`,
     });
   };
 
