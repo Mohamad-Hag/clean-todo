@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/autolinker": "^2.0.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/crypto-js": "^4.2.1",
     "@types/jest": "^27.5.2",
@@ -26,10 +27,11 @@
     "autoprefixer": "^9.8.6",
     "bcryptjs": "^2.4.3",
     "caniuse-lite": "^1.0.30001568",
+    "crypto-browserify": "^3.12.0",
     "crypto-js": "^4.2.0",
     "framer-motion": "^6.5.1",
     "fuse.js": "^7.0.0",
-    "jsencrypt": "^3.3.2",
+    "jsencrypt": "^ 3.3.2",
     "postcss-cli": "^10.0.0",
     "react": "^18.2.0",
     "react-contenteditable": "^3.3.6",
@@ -52,6 +54,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "analyze": "craco build",
     "eject": "react-scripts eject",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
     "build:watch": "postcss src/styles/tailwind.css -o src/styles/main.css --watch"
@@ -76,8 +79,10 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^5.5.1",
+    "@craco/craco": "^7.1.0",
     "postcss": "^8.4.18",
     "tailwind-scrollbar": "^2.1.0-preview.0",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "webpack-bundle-analyzer": "^4.10.1"
   }
 }

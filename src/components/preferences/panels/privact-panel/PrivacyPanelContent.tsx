@@ -8,6 +8,7 @@ import {
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import useLockScreen from "hooks/useLockScreen";
+import useTimeoutConfirmation from "hooks/useTimeoutConfirmation";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { close } from "redux/features/alertSlice";
@@ -16,10 +17,8 @@ export default function PrivacyPanelContent() {
   const { language } = useLanguage();
   const passCodeRef = useRef<HTMLInputElement>(null!);
   const [passCodeValue, setPassCodeValue] = useState<string>();
-  const [confirmMode, setConfirmMode] = useState<boolean>(false);
   const d = useDispatch();
   const { setPassCode, lock, unlock } = useLockScreen();
-  const timeout = 3000;
   const [reenteredPassCodeValue, setReenteredPassCodeValue] =
     useState<string>();
   let canSetPassCode = !!(
@@ -57,17 +56,12 @@ export default function PrivacyPanelContent() {
   };
 
   const disablePassCode = () => {
-    setConfirmMode(!confirmMode);
-    setTimeout(() => {
-      setConfirmMode(false);
-    }, timeout);
-
-    if (confirmMode) {
-      setPassCode(undefined);
-      d(close());
-      unlock();
-    }
+    setPassCode(undefined);
+    d(close());
+    unlock();
   };
+
+  const { confirm, confirmMode } = useTimeoutConfirmation(disablePassCode);
 
   return (
     <form className="flex flex-col gap-3" onSubmit={submitted}>
@@ -111,7 +105,7 @@ export default function PrivacyPanelContent() {
       <Button
         variant={confirmMode ? "outline" : "ghost"}
         colorScheme="blue"
-        onClick={disablePassCode}
+        onClick={confirm}
       >
         {confirmMode
           ? labels[language.code].clickToConfirm
