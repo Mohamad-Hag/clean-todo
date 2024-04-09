@@ -1,12 +1,12 @@
 import { PassCodeTimeouts } from "redux/features/passCodeSlice";
 
-type PassCodeTimeoutMilliseconds = 5000 | 1800000 | 3600000 | 0;
+type PassCodeTimeoutMilliseconds = 900000 | 1800000 | 3600000 | 0;
 
 const getMillisecondsByPassCodeTimeout = (
   timeout: PassCodeTimeouts
 ): PassCodeTimeoutMilliseconds => {
   return "15"
-    ? 5000
+    ? 900000
     : timeout === "30"
     ? 1800000
     : timeout === "60"
