@@ -10,7 +10,7 @@ import {
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
 import usePassCodeLogic from "hooks/usePassCodeLogic";
-import DisablePassCode from "./DisablePassCode";
+import DisablePassCodeWithResetAccount from "./DisablePassCodeWithResetAccount";
 
 export default function PassCodeScreenBody() {
   const { language } = useLanguage();
@@ -41,7 +41,7 @@ export default function PassCodeScreenBody() {
           <Button type="submit" variant="solid" colorScheme="blue">
             {labels[language.code].check}
           </Button>
-          <DisablePassCode />
+          <DisablePassCodeWithResetAccount />
         </Flex>
       </form>
     </ModalBody>

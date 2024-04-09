@@ -14,6 +14,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Many preferences are available ✅.
 - Import/Export data as json feature ✅.
 - Lock ability by using a 4 digit pass code with encryption ✅.
+- Auto-lock screen for the duration that you set in your preferences ✅.
 - 4 languages support (English, Spanish, French, Chinese) ✅.
 - Supported for mobile devices (Responsive) ✅.
 

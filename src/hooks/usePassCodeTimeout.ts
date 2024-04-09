@@ -1,53 +1,53 @@
-import { PassCodeTimeouts } from "redux/features/passCodeSlice";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectPassCode } from "redux/features/passCodeSlice";
+import getMillisecondsByPassCodeTimeout from "utils/getMillisecondsByPassCodeTimeout";
 import useLockScreen from "./useLockScreen";
 
-const usePassCodeTimeout = (timeoutValue: PassCodeTimeouts) => {
-  let { hashedValue, isPassed, lock } = useLockScreen();
+const usePassCodeTimeout = (): void => {
+  let { lock, unlock, isPassed } = useLockScreen();
 
-  let timeout: NodeJS.Timeout;
-  const time =
-    timeoutValue === "15 minute"
-      ? 5000 //900000
-      : timeoutValue === "30 minutes"
-      ? 1800000
-      : timeoutValue === "1 hour"
-      ? 3600000
-      : 0;
+  let timer: NodeJS.Timeout;
+  const { passCodeTimeout } = useSelector(selectPassCode);
+  const timeout = getMillisecondsByPassCodeTimeout(passCodeTimeout);
 
-  const readyTimeout = () => {
-    console.log("ready ispassed", isPassed);
-    if (isPassed) return;
-    timeout = setTimeout(() => {
-      console.log("lock");
-      lock();
-    }, time);
+  const lockScreenAfterTimeout = () => {
+    timer = setTimeout(lock, timeout);
   };
 
-  const reRunTimeout = () => {
-    console.log("rerun ispassed", isPassed);
-    if (!isPassed) return;
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      console.log("lock re");
-      lock();
-    }, time);
+  const resetTimer = () => {
+    clearTimeout(timer);
+    unlock();
+    timer = setTimeout(lock, timeout);
   };
 
-  const runTimeout = () => {
-    if (!!!hashedValue || time === 0) return;
-
-    readyTimeout();
-
-    window.onmousemove = () => {
-      reRunTimeout();
-    };
-
-    window.onkeyup = () => {
-      reRunTimeout();
-    };
+  const addUserInteractionEvents = () => {
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+    window.addEventListener("scroll", resetTimer);
   };
 
-  return runTimeout;
+  const clearInteractionEvents = () => {
+    window.removeEventListener("mousemove", resetTimer);
+    window.removeEventListener("keydown", resetTimer);
+    window.removeEventListener("scroll", resetTimer);
+  };
+
+  const cleanUp = () => {
+    clearTimeout(timer);
+    clearInteractionEvents();
+  };
+
+  const start = () => {
+    if (!passCodeTimeout || passCodeTimeout === "0" || !isPassed)
+      return cleanUp;
+
+    lockScreenAfterTimeout();
+    addUserInteractionEvents();
+    return cleanUp;
+  };
+
+  useEffect(start, [passCodeTimeout, isPassed]);
 };
 
 export default usePassCodeTimeout;

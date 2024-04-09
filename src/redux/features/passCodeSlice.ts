@@ -9,12 +9,13 @@ export interface PassCode {
   passCodeTimeout: PassCodeTimeouts;
 }
 
-export type PassCodeTimeouts = "none" | "15 minute" | "30 minutes" | "1 hour";
+export const passCodeTimeouts = ["0", "15", "30", "60"] as const;
+export type PassCodeTimeouts = (typeof passCodeTimeouts)[number];
 
 const initialState: PassCode = {
   isPassed: !!!PassCodeStore.get().value,
   value: PassCodeStore.get().value,
-  passCodeTimeout: "none",
+  passCodeTimeout: PassCodeStore.get().passCodeTimeout,
 };
 
 export const passCodeSlice = createSlice({
@@ -32,7 +33,8 @@ export const passCodeSlice = createSlice({
   },
 });
 
-export const { setValue, lock, unlock, replace } = passCodeSlice.actions;
+export const { setValue, lock, unlock, replace, setPassCodeTimeout } =
+  passCodeSlice.actions;
 
 export const selectPassCode = (state: RootState) => state.passCode;
 

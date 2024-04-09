@@ -11,7 +11,7 @@ class PassCodeStore {
 
   public static get(): PassCode {
     if (!this.storage.getItem(this.nameInStorage))
-      this.set({ passCodeTimeout: "none" });
+      this.set({ passCodeTimeout: "0" });
     return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 

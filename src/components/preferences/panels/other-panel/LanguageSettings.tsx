@@ -21,7 +21,7 @@ export default function LanguageSettings() {
       <FormLabel>{labels[language.code].language}</FormLabel>
       <Select onChange={languageChanged} defaultValue={language.code}>
         {languages.map((lang) => (
-          <option value={lang.code}>{lang.fullNameOrigin}</option>
+          <option key={lang.code} value={lang.code}>{lang.fullNameOrigin}</option>
         ))}
       </Select>
       <FormHelperText>{labels[language.code].causeReload}</FormHelperText>

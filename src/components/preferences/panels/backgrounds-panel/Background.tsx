@@ -20,7 +20,7 @@ export default function Background({
   onSelect,
 }: BackgroundProps) {
   const d = useDispatch();
-console.log(minifiedSource)
+  
   const click = () => {
     if (onSelect) onSelect(index);
     d(changeBackground(source));

@@ -124,6 +124,10 @@ enum Words {
   "W122" = "itemsHasMovedTo",
   "W123" = "loading",
   "W124" = "loadingTasks",
+  "W125" = "automaticLockTime",
+  "W126" = "automaticallyLockScreenAfter",
+  "W127" = "minute",
+  "W128" = "none",
 }
 
 export default Words;

@@ -2,6 +2,11 @@ import UILabels from "utils/types/UILabels";
 
 const labels: UILabels = {
   en: {
+    none: "None",
+    minute: "Minute",
+    automaticLockTime: "Automatic Lock Time",
+    automaticallyLockScreenAfter:
+      "Automatically lock the screen after the specified time",
     loading: "Loading",
     loadingTasks: "Loading Your Tasks",
     itemsHasMovedTo: "items have been moved to",
@@ -143,6 +148,10 @@ const labels: UILabels = {
     folder: "Folder",
   },
   "zh-CN": {
+    none: "无",
+    minute: "分钟",
+    automaticLockTime: "自动锁定时间",
+    automaticallyLockScreenAfter: "指定时间后自动锁屏",
     loading: "加载中",
     loadingTasks: "正在加载您的任务",
     itemsHasMovedTo: "件商品已移至",
@@ -274,6 +283,11 @@ const labels: UILabels = {
     folder: "文件夹",
   },
   fr: {
+    none: "Aucune",
+    minute: "Minute",
+    automaticLockTime: "Temps Verrouillage Automatique",
+    automaticallyLockScreenAfter:
+      "Verrouiller automatiquement l'écran après l'heure spécifiée",
     loading: "Chargement",
     loadingTasks: "Chargement des tâches",
     itemsHasMovedTo: "éléments ont été déplacés vers",
@@ -419,6 +433,11 @@ const labels: UILabels = {
     folder: "Dossier",
   },
   es: {
+    none: "Ninguna",
+    minute: "Minuto",
+    automaticLockTime: "Tiempo Bloqueo Automático",
+    automaticallyLockScreenAfter:
+      "Bloquear automáticamente la pantalla después del tiempo especificado",
     loading: "Cargando",
     loadingTasks: "Cargando Tus Tareas",
     itemsHasMovedTo: "artículos han sido movidos a",

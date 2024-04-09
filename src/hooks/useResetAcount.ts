@@ -12,7 +12,7 @@ const useResetAccount = () => {
       sidebarStore: { status: "shown" },
       todoStore: [],
       passCodeStore: {
-        passCodeTimeout: "none",
+        passCodeTimeout: "0",
       },
       draftStore: initialDraft,
     });
