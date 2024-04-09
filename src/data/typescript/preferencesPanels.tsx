@@ -6,14 +6,40 @@ import ShortcutsPanel from "components/preferences/panels/shortcuts-panel/Shortc
 import ThemePanel from "components/preferences/panels/theme-panel/ThemePanel";
 import TodoPanel from "components/preferences/panels/todo-panel/TodoPanel";
 
-let preferencesPanels = [
-  <TodoPanel />,
-  <FilterPanel />,
-  <BackgroundsPanel />,
-  <ShortcutsPanel />,
-  <PrivacyPanel />,
-  <ThemePanel />,
-  <OtherPanel />,
+export interface PreferencesPanel {
+  title: string;
+  component: JSX.Element;
+}
+
+let preferencesPanels: PreferencesPanel[] = [
+  {
+    title: "Todo",
+    component: <TodoPanel />,
+  },
+  {
+    title: "Filter",
+    component: <FilterPanel />,
+  },
+  {
+    title: "Background",
+    component: <BackgroundsPanel />,
+  },
+  {
+    title: "Shortcuts",
+    component: <ShortcutsPanel />,
+  },
+  {
+    title: "Privacy",
+    component: <PrivacyPanel />,
+  },
+  {
+    title: "Theme",
+    component: <ThemePanel />,
+  },
+  {
+    title: "Other",
+    component: <OtherPanel />,
+  },
 ];
 
 export default preferencesPanels;

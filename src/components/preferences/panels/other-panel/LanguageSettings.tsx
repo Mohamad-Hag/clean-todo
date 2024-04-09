@@ -1,9 +1,4 @@
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Select,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Select } from "@chakra-ui/react";
 import languages from "data/typescript/languages";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
@@ -21,10 +16,11 @@ export default function LanguageSettings() {
       <FormLabel>{labels[language.code].language}</FormLabel>
       <Select onChange={languageChanged} defaultValue={language.code}>
         {languages.map((lang) => (
-          <option key={lang.code} value={lang.code}>{lang.fullNameOrigin}</option>
+          <option key={lang.code} value={lang.code}>
+            {lang.fullNameOrigin}
+          </option>
         ))}
       </Select>
-      <FormHelperText>{labels[language.code].causeReload}</FormHelperText>
     </FormControl>
   );
 }
