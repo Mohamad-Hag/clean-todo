@@ -27,7 +27,7 @@ const usePassCodeTimeout = (): void => {
     window.addEventListener("scroll", resetTimer);
     window.addEventListener("mousedown", resetTimer);
   };
-
+  
   const clearInteractionEvents = () => {
     window.removeEventListener("mousemove", resetTimer);
     window.removeEventListener("keydown", resetTimer);

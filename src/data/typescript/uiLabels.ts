@@ -1,4 +1,5 @@
 import UILabels from "utils/types/UILabels";
+import maxAllowedCharsForFolderName from "./maxAllowedCharsForFolderName";
 
 const labels: UILabels = {
   en: {
@@ -61,7 +62,7 @@ const labels: UILabels = {
     description: "Description",
     priority: "Priority",
     icon: "Icon",
-    maxAllowedChars10: "Max allowed characters is 10",
+    maxAllowedChars200: `Max allowed characters is ${maxAllowedCharsForFolderName}`,
     close: "Close",
     hide: "Hide",
     show: "Show",
@@ -203,7 +204,7 @@ const labels: UILabels = {
     description: "描述",
     priority: "优先事项",
     icon: "图标",
-    maxAllowedChars10: "允许的最大字符数为 10",
+    maxAllowedChars200: `允许的最大字符数为 ${maxAllowedCharsForFolderName}`,
     close: "关闭",
     hide: "隐藏",
     show: "展示",
@@ -343,7 +344,7 @@ const labels: UILabels = {
     description: "Description",
     priority: "Priorité",
     icon: "icône",
-    maxAllowedChars10: "Le nombre maximum de caractères autorisés est de 10",
+    maxAllowedChars200: `Le nombre maximum de caractères autorisés est de ${maxAllowedCharsForFolderName}`,
     close: "Fermer",
     hide: "Cacher",
     show: "Montrer",
@@ -494,7 +495,7 @@ const labels: UILabels = {
     description: "Descripción",
     priority: "Prioridad",
     icon: "Icono",
-    maxAllowedChars10: "El máximo de caracteres permitidos es 10.",
+    maxAllowedChars200: `El máximo de caracteres permitidos es ${maxAllowedCharsForFolderName}.`,
     close: "Cerca",
     hide: "Hide",
     show: "Esconder",

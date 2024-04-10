@@ -1,3 +1,5 @@
+import maxAllowedCharsForFolderName from "./maxAllowedCharsForFolderName";
+
 enum Words {
   "W0" = "removeFolder",
   "W1" = "createFolder",
@@ -34,7 +36,7 @@ enum Words {
   "W32" = "description",
   "W33" = "priority",
   "W34" = "icon",
-  "W35" = "maxAllowedChars10",
+  "W35" = "maxAllowedChars200",
   "W36" = "close",
   "W37" = "hide",
   "W38" = "show",

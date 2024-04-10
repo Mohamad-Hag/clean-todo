@@ -20,6 +20,7 @@ import {
   setFolderFormTitleDraft,
 } from "redux/features/draftSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
+import maxAllowedCharsForFolderName from "data/typescript/maxAllowedCharsForFolderName";
 
 export default function TodoCreatorBody() {
   const { language } = useLanguage();
@@ -61,10 +62,10 @@ export default function TodoCreatorBody() {
           ref={titleRef}
           value={form.title}
           onChange={titleChanged}
-          maxLength={10}
+          maxLength={maxAllowedCharsForFolderName}
         />
         <FormHelperText>
-          {labels[language.code].maxAllowedChars10}
+          {labels[language.code].maxAllowedChars200}
         </FormHelperText>
       </FormControl>
       <FormControl>
