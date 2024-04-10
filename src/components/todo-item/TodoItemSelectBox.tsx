@@ -1,9 +1,7 @@
 import { Checkbox } from "@chakra-ui/react";
 import useShiftClickSelect from "hooks/useShiftClickSelect";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { edit, selectAll, selectTodos } from "redux/features/todosSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { edit, selectTodos } from "redux/features/todosSlice";
 
 interface TodoItemSelectBoxProps {
   id: number;
