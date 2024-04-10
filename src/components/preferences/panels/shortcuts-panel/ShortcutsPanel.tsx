@@ -50,11 +50,19 @@ export default function ShortcutsPanel() {
           </Tr>
           <Tr>
             <Td>
+              <Kbd>{labels[language.code].ctrl}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].a}</Kbd>
+            </Td>
+            <Td>{labels[language.code].selectAllTodos}</Td>
+          </Tr>
+          <Tr>
+            <Td>
               <Kbd>{labels[language.code].shift}</Kbd>{" "}
               {labels[language.code].plusSign}{" "}
-              <Kbd>{labels[language.code].l}</Kbd>
+              <Kbd>{labels[language.code].mouseClick}</Kbd>
             </Td>
-            <Td>{labels[language.code].lockScreen}</Td>
+            <Td>{labels[language.code].selectMultipleTodos}</Td>
           </Tr>
           <Tr>
             <Td>

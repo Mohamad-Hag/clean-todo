@@ -3,6 +3,8 @@ import maxAllowedCharsForFolderName from "./maxAllowedCharsForFolderName";
 
 const labels: UILabels = {
   en: {
+    selectMultipleTodos: "Select Multiple Todos",
+    mouseClick: "Mouse Click",
     sidebarNavigation: "Sidebar Navigation",
     arrowLeftSymbol: "←",
     arrowRightSymbol: "→",
@@ -157,6 +159,8 @@ const labels: UILabels = {
     folder: "Folder",
   },
   "zh-CN": {
+    selectMultipleTodos: "选择多个待办事项",
+    mouseClick: "鼠标点击",
     sidebarNavigation: "侧边栏导航",
     arrowLeftSymbol: "←",
     arrowRightSymbol: "→",
@@ -300,6 +304,8 @@ const labels: UILabels = {
     folder: "文件夹",
   },
   fr: {
+    selectMultipleTodos: "Sélectionnez Plusieurs Tâches",
+    mouseClick: "Clic Souris",
     sidebarNavigation: "Navigation Barre Latérale",
     arrowLeftSymbol: "←",
     arrowRightSymbol: "→",
@@ -458,6 +464,8 @@ const labels: UILabels = {
     folder: "Dossier",
   },
   es: {
+    selectMultipleTodos: "Seleccionar Múltiples Todos",
+    mouseClick: "Click Raton",
     sidebarNavigation: "Navegación Barra Lateral",
     arrowLeftSymbol: "←",
     arrowRightSymbol: "→",

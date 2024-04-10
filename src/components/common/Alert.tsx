@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { close } from "redux/features/alertSlice";
 import AlertFooter from "./AlertFooter";
 import AlertHeader from "./AlertHeader";
+import keyShortcutBlockedClassName from "data/typescript/keyShortcutBlockedClassName";
 
 export interface AlertProps {
   title: string;
@@ -46,7 +47,7 @@ export default function Alert({
       motionPreset="scale"
     >
       <ModalOverlay />
-      <ModalContent m={2}>
+      <ModalContent className={keyShortcutBlockedClassName} m={2}>
         <AlertHeader icon={icon} title={title} />
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>

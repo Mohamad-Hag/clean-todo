@@ -138,6 +138,8 @@ enum Words {
   "W134" = "arrowLeftSymbol",
   "W135" = "arrowRightSymbol",
   "W136" = "sidebarNavigation",
+  "W137" = "mouseClick",
+  "W138" = "selectMultipleTodos",
 }
 
 export default Words;
