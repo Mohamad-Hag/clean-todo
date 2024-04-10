@@ -7,14 +7,7 @@ const useAppStartup = () => {
   const { lock, isPassed } = useLockScreen();
 
   useChangeBackground();
-
-  useKeyboardShortcut(
-    () => {
-      lock();
-    },
-    lockKey.code,
-    "Shift"
-  );
+  useKeyboardShortcut(lock, lockKey.code, "Shift");
 
   return { isPassed };
 };

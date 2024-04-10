@@ -26,33 +26,62 @@ export default function ShortcutsPanel() {
         <Tbody>
           <Tr>
             <Td>
-              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].q}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].q}</Kbd>
             </Td>
             <Td>{labels[language.code].createNewTodo}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].b}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].b}</Kbd>
             </Td>
             <Td>{labels[language.code].createNewFolder}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels[language.code].ctrl}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].a}</Kbd>
+              <Kbd>{labels[language.code].ctrl}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].a}</Kbd>
             </Td>
             <Td>{labels[language.code].selectAllTodos}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels[language.code].shift}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].l}</Kbd>
+              <Kbd>{labels[language.code].shift}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].l}</Kbd>
             </Td>
             <Td>{labels[language.code].lockScreen}</Td>
           </Tr>
           <Tr>
             <Td>
-              <Kbd>{labels[language.code].shift}</Kbd> {labels[language.code].plusSign} <Kbd>{labels[language.code].p}</Kbd>
+              <Kbd>{labels[language.code].shift}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].p}</Kbd>
             </Td>
             <Td>{labels[language.code].openPreferences}</Td>
+          </Tr>
+          <Tr>
+            <Td>
+              <Kbd>{labels[language.code].alt}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].oneSymbol}</Kbd>{" "}
+              {labels[language.code].arrowRightSymbol}{" "}
+              <Kbd>{labels[language.code].nineSymbol}</Kbd>
+            </Td>
+            <Td>{labels[language.code].sidebarNavigation}</Td>
+          </Tr>
+          <Tr>
+            <Td>
+              <Kbd>{labels[language.code].alt}</Kbd>{" "}
+              {labels[language.code].plusSign}{" "}
+              <Kbd>{labels[language.code].arrowUpSymbol}</Kbd>{" "}
+              <Kbd>{labels[language.code].arrowDownSymbol}</Kbd>
+            </Td>
+            <Td>{labels[language.code].sidebarNavigation}</Td>
           </Tr>
           <Tr>
             <Td>

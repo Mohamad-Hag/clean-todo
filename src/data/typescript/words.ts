@@ -130,6 +130,14 @@ enum Words {
   "W126" = "automaticallyLockScreenAfter",
   "W127" = "minute",
   "W128" = "none",
+  "W129" = "arrowUpSymbol",
+  "W130" = "arrowDownSymbol",
+  "W131" = "oneSymbol",
+  "W132" = "nineSymbol",
+  "W133" = "alt",
+  "W134" = "arrowLeftSymbol",
+  "W135" = "arrowRightSymbol",
+  "W136" = "sidebarNavigation",
 }
 
 export default Words;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFolderForm } from "redux/features/folderFormSlice";
 import { close } from "redux/features/folderFormSlice";
 import FolderCreatorContent from "./FolderCreatorContent";
+import keyShortcutBlockedClassName from "data/typescript/keyShortcutBlockedClassName";
 
 export default function FolderCreator() {
   const form = useSelector(selectFolderForm);
@@ -15,7 +16,7 @@ export default function FolderCreator() {
   return (
     <Modal isOpen={!!form.isOpen} onClose={onClose} size="lg">
       <ModalOverlay />
-      <ModalContent m={2}>
+      <ModalContent className={keyShortcutBlockedClassName} m={2}>
         <FolderCreatorContent closeCallback={onClose} />
       </ModalContent>
     </Modal>

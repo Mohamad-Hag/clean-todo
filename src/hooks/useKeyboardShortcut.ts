@@ -1,30 +1,52 @@
+import keyShortcutBlockedClassName from "data/typescript/keyShortcutBlockedClassName";
 import { useEffect } from "react";
+import hasParentWithClassName from "utils/types/hasParentWithClassName";
 
 export type Modifier = "Ctrl" | "Shift" | "Alt";
 
 const useKeyboardShortcut = (
-  callback: () => void,
-  keyCode: number,
+  callback: (
+    keyCodePressed?: number,
+    keyCodeIndexInKeyCodeArray?: number
+  ) => void,
+  keyCode: number | number[],
   modifier?: Modifier
 ) => {
   const handleKeydown = (event: any) => {
-    let nodeName = event.target.nodeName;
+    let target = event.target;
+    let nodeName = target.nodeName;
     let blockedNodes = ["INPUT", "TEXTAREA"];
+    let blockedClassNames = [keyShortcutBlockedClassName];
     let isShiftKey = modifier === "Shift";
     let isControlKey = modifier === "Ctrl";
     let isAltKey = modifier === "Alt";
     let isContentEditable =
       event.target.getAttribute("contenteditable") === "true";
     let isContentEditableDiv = nodeName === "DIV" && isContentEditable;
-    let isBlockedNode = blockedNodes.includes(nodeName) || isContentEditableDiv;
+    let isClassNamesBlocked = !!blockedClassNames.find((className: string) =>
+      hasParentWithClassName(target, className)
+    );
+    let isBlockedNode =
+      blockedNodes.includes(nodeName) ||
+      isClassNamesBlocked ||
+      isContentEditableDiv;
+
     if (event.repeat || isBlockedNode) return;
-    let isKeyPressed = event.keyCode === keyCode;
+    let isKeyPressed = Array.isArray(keyCode)
+      ? keyCode.includes(event.keyCode)
+      : event.keyCode === keyCode;
     let isModifierPressed =
       event.ctrlKey === isControlKey &&
       event.shiftKey === isShiftKey &&
       event.altKey === isAltKey;
     let canPress = modifier ? isKeyPressed && isModifierPressed : isKeyPressed;
-    if (canPress) callback();
+    let keyCodeIndexInKeyCodeArray = Array.isArray(keyCode)
+      ? keyCode.findIndex((code) => event.keyCode === code)
+      : undefined;
+    if (canPress) {
+      event.preventDefault();
+      callback(event.keyCode, keyCodeIndexInKeyCodeArray);
+    }
   };
 
   useEffect(() => {

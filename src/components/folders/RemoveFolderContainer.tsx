@@ -6,8 +6,12 @@ import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { remove, selectFolders } from "redux/features/folderSlice";
-import { update } from "redux/features/sidebarIsActiveArraySlice";
+import {
+  selectSidebarIsActiveArray,
+  update,
+} from "redux/features/sidebarIsActiveArraySlice";
 import { addFolderSome, selectTodos } from "redux/features/todosSlice";
+import getIsActiveArrayActiveIndex from "utils/getIsActiveArrayActiveIndex";
 import Folder from "utils/interfaces/common/Folder";
 import FolderControl from "./FolderControl";
 
@@ -21,6 +25,8 @@ export default function RemoveFolderContainer({
   const todos = useSelector(selectTodos);
   const folders = useSelector(selectFolders);
   const foldersLength = folders.length;
+  const isActiveArray = useSelector(selectSidebarIsActiveArray);
+  const activeIndex = getIsActiveArrayActiveIndex(isActiveArray);
   const { language } = useLanguage();
   const navigate = useNavigate();
   const { open, setTitle, setDescription, setOnOk, close } = useAlert();
@@ -46,10 +52,11 @@ export default function RemoveFolderContainer({
 
   const updateActiveSidebarButton = () => {
     const updatedIndex = foldersLength === 1 ? 0 : sidebarButtonsBase.length;
+    const foldersAfterRemove = folders.filter((fldr) => folder.id !== fldr.id);
     const navigationTo =
       foldersLength === 1
         ? pathnames.allPathName
-        : `${pathnames.foldersPathName}/folder-${folders[0].id}`;
+        : `${pathnames.foldersPathName}/folder-${foldersAfterRemove[0].id}`;
 
     d(update(updatedIndex));
     navigate(navigationTo);
