@@ -16,7 +16,7 @@ const useLockScreen = (): LockScreenFunctions => {
     d(lockScreen());
   };
 
-  const unlock = () => {    
+  const unlock = () => {
     d(unlockScreen());
   };
 
@@ -30,6 +30,7 @@ const useLockScreen = (): LockScreenFunctions => {
     setPassCode,
     isPassed: passCode.isPassed,
     hashedValue: passCode.value,
+    isPassCodeEnabled: passCode.value !== undefined,
   };
 };
 

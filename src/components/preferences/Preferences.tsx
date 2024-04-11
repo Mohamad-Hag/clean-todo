@@ -14,9 +14,12 @@ import {
 } from "redux/features/alertSlice";
 import PreferencesButton from "./PreferencesButton";
 import PreferencesModal from "./PreferencesModal";
+import { GoSettings } from "react-icons/go";
+import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 
 export default function Preferences() {
   const { language } = useLanguage();
+  const preferencesKey = { key: "P", code: 80 };
   const d = useDispatch();
   const { hash } = useLocation();
   const navigate = useNavigate();
@@ -40,5 +43,16 @@ export default function Preferences() {
     d(close());
   };
 
-  return <PreferencesButton onClick={openPreferences} />;
+  useKeyboardShortcut(openPreferences, preferencesKey.code, "Shift");
+
+  return (
+    <PreferencesButton
+      onClick={openPreferences}
+      shortcut={`${labels[language.code].shift} ${
+        labels[language.code].plusSign
+      } ${preferencesKey.key}`}
+      label={labels[language.code].preferences}
+      icon={<GoSettings />}
+    />
+  );
 }

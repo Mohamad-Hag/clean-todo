@@ -15,12 +15,14 @@ import PageCheck from "utils/interfaces/common/PageCheck";
 import RemoveSelectedAlertDescription from "../RemoveSelectedAlertDescription";
 import SmallIconButton from "../SmallIconButton";
 import useLanguage from "hooks/useLanguage";
+import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 
 interface ToolbarSelectInfoProps extends PageCheck {}
 
 export default function ToolbarSelectInfo({
   isTrashPage,
 }: ToolbarSelectInfoProps) {
+  const deleteKey = { key: "Delete", code: 46 };
   const { language } = useLanguage();
   const todos = useSelector(selectTodos);
   const selections = todos.filter((todo) => todo.isSelected);
@@ -33,6 +35,7 @@ export default function ToolbarSelectInfo({
   const d = useDispatch();
 
   const removeAllAlert = () => {
+    if (!isSelectMode) return;
     d(setTitle(labels[language.code].removeAll));
     d(disableOkButton());
     d(
@@ -50,6 +53,8 @@ export default function ToolbarSelectInfo({
   const finishAll = () => {
     d(finishSome(identifiers));
   };
+
+  useKeyboardShortcut(removeAllAlert, deleteKey.code);
 
   if (!isSelectMode) return <></>;
   return (
@@ -72,7 +77,9 @@ export default function ToolbarSelectInfo({
             />
           )}
         </Stack>
-        <label>{selections.length + " " + labels[language.code].selected + " | "}</label>
+        <label>
+          {selections.length + " " + labels[language.code].selected + " | "}
+        </label>
       </Flex>
     </ScaleFade>
   );

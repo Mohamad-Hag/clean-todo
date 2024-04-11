@@ -93,6 +93,12 @@ export default function ShortcutsPanel() {
           </Tr>
           <Tr>
             <Td>
+              <Kbd>Del</Kbd>
+            </Td>
+            <Td>{labels[language.code].removeAll}</Td>
+          </Tr>
+          <Tr>
+            <Td>
               <Kbd>{labels[language.code].esc}</Kbd>
             </Td>
             <Td>{labels[language.code].exitSelectMode}</Td>
