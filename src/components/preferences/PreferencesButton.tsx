@@ -1,7 +1,5 @@
 import { IconButton, Tooltip } from "@chakra-ui/react";
 import useIsMobile from "hooks/useIsMobile";
-import useKeyboardShortcut from "hooks/useKeyboardShortcut";
-import useLanguage from "hooks/useLanguage";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 interface PreferencesButtonProps {
@@ -17,8 +15,8 @@ export default function PreferencesButton({
   shortcut,
   icon,
 }: PreferencesButtonProps) {
-  const isMobile = useIsMobile();      
-  
+  const isMobile = useIsMobile();
+
   const lbl = isMobile ? undefined : (
     <p className="flex flex-col items-center">
       {label}

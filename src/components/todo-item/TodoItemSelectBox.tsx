@@ -1,4 +1,5 @@
 import { Checkbox } from "@chakra-ui/react";
+import keyShortcutExceptionId from "data/typescript/keyShortcutExceptionId";
 import useShiftClickSelect from "hooks/useShiftClickSelect";
 import { useDispatch, useSelector } from "react-redux";
 import { edit, selectTodos } from "redux/features/todosSlice";
@@ -20,6 +21,7 @@ export default function TodoItemSelectBox({ id }: TodoItemSelectBoxProps) {
 
   return (
     <Checkbox
+      id={keyShortcutExceptionId}
       isChecked={isSelected}
       onChange={select}
       onMouseUp={checkBoxClicked}

@@ -22,6 +22,7 @@ export default function SidebarContainer({ children }: WithChildren) {
       overflow="hidden"
       className=" relative z-30"
       w={sidebarWidth}
+      minW={status === "hidden" ? sidebarWidth : undefined}
       transitionTimingFunction="ease-in-out"
       transition="width .3s"
     >

@@ -1,15 +1,13 @@
-import { Box, IconButton } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { selectSidebar } from "redux/features/sidebarSlice";
-import Perferences from "../../preferences/Preferences";
-import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
+import { Box } from "@chakra-ui/react";
 import ConditionalRenderer from "components/common/ConditionalRenderer";
-import { BiLock } from "react-icons/bi";
-import useIsMobile from "hooks/useIsMobile";
-import useLockScreen from "hooks/useLockScreen";
 import PreferencesButton from "components/preferences/PreferencesButton";
 import labels from "data/typescript/uiLabels";
 import useLanguage from "hooks/useLanguage";
+import useLockScreen from "hooks/useLockScreen";
+import { BiLock } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { selectSidebar } from "redux/features/sidebarSlice";
+import Perferences from "../../preferences/Preferences";
 
 export default function SidebarFooter() {
   const { language } = useLanguage();

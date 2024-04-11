@@ -5,6 +5,7 @@ import useTodoItemDrop from "hooks/useTodoItemDrop";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { changeOppositeStatus } from "redux/features/sidebarSlice";
+import { selectAll } from "redux/features/todosSlice";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 
 export type URLString = string;
@@ -37,6 +38,7 @@ export default function SidebarButton({
   const select = () => {
     if (onSelect) {
       if (isMobile) d(changeOppositeStatus("shown"));
+      d(selectAll({ isSelectAll: false }));
       onSelect(index);
     }
   };

@@ -6,6 +6,7 @@ import useKeyboardShortcut from "hooks/useKeyboardShortcut";
 import { selectAll } from "redux/features/todosSlice";
 import { ToolbarProps } from "./Toolbar";
 import isEmpty from "utils/isEmpty";
+import keyShortcutExceptionId from "data/typescript/keyShortcutExceptionId";
 
 export default function ToolbarSelectBox({
   isFilterMode,
@@ -33,6 +34,7 @@ export default function ToolbarSelectBox({
 
   return (
     <Checkbox
+      id={keyShortcutExceptionId}
       isChecked={isAllSelected}
       onChange={selectAllTodos}
       disabled={isSelectBoxDisabled}

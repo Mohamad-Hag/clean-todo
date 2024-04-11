@@ -10,8 +10,8 @@ export function is280Screen(width: number) {
   return width <= 280;
 }
 
-export function is850Screen(width: number) {
-  return width <= 850;
+export function is1020Screen(width: number) {
+  return width <= 1020;
 }
 
 export function isMobileScreen(width: number) {
@@ -19,6 +19,6 @@ export function isMobileScreen(width: number) {
     is280Screen(width) ||
     is375Screen(width) ||
     is414Screen(width) ||
-    is850Screen(width)
+    is1020Screen(width)
   );
 }
