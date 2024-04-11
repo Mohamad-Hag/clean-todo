@@ -10,6 +10,7 @@ import { changeOppositeStatus } from "redux/features/sidebarSlice";
 import getFolderIconByTitle from "utils/getFolderIconByTitle";
 import { activeStyle, hoverStyle } from "utils/styles/SidebarButtonStyles";
 import FolderButtonContent from "./FolderButtonContent";
+import { selectAll } from "redux/features/todosSlice";
 
 export interface FolderButtonProps {
   id: number;
@@ -33,8 +34,7 @@ export default function FolderButton({
   const isMobile = useIsMobile();
   const folderIcon = getFolderIconByTitle(icon);
   const folderDrop = useFolderButtonDrop(id);
-  const { dragLeave, dragOver, drop, dropBorder } =
-    useTodoItemDrop(folderDrop);
+  const { dragLeave, dragOver, drop, dropBorder } = useTodoItemDrop(folderDrop);
   const background = isActive ? "blue.100" : "transparent";
   const color = isActive ? "black" : "white";
   const d = useDispatch();
@@ -53,6 +53,7 @@ export default function FolderButton({
     if (onSelect) {
       onSelect(index);
       if (isMobile) d(changeOppositeStatus("shown"));
+      d(selectAll({ isSelectAll: false }));
     }
   };
 
