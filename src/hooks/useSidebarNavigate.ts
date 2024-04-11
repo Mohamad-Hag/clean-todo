@@ -9,6 +9,7 @@ import {
 } from "redux/features/sidebarIsActiveArraySlice";
 import pathnames from "data/json/pathnames.json";
 import getIsActiveArrayActiveIndex from "utils/getIsActiveArrayActiveIndex";
+import { selectAll } from "redux/features/todosSlice";
 
 const useSidebarNavigate = () => {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const useSidebarNavigate = () => {
 
     navigate(link);
     d(update(index));
+    d(selectAll({ isSelectAll: false }));
   };
 
   const navigateUp = () => {
