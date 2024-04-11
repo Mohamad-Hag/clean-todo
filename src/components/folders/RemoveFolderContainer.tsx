@@ -10,7 +10,11 @@ import {
   selectSidebarIsActiveArray,
   update,
 } from "redux/features/sidebarIsActiveArraySlice";
-import { addFolderSome, selectTodos } from "redux/features/todosSlice";
+import {
+  addFolderSome,
+  selectAll,
+  selectTodos,
+} from "redux/features/todosSlice";
 import getIsActiveArrayActiveIndex from "utils/getIsActiveArrayActiveIndex";
 import Folder from "utils/interfaces/common/Folder";
 import FolderControl from "./FolderControl";
@@ -60,6 +64,7 @@ export default function RemoveFolderContainer({
 
     d(update(updatedIndex));
     navigate(navigationTo);
+    d(selectAll({ isSelectAll: false }));
   };
 
   const unlinkFolderFromRelatedTodos = () => {
