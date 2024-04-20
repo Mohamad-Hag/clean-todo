@@ -17,6 +17,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - Auto-lock screen for the duration that you set in your preferences ✅.
 - 4 languages support (English, Spanish, French, Chinese) ✅.
 - Supported for mobile devices (Responsive) ✅.
+- Resizable sidebar ✅.
 
 ## Tools Used
 

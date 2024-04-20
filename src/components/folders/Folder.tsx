@@ -23,7 +23,7 @@ export default function Folder({
   };
 
   return (
-    <Box className="flex items-center gap-1" maxW="228px">
+    <Box className="flex items-center gap-1 overflow-hidden" >
       <FolderButton
         id={id}
         to={to}

@@ -17,9 +17,18 @@ export default function FolderButtonContent({
   ).length;
 
   return (
-    <Flex align="center" gap={2} maxW="92.7px" justify="space-between" flex={1}>
+    <Flex
+      align="center"
+      gap={2}
+      w="100%"
+      justify="space-between"
+      flex={1}
+      overflow="hidden"
+    >
       <Text
+        flex={1}
         textOverflow="ellipsis"
+        whiteSpace="nowrap"
         overflow="hidden"
         display="block"
         title={title}

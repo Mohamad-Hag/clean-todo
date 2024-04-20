@@ -1,6 +1,7 @@
+import defaultSidebarWidth from "data/typescript/defaultSidebarWidth";
+import initialDraft from "data/typescript/initialDraft";
 import initialPreferences from "data/typescript/initialPreferences";
 import useImportData from "./useImportData";
-import initialDraft from "data/typescript/initialDraft";
 
 const useResetAccount = () => {
   const importData = useImportData();
@@ -9,7 +10,7 @@ const useResetAccount = () => {
     importData({
       folderStore: [],
       preferencesStore: initialPreferences,
-      sidebarStore: { status: "shown" },
+      sidebarStore: { status: "shown", width: defaultSidebarWidth },
       todoStore: [],
       passCodeStore: {
         passCodeTimeout: "0",

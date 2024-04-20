@@ -8,7 +8,7 @@ import { selectAll } from "redux/features/todosSlice";
 import getFolderIdByPath from "utils/getFolderIdByPath";
 import isFolderPath from "utils/isFolderPath";
 
-const useDetectPathChange = () => {
+const useDetectPathChange = (callback?: () => void) => {
   const d = useDispatch();
   const folders = useSelector(selectFolders);
 
@@ -21,6 +21,7 @@ const useDetectPathChange = () => {
       : sidebarButtonsBase.findIndex((button) => button.to === pathname);
     d(update(pathnameIndex));
     d(selectAll({ isSelectAll: false }));
+    if (callback) callback();
   };
 
   useEffect(() => {

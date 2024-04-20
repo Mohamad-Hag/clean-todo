@@ -58,7 +58,7 @@ export default function FolderButton({
   };
 
   return (
-    <Link to={to} className="flex-1">
+    <Link to={to} className="flex-1 overflow-hidden">
       <Button
         onDragOver={dragOver}
         onDragLeave={dragLeave}
@@ -76,6 +76,7 @@ export default function FolderButton({
         _active={activeStyle}
         onClick={select}
         onDoubleClick={edit}
+        overflow="hidden"
       >
         <FolderButtonContent id={id} title={title} />
       </Button>

@@ -1,6 +1,8 @@
+import defaultSidebarWidth from "data/typescript/defaultSidebarWidth";
 import { Sidebar, SidebarStatus } from "redux/features/sidebarSlice";
 import changeOppositeStatus from "redux/sidebarActions/changeOppositeStatus";
 import changeStatus from "redux/sidebarActions/changeStatus";
+import changeWidth from "redux/sidebarActions/changeWidth";
 import replaceSidebar from "redux/sidebarActions/replaceSidebar";
 
 class SidebarStore {
@@ -8,6 +10,7 @@ class SidebarStore {
   private static nameInStorage = "sidebar";
   private static initialSidebar: Sidebar = {
     status: "shown",
+    width: defaultSidebarWidth,
   };
 
   private static set(value: Sidebar) {
@@ -15,12 +18,19 @@ class SidebarStore {
   }
 
   public static get(): Sidebar {
-    if (!this.storage.getItem(this.nameInStorage)) this.set(this.initialSidebar);
+    if (!this.storage.getItem(this.nameInStorage))
+      this.set(this.initialSidebar);
     return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
   }
 
   public static changeStatus(sidebar: Sidebar, status: SidebarStatus) {
     let side = changeStatus(sidebar, status);
+    SidebarStore.set(side);
+    return side;
+  }
+
+  public static changeWidth(sidebar: Sidebar, width: number) {
+    let side = changeWidth(sidebar, width);
     SidebarStore.set(side);
     return side;
   }

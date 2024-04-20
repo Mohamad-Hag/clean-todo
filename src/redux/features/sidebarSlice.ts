@@ -6,6 +6,7 @@ export type SidebarStatus = "hidden" | "shown";
 
 export interface Sidebar {
   status: SidebarStatus;
+  width: number;
 }
 
 const initialState: Sidebar = SidebarStore.get();
@@ -20,10 +21,12 @@ export const sidebarSlice = createSlice({
       SidebarStore.changeStatus(state, action.payload),
     changeOppositeStatus: (state, action: PayloadAction<SidebarStatus>) =>
       SidebarStore.changeOppositeStatus(state, action.payload),
+    changeWidth: (state, action: PayloadAction<number>) =>
+      SidebarStore.changeWidth(state, action.payload),
   },
 });
 
-export const { changeOppositeStatus, changeStatus, replace } =
+export const { changeOppositeStatus, changeStatus, replace, changeWidth } =
   sidebarSlice.actions;
 
 export const selectSidebar = (state: RootState) => state.sidebar;
