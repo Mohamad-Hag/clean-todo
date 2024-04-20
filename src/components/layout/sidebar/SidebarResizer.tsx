@@ -22,7 +22,8 @@ export default function SidebarResizer({ sidebarRef }: SidebarResizerProps) {
   ) : (
     <Box
       ref={resizerRef}
-      className="w-[3px] hover:bg-blue-500 active:bg-blue-500 cursor-ew-resize h-full absolute right-0"
+      transition=".3s"
+      className="w-[3px] bg-blue-500 opacity-0 hover:opacity-100 active:opacity-100 cursor-ew-resize h-full absolute right-0"
     ></Box>
   );
 }

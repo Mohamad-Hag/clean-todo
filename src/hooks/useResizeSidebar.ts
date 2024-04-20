@@ -19,6 +19,7 @@ const useResizeSidebar = (
 
   const mouseDowned = (e: MouseEvent) => {
     const sidebar = sidebarRef.current;
+    console.log(sidebar.getBoundingClientRect().width);
     sidebar.style.transition = "width 0s";
     document.body.style.cursor = "ew-resize";
     setIsResizing(true);

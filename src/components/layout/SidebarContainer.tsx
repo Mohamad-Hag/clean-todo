@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import { minSidebarWidth } from "data/typescript/defaultSidebarWidth";
 import useIsMobile from "hooks/useIsMobile";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
@@ -26,7 +27,7 @@ export default function SidebarContainer({ children }: WithChildren) {
       ref={sidebarRef}
       className=" relative z-30 flex overflow-hidden"
       w={sidebarWidth}
-      minW={status === "hidden" ? sidebarWidth : undefined}
+      minW={status === "hidden" ? sidebarWidth : minSidebarWidth}
       transitionTimingFunction="ease-in-out"
       transition="width .3s"
     >
