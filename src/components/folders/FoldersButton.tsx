@@ -21,7 +21,7 @@ export default function FoldersButton({
 
   return (
     <AccordionButton
-      className="w-full text-left pl-5 text-white"
+      className="w-full text-left pl-5 text-white select-none"
       borderRadius="0 2em 2em 0"
       fontWeight="normal"
       h="3rem"

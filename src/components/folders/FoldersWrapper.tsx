@@ -17,6 +17,7 @@ export default function FoldersWrapper({ children }: WithMultipleChildren) {
     <Accordion allowToggle index={index} onChange={changed}>
       <AccordionItem className="border-none">
         <FoldersButton
+        
           setIndex={setIndex}
           title={labels[language.code].folders}
         />

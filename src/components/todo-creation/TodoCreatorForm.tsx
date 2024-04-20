@@ -26,6 +26,7 @@ export default function TodoCreatorForm({
   const d = useDispatch();
 
   const editTodo = () => {
+    const folderId = form.folderId ? form.folderId : null;
     d(
       edit({
         id: form.id!,
@@ -33,6 +34,7 @@ export default function TodoCreatorForm({
           title: form.title?.trim(),
           description: description,
           priority: form.priority,
+          folderId: folderId,
         },
       })
     );
@@ -45,6 +47,7 @@ export default function TodoCreatorForm({
         createdAt: new Date().toLocaleString(),
         title: form.title?.trim(),
         description: description,
+        folderId: form.folderId,
         priority: form.priority,
         nodeRef: nodeRef,
       })

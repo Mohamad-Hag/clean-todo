@@ -11,7 +11,7 @@ export interface Form {
   id?: number;
   title?: string;
   description?: string;
-  folderId?: number;
+  folderId?: number | null;
   priority?: Priority;
   isOpen?: boolean;
   mode?: FormMode;
@@ -49,7 +49,7 @@ export const formSlice = createSlice({
     setPriority: (state, action: PayloadAction<Priority>) => {
       state.priority = action.payload;
     },
-    setFolderId: (state, action: PayloadAction<number>) => {
+    setFolderId: (state, action: PayloadAction<number | undefined>) => {
       state.folderId = action.payload;
     },
     setMode: (state, action: PayloadAction<FormMode>) => {

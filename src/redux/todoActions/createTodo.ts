@@ -15,6 +15,7 @@ const todoDataToProps = (todo: TodoData): TodoProps => ({
   date: todo.createdAt,
   isSelected: false,
   title: todo.title,
+  folderId: todo.folderId,
   description: todo.description,
   priority: todo.priority,
   isInTrash: false,

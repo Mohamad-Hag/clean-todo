@@ -23,6 +23,7 @@ function TodoItemInfo({ id }: TodoItemInfoProps) {
   let title = todo.title;
   let date = todo.date;
   let priority = todo.priority;
+  let folderId = todo.folderId;
 
   const edit = () => {
     d(
@@ -31,6 +32,7 @@ function TodoItemInfo({ id }: TodoItemInfoProps) {
         title: title,
         description: description,
         priority: priority,
+        folderId: folderId,
       })
     );
   };

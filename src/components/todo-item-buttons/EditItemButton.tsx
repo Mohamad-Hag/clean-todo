@@ -10,16 +10,17 @@ import useLanguage from "hooks/useLanguage";
 export default function EditItemButton({ id }: TodoItemRightSideProps) {
   const { language } = useLanguage();
   const todos = useSelector(selectTodos);
-  const todo = todos.find((td) => td.id === id)!;
+  const todo = todos.find((td) => td.id === id)!;  
   let d = useDispatch();
 
-  const edit = () => {
+  const edit = () => {    
     d(
       openAsEdit({
         id: id,
         title: todo.title,
         description: todo.description,
         priority: todo.priority,
+        folderId: todo.folderId,
       })
     );
   };

@@ -15,9 +15,10 @@ import {
   setPriority,
   setTitle,
 } from "redux/features/formSlice";
-import Priority from "utils/types/Priority";
-import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
 import { selectPreferences } from "redux/features/preferencesSlice";
+import Priority from "utils/types/Priority";
+import TodoCreatorFolderSelector from "./TodoCreatorFolderSelector";
+import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
 
 export default function TodoCreatorBody() {
   const { language } = useLanguage();
@@ -79,6 +80,7 @@ export default function TodoCreatorBody() {
           onSelect={prioritySelected}
         />
       </FormControl>
+      <TodoCreatorFolderSelector />
     </Stack>
   );
 }
