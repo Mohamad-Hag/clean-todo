@@ -19,7 +19,6 @@ const useResizeSidebar = (
 
   const mouseDowned = (e: MouseEvent) => {
     const sidebar = sidebarRef.current;
-    console.log(sidebar.getBoundingClientRect().width);
     sidebar.style.transition = "width 0s";
     document.body.style.cursor = "ew-resize";
     setIsResizing(true);
@@ -31,11 +30,11 @@ const useResizeSidebar = (
       const sidebarRect = sidebarRef.current.getBoundingClientRect();
       const newWidth = e.clientX;
       const isMinSize =
-        newWidth < sidebarRect.width && sidebarRect.width <= minSidebarWidth;
-      const isMazSize =
-        newWidth > sidebarRect.width && sidebarRect.width >= maxSidebarWidth;
+        newWidth < minSidebarWidth && sidebarRect.width <= minSidebarWidth;
+      const isMaxSize =
+        newWidth > maxSidebarWidth && sidebarRect.width >= maxSidebarWidth;
 
-      if (isMazSize || isMinSize) return;
+      if (isMaxSize || isMinSize) return;
 
       d(changeWidth(newWidth));
       if (onResize) onResize(newWidth);

@@ -1,11 +1,11 @@
-import TodoProps from "utils/interfaces/common/Todo";
-import { useLocation } from "react-router-dom";
-import isFolderPath from "utils/isFolderPath";
-import getFolderIdByPath from "utils/getFolderIdByPath";
 import pathnames from "data/json/pathnames.json";
+import { useLocation } from "react-router-dom";
+import getFolderIdByPath from "utils/getFolderIdByPath";
+import TodoProps from "utils/interfaces/common/Todo";
+import isFolderPath from "utils/isFolderPath";
 
 const useIsFilter = () => {
-  const { pathname } = useLocation();  
+  const { pathname } = useLocation();
 
   const isFilter = (todo: TodoProps) =>
     pathname === pathnames.activePathName

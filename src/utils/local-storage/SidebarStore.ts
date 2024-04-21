@@ -1,4 +1,6 @@
-import defaultSidebarWidth from "data/typescript/defaultSidebarWidth";
+import defaultSidebarWidth, {
+  minSidebarWidth,
+} from "data/typescript/defaultSidebarWidth";
 import { Sidebar, SidebarStatus } from "redux/features/sidebarSlice";
 import changeOppositeStatus from "redux/sidebarActions/changeOppositeStatus";
 import changeStatus from "redux/sidebarActions/changeStatus";
@@ -20,7 +22,13 @@ class SidebarStore {
   public static get(): Sidebar {
     if (!this.storage.getItem(this.nameInStorage))
       this.set(this.initialSidebar);
-    return JSON.parse(this.storage.getItem(this.nameInStorage) as string);
+    let storageSidebar = JSON.parse(
+      this.storage.getItem(this.nameInStorage) as string
+    ) as Sidebar;
+    let width = storageSidebar.width;
+    storageSidebar.width = width < minSidebarWidth ? minSidebarWidth : width;
+    console.log(storageSidebar);
+    return storageSidebar;
   }
 
   public static changeStatus(sidebar: Sidebar, status: SidebarStatus) {

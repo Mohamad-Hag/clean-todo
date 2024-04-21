@@ -1,33 +1,23 @@
 import { Box } from "@chakra-ui/react";
-import { minSidebarWidth } from "data/typescript/defaultSidebarWidth";
-import useIsMobile from "hooks/useIsMobile";
+import useSetSidebarDimensions from "hooks/useSetSidebarDimensions";
+import useSetSidebarStyle from "hooks/useSetSidebarStyle";
 import { useRef } from "react";
-import { useSelector } from "react-redux";
-import { selectSidebar } from "redux/features/sidebarSlice";
 import { WithChildren } from "utils/interfaces/WithChildren";
 import SidebarResizer from "./sidebar/SidebarResizer";
 
 export default function SidebarContainer({ children }: WithChildren) {
-  const isMobile = useIsMobile();
   const sidebarRef = useRef<HTMLDivElement>(null!);
-  const { status, width } = useSelector(selectSidebar);
-
-  const sidebarWidth = status === "shown" ? width : isMobile ? "0" : "14";
-  const mobileStyle: React.CSSProperties = {
-    position: "fixed",
-    bottom: 0,
-    top: 0,
-    zIndex: "1000",
-    transition: "0s",
-  };
+  const style = useSetSidebarStyle();
+  const { maxWidth, minWidth, width } = useSetSidebarDimensions();
 
   return (
     <Box
-      style={isMobile ? mobileStyle : undefined}
+      style={style}
       ref={sidebarRef}
       className=" relative z-30 flex overflow-hidden"
-      w={sidebarWidth}
-      minW={status === "hidden" ? sidebarWidth : minSidebarWidth}
+      w={width}
+      minW={minWidth}
+      maxW={maxWidth}
       transitionTimingFunction="ease-in-out"
       transition="width .3s"
     >

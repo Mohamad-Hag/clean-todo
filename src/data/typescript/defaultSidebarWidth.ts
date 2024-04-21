@@ -1,4 +1,4 @@
-const defaultSidebarWidth: number = 80;
+const defaultSidebarWidth: number = 320;
 
 export const minSidebarWidth = 320;
 
