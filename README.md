@@ -18,6 +18,7 @@ Check the [Demo](https://clean-to-do.netlify.app/)
 - 4 languages support (English, Spanish, French, Chinese) ✅.
 - Supported for mobile devices (Responsive) ✅.
 - Resizable sidebar ✅.
+- Ability to add due date ✅.
 
 ## Tools Used
 

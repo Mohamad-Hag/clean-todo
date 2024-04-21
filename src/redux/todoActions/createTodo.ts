@@ -20,6 +20,7 @@ const todoDataToProps = (todo: TodoData): TodoProps => ({
   priority: todo.priority,
   isInTrash: false,
   isDescriptionExpanded: false,
+  dueDate: todo.dueDate,
 });
 
 export default createTodo;

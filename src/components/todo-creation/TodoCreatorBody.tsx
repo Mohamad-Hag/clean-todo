@@ -17,6 +17,7 @@ import {
 } from "redux/features/formSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 import Priority from "utils/types/Priority";
+import TodoCreatorDueDate from "./TodoCreatorDueDate";
 import TodoCreatorFolderSelector from "./TodoCreatorFolderSelector";
 import TodoCreatorPriorityButtons from "./TodoCreatorPriorityButtons";
 
@@ -81,6 +82,7 @@ export default function TodoCreatorBody() {
         />
       </FormControl>
       <TodoCreatorFolderSelector />
+      <TodoCreatorDueDate />
     </Stack>
   );
 }

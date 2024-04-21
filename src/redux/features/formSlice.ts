@@ -15,6 +15,7 @@ export interface Form {
   priority?: Priority;
   isOpen?: boolean;
   mode?: FormMode;
+  dueDate?: string;
 }
 
 const initialState: Form = {
@@ -23,6 +24,7 @@ const initialState: Form = {
   priority: defaultPriority,
   isOpen: false,
   mode: "create",
+  dueDate: undefined,
 };
 
 export const formSlice = createSlice({
@@ -49,6 +51,9 @@ export const formSlice = createSlice({
     setPriority: (state, action: PayloadAction<Priority>) => {
       state.priority = action.payload;
     },
+    setDueDate: (state, action: PayloadAction<string | undefined>) => {
+      state.dueDate = action.payload;
+    },
     setFolderId: (state, action: PayloadAction<number | undefined>) => {
       state.folderId = action.payload;
     },
@@ -69,6 +74,7 @@ export const {
   setDescription,
   setPriority,
   setFolderId,
+  setDueDate,
   setMode,
 } = formSlice.actions;
 

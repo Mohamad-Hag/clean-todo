@@ -7,7 +7,7 @@ function openFormAs(form: Form, mode?: FormMode, updatedForm?: Form) {
   }
   let title = updatedForm?.title;
   let description = updatedForm?.description;
-  let priority = updatedForm?.priority;  
+  let priority = updatedForm?.priority;
   form.isOpen = true;
   form.mode = mode;
   form.id = mode === "edit" || mode === "draft" ? updatedForm?.id : form.id;
@@ -16,6 +16,8 @@ function openFormAs(form: Form, mode?: FormMode, updatedForm?: Form) {
   form.priority = mode === "edit" || mode === "draft" ? priority : "low";
   form.folderId =
     mode === "edit" || mode === "draft" ? updatedForm?.folderId : form.folderId;
+  form.dueDate =
+    mode === "edit" || mode === "draft" ? updatedForm?.dueDate : form.dueDate;
 }
 
 export default openFormAs;

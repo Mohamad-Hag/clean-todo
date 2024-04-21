@@ -11,6 +11,7 @@ function editTodo(todos: TodoProps[], editData: EditData): TodoProps[] {
   let isFinished = payload.editable.isFinished;
   let isSelected = payload.editable.isSelected;
   let folderId = payload.editable.folderId;
+  let dueDate = payload.editable.dueDate;
   let isInTrash = payload.editable.isInTrash;
 
   todo.title = title ? title : todo.title;
@@ -18,13 +19,14 @@ function editTodo(todos: TodoProps[], editData: EditData): TodoProps[] {
   todo.priority = priority === undefined ? todo.priority : priority;
   todo.isFinished = isFinished !== undefined ? isFinished : todo.isFinished;
   todo.isSelected = isSelected !== undefined ? isSelected : todo.isSelected;
+  todo.dueDate = dueDate !== undefined ? dueDate : todo.dueDate;
   todo.folderId =
     folderId === null
       ? undefined
       : folderId !== undefined
       ? folderId
       : todo.folderId;
-  todo.isInTrash = isInTrash !== undefined ? isInTrash : todo.isInTrash;  
+  todo.isInTrash = isInTrash !== undefined ? isInTrash : todo.isInTrash;
 
   return todos;
 }

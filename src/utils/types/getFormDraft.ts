@@ -11,7 +11,7 @@ export default function getFormDraft(
   let createTodo = draft.createTodo;
   let createFolder = draft.createFolder;
   let form: Form = {};
-  let folderForm: FolderForm = {};  
+  let folderForm: FolderForm = {};
 
   if (draftType === "todo" && createTodo)
     form = {
@@ -23,6 +23,7 @@ export default function getFormDraft(
           : "",
       priority: createTodo.priority ? createTodo.priority : defaultPriority,
       folderId: createTodo.folderId,
+      dueDate: createTodo.dueDate,
     };
   else if (draftType === "folder" && createFolder)
     folderForm = {

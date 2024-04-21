@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openAsEdit } from "redux/features/formSlice";
@@ -7,6 +7,7 @@ import { selectTodos } from "redux/features/todosSlice";
 import TodoItemDescription from "./TodoItemDescription";
 import TodoItemInfoContainer from "./TodoItemInfoContainer";
 import TodoItemTitle from "./TodoItemTitle";
+import TodoItemInfoDates from "./TodoItemInfoDates";
 
 interface TodoItemInfoProps {
   id: number;
@@ -24,6 +25,7 @@ function TodoItemInfo({ id }: TodoItemInfoProps) {
   let date = todo.date;
   let priority = todo.priority;
   let folderId = todo.folderId;
+  let dueDate = todo.dueDate;
 
   const edit = () => {
     d(
@@ -33,6 +35,7 @@ function TodoItemInfo({ id }: TodoItemInfoProps) {
         description: description,
         priority: priority,
         folderId: folderId,
+        dueDate: dueDate,
       })
     );
   };
@@ -48,7 +51,11 @@ function TodoItemInfo({ id }: TodoItemInfoProps) {
         <TodoItemTitle id={id} />
         <TodoItemDescription id={id} description={description} />
       </Stack>
-      <label className="text-xs text-gray-400">{date}</label>
+      <TodoItemInfoDates
+        isFinished={todo.isFinished!}
+        date={date}
+        dueDate={dueDate}
+      />
     </TodoItemInfoContainer>
   );
 }

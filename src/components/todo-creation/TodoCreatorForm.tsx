@@ -35,6 +35,7 @@ export default function TodoCreatorForm({
           description: description,
           priority: form.priority,
           folderId: folderId,
+          dueDate: form.dueDate,
         },
       })
     );
@@ -49,6 +50,7 @@ export default function TodoCreatorForm({
         description: description,
         folderId: form.folderId,
         priority: form.priority,
+        dueDate: form.dueDate,
         nodeRef: nodeRef,
       })
     );
@@ -56,8 +58,15 @@ export default function TodoCreatorForm({
   };
 
   const create_ = () => {
+    const todayDate = new Date().getTime();
     const isTitleDefined = form.title?.trim() !== "" && form.title;
-    if (!isTitleDefined) return;
+    let isDueDateValid = true;
+    if (form.dueDate) {
+      const dueDate = new Date(form.dueDate).getTime();
+      isDueDateValid = dueDate > todayDate;
+    }
+    
+    if (!isTitleDefined || !isDueDateValid) return;
     if (form.mode === "create" || form.mode === "draft") createTodo();
     else editTodo();
     closeCallback();

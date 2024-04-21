@@ -11,6 +11,7 @@ export interface TodoEditable {
   isInTrash?: boolean;
   folderId?: number | null;
   isDescriptionExpanded?: boolean;
+  dueDate?: DateString;
 }
 
 export default interface TodoProps extends TodoEditable {

@@ -42,6 +42,7 @@ export default function TodosInnerContainer({
               id={todo.id}
               title={todo.title}
               description={todo.description}
+              dueDate={todo.dueDate}
             />
           </CSSTransition>
         ))}

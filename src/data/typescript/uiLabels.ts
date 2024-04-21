@@ -3,6 +3,7 @@ import maxAllowedCharsForFolderName from "./maxAllowedCharsForFolderName";
 
 const labels: UILabels = {
   en: {
+    dueDate: "Due Date",
     selectMultipleTodos: "Select Multiple Todos",
     mouseClick: "Mouse Click",
     sidebarNavigation: "Sidebar Navigation",
@@ -159,6 +160,7 @@ const labels: UILabels = {
     folder: "Folder",
   },
   "zh-CN": {
+    dueDate: "截止日期",
     selectMultipleTodos: "选择多个待办事项",
     mouseClick: "鼠标点击",
     sidebarNavigation: "侧边栏导航",
@@ -304,6 +306,7 @@ const labels: UILabels = {
     folder: "文件夹",
   },
   fr: {
+    dueDate: "Date D'échéance",
     selectMultipleTodos: "Sélectionnez Plusieurs Tâches",
     mouseClick: "Clic Souris",
     sidebarNavigation: "Navigation Barre Latérale",
@@ -464,6 +467,7 @@ const labels: UILabels = {
     folder: "Dossier",
   },
   es: {
+    dueDate: "Fecha Vencimiento",
     selectMultipleTodos: "Seleccionar Múltiples Todos",
     mouseClick: "Click Raton",
     sidebarNavigation: "Navegación Barra Lateral",

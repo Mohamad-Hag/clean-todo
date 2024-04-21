@@ -3,13 +3,14 @@ import { Draft } from "redux/features/draftSlice";
 import setFolderFormTitleDraft from "redux/draftActions/setFolderFormTitleDraft";
 import setFolderFormIconDraft from "redux/draftActions/setFolderFormIconDraft";
 import setFormDescriptionDraft from "redux/draftActions/setFormDescriptionDraft";
-import setFormFolderIdDraft from "redux/draftActions/setFormPriorityDraft";
 import Priority from "utils/types/Priority";
 import initialDraft from "data/typescript/initialDraft";
 import replaceDraft from "redux/draftActions/replaceDraft";
 import clearForm from "redux/draftActions/clearForm";
 import clearFolderForm from "redux/draftActions/clearFolderForm";
-import setFormPriorityDraft from "redux/draftActions/setFormFolderIdDraft";
+import setFormPriorityDraft from "redux/draftActions/setFormPriorityDraft";
+import setFormDueDateDraft from "redux/draftActions/setFormDueDateDraft";
+import setFormFolderIdDraft from "redux/draftActions/setFormFolderIdDraft";
 
 class DraftStore {
   public static storage = localStorage;
@@ -38,6 +39,10 @@ class DraftStore {
 
   public static setFormDescriptionDraft(draft: Draft, description: string) {
     DraftStore.set(setFormDescriptionDraft(draft, description));
+  }
+
+  public static setFormDueDateDraft(draft: Draft, dueDate: string) {
+    DraftStore.set(setFormDueDateDraft(draft, dueDate));
   }
 
   public static setFormPriorityDraft(draft: Draft, priority: Priority) {
