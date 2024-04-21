@@ -1,5 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import labels from "data/typescript/uiLabels";
+import useIsMobile from "hooks/useIsMobile";
 import useLanguage from "hooks/useLanguage";
 import { useEffect, useState } from "react";
 
@@ -15,6 +16,7 @@ export default function TodoItemInfoDates({
   date,
 }: TodoItemInfoDatesProps) {
   const [isOverDue, setIsOverDue] = useState<boolean>(false);
+  const isMobile = useIsMobile();
   const { language } = useLanguage();
 
   useEffect(() => {
@@ -27,14 +29,15 @@ export default function TodoItemInfoDates({
 
   return (
     <Flex
-      alignItems="center"
-      gap={2}
+      alignItems={isMobile ? "flex-start" : "center"}
+      gap={isMobile ? 0 : 3}
+      flexDirection={isMobile ? "column" : "row"}
       className="text-gray-400 text-xs whitespace-nowrap"
     >
       <time dateTime={date}>{date}</time>
       {dueDate && (
         <span className={`${isOverDue && !isFinished ? "wavy" : ""}`}>
-          &#x2022; <b>{labels[language.code].dueDate}</b>{" "}
+          <b>{labels[language.code].dueDate}</b>{" "}
           <time dateTime={dueDate}>{new Date(dueDate).toLocaleString()}</time>
         </span>
       )}
