@@ -21,9 +21,9 @@ export default function TodoItemInfoDates({
 
   useEffect(() => {
     if (!dueDate) return;
+    
     const date_ = new Date().getTime();
     const dueDate_ = new Date(dueDate).getTime();
-    console.log(dueDate_ <= date_);
     setIsOverDue(dueDate_ <= date_);
   }, [dueDate]);
 

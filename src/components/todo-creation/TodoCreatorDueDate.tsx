@@ -1,10 +1,13 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import labels from "data/typescript/uiLabels";
+import useLanguage from "hooks/useLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormDueDateDraft } from "redux/features/draftSlice";
 import { selectForm, setDueDate } from "redux/features/formSlice";
 import { selectPreferences } from "redux/features/preferencesSlice";
 
 export default function TodoCreatorDueDate() {
+  const { language } = useLanguage();
   const form = useSelector(selectForm);
   const d = useDispatch();
   const { todoPreferences } = useSelector(selectPreferences);
@@ -17,7 +20,7 @@ export default function TodoCreatorDueDate() {
   };
   return (
     <FormControl>
-      <FormLabel>Due Date</FormLabel>
+      <FormLabel>{labels[language.code].dueDate}</FormLabel>
       <Input
         type="datetime-local"
         value={form.dueDate ? form.dueDate : ""}
