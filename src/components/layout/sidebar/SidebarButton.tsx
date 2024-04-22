@@ -18,6 +18,7 @@ interface SidebarButtonProps {
   isActive?: boolean;
   to: URLString;
   badgeText?: string;
+  isDroppable?: boolean;
 }
 
 export default function SidebarButton({
@@ -28,6 +29,7 @@ export default function SidebarButton({
   onSelect,
   badgeText,
   isActive = false,
+  isDroppable = true,
 }: SidebarButtonProps) {
   const isMobile = useIsMobile();
   const d = useDispatch();
@@ -46,9 +48,9 @@ export default function SidebarButton({
   return (
     <Link to={to}>
       <Button
-        onDragOver={dragOver}
-        onDragLeave={dragLeave}
-        onDrop={drop}
+        onDragOver={isDroppable ? dragOver : undefined}
+        onDragLeave={isDroppable ? dragLeave : undefined}
+        onDrop={isDroppable ? drop : undefined}
         colorScheme="red"
         className="w-full text-left pl-5 text-white flex items-center gap-2"
         borderRadius="0 2em 2em 0"

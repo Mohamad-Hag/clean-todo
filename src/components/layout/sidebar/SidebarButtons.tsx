@@ -25,6 +25,7 @@ export default function SidebarButtons() {
           key={i}
           index={i}
           icon={button.icon}
+          isDroppable={button.isDroppable}
           title={button.title}
           isActive={isActiveArray[i]}
           onSelect={select}
