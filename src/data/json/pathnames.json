@@ -2,6 +2,7 @@
     "allPathName": "/",
     "activePathName": "/active",
     "finishedPathName": "/finished",
+    "overduePathName": "/overdue",
     "trashPathName": "/trash",
     "foldersPathName": "/folders"
 }

@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import getFolderIdByPath from "utils/getFolderIdByPath";
 import TodoProps from "utils/interfaces/common/Todo";
 import isFolderPath from "utils/isFolderPath";
+import useOverdue from "./useOverdue";
+import isOverdue from "utils/isOverdue";
 
 const useIsFilter = () => {
   const { pathname } = useLocation();
@@ -12,6 +14,8 @@ const useIsFilter = () => {
       ? !todo.isFinished! && !todo.isInTrash
       : pathname === pathnames.finishedPathName
       ? todo.isFinished! && !todo.isInTrash
+      : pathname === pathnames.overduePathName
+      ? !todo.isFinished! && !todo.isInTrash && isOverdue(todo)
       : isFolderPath(pathname)
       ? todo.folderId === getFolderIdByPath(pathname) && !todo.isInTrash
       : pathname === pathnames.trashPathName

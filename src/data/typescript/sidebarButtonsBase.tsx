@@ -1,4 +1,5 @@
 import { BiCheck, BiListUl, BiStar, BiTrash } from "react-icons/bi";
+import { FaRegCalendarTimes } from "react-icons/fa";
 import SidebarButtonBase from "utils/interfaces/common/SidebarButtonBase";
 
 const sidebarButtonsBase: SidebarButtonBase[] = [
@@ -13,6 +14,10 @@ const sidebarButtonsBase: SidebarButtonBase[] = [
   {
     to: "/finished",
     icon: <BiCheck />,
+  },
+  {
+    to: "/overdue",
+    icon: <FaRegCalendarTimes />,
   },
   {
     to: "/trash",
