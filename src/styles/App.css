@@ -144,3 +144,26 @@ body {
   border-bottom-style: dashed;
   color: red;
 }
+.folder-in {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  flex: 1;
+  -webkit-user-drag: none;
+}
+
+.folder-in-normal {    
+  cursor: pointer;
+  user-select: none !important;
+}
+
+.folder-in-focus {
+  user-select: all !important;
+  cursor: text;
+  padding: .2em .5em !important;
+  background-color: white !important;
+  height: 1.9em !important;
+  color: black !important;
+  border: 1px solid #2b6cb0 !important;
+}

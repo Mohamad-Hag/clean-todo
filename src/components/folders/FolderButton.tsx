@@ -4,7 +4,7 @@ import useFolderButtonDrop from "hooks/useFolderButtonDrop";
 import useIsMobile from "hooks/useIsMobile";
 import useTodoItemDrop from "hooks/useTodoItemDrop";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { openAsEdit } from "redux/features/folderFormSlice";
 import { changeOppositeStatus } from "redux/features/sidebarSlice";
 import getFolderIconByTitle from "utils/getFolderIconByTitle";
@@ -38,18 +38,10 @@ export default function FolderButton({
   const background = isActive ? "blue.100" : "transparent";
   const color = isActive ? "black" : "white";
   const d = useDispatch();
-
-  const edit = () => {
-    d(
-      openAsEdit({
-        id: id,
-        title: title,
-        icon: icon,
-      })
-    );
-  };
+  const navigate = useNavigate();
 
   const select = () => {
+    navigate(to);
     if (onSelect) {
       onSelect(index);
       if (isMobile) d(changeOppositeStatus("shown"));
@@ -58,28 +50,25 @@ export default function FolderButton({
   };
 
   return (
-    <Link to={to} className="flex-1 overflow-hidden">
-      <Button
-        onDragOver={dragOver}
-        onDragLeave={dragLeave}
-        onDrop={drop}
-        border={dropBorder}
-        className="w-full text-left pl-5 text-white"
-        borderRadius="0.5rem"
-        fontWeight="normal"
-        leftIcon={folderIcon}
-        h="2.5rem"
-        justifyContent="flex-start"
-        bg={background}
-        color={color}
-        _hover={hoverStyle}
-        _active={activeStyle}
-        onClick={select}
-        onDoubleClick={edit}
-        overflow="hidden"
-      >
-        <FolderButtonContent id={id} title={title} />
-      </Button>
-    </Link>
+    <Button
+      onDragOver={dragOver}
+      onDragLeave={dragLeave}
+      onDrop={drop}
+      border={dropBorder}
+      className="w-full text-left pl-5 text-white"
+      borderRadius="0.5rem"
+      fontWeight="normal"
+      leftIcon={folderIcon}
+      h="2.5rem"
+      justifyContent="flex-start"
+      bg={background}
+      color={color}
+      _hover={hoverStyle}
+      _active={activeStyle}
+      onClick={select}
+      overflow="hidden"
+    >
+      <FolderButtonContent id={id} title={title} isActive={isActive} />
+    </Button>
   );
 }
