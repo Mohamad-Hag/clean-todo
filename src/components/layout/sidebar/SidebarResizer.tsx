@@ -20,10 +20,13 @@ export default function SidebarResizer({ sidebarRef }: SidebarResizerProps) {
   return !isShown ? (
     <></>
   ) : (
-    <Box
-      ref={resizerRef}
-      transition=".3s"
-      className="w-[3px] bg-blue-500 opacity-0 hover:opacity-100 active:opacity-100 cursor-ew-resize h-full absolute right-0"
-    ></Box>
+    <>
+      <Box top="50%" transform="translateY(-50%)" className="w-[2px] shadow-sm absolute h-4 bg-gray-400 right-[2px] rounded-sm"/>
+      <Box
+        ref={resizerRef}
+        transition=".3s"
+        className="w-[4px] bg-blue-500 opacity-0 hover:opacity-100 active:opacity-100 cursor-ew-resize h-full absolute right-0"
+      ></Box>
+    </>
   );
 }
